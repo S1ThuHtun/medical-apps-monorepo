@@ -34,27 +34,40 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> _getCurrentLocation() async {
     setState(() => _isLoading = true);
-    
-    final position = await _placesService.getCurrentLocation();
-    
-    if (position != null) {
+
+    print('🏥 HomeScreen: Requesting location...');
+    final result = await _placesService.getCurrentLocationWithStatus();
+
+    if (result.position != null) {
+      print('🏥 HomeScreen: Location received successfully');
       setState(() {
-        _currentPosition = position;
+        _currentPosition = result.position;
       });
-      
+
       // Auto-search for nearby hospitals on app start
       _searchNearbyServices('Emergency Care');
     } else {
+      print('🏥 HomeScreen: Failed to get location - ${result.error}');
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Unable to get location. Please enable location services.'),
+          SnackBar(
+            content: Text(result.error ?? 'Unable to get location. Please enable location services and grant permission.'),
             backgroundColor: Colors.red,
+            action: result.needsSettings
+                ? SnackBarAction(
+                    label: 'Settings',
+                    textColor: Colors.white,
+                    onPressed: () async {
+                      await Geolocator.openAppSettings();
+                    },
+                  )
+                : null,
+            duration: const Duration(seconds: 6),
           ),
         );
       }
     }
-    
+
     setState(() => _isLoading = false);
   }
 

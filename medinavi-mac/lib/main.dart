@@ -4,9 +4,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:medinavi/l10n/app_localizations.dart';
-import 'package:medinavi/screens/map_screen.dart';
 import 'package:medinavi/screens/sign_up_screen.dart';
 import 'package:medinavi/screens/startup_screen.dart';
+import 'package:medinavi/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
@@ -93,11 +93,11 @@ class _MyAppState extends State<MyApp> {
             );
           }
 
-          // When the user is logged in, it will go to the MapScreen.
+          // When the user is logged in, it will go to the HomeScreen.
           if (snapshot.hasData && snapshot.data != null) {
             print('✅ User logged in! Email: ${snapshot.data!.email}');
-            print('✅ Navigating to MapScreen...');
-            return const MapScreen();
+            print('✅ Navigating to HomeScreen...');
+            return const HomeScreen();
           }
           
           print('👤 No user logged in, checking first-time status...');

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medinavi/l10n/app_localizations.dart';
 import 'package:medinavi/services/auth_services.dart';
 import 'package:medinavi/widgets/login_screen_setting.dart';
+import 'package:medinavi/screens/home_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -46,6 +47,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 //backgroundColor: Colors.green,
               ),
             );
+            
+            // Navigate to HomeScreen after successful login
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            );
           }
         } else {
           await authServices.value.createAccount(
@@ -60,6 +66,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 content: Text(AppLocalizations.of(context)!.signedUpAs(email)),
                 //backgroundColor: Colors.green,
               ),
+            );
+            
+            // Navigate to HomeScreen after successful sign up
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
             );
           }
         }

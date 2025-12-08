@@ -5,7 +5,10 @@ import '../data/medical_services_data.dart';
 import '../data/prefecture_data.dart';
 import '../models/medical_service.dart';
 import '../services/google_places_service.dart';
+import '../services/auth_services.dart';
+import '../utils/language_selection_utils.dart';
 import 'map_screen.dart';
+import 'sign_up_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -42,12 +45,17 @@ class _HomeScreenState extends State<HomeScreen> {
       print('🏥 HomeScreen: Location received successfully');
       setState(() {
         _currentPosition = result.position;
+        _isLoading = false;
       });
 
-      // Auto-search for nearby hospitals on app start
-      _searchNearbyServices('Emergency Care');
+      // Auto-search for nearby hospitals on app start (only if no service selected yet)
+      if (_selectedService == null) {
+        await _searchNearbyServices('Emergency Care');
+      }
     } else {
       print('🏥 HomeScreen: Failed to get location - ${result.error}');
+      setState(() => _isLoading = false);
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -61,14 +69,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       await Geolocator.openAppSettings();
                     },
                   )
-                : null,
-            duration: const Duration(seconds: 6),
+                : SnackBarAction(
+                    label: 'Retry',
+                    textColor: Colors.white,
+                    onPressed: () {
+                      _getCurrentLocation();
+                    },
+                  ),
+            duration: const Duration(seconds: 8),
           ),
         );
       }
     }
-
-    setState(() => _isLoading = false);
   }
 
   Future<void> _searchNearbyServices(String serviceName) async {
@@ -181,6 +193,73 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _showSettingsMenu() {
+    showModalBottomSheet(
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (BuildContext context) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 40,
+                height: 4,
+                margin: const EdgeInsets.only(bottom: 20),
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(2),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.language, color: Color(0xFF2E7D32)),
+                title: const Text('Language'),
+                trailing: const Icon(Icons.chevron_right),
+                onTap: () {
+                  Navigator.pop(context);
+                  languageSelection(context);
+                },
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.logout, color: Colors.red),
+                title: const Text('Logout', style: TextStyle(color: Colors.red)),
+                onTap: () async {
+                  Navigator.pop(context);
+                  await _handleLogout();
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Future<void> _handleLogout() async {
+    try {
+      await authServices.value.signOut();
+      if (mounted) {
+        Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const SignUpScreen()),
+          (route) => false,
+        );
+      }
+    } catch (e) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error logging out: $e'),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -243,11 +322,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                        const Icon(
-                          Icons.arrow_drop_down,
-                          size: 20,
-                          color: Color(0xFF2E7D32),
-                        ),
                       ],
                     ),
                   ),
@@ -258,20 +332,29 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: _getCurrentLocation,
+            icon: const Icon(Icons.arrow_drop_down),
+            onPressed: _showLocationSelector,
+            color: const Color(0xFF2E7D32),
+          ),
+          IconButton(
+            icon: const Icon(Icons.settings),
+            onPressed: _showSettingsMenu,
             color: const Color(0xFF2E7D32),
           ),
           const SizedBox(width: 8),
         ],
       ),
-      body: Column(
-        children: [
-          _buildCategoryTabs(),
-          _buildServiceGrid(),
-          if (_nearbyServices.isNotEmpty) _buildResultsHeader(),
-          Expanded(child: _buildServicesList()),
-        ],
+      body: RefreshIndicator(
+        onRefresh: _getCurrentLocation,
+        color: const Color(0xFF2E7D32),
+        child: Column(
+          children: [
+            _buildCategoryTabs(),
+            _buildServiceGrid(),
+            if (_nearbyServices.isNotEmpty) _buildResultsHeader(),
+            Expanded(child: _buildServicesList()),
+          ],
+        ),
       ),
     );
   }
@@ -475,8 +558,55 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 16),
             Text(
-              'Searching nearby services...',
+              'Getting your location...',
               style: TextStyle(color: Colors.grey),
+            ),
+          ],
+        ),
+      );
+    }
+
+    if (_nearbyServices.isEmpty && _currentPosition == null && _selectedLocation == null) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.location_off,
+              size: 64,
+              color: Colors.grey[400],
+            ),
+            const SizedBox(height: 16),
+            Text(
+              'Location not available',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: Colors.grey[700],
+              ),
+            ),
+            const SizedBox(height: 8),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: Text(
+                'Pull down to refresh or select a location to find nearby medical services',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey[600],
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton.icon(
+              onPressed: _getCurrentLocation,
+              icon: const Icon(Icons.refresh),
+              label: const Text('Retry'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF2E7D32),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+              ),
             ),
           ],
         ),

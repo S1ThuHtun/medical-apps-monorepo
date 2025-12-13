@@ -28,7 +28,7 @@ Medical navigation and healthcare services application with Firebase authenticat
 - Dart SDK
 - Firebase account (for MediNavi)
 
-### Setup Instructions
+### Quick Setup (Recommended)
 
 1. **Clone the repository**
    ```bash
@@ -36,14 +36,43 @@ Medical navigation and healthcare services application with Firebase authenticat
    cd medical-apps-monorepo
    ```
 
-2. **Setup Google Map Clone**
+2. **Run the setup script**
+   
+   **macOS/Linux:**
+   ```bash
+   ./setup.sh
+   ```
+   
+   **Windows:**
+   ```cmd
+   setup.bat
+   ```
+   
+   This will automatically install dependencies for all projects!
+
+3. **Run a project**
+   ```bash
+   cd google_map_clone
+   flutter run
+   ```
+   or
+   ```bash
+   cd medinavi-mac
+   flutter run
+   ```
+
+### Manual Setup (Alternative)
+
+If you prefer to set up projects individually:
+
+1. **Setup Google Map Clone**
    ```bash
    cd google_map_clone
    flutter pub get
    flutter run
    ```
 
-3. **Setup MediNavi**
+2. **Setup MediNavi**
    ```bash
    cd medinavi-mac
    flutter pub get

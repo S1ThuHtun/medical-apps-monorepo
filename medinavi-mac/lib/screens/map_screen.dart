@@ -193,6 +193,17 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Calculate dynamic height based on content
+    final screenHeight = MediaQuery.of(context).size.height;
+    final baseHeight = 320.0; // Base height for basic info (increased for better spacing)
+    final travelModeHeight = _showDirections ? 90.0 : 0.0; // Height for travel mode selector
+    final totalContentHeight = baseHeight + travelModeHeight;
+
+    // Calculate min and max child sizes dynamically
+    final minChildSize = 0.1;
+    final maxChildSize = (totalContentHeight / screenHeight).clamp(0.28, 0.65);
+    final initialChildSize = maxChildSize;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -327,11 +338,11 @@ class _MapScreenState extends State<MapScreen> {
 
           // Draggable bottom sheet with service details
           DraggableScrollableSheet(
-            initialChildSize: _showDirections ? 0.4 : 0.30,
-            minChildSize: 0.1,
-            maxChildSize: _showDirections ? 0.4 : 0.30,
+            initialChildSize: initialChildSize,
+            minChildSize: minChildSize,
+            maxChildSize: maxChildSize,
             snap: true,
-            snapSizes: _showDirections ? const [0.1, 0.4] : const [0.1, 0.30],
+            snapSizes: [minChildSize, maxChildSize],
             builder: (BuildContext context, ScrollController scrollController) {
               return _buildBottomSheet(scrollController);
             },
@@ -381,199 +392,225 @@ class _MapScreenState extends State<MapScreen> {
       ),
       child: SafeArea(
         top: false,
-        child: SingleChildScrollView(
-          controller: scrollController,
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                  // Service name and rating
-                  Row(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Drag handle
+            Container(
+              margin: const EdgeInsets.only(top: 8, bottom: 4),
+              width: 40,
+              height: 4,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(2),
+              ),
+            ),
+            Flexible(
+              child: SingleChildScrollView(
+                controller: scrollController,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 12, 20, 20),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              widget.service.name,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Row(
+                      // Service name and rating
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                if (widget.service.rating > 0) ...[
-                                  const Icon(
-                                    Icons.star,
-                                    size: 18,
-                                    color: Colors.amber,
+                                Text(
+                                  widget.service.name,
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
                                   ),
-                                  const SizedBox(width: 4),
-                                  Text(
-                                    widget.service.rating.toStringAsFixed(1),
-                                    style: const TextStyle(
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.w600,
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                const SizedBox(height: 4),
+                                Row(
+                                  children: [
+                                    if (widget.service.rating > 0) ...[
+                                      const Icon(
+                                        Icons.star,
+                                        size: 18,
+                                        color: Colors.amber,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        widget.service.rating.toStringAsFixed(1),
+                                        style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 12),
+                                    ],
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 8,
+                                        vertical: 4,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color: widget.service.isOpen
+                                            ? Colors.green.withOpacity(0.1)
+                                            : Colors.red.withOpacity(0.1),
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                      child: Text(
+                                        widget.service.isOpen ? 'Open Now' : 'Closed',
+                                        style: TextStyle(
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w600,
+                                          color: widget.service.isOpen
+                                              ? Colors.green[700]
+                                              : Colors.red[700],
+                                        ),
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                ],
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                    vertical: 4,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: widget.service.isOpen
-                                        ? Colors.green.withOpacity(0.1)
-                                        : Colors.red.withOpacity(0.1),
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    widget.service.isOpen ? 'Open Now' : 'Closed',
-                                    style: TextStyle(
-                                      fontSize: 12,
-                                      fontWeight: FontWeight.w600,
-                                      color: widget.service.isOpen
-                                          ? Colors.green[700]
-                                          : Colors.red[700],
-                                    ),
-                                  ),
+                                  ],
                                 ),
                               ],
                             ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 16),
+
+                      // Address
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Icon(
+                            Icons.location_on,
+                            size: 20,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: Text(
+                              widget.service.address,
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey[700],
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      const SizedBox(height: 12),
+
+                      // Distance
+                      Row(
+                        children: [
+                          const Icon(
+                            Icons.directions_car,
+                            size: 20,
+                            color: Colors.grey,
+                          ),
+                          const SizedBox(width: 8),
+                          Flexible(
+                            child: Text(
+                              '${widget.service.distance.toStringAsFixed(1)} km away',
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.grey[700],
+                              ),
+                            ),
+                          ),
+                          if (_directionsData != null) ...[
+                            const SizedBox(width: 16),
+                            Flexible(
+                              child: Text(
+                                _directionsData!['routes'][0]['legs'][0]['duration']['text'],
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.grey[700],
+                                ),
+                              ),
+                            ),
                           ],
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                  
-                  const SizedBox(height: 16),
-                  
-                  // Address
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.location_on,
-                        size: 20,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(width: 8),
-                      Expanded(
-                        child: Text(
-                          widget.service.address,
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  
-                  const SizedBox(height: 12),
-                  
-                  // Distance
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.directions_car,
-                        size: 20,
-                        color: Colors.grey,
-                      ),
-                      const SizedBox(width: 8),
-                      Text(
-                        '${widget.service.distance.toStringAsFixed(1)} km away',
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey[700],
-                        ),
-                      ),
-                      if (_directionsData != null) ...[
-                        const SizedBox(width: 16),
-                        Text(
-                          _directionsData!['routes'][0]['legs'][0]['duration']['text'],
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ],
-                    ],
-                  ),
-                  
-                  const SizedBox(height: 20),
-                  
-                  // Travel mode selector (if directions shown)
-                  if (_showDirections) _buildTravelModeSelector(),
-                  
-                  if (_showDirections) const SizedBox(height: 16),
-                  
-                  // Action buttons
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton.icon(
-                          onPressed: _isLoadingDirections
-                              ? null
-                              : (_showDirections ? _openInGoogleMaps : _getDirections),
-                          icon: _isLoadingDirections
-                              ? const SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    color: Colors.white,
-                                  ),
-                                )
-                              : Icon(_showDirections ? Icons.navigation : Icons.directions),
-                          label: Text(
-                            _showDirections ? 'Open in Google Maps' : 'Get Directions',
-                            style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
+
+                      const SizedBox(height: 20),
+
+                      // Travel mode selector (if directions shown)
+                      if (_showDirections) _buildTravelModeSelector(),
+
+                      if (_showDirections) const SizedBox(height: 16),
+
+                      // Action buttons
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton.icon(
+                              onPressed: _isLoadingDirections
+                                  ? null
+                                  : (_showDirections ? _openInGoogleMaps : _getDirections),
+                              icon: _isLoadingDirections
+                                  ? const SizedBox(
+                                      width: 20,
+                                      height: 20,
+                                      child: CircularProgressIndicator(
+                                        strokeWidth: 2,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  : Icon(_showDirections ? Icons.navigation : Icons.directions),
+                              label: Text(
+                                _showDirections ? 'Open in Google Maps' : 'Get Directions',
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: const Color(0xFF2E7D32),
+                                foregroundColor: Colors.white,
+                                padding: const EdgeInsets.symmetric(vertical: 16),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                elevation: 0,
+                              ),
                             ),
                           ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF2E7D32),
-                            foregroundColor: Colors.white,
-                            padding: const EdgeInsets.symmetric(vertical: 16),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
+                          const SizedBox(width: 12),
+                          ElevatedButton(
+                            onPressed: () async {
+                              final phoneUrl = Uri.parse('tel:${widget.service.phone}');
+                              if (await canLaunchUrl(phoneUrl)) {
+                                await launchUrl(phoneUrl);
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.all(16),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              elevation: 0,
                             ),
-                            elevation: 0,
+                            child: const Icon(Icons.phone),
                           ),
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      ElevatedButton(
-                        onPressed: () async {
-                          final phoneUrl = Uri.parse('tel:${widget.service.phone}');
-                          if (await canLaunchUrl(phoneUrl)) {
-                            await launchUrl(phoneUrl);
-                          }
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.all(16),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
-                          elevation: 0,
-                        ),
-                        child: const Icon(Icons.phone),
+                        ],
                       ),
                     ],
                   ),
-              ],
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

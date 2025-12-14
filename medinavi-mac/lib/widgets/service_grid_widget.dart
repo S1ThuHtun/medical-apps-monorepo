@@ -20,7 +20,7 @@ class ServiceGridWidget extends StatelessWidget {
     final services = medicalServicesData['services'][selectedCategory] as List;
 
     return SizedBox(
-      height: 160,
+      height: 100,
       child: GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
@@ -66,14 +66,14 @@ class ServiceGridWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 20,),
+                        //SizedBox(height: 20,),
                         Center(
                           child: Icon(
                             _getServiceIcon(service),
                             color: isSelected
                                 ? const Color(0xFF2E7D32)
                                 : Colors.grey[700],
-                            size: 50,
+                            size: 40,
                           ),
                         ),
                         Flexible(

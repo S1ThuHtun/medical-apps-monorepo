@@ -770,24 +770,67 @@ class _MapScreenState extends State<MapScreen> {
                                 print('Original phone: $phoneNumber');
                                 print('Cleaned phone: $cleanedNumber');
                                 
-                                // Try FlutterPhoneDirectCaller first
-                                bool? result = await FlutterPhoneDirectCaller.callNumber(cleanedNumber);
+                                // Use url_launcher for iOS, FlutterPhoneDirectCaller for Android
+                                bool callSucceeded = false;
                                 
-                                print('Call result: $result');
-                                
-                                if (result == false && mounted) {
-                                  // Fallback to url_launcher
+                                // Try platform-specific approach first
+                                if (Theme.of(context).platform == TargetPlatform.iOS) {
+                                  // iOS: Use url_launcher
                                   final uri = Uri.parse('tel:$cleanedNumber');
                                   if (await canLaunchUrl(uri)) {
                                     await launchUrl(uri);
-                                    } else {
+                                    callSucceeded = true;
+                                  } else {
+                                    // On iOS simulator, tel: scheme won't work
+                                    print('⚠️ Cannot launch tel: scheme (likely on simulator)');
+                                    if (mounted) {
                                       ScaffoldMessenger.of(context).showSnackBar(
                                         SnackBar(
-                                          content: Text(AppLocalizations.of(context)!.cannotOpenPhoneDialer),
-                                          backgroundColor: Colors.red,
+                                          content: const Text('Phone calling not available on simulator. Test on a real device.'),
+                                          backgroundColor: Colors.orange,
                                         ),
                                       );
                                     }
+                                  }
+                                } else {
+                                  // Android: Try FlutterPhoneDirectCaller first
+                                  bool? result = await FlutterPhoneDirectCaller.callNumber(cleanedNumber);
+                                  
+                                  print('Call result: $result');
+                                  
+                                  if (result == true) {
+                                    callSucceeded = true;
+                                  } else {
+                                    // Fallback to url_launcher on Android
+                                    final uri = Uri.parse('tel:$cleanedNumber');
+                                    if (await canLaunchUrl(uri)) {
+                                      await launchUrl(uri);
+                                      callSucceeded = true;
+                                    } else {
+                                      print('⚠️ Cannot launch tel: scheme (likely on emulator)');
+                                      if (mounted) {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          SnackBar(
+                                            content: const Text('Phone calling not available on emulator. Test on a real device.'),
+                                            backgroundColor: Colors.orange,
+                                          ),
+                                        );
+                                      }
+                                    }
+                                  }
+                                }
+                                
+                                if (!callSucceeded && mounted) {
+                                  // Error already shown above for simulator/emulator cases
+                                  if (mounted && Theme.of(context).platform == TargetPlatform.android) {
+                                    // Only show generic error on Android if not already shown
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(AppLocalizations.of(context)!.cannotOpenPhoneDialer),
+                                        backgroundColor: Colors.red,
+                                      ),
+                                    );
+                                  }
                                 }
                               } catch (e) {
                                 print('Phone call error: $e');

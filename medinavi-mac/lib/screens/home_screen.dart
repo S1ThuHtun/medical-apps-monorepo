@@ -7,9 +7,17 @@ import '../models/medical_service.dart';
 import '../services/google_places_service.dart';
 import '../services/auth_services.dart';
 import '../utils/language_selection_utils.dart';
+<<<<<<< HEAD
 import '../utils/medical_services_localization.dart';
 import '../l10n/app_localizations.dart';
 import 'map_screen.dart';
+=======
+import '../widgets/category_tabs_widget.dart';
+import '../widgets/service_grid_widget.dart';
+import '../widgets/results_header_widget.dart';
+import '../widgets/services_list_widget.dart';
+import '../widgets/location_selector_screen_widget.dart';
+>>>>>>> f213d5772efe62d26c99a4ce205ac5a83bdc0028
 import 'sign_up_screen.dart';
 
 class HomeScreen
@@ -249,6 +257,7 @@ class _HomeScreenState
   void _showLocationSelector() {
     Navigator.of(context).push(
       MaterialPageRoute(
+<<<<<<< HEAD
         builder: (context) =>
             _LocationSelectorScreen(
               currentLocation:
@@ -276,6 +285,21 @@ class _HomeScreenState
                     });
                   },
             ),
+=======
+        builder: (context) => LocationSelectorScreen(
+          currentLocation: _selectedLocation,
+          onLocationSelected: (location, prefecture, city, ward) {
+            setState(() {
+              _selectedLocation = location;
+              _selectedPrefecture = prefecture;
+              _selectedCity = city;
+              _selectedWard = ward;
+              _nearbyServices.clear();
+              _selectedService = null;
+            });
+          },
+        ),
+>>>>>>> f213d5772efe62d26c99a4ce205ac5a83bdc0028
       ),
     );
   }
@@ -540,6 +564,7 @@ class _HomeScreenState
         color: const Color(0xFF2E7D32),
         child: Column(
           children: [
+<<<<<<< HEAD
             _buildCategoryTabs(),
             _buildServiceGrid(),
             if (_nearbyServices
@@ -950,10 +975,37 @@ class _HomeScreenState
                       horizontal: 32,
                       vertical: 12,
                     ),
+=======
+            CategoryTabsWidget(
+              selectedCategory: _selectedCategory,
+              onCategorySelected: (category) {
+                setState(() {
+                  _selectedCategory = category;
+                  _nearbyServices.clear();
+                  _selectedService = null;
+                });
+              },
+            ),
+            ServiceGridWidget(
+              selectedCategory: _selectedCategory,
+              selectedService: _selectedService,
+              onServiceSelected: _searchNearbyServices,
+            ),
+            if (_nearbyServices.isNotEmpty)
+              ResultsHeaderWidget(serviceCount: _nearbyServices.length),
+            Expanded(
+              child: ServicesListWidget(
+                isLoading: _isLoading,
+                nearbyServices: _nearbyServices,
+                currentPosition: _currentPosition,
+                selectedLocation: _selectedLocation,
+                onRetry: _getCurrentLocation,
+>>>>>>> f213d5772efe62d26c99a4ce205ac5a83bdc0028
               ),
             ),
           ],
         ),
+<<<<<<< HEAD
       );
     }
 
@@ -1198,10 +1250,13 @@ class _HomeScreenState
             ],
           ),
         ),
+=======
+>>>>>>> f213d5772efe62d26c99a4ce205ac5a83bdc0028
       ),
     );
   }
 
+<<<<<<< HEAD
   IconData _getServiceIcon(
     String service,
   ) {
@@ -1232,6 +1287,8 @@ class _HomeScreenState
     return Icons.medical_services;
   }
 
+=======
+>>>>>>> f213d5772efe62d26c99a4ce205ac5a83bdc0028
   String _getLocationDisplayText() {
     final l10n = AppLocalizations.of(
       context,
@@ -1250,6 +1307,7 @@ class _HomeScreenState
       return l10n.selectPrefecture;
     }
   }
+<<<<<<< HEAD
 }
 
 // Hierarchical Location Selector Screen
@@ -1668,3 +1726,6 @@ class _LocationSelectorScreenState
     );
   }
 }
+=======
+}
+>>>>>>> f213d5772efe62d26c99a4ce205ac5a83bdc0028

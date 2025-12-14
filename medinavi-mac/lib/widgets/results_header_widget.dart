@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../l10n/app_localizations.dart';
 
 class ResultsHeaderWidget extends StatelessWidget {
   final int serviceCount;
@@ -16,14 +17,14 @@ class ResultsHeaderWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'Found $serviceCount nearby',
+            AppLocalizations.of(context)!.foundNearby(serviceCount),
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
-            'Within 5km',
+            AppLocalizations.of(context)!.within5km,
             style: TextStyle(
               fontSize: 14,
               color: Colors.grey[600],

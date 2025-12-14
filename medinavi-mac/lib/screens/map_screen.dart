@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import '../models/medical_service.dart';
 import '../services/google_places_service.dart';
+import '../l10n/app_localizations.dart';
 
 class MapScreen extends StatefulWidget {
   final MedicalService service;
@@ -56,6 +57,12 @@ class _MapScreenState extends State<MapScreen> {
       LatLng(widget.service.latitude, widget.service.longitude),
       14.0,
     );
+    // Force a rebuild to ensure tiles load
+    Future.delayed(const Duration(milliseconds: 300), () {
+      if (mounted) {
+        setState(() {});
+      }
+    });
   }
 
   void _centerMapOnRoute() {
@@ -67,7 +74,7 @@ class _MapScreenState extends State<MapScreen> {
     _mapController.fitCamera(
       CameraFit.bounds(
         bounds: bounds,
-        padding: const EdgeInsets.all(50),
+        padding: const EdgeInsets.all(100),
       ),
     );
   }
@@ -267,7 +274,6 @@ class _MapScreenState extends State<MapScreen> {
     double enhancedDetailsHeight = 0.0;
     if (_placeDetails != null) {
       if (_placeDetails!['website'] != null) enhancedDetailsHeight += 30.0;
-      if (_placeDetails!['user_ratings_total'] != null) enhancedDetailsHeight += 30.0;
       if (_placeDetails!['wheelchair_accessible_entrance'] != null) enhancedDetailsHeight += 30.0;
     }
 
@@ -286,10 +292,10 @@ class _MapScreenState extends State<MapScreen> {
             mapController: _mapController,
             options: MapOptions(
               initialCenter: LatLng(
-                widget.currentPosition.latitude,
-                widget.currentPosition.longitude,
+                widget.service.latitude,
+                widget.service.longitude,
               ),
-              initialZoom: 11.0,
+              initialZoom: 14.0,
               minZoom: 3.0,
               maxZoom: 18.0,
             ),
@@ -299,6 +305,8 @@ class _MapScreenState extends State<MapScreen> {
                 userAgentPackageName: 'com.example.medical_services',
                 maxZoom: 19,
                 subdomains: const ['a', 'b', 'c', 'd'],
+                retinaMode: true,
+                tileProvider: NetworkTileProvider(),
               ),
               // Route polyline
               if (_routePoints.isNotEmpty)
@@ -504,7 +512,7 @@ class _MapScreenState extends State<MapScreen> {
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                 ),
-                                const SizedBox(height: 4),
+                                const SizedBox(height: 8),
                                 Row(
                                   children: [
                                     if (widget.service.rating > 0) ...[
@@ -535,7 +543,9 @@ class _MapScreenState extends State<MapScreen> {
                                         borderRadius: BorderRadius.circular(4),
                                       ),
                                       child: Text(
-                                        widget.service.isOpen ? 'Open Now' : 'Closed',
+                                        widget.service.isOpen
+                                            ? AppLocalizations.of(context)!.openNow
+                                            : AppLocalizations.of(context)!.closed,
                                         style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w600,
@@ -592,7 +602,7 @@ class _MapScreenState extends State<MapScreen> {
                           const SizedBox(width: 8),
                           Flexible(
                             child: Text(
-                              '${widget.service.distance.toStringAsFixed(1)} km away',
+                              AppLocalizations.of(context)!.away(widget.service.distance.toStringAsFixed(1)),
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.grey[700],
@@ -638,7 +648,7 @@ class _MapScreenState extends State<MapScreen> {
                                     }
                                   },
                                   child: Text(
-                                    'Visit Website',
+                                    AppLocalizations.of(context)!.visitWebsite,
                                     style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.blue[700],
@@ -648,29 +658,6 @@ class _MapScreenState extends State<MapScreen> {
                                 ),
                               ),
                             ],
-                          ),
-
-                        // Reviews count
-                        if (_placeDetails!['user_ratings_total'] != null)
-                          Padding(
-                            padding: const EdgeInsets.only(top: 8),
-                            child: Row(
-                              children: [
-                                const Icon(
-                                  Icons.rate_review,
-                                  size: 20,
-                                  color: Colors.grey,
-                                ),
-                                const SizedBox(width: 8),
-                                Text(
-                                  '${_placeDetails!['user_ratings_total']} reviews',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                              ],
-                            ),
                           ),
 
                         // Wheelchair accessible
@@ -689,8 +676,8 @@ class _MapScreenState extends State<MapScreen> {
                                 const SizedBox(width: 8),
                                 Text(
                                   _placeDetails!['wheelchair_accessible_entrance']
-                                      ? 'Wheelchair accessible'
-                                      : 'Limited wheelchair access',
+                                      ? AppLocalizations.of(context)!.wheelchairAccessible
+                                      : AppLocalizations.of(context)!.limitedWheelchairAccess,
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: Colors.grey[700],
@@ -725,7 +712,9 @@ class _MapScreenState extends State<MapScreen> {
                                     )
                                   : const Icon(Icons.directions),
                               label: Text(
-                                _showDirections ? 'Update Route' : 'Get Directions',
+                                _showDirections
+                                    ? AppLocalizations.of(context)!.updateRoute
+                                    : AppLocalizations.of(context)!.getDirections,
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -755,8 +744,8 @@ class _MapScreenState extends State<MapScreen> {
                                 if (phoneNumber == null || phoneNumber.isEmpty || phoneNumber == 'N/A') {
                                   if (mounted) {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('No phone number available for this service'),
+                                      SnackBar(
+                                        content: Text(AppLocalizations.of(context)!.noPhoneAvailable),
                                         backgroundColor: Colors.orange,
                                       ),
                                     );
@@ -769,8 +758,8 @@ class _MapScreenState extends State<MapScreen> {
                                 if (cleanedNumber.isEmpty) {
                                   if (mounted) {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Invalid phone number format'),
+                                      SnackBar(
+                                        content: Text(AppLocalizations.of(context)!.invalidPhoneFormat),
                                         backgroundColor: Colors.orange,
                                       ),
                                     );
@@ -791,21 +780,21 @@ class _MapScreenState extends State<MapScreen> {
                                   final uri = Uri.parse('tel:$cleanedNumber');
                                   if (await canLaunchUrl(uri)) {
                                     await launchUrl(uri);
-                                  } else {
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      const SnackBar(
-                                        content: Text('Cannot open phone dialer'),
-                                        backgroundColor: Colors.red,
-                                      ),
-                                    );
-                                  }
+                                    } else {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                          content: Text(AppLocalizations.of(context)!.cannotOpenPhoneDialer),
+                                          backgroundColor: Colors.red,
+                                        ),
+                                      );
+                                    }
                                 }
                               } catch (e) {
                                 print('Phone call error: $e');
                                 if (mounted) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                      content: Text('Error: $e'),
+                                      content: Text(AppLocalizations.of(context)!.cannotOpenPhoneDialer),
                                       backgroundColor: Colors.red,
                                     ),
                                   );
@@ -840,8 +829,8 @@ class _MapScreenState extends State<MapScreen> {
                             } else {
                               if (mounted) {
                                 ScaffoldMessenger.of(context).showSnackBar(
-                                  const SnackBar(
-                                    content: Text('Unable to open Google Maps'),
+                                  SnackBar(
+                                    content: Text(AppLocalizations.of(context)!.errorOpeningMaps),
                                     backgroundColor: Colors.red,
                                   ),
                                 );
@@ -849,7 +838,7 @@ class _MapScreenState extends State<MapScreen> {
                             }
                           },
                           icon: const Icon(Icons.open_in_new, size: 18),
-                          label: const Text('Open in Google Maps'),
+                          label: Text(AppLocalizations.of(context)!.openInGoogleMaps),
                           style: TextButton.styleFrom(
                             foregroundColor: const Color(0xFF2E7D32),
                           ),
@@ -868,10 +857,10 @@ class _MapScreenState extends State<MapScreen> {
 
   Widget _buildTravelModeSelector() {
     final modes = [
-      {'mode': 'driving', 'icon': Icons.directions_car, 'label': 'Drive'},
-      {'mode': 'walking', 'icon': Icons.directions_walk, 'label': 'Walk'},
-      {'mode': 'bicycling', 'icon': Icons.directions_bike, 'label': 'Bike'},
-      {'mode': 'transit', 'icon': Icons.directions_transit, 'label': 'Transit'},
+      {'mode': 'driving', 'icon': Icons.directions_car},
+      {'mode': 'walking', 'icon': Icons.directions_walk},
+      {'mode': 'bicycling', 'icon': Icons.directions_bike},
+      {'mode': 'transit', 'icon': Icons.directions_transit},
     ];
 
     return Row(
@@ -908,17 +897,6 @@ class _MapScreenState extends State<MapScreen> {
                         ? const Color(0xFF2E7D32)
                         : Colors.grey[600],
                     size: 24,
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    mode['label'] as String,
-                    style: TextStyle(
-                      fontSize: 11,
-                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                      color: isSelected
-                          ? const Color(0xFF2E7D32)
-                          : Colors.grey[600],
-                    ),
                   ),
                 ],
               ),

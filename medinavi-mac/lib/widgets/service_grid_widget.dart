@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/medical_services_data.dart';
+import '../l10n/app_localizations.dart';
+import '../utils/service_localization.dart';
 
 class ServiceGridWidget extends StatelessWidget {
   final String selectedCategory;
@@ -18,16 +20,16 @@ class ServiceGridWidget extends StatelessWidget {
     final services = medicalServicesData['services'][selectedCategory] as List;
 
     return SizedBox(
-      height: 180,
+      height: 160,
       child: GridView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         scrollDirection: Axis.horizontal,
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+          crossAxisCount: 1,
           crossAxisSpacing: 8,
           mainAxisSpacing: 8,
           childAspectRatio: 0.5,
-          mainAxisExtent: 120,
+          mainAxisExtent: 140,
         ),
         itemCount: services.length,
         itemBuilder: (context, index) {
@@ -64,26 +66,30 @@ class ServiceGridWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          _getServiceIcon(service),
-                          color: isSelected
-                              ? const Color(0xFF2E7D32)
-                              : Colors.grey[700],
-                          size: 22,
+                        SizedBox(height: 20,),
+                        Center(
+                          child: Icon(
+                            _getServiceIcon(service),
+                            color: isSelected
+                                ? const Color(0xFF2E7D32)
+                                : Colors.grey[700],
+                            size: 50,
+                          ),
                         ),
-                        const SizedBox(height: 6),
                         Flexible(
-                          child: Text(
-                            service,
-                            style: TextStyle(
-                              fontSize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: isSelected
-                                  ? const Color(0xFF2E7D32)
-                                  : Colors.black87,
+                          child: Center(
+                            child: Text(
+                              getLocalizedServiceName(service, AppLocalizations.of(context)!),
+                              style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w600,
+                                color: isSelected
+                                    ? const Color(0xFF2E7D32)
+                                    : Colors.black87,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                       ],

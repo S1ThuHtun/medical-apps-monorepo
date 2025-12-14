@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/medical_services_data.dart';
+import '../l10n/app_localizations.dart';
+import '../utils/service_localization.dart';
 
 class CategoryTabsWidget extends StatelessWidget {
   final String selectedCategory;
@@ -53,7 +55,7 @@ class CategoryTabsWidget extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  category,
+                  getLocalizedServiceName(category, AppLocalizations.of(context)!),
                   style: TextStyle(
                     color: isSelected ? Colors.white : Colors.black87,
                     fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,

@@ -116,6 +116,47 @@ class AppLocalizationsZh extends AppLocalizations {
   String get directions => '获取路线';
 
   @override
+  String get address => '地址';
+
+  @override
+  String get openNow => '营业中';
+
+  @override
+  String away(Object distance) {
+    return '$distance 公里外';
+  }
+
+  @override
+  String get getDirections => '获取路线';
+
+  @override
+  String get updateRoute => '更新路线';
+
+  @override
+  String get visitWebsite => '访问网站';
+
+  @override
+  String get wheelchairAccessible => '轮椅无障碍';
+
+  @override
+  String get limitedWheelchairAccess => '有限轮椅无障碍';
+
+  @override
+  String get openInGoogleMaps => '在Google地图中打开';
+
+  @override
+  String get noPhoneAvailable => '此服务没有电话号码';
+
+  @override
+  String get invalidPhoneFormat => '电话号码格式无效';
+
+  @override
+  String get cannotOpenPhoneDialer => '无法打开电话拨号器';
+
+  @override
+  String get errorOpeningMaps => '无法打开Google地图';
+
+  @override
   String get categoryGeneralServices => '一般服务';
 
   @override
@@ -383,4 +424,313 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get retry => '重试';
+
+  @override
+  String get gettingLocation => '正在获取您的位置...';
+
+  @override
+  String get locationNotAvailable => '位置信息不可用';
+
+  @override
+  String get pullDownToRefresh => '向下拉以刷新或选择位置以查找附近的医疗服务';
+
+  @override
+  String get prefectureTokyo => '东京';
+
+  @override
+  String get prefectureOsaka => '大阪';
+
+  @override
+  String get prefectureKyoto => '京都';
+
+  @override
+  String get prefectureHokkaido => '北海道';
+
+  @override
+  String get prefectureFukuoka => '福冈';
+
+  @override
+  String get prefectureYokohama => '横滨';
+
+  @override
+  String get prefectureNagoya => '名古屋';
+
+  @override
+  String get prefectureKobe => '神户';
+
+  @override
+  String get prefectureHiroshima => '广岛';
+
+  @override
+  String get prefectureSendai => '仙台';
+
+  @override
+  String get prefectureChiba => '千叶';
+
+  @override
+  String get prefectureKanagawa => '神奈川';
+
+  @override
+  String get prefectureSaitama => '埼玉';
+
+  @override
+  String get prefectureShizuoka => '静冈';
+
+  @override
+  String get prefectureAichi => '爱知';
+
+  @override
+  String get prefectureHyogo => '兵库';
+
+  @override
+  String get prefectureNiigata => '新潟';
+
+  @override
+  String get prefectureMiyagi => '宫城';
+
+  @override
+  String get prefectureNagano => '长野';
+
+  @override
+  String get prefectureGifu => '岐阜';
+
+  @override
+  String get prefectureGunma => '群马';
+
+  @override
+  String get prefectureTochigi => '栃木';
+
+  @override
+  String get prefectureIbaraki => '茨城';
+
+  @override
+  String get prefectureOkayama => '冈山';
+
+  @override
+  String get prefectureKumamoto => '熊本';
+
+  @override
+  String get prefectureKagoshima => '鹿儿岛';
+
+  @override
+  String get prefectureOkinawa => '冲绳';
+
+  @override
+  String get prefectureNara => '奈良';
+
+  @override
+  String get prefectureShiga => '滋贺';
+
+  @override
+  String get prefectureMie => '三重';
+
+  @override
+  String get prefectureWakayama => '和歌山';
+
+  @override
+  String get prefectureYamaguchi => '山口';
+
+  @override
+  String get prefectureEhime => '爱媛';
+
+  @override
+  String get prefectureKagawa => '香川';
+
+  @override
+  String get prefectureTokushima => '德岛';
+
+  @override
+  String get prefectureKochi => '高知';
+
+  @override
+  String get prefectureFukushima => '福岛';
+
+  @override
+  String get prefectureYamagata => '山形';
+
+  @override
+  String get prefectureIwate => '岩手';
+
+  @override
+  String get prefectureAkita => '秋田';
+
+  @override
+  String get prefectureAomori => '青森';
+
+  @override
+  String get prefectureIshikawa => '石川';
+
+  @override
+  String get prefectureFukui => '福井';
+
+  @override
+  String get prefectureToyama => '富山';
+
+  @override
+  String get prefectureYamanashi => '山梨';
+
+  @override
+  String get prefectureSaga => '佐贺';
+
+  @override
+  String get prefectureNagasaki => '长崎';
+
+  @override
+  String get prefectureOita => '大分';
+
+  @override
+  String get prefectureMiyazaki => '宫崎';
+
+  @override
+  String get cityShibuya => '涩谷';
+
+  @override
+  String get cityShinjuku => '新宿';
+
+  @override
+  String get cityChiyoda => '千代田';
+
+  @override
+  String get cityMinato => '港口';
+
+  @override
+  String get citySetagaya => '世田谷';
+
+  @override
+  String get cityKita => '北';
+
+  @override
+  String get cityChuo => '中央';
+
+  @override
+  String get cityTennoji => '天王寺';
+
+  @override
+  String get cityShimogyo => '下京';
+
+  @override
+  String get cityHigashiyama => '东山';
+
+  @override
+  String get citySakyo => '左京';
+
+  @override
+  String get citySapporo => '札幌';
+
+  @override
+  String get cityHakodate => '函馆';
+
+  @override
+  String get cityAsahikawa => '旭川';
+
+  @override
+  String get cityHakata => '博多';
+
+  @override
+  String get cityTenjin => '天神';
+
+  @override
+  String get cityNaka => '中';
+
+  @override
+  String get wardShibuya => '涩谷区';
+
+  @override
+  String get wardShinjuku => '新宿区';
+
+  @override
+  String get wardChiyoda => '千代田区';
+
+  @override
+  String get wardTennoji => '天王寺区';
+
+  @override
+  String get areaHarajuku => '原宿';
+
+  @override
+  String get areaEbisu => '惠比寿';
+
+  @override
+  String get areaKabukicho => '歌舞伎町';
+
+  @override
+  String get areaYotsuya => '四谷';
+
+  @override
+  String get areaMarunouchi => '丸之内';
+
+  @override
+  String get areaAkihabara => '秋叶原';
+
+  @override
+  String get areaKanda => '神田';
+
+  @override
+  String get areaRoppongi => '六本木';
+
+  @override
+  String get areaAzabu => '麻布';
+
+  @override
+  String get areaOdaiba => '台场';
+
+  @override
+  String get areaShimokitazawa => '下北泽';
+
+  @override
+  String get areaSangenjaya => '三茶';
+
+  @override
+  String get areaUmeda => '梅田';
+
+  @override
+  String get areaNakanoshima => '中之岛';
+
+  @override
+  String get areaNamba => '难波';
+
+  @override
+  String get areaShinsaibashi => '心斋桥';
+
+  @override
+  String get areaDotonbori => '道顿堀';
+
+  @override
+  String get areaAbeno => '阿倍野';
+
+  @override
+  String get areaKyotoStation => '京都站周边';
+
+  @override
+  String get areaGion => '祇园';
+
+  @override
+  String get areaKiyomizu => '清水';
+
+  @override
+  String get areaGinkakuji => '银阁寺周边';
+
+  @override
+  String get areaChuo => '中央';
+
+  @override
+  String get areaKita => '北';
+
+  @override
+  String get areaSusukino => '簇薇野';
+
+  @override
+  String get areaHakataStation => '博多站周边';
+
+  @override
+  String get areaCanal => '运河城';
+
+  @override
+  String get areaTenjinCentral => '天神中央';
+
+  @override
+  String get areaChinatown => '唐人街';
+
+  @override
+  String get areaMinatoMirai => '港未来';
 }

@@ -148,15 +148,17 @@ class _SignUpScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(leading: SizedBox(),
         backgroundColor: Theme.of(
           context,
         ).colorScheme.primary,
-        title: Image.asset(
-          'assets/images/medinavi.png',
-          width: 70,
-          height: 70,
-          color: Colors.white,
+        title: Center(
+          child: Image.asset(
+            'assets/images/medinavi.png',
+            width: 70,
+            height: 70,
+            color: Colors.white,
+          ),
         ),
         actions: [
           Builder(

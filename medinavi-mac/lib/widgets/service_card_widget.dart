@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/medical_service.dart';
+import '../l10n/app_localizations.dart';
+import '../utils/service_localization.dart';
 
 class ServiceCardWidget extends StatelessWidget {
   final MedicalService service;
@@ -51,7 +53,7 @@ class ServiceCardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      service.name,
+                      getLocalizedServiceName(service.name, AppLocalizations.of(context)!),
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
@@ -79,7 +81,7 @@ class ServiceCardWidget extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          '${service.distance.toStringAsFixed(1)} km away',
+                          AppLocalizations.of(context)!.kmAway(service.distance.toStringAsFixed(1)),
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey[600],
@@ -114,7 +116,7 @@ class ServiceCardWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(4),
                           ),
                           child: Text(
-                            service.isOpen ? 'Open' : 'Closed',
+                            service.isOpen ? AppLocalizations.of(context)!.open : AppLocalizations.of(context)!.closed,
                             style: TextStyle(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,

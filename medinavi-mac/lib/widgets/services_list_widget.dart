@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import '../data/prefecture_data.dart';
+import '../l10n/app_localizations.dart';
 import '../models/medical_service.dart';
 import '../screens/map_screen.dart';
 import 'service_card_widget.dart';
@@ -24,17 +25,17 @@ class ServicesListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
-      return const Center(
+      return Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CircularProgressIndicator(
+            const CircularProgressIndicator(
               color: Color(0xFF2E7D32),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
-              'Getting your location...',
-              style: TextStyle(color: Colors.grey),
+              AppLocalizations.of(context)!.gettingLocation,
+              style: const TextStyle(color: Colors.grey),
             ),
           ],
         ),
@@ -53,7 +54,7 @@ class ServicesListWidget extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Location not available',
+              AppLocalizations.of(context)!.locationNotAvailable,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
@@ -64,7 +65,7 @@ class ServicesListWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Text(
-                'Pull down to refresh or select a location to find nearby medical services',
+                AppLocalizations.of(context)!.pullDownToRefresh,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 14,
@@ -76,7 +77,7 @@ class ServicesListWidget extends StatelessWidget {
             ElevatedButton.icon(
               onPressed: onRetry,
               icon: const Icon(Icons.refresh),
-              label: const Text('Retry'),
+              label: Text(AppLocalizations.of(context)!.retry),
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF2E7D32),
                 foregroundColor: Colors.white,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../data/prefecture_data.dart';
+import '../l10n/app_localizations.dart';
+import '../utils/prefecture_localization.dart';
 
 class LocationSelectorScreen extends StatefulWidget {
   final LocationData? currentLocation;
@@ -29,10 +31,10 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
         elevation: 0,
         title: Text(
           _selectedCity != null
-              ? 'Select Ward'
+              ? AppLocalizations.of(context)!.selectWard
               : _selectedPrefecture != null
-                  ? 'Select City'
-                  : 'Select Prefecture',
+                  ? AppLocalizations.of(context)!.selectCity
+                  : AppLocalizations.of(context)!.selectPrefecture,
           style: const TextStyle(color: Colors.black),
         ),
         leading: IconButton(
@@ -67,7 +69,7 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
       children: [
         _buildLocationTile(
           icon: Icons.my_location,
-          title: 'Use Current Location',
+          title: AppLocalizations.of(context)!.useCurrentLocation,
           isSelected: widget.currentLocation == null,
           onTap: () {
             widget.onLocationSelected(null, null, null, null);
@@ -75,10 +77,10 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
           },
         ),
         const SizedBox(height: 16),
-        const Padding(
+        Padding(
           padding: EdgeInsets.only(left: 8, bottom: 8),
           child: Text(
-            'Prefectures',
+            AppLocalizations.of(context)!.prefectures,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -92,7 +94,7 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
 
           return _buildLocationTile(
             icon: Icons.location_city,
-            title: prefecture,
+            title: getLocalizedLocationName(prefecture, AppLocalizations.of(context)!),
             isSelected: false,
             trailing: hasChildren ? Icons.chevron_right : null,
             onTap: () {
@@ -120,8 +122,8 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
       children: [
         _buildLocationTile(
           icon: Icons.location_city,
-          title: 'All of $_selectedPrefecture',
-          subtitle: 'Search entire prefecture',
+          title: AppLocalizations.of(context)!.allOf(getLocalizedLocationName(_selectedPrefecture!, AppLocalizations.of(context)!)),
+          subtitle: AppLocalizations.of(context)!.searchEntirePrefecture,
           isSelected: false,
           onTap: () {
             widget.onLocationSelected(prefectureData, _selectedPrefecture, null, null);
@@ -129,10 +131,10 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
           },
         ),
         const SizedBox(height: 16),
-        const Padding(
+        Padding(
           padding: EdgeInsets.only(left: 8, bottom: 8),
           child: Text(
-            'Cities / Districts',
+            AppLocalizations.of(context)!.citiesDistricts,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -146,7 +148,7 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
 
           return _buildLocationTile(
             icon: Icons.location_on,
-            title: city,
+            title: getLocalizedLocationName(city, AppLocalizations.of(context)!),
             isSelected: false,
             trailing: hasChildren ? Icons.chevron_right : null,
             onTap: () {
@@ -175,8 +177,8 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
       children: [
         _buildLocationTile(
           icon: Icons.location_on,
-          title: 'All of $_selectedCity',
-          subtitle: 'Search entire city',
+          title: AppLocalizations.of(context)!.allOf(getLocalizedLocationName(_selectedCity!, AppLocalizations.of(context)!)),
+          subtitle: AppLocalizations.of(context)!.searchEntireCity,
           isSelected: false,
           onTap: () {
             widget.onLocationSelected(cityData, _selectedPrefecture, _selectedCity, null);
@@ -184,10 +186,10 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
           },
         ),
         const SizedBox(height: 16),
-        const Padding(
+        Padding(
           padding: EdgeInsets.only(left: 8, bottom: 8),
           child: Text(
-            'Wards / Areas',
+            AppLocalizations.of(context)!.wardsAreas,
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
@@ -200,7 +202,7 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
 
           return _buildLocationTile(
             icon: Icons.place,
-            title: ward,
+            title: getLocalizedLocationName(ward, AppLocalizations.of(context)!),
             isSelected: false,
             onTap: () {
               widget.onLocationSelected(wardData, _selectedPrefecture, _selectedCity, ward);
@@ -256,7 +258,7 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
             ? Text(
                 subtitle,
                 style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 10,
                   color: Colors.grey[600],
                 ),
               )

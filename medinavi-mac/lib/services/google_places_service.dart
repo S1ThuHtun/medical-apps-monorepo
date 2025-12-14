@@ -61,26 +61,45 @@ class GooglePlacesService {
     }
   }
 
-  // Get place details
+  // Get place details with comprehensive data
   Future<Map<String, dynamic>?> getPlaceDetails(String placeId) async {
     try {
       final url = Uri.parse(
-        '$baseUrl/details/json?place_id=$placeId&fields=name,formatted_address,formatted_phone_number,geometry,rating,opening_hours,photos,website&key=$apiKey'
+        '$baseUrl/details/json?place_id=$placeId&fields='
+        'name,formatted_address,formatted_phone_number,international_phone_number,'
+        'geometry,rating,user_ratings_total,price_level,'
+        'opening_hours,current_opening_hours,photos,website,url,'
+        'reviews,types,vicinity,business_status,wheelchair_accessible_entrance'
+        '&key=$apiKey'
       );
+
+      print('📞 Fetching place details for: $placeId');
 
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
 
+        print('✅ Place details status: ${data['status']}');
+
         if (data['status'] == 'OK') {
-          return data['result'];
+          final result = data['result'];
+          print('✅ Retrieved details:');
+          print('   - Name: ${result['name']}');
+          print('   - Phone: ${result['formatted_phone_number'] ?? 'N/A'}');
+          print('   - Rating: ${result['rating'] ?? 'N/A'}');
+          print('   - Reviews: ${result['user_ratings_total'] ?? 0}');
+          print('   - Website: ${result['website'] ?? 'N/A'}');
+          print('   - Wheelchair accessible: ${result['wheelchair_accessible_entrance'] ?? 'Unknown'}');
+          return result;
+        } else {
+          print('⚠️ Place details error: ${data['status']}');
         }
       }
 
       return null;
     } catch (e) {
-      print('Error fetching place details: $e');
+      print('❌ Error fetching place details: $e');
       return null;
     }
   }
@@ -98,19 +117,33 @@ class GooglePlacesService {
         'https://maps.googleapis.com/maps/api/directions/json?origin=$startLat,$startLng&destination=$endLat,$endLng&mode=$mode&key=$apiKey'
       );
 
+      print('🗺️ Fetching directions with mode: $mode');
+      print('📍 URL: $url');
+
       final response = await http.get(url);
 
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
 
+        print('✅ Response status: ${data['status']}');
+
         if (data['status'] == 'OK') {
+          print('✅ Routes found: ${data['routes']?.length ?? 0}');
           return data;
+        } else {
+          // Return the data even on error so we can show proper error messages
+          print('⚠️ API Error: ${data['status']}');
+          if (data['error_message'] != null) {
+            print('⚠️ Error message: ${data['error_message']}');
+          }
+          return data; // Return data with error status
         }
       }
 
+      print('❌ HTTP Error: ${response.statusCode}');
       return null;
     } catch (e) {
-      print('Error fetching directions: $e');
+      print('❌ Exception fetching directions: $e');
       return null;
     }
   }

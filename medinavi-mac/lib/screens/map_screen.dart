@@ -3,6 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import '../models/medical_service.dart';
 import '../services/google_places_service.dart';
 
@@ -28,6 +29,7 @@ class _MapScreenState extends State<MapScreen> {
   List<LatLng> _routePoints = [];
   bool _isLoadingDirections = false;
   String _selectedTravelMode = 'driving';
+  Map<String, dynamic>? _placeDetails;
 
   @override
   void initState() {
@@ -35,7 +37,18 @@ class _MapScreenState extends State<MapScreen> {
     // Center map on selected service location
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _centerOnService();
+      _fetchPlaceDetails();
     });
+  }
+
+  Future<void> _fetchPlaceDetails() async {
+    final details = await _placesService.getPlaceDetails(widget.service.id);
+
+    if (details != null && mounted) {
+      setState(() {
+        _placeDetails = details;
+      });
+    }
   }
 
   void _centerOnService() {
@@ -82,6 +95,10 @@ class _MapScreenState extends State<MapScreen> {
       _showDirections = true;
     });
 
+    print('🚗 Getting directions for mode: $_selectedTravelMode');
+    print('📍 From: ${widget.currentPosition.latitude}, ${widget.currentPosition.longitude}');
+    print('📍 To: ${widget.service.latitude}, ${widget.service.longitude}');
+
     final directions = await _placesService.getDirections(
       startLat: widget.currentPosition.latitude,
       startLng: widget.currentPosition.longitude,
@@ -90,47 +107,112 @@ class _MapScreenState extends State<MapScreen> {
       mode: _selectedTravelMode,
     );
 
-    if (directions != null && directions['routes'] != null && directions['routes'].isNotEmpty) {
-      setState(() {
-        _directionsData = directions;
-        _routePoints = _decodePolyline(
-          directions['routes'][0]['overview_polyline']['points']
-        );
-      });
+    print('📦 Directions response: ${directions != null ? 'Received' : 'Null'}');
+    if (directions != null) {
+      print('📊 Status: ${directions['status']}');
+      print('📊 Routes: ${directions['routes']?.length ?? 0}');
+    }
 
-      _centerMapOnRoute();
+    if (directions != null &&
+        directions['status'] == 'OK' &&
+        directions['routes'] != null &&
+        directions['routes'].isNotEmpty) {
+
+      print('✅ Valid route found, decoding polyline...');
+
+      try {
+        final polylinePoints = directions['routes'][0]['overview_polyline']['points'];
+        final decodedPoints = _decodePolyline(polylinePoints);
+
+        print('✅ Decoded ${decodedPoints.length} points');
+
+        setState(() {
+          _directionsData = directions;
+          _routePoints = decodedPoints;
+        });
+
+        _centerMapOnRoute();
+
+        print('✅ Route displayed successfully');
+      } catch (e) {
+        print('❌ Error decoding polyline: $e');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Error processing route: $e'),
+              backgroundColor: Colors.red,
+              duration: const Duration(seconds: 3),
+            ),
+          );
+        }
+      }
     } else {
+      // Handle errors
+      print('⚠️ No valid route found');
+
       if (mounted) {
         String errorMessage = 'Unable to get directions';
+        Color errorColor = Colors.orange;
 
-        // Check if it's a transit or bicycling specific error
-        if (_selectedTravelMode == 'transit') {
-          errorMessage = 'Transit directions not available for this route';
-        } else if (_selectedTravelMode == 'bicycling') {
-          errorMessage = 'Bicycling directions not available for this area. Try walking or driving mode.';
-        } else if (directions != null && directions['status'] != null) {
-          // Show specific error based on API status
-          switch (directions['status']) {
+        if (directions != null && directions['status'] != null) {
+          final status = directions['status'];
+          final apiError = directions['error_message'];
+
+          print('⚠️ API Status: $status');
+          if (apiError != null) print('⚠️ API Error: $apiError');
+
+          switch (status) {
             case 'ZERO_RESULTS':
-              errorMessage = _selectedTravelMode == 'bicycling'
-                  ? 'No cycling routes available. Try walking or driving mode.'
-                  : 'No route found for $_selectedTravelMode mode';
+              if (_selectedTravelMode == 'transit') {
+                final distance = widget.service.distance;
+                errorMessage = 'Transit not available for this route (${distance.toStringAsFixed(1)} km).\n\n'
+                    'Possible reasons:\n'
+                    '• No public transit between these locations\n'
+                    '• Distance may be too far for transit\n'
+                    '• Transit data unavailable for this area\n\n'
+                    'Try: Driving or Walking mode instead';
+              } else if (_selectedTravelMode == 'bicycling') {
+                errorMessage = 'Bicycling directions not available.\nTry walking or driving mode.';
+              } else {
+                errorMessage = 'No route found for $_selectedTravelMode mode';
+              }
               break;
             case 'NOT_FOUND':
               errorMessage = 'Location not found';
+              errorColor = Colors.red;
+              break;
+            case 'REQUEST_DENIED':
+              errorMessage = 'API request denied: ${apiError ?? 'Check API key'}';
+              errorColor = Colors.red;
+              break;
+            case 'INVALID_REQUEST':
+              errorMessage = 'Invalid request: ${apiError ?? 'Unknown error'}';
+              errorColor = Colors.red;
+              break;
+            case 'OVER_QUERY_LIMIT':
+              errorMessage = 'API quota exceeded. Please try again later.';
+              errorColor = Colors.red;
               break;
             default:
-              errorMessage = 'Unable to get directions: ${directions['status']}';
+              errorMessage = 'Error: $status${apiError != null ? '\n$apiError' : ''}';
           }
+        } else if (_selectedTravelMode == 'transit') {
+          errorMessage = 'Transit directions not available.\nThis may be due to:\n• No public transit in this area\n• Transit data not available\n• Try driving or walking instead';
         }
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(errorMessage),
-            backgroundColor: Colors.orange,
-            duration: const Duration(seconds: 3),
+            backgroundColor: errorColor,
+            duration: const Duration(seconds: 5),
           ),
         );
+
+        // Clear previous route if any
+        setState(() {
+          _routePoints = [];
+          _directionsData = null;
+        });
       }
     }
 
@@ -172,36 +254,28 @@ class _MapScreenState extends State<MapScreen> {
     return points;
   }
 
-  Future<void> _openInGoogleMaps() async {
-    final url = Uri.parse(
-      'https://www.google.com/maps/dir/?api=1&origin=${widget.currentPosition.latitude},${widget.currentPosition.longitude}&destination=${widget.service.latitude},${widget.service.longitude}&travelmode=$_selectedTravelMode'
-    );
-    
-    if (await canLaunchUrl(url)) {
-      await launchUrl(url, mode: LaunchMode.externalApplication);
-    } else {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Unable to open Google Maps'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     // Calculate dynamic height based on content
     final screenHeight = MediaQuery.of(context).size.height;
-    final baseHeight = 320.0; // Base height for basic info (increased for better spacing)
+    final baseHeight = 320.0; // Base height for basic info
     final travelModeHeight = _showDirections ? 90.0 : 0.0; // Height for travel mode selector
-    final totalContentHeight = baseHeight + travelModeHeight;
+    final googleMapsButtonHeight = _showDirections ? 48.0 : 0.0; // Height for "Open in Google Maps" button
+
+    // Calculate height for enhanced details (website, reviews, accessibility)
+    double enhancedDetailsHeight = 0.0;
+    if (_placeDetails != null) {
+      if (_placeDetails!['website'] != null) enhancedDetailsHeight += 30.0;
+      if (_placeDetails!['user_ratings_total'] != null) enhancedDetailsHeight += 30.0;
+      if (_placeDetails!['wheelchair_accessible_entrance'] != null) enhancedDetailsHeight += 30.0;
+    }
+
+    final totalContentHeight = baseHeight + travelModeHeight + googleMapsButtonHeight + enhancedDetailsHeight;
 
     // Calculate min and max child sizes dynamically
     final minChildSize = 0.1;
-    final maxChildSize = (totalContentHeight / screenHeight).clamp(0.28, 0.65);
+    final maxChildSize = (totalContentHeight / screenHeight).clamp(0.3, 0.75);
     final initialChildSize = maxChildSize;
 
     return Scaffold(
@@ -541,6 +615,92 @@ class _MapScreenState extends State<MapScreen> {
                         ],
                       ),
 
+                      // Enhanced details from API
+                      if (_placeDetails != null) ...[
+                        const SizedBox(height: 12),
+
+                        // Website
+                        if (_placeDetails!['website'] != null)
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.language,
+                                size: 20,
+                                color: Colors.grey,
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: GestureDetector(
+                                  onTap: () async {
+                                    final url = Uri.parse(_placeDetails!['website']);
+                                    if (await canLaunchUrl(url)) {
+                                      await launchUrl(url, mode: LaunchMode.externalApplication);
+                                    }
+                                  },
+                                  child: Text(
+                                    'Visit Website',
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.blue[700],
+                                      decoration: TextDecoration.underline,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+
+                        // Reviews count
+                        if (_placeDetails!['user_ratings_total'] != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Row(
+                              children: [
+                                const Icon(
+                                  Icons.rate_review,
+                                  size: 20,
+                                  color: Colors.grey,
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  '${_placeDetails!['user_ratings_total']} reviews',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey[700],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        // Wheelchair accessible
+                        if (_placeDetails!['wheelchair_accessible_entrance'] != null)
+                          Padding(
+                            padding: const EdgeInsets.only(top: 8),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.accessible,
+                                  size: 20,
+                                  color: _placeDetails!['wheelchair_accessible_entrance']
+                                      ? Colors.green
+                                      : Colors.grey,
+                                ),
+                                const SizedBox(width: 8),
+                                Text(
+                                  _placeDetails!['wheelchair_accessible_entrance']
+                                      ? 'Wheelchair accessible'
+                                      : 'Limited wheelchair access',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey[700],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                      ],
+
                       const SizedBox(height: 20),
 
                       // Travel mode selector (if directions shown)
@@ -553,9 +713,7 @@ class _MapScreenState extends State<MapScreen> {
                         children: [
                           Expanded(
                             child: ElevatedButton.icon(
-                              onPressed: _isLoadingDirections
-                                  ? null
-                                  : (_showDirections ? _openInGoogleMaps : _getDirections),
+                              onPressed: _isLoadingDirections ? null : _getDirections,
                               icon: _isLoadingDirections
                                   ? const SizedBox(
                                       width: 20,
@@ -565,9 +723,9 @@ class _MapScreenState extends State<MapScreen> {
                                         color: Colors.white,
                                       ),
                                     )
-                                  : Icon(_showDirections ? Icons.navigation : Icons.directions),
+                                  : const Icon(Icons.directions),
                               label: Text(
-                                _showDirections ? 'Open in Google Maps' : 'Get Directions',
+                                _showDirections ? 'Update Route' : 'Get Directions',
                                 style: const TextStyle(
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,
@@ -587,9 +745,71 @@ class _MapScreenState extends State<MapScreen> {
                           const SizedBox(width: 12),
                           ElevatedButton(
                             onPressed: () async {
-                              final phoneUrl = Uri.parse('tel:${widget.service.phone}');
-                              if (await canLaunchUrl(phoneUrl)) {
-                                await launchUrl(phoneUrl);
+                              try {
+                                // Get phone number from place details first, fallback to service phone
+                                String? phoneNumber = _placeDetails?['formatted_phone_number'] ?? 
+                                                      _placeDetails?['international_phone_number'] ??
+                                                      widget.service.phone;
+                                
+                                // Check if phone number is valid
+                                if (phoneNumber == null || phoneNumber.isEmpty || phoneNumber == 'N/A') {
+                                  if (mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('No phone number available for this service'),
+                                        backgroundColor: Colors.orange,
+                                      ),
+                                    );
+                                  }
+                                  return;
+                                }
+                                
+                                final cleanedNumber = phoneNumber.replaceAll(RegExp(r'[^\d+]'), '');
+                                
+                                if (cleanedNumber.isEmpty) {
+                                  if (mounted) {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('Invalid phone number format'),
+                                        backgroundColor: Colors.orange,
+                                      ),
+                                    );
+                                  }
+                                  return;
+                                }
+                                
+                                print('Original phone: $phoneNumber');
+                                print('Cleaned phone: $cleanedNumber');
+                                
+                                // Try FlutterPhoneDirectCaller first
+                                bool? result = await FlutterPhoneDirectCaller.callNumber(cleanedNumber);
+                                
+                                print('Call result: $result');
+                                
+                                if (result == false && mounted) {
+                                  // Fallback to url_launcher
+                                  final uri = Uri.parse('tel:$cleanedNumber');
+                                  if (await canLaunchUrl(uri)) {
+                                    await launchUrl(uri);
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                        content: Text('Cannot open phone dialer'),
+                                        backgroundColor: Colors.red,
+                                      ),
+                                    );
+                                  }
+                                }
+                              } catch (e) {
+                                print('Phone call error: $e');
+                                if (mounted) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text('Error: $e'),
+                                      backgroundColor: Colors.red,
+                                    ),
+                                  );
+                                }
                               }
                             },
                             style: ElevatedButton.styleFrom(
@@ -600,11 +820,41 @@ class _MapScreenState extends State<MapScreen> {
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               elevation: 0,
+                              disabledBackgroundColor: Colors.grey[300],
                             ),
                             child: const Icon(Icons.phone),
                           ),
                         ],
                       ),
+
+                      // Optional: Open in Google Maps link (if directions shown)
+                      if (_showDirections) ...[
+                        const SizedBox(height: 12),
+                        TextButton.icon(
+                          onPressed: () async {
+                            final url = Uri.parse(
+                              'https://www.google.com/maps/dir/?api=1&origin=${widget.currentPosition.latitude},${widget.currentPosition.longitude}&destination=${widget.service.latitude},${widget.service.longitude}&travelmode=$_selectedTravelMode'
+                            );
+                            if (await canLaunchUrl(url)) {
+                              await launchUrl(url, mode: LaunchMode.externalApplication);
+                            } else {
+                              if (mounted) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Unable to open Google Maps'),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              }
+                            }
+                          },
+                          icon: const Icon(Icons.open_in_new, size: 18),
+                          label: const Text('Open in Google Maps'),
+                          style: TextButton.styleFrom(
+                            foregroundColor: const Color(0xFF2E7D32),
+                          ),
+                        ),
+                      ],
                     ],
                   ),
                 ),

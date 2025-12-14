@@ -49,9 +49,13 @@
 		<false/>
 		<key>UILaunchScreenBackgroundColor</key>
 		<string>#FFFFFF</string>
-		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>This app needs access to your location to show nearby medical services.</string>
-		<key>NSLocationAlwaysUsageDescription</key>
-		<string>This app needs access to your location to show nearby medical services.</string>
-	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This app needs access to your location to show nearby medical services.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This app needs access to your location to show nearby medical services.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>tel</string>
+	</array>
+</dict>
 </plist>

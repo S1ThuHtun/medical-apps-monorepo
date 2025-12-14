@@ -37,22 +37,10 @@
         "description" : "When user input invalid method, this message will show"
     },
     "enteredPasswordMessage" : "Enter Password",
-    "@enterPasswordMessage" : {
-        "description" : "Ask user to provide the password"
-    },
     "enteredPasswordErrorMessage" : "Password must have at least 6 characters",
-    "@enterPasswordErrorMessage" : {
-        "description" : "When the password is below 6 characters, this message will be shown"
-    },
     "confirmPasswordMessage" : "Confirm Password",
-    "@confirmPasswordMessage" : {
-        "description" : "Ask user to confirm the password"
-    },
     "confirmPasswordErrorMessage" : "Password and Confirm Password are not matched",
-    "@confirmPasswordErrorMessage" : {
-        "description" : "When the password and confirmPassword are not matched, this message will be shown"
-    },
-    "logOut" : "LogOut",
+    "logOut" : "Logout",
     "@logOut" : {
         "description" : "Text for Logout"
     },
@@ -83,5 +71,127 @@
     "settings" : "Settings",
     "@settings" : {
         "description" : "Title of the endDrawer from the appbar in Login screen"
-    }
+    },
+    "medicalServices": "Medical Services",
+    "currentLocation": "Current Location",
+    "language": "Language",
+    "logout": "Logout",
+    "foundNearby": "Found {count} nearby",
+    "@foundNearby": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "within5km": "Within 5km",
+    "kmAway": "{distance} km away",
+    "@kmAway": {
+        "placeholders": {
+            "distance": {
+                "type": "String"
+            }
+        }
+    },
+    "open": "Open",
+    "closed": "Closed",
+    "viewOnMap": "View on Map",
+    "call": "Call",
+    "directions": "Directions",
+    "categoryGeneralServices": "General Services",
+    "categorySpecializedServices": "Specialized Services",
+    "categorySurgicalServices": "Surgical Services",
+    "categoryRehabilitationServices": "Rehabilitation Services",
+    "categoryDiagnosticServices": "Diagnostic Services",
+    "categoryEmergencyServices": "Emergency Services",
+    "categoryMaternityWomensHealth": "Maternity & Women's Health",
+    "categoryPharmacyServices": "Pharmacy Services",
+    "categoryMentalHealthServices": "Mental Health Services",
+    "categoryAlternativeMedicine": "Alternative Medicine",
+    "serviceGeneralMedicine": "General Medicine",
+    "serviceEmergencyCare": "Emergency Care",
+    "serviceFamilyMedicine": "Family Medicine",
+    "servicePreventativeMedicine": "Preventative Medicine",
+    "serviceHealthCheckups": "Health Check-ups",
+    "serviceUrgentCare": "Urgent Care",
+    "serviceCardiology": "Cardiology",
+    "serviceDermatology": "Dermatology",
+    "serviceEndocrinology": "Endocrinology",
+    "serviceGastroenterology": "Gastroenterology",
+    "serviceHematology": "Hematology",
+    "serviceNephrology": "Nephrology",
+    "serviceNeurology": "Neurology",
+    "serviceObstetricsGynecology": "Obstetrics and Gynecology",
+    "serviceOphthalmology": "Ophthalmology",
+    "serviceOrthopedics": "Orthopedics",
+    "servicePediatrics": "Pediatrics",
+    "servicePsychiatry": "Psychiatry",
+    "serviceRheumatology": "Rheumatology",
+    "servicePulmonology": "Pulmonology",
+    "serviceUrology": "Urology",
+    "serviceGeneralSurgery": "General Surgery",
+    "serviceCardiacSurgery": "Cardiac Surgery",
+    "serviceOrthopedicSurgery": "Orthopedic Surgery",
+    "serviceNeurosurgery": "Neurosurgery",
+    "servicePlasticSurgery": "Plastic Surgery",
+    "servicePediatricSurgery": "Pediatric Surgery",
+    "serviceObstetricSurgery": "Obstetric Surgery",
+    "serviceTraumaSurgery": "Trauma Surgery",
+    "servicePhysicalTherapy": "Physical Therapy",
+    "serviceOccupationalTherapy": "Occupational Therapy",
+    "serviceSpeechTherapy": "Speech Therapy",
+    "serviceCardiacRehabilitation": "Cardiac Rehabilitation",
+    "serviceNeurologicalRehabilitation": "Neurological Rehabilitation",
+    "serviceLaboratoryTests": "Laboratory Tests",
+    "serviceRadiology": "Radiology",
+    "servicePathology": "Pathology",
+    "serviceEndoscopy": "Endoscopy",
+    "serviceECG": "ECG",
+    "serviceEEG": "EEG",
+    "serviceEmergencyRoom": "Emergency Room (ER)",
+    "serviceTraumaCare": "Trauma Care",
+    "serviceICU": "Intensive Care Unit (ICU)",
+    "serviceBurnUnit": "Burn Unit",
+    "serviceObstetrics": "Obstetrics",
+    "serviceGynecology": "Gynecology",
+    "serviceFamilyPlanning": "Family Planning",
+    "serviceBreastHealth": "Breast Health",
+    "servicePrescriptionMedications": "Prescription Medications",
+    "serviceOTCMedications": "Over-the-Counter Medications",
+    "serviceVaccinations": "Vaccinations",
+    "servicePharmaceuticalConsultations": "Pharmaceutical Consultations",
+    "serviceCompoundingPharmacy": "Compounding Pharmacy",
+    "serviceHerbalMedicine": "Herbal Medicine",
+    "serviceCounseling": "Counseling",
+    "servicePsychotherapy": "Psychotherapy",
+    "serviceAddictionTreatment": "Addiction Treatment",
+    "serviceSupportGroups": "Support Groups",
+    "serviceBehavioralTherapy": "Behavioral Therapy",
+    "serviceAcupuncture": "Acupuncture",
+    "serviceChiropracticCare": "Chiropractic Care",
+    "serviceMassageTherapy": "Massage Therapy",
+    "serviceNaturopathy": "Naturopathy",
+    "serviceHomeopathy": "Homeopathy",
+    "selectPrefecture": "Select Prefecture",
+    "selectCity": "Select City",
+    "selectWard": "Select Ward",
+    "useCurrentLocation": "Use Current Location",
+    "prefectures": "Prefectures",
+    "citiesDistricts": "Cities / Districts",
+    "wardsAreas": "Wards / Areas",
+    "allOf": "All of {location}",
+    "@allOf": {
+        "placeholders": {
+            "location": {
+                "type": "String"
+            }
+        }
+    },
+    "searchEntirePrefecture": "Search entire prefecture",
+    "searchEntireCity": "Search entire city",
+    "locationError": "Unable to get location. Please enable location services and grant permission.",
+    "selectLocationError": "Please select a location or enable location services.",
+    "noServicesFound": "No services found",
+    "tryDifferentLocation": "Try searching in a different location or service type.",
+    "retry": "Retry"
 }

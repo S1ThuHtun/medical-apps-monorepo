@@ -4,7 +4,8 @@ import 'package:medinavi/services/auth_services.dart';
 import 'package:medinavi/widgets/login_screen_setting.dart';
 import 'package:medinavi/screens/home_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
+class SignUpScreen
+    extends StatefulWidget {
   const SignUpScreen({super.key});
 
   @override
@@ -13,14 +14,19 @@ class SignUpScreen extends StatefulWidget {
   }
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _SignUpScreenState
+    extends State<SignUpScreen> {
   var _isLogin = true;
-  final _formKey = GlobalKey<FormState>();
+  final _formKey =
+      GlobalKey<FormState>();
 
   //Controllers
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _confirmController = TextEditingController();
+  final _emailController =
+      TextEditingController();
+  final _passwordController =
+      TextEditingController();
+  final _confirmController =
+      TextEditingController();
 
   @override
   void dispose() {
@@ -31,54 +37,92 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _submit() async {
-    if (_formKey.currentState!.validate()) {
-      final email = _emailController.text;
-      final password = _passwordController.text;
+    if (_formKey.currentState!
+        .validate()) {
+      final email =
+          _emailController.text;
+      final password =
+          _passwordController.text;
 
       try {
         if (_isLogin) {
-          await authServices.value.signIn(email: email, password: password);
+          await authServices.value
+              .signIn(
+                email: email,
+                password: password,
+              );
 
           // Check if widget is still mounted before using context
           if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(
               SnackBar(
-                content: Text(AppLocalizations.of(context)!.loginAs(email)),
+                content: Text(
+                  AppLocalizations.of(
+                    context,
+                  )!.loginAs(email),
+                ),
                 //backgroundColor: Colors.green,
               ),
             );
-            
+
             // Navigate to HomeScreen after successful login
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            Navigator.of(
+              context,
+            ).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) =>
+                    const HomeScreen(),
+              ),
             );
           }
         } else {
-          await authServices.value.createAccount(
-            email: email,
-            password: password,
-          );
+          await authServices.value
+              .createAccount(
+                email: email,
+                password: password,
+              );
 
           // Check if widget is still mounted before using context
           if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(
               SnackBar(
-                content: Text(AppLocalizations.of(context)!.signedUpAs(email)),
+                content: Text(
+                  AppLocalizations.of(
+                    context,
+                  )!.signedUpAs(email),
+                ),
                 //backgroundColor: Colors.green,
               ),
             );
-            
+
             // Navigate to HomeScreen after successful sign up
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            Navigator.of(
+              context,
+            ).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) =>
+                    const HomeScreen(),
+              ),
             );
           }
         }
       } catch (e) {
         // Handle errors
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(e.toString()), backgroundColor: Colors.red),
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(
+            SnackBar(
+              content: Text(
+                e.toString(),
+              ),
+              backgroundColor:
+                  Colors.red,
+            ),
           );
         }
       }
@@ -105,7 +149,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Theme.of(
+          context,
+        ).colorScheme.primary,
         title: Image.asset(
           'assets/images/medinavi.png',
           width: 70,
@@ -117,9 +163,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
             builder: (context) {
               return IconButton(
                 onPressed: () {
-                  Scaffold.of(context).openEndDrawer();
+                  Scaffold.of(
+                    context,
+                  ).openEndDrawer();
                 },
-                icon: Icon(Icons.menu, color: Colors.white),
+                icon: Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                ),
               );
             },
           ),
@@ -129,62 +180,116 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment:
+              MainAxisAlignment.center,
           children: [
             Text(
               _isLogin
-                  ? AppLocalizations.of(context)!.login
-                  : AppLocalizations.of(context)!.signUp,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                  ? AppLocalizations.of(
+                      context,
+                    )!.login
+                  : AppLocalizations.of(
+                      context,
+                    )!.signUp,
+              style: TextStyle(
+                fontWeight:
+                    FontWeight.bold,
+                fontSize: 35,
+              ),
             ),
             SizedBox(height: 5),
 
             Card(
-              margin: const EdgeInsets.all(20),
+              margin:
+                  const EdgeInsets.all(
+                    20,
+                  ),
               child: SingleChildScrollView(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(
+                  20,
+                ),
                 child: Form(
                   key: _formKey,
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisSize:
+                        MainAxisSize
+                            .min,
                     children: [
                       TextFormField(
-                        controller: _emailController,
+                        controller:
+                            _emailController,
                         decoration: InputDecoration(
-                          labelText: AppLocalizations.of(context)!.emailAddress,
-                          border: OutlineInputBorder(),
+                          labelText:
+                              AppLocalizations.of(
+                                context,
+                              )!.emailAddress,
+                          border:
+                              OutlineInputBorder(),
                         ),
-                        keyboardType: TextInputType.emailAddress,
-                        autocorrect: false,
-                        textCapitalization: TextCapitalization.none,
+                        keyboardType:
+                            TextInputType
+                                .emailAddress,
+                        autocorrect:
+                            false,
+                        textCapitalization:
+                            TextCapitalization
+                                .none,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return AppLocalizations.of(context)!.enterEmail;
+                          if (value ==
+                                  null ||
+                              value
+                                  .isEmpty) {
+                            return AppLocalizations.of(
+                              context,
+                            )!.enterEmail;
                           }
-                          if (!RegExp(r'^\S+@\S+\.\S+$').hasMatch(value)) {
-                            return AppLocalizations.of(context)!.invalidEmail;
+                          if (!RegExp(
+                            r'^\S+@\S+\.\S+$',
+                          ).hasMatch(
+                            value,
+                          )) {
+                            return AppLocalizations.of(
+                              context,
+                            )!.invalidEmail;
                           }
                           return null;
                         },
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(
+                        height: 20,
+                      ),
 
                       TextFormField(
-                        controller: _passwordController,
+                        controller:
+                            _passwordController,
                         decoration: InputDecoration(
-                          labelText: AppLocalizations.of(context)!.password,
-                          border: OutlineInputBorder(),
+                          labelText:
+                              AppLocalizations.of(
+                                context,
+                              )!.password,
+                          border:
+                              OutlineInputBorder(),
                         ),
-                        autocorrect: false,
-                        textCapitalization: TextCapitalization.none,
-                        obscureText: true,
+                        autocorrect:
+                            false,
+                        textCapitalization:
+                            TextCapitalization
+                                .none,
+                        obscureText:
+                            true,
                         validator: (value) {
-                          if (value == null || value.isEmpty) {
+                          if (value ==
+                                  null ||
+                              value
+                                  .isEmpty) {
                             return AppLocalizations.of(
                               context,
                             )!.enteredPasswordMessage;
                           }
-                          if (value.trim().length < 6) {
+                          if (value
+                                  .trim()
+                                  .length <
+                              6) {
                             return AppLocalizations.of(
                               context,
                             )!.enteredPasswordErrorMessage;
@@ -192,27 +297,41 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(
+                        height: 20,
+                      ),
 
                       if (!_isLogin)
                         TextFormField(
-                          controller: _confirmController,
+                          controller:
+                              _confirmController,
                           decoration: InputDecoration(
-                            labelText: AppLocalizations.of(
-                              context,
-                            )!.confirmPassword,
-                            border: OutlineInputBorder(),
+                            labelText:
+                                AppLocalizations.of(
+                                  context,
+                                )!.confirmPassword,
+                            border:
+                                OutlineInputBorder(),
                           ),
-                          autocorrect: false,
-                          textCapitalization: TextCapitalization.none,
-                          obscureText: true,
+                          autocorrect:
+                              false,
+                          textCapitalization:
+                              TextCapitalization
+                                  .none,
+                          obscureText:
+                              true,
                           validator: (value) {
-                            if (value == null || value.isEmpty) {
+                            if (value ==
+                                    null ||
+                                value
+                                    .isEmpty) {
                               return AppLocalizations.of(
                                 context,
                               )!.confirmPasswordMessage;
                             }
-                            if (value != _passwordController.text) {
+                            if (value !=
+                                _passwordController
+                                    .text) {
                               return AppLocalizations.of(
                                 context,
                               )!.confirmPasswordErrorMessage;
@@ -220,27 +339,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             return null;
                           },
                         ),
-                      SizedBox(height: 40),
+                      SizedBox(
+                        height: 40,
+                      ),
 
                       ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          fixedSize: Size(200, 50),
-                        ),
-                        onPressed: _submit,
+                        style:
+                            ElevatedButton.styleFrom(
+                              fixedSize:
+                                  Size(
+                                    200,
+                                    50,
+                                  ),
+                            ),
+                        onPressed:
+                            _submit,
                         child: Text(
                           _isLogin
-                              ? AppLocalizations.of(context)!.login
-                              : AppLocalizations.of(context)!.signUp,
+                              ? AppLocalizations.of(
+                                  context,
+                                )!.login
+                              : AppLocalizations.of(
+                                  context,
+                                )!.signUp,
                         ),
                       ),
-                      SizedBox(height: 2),
+                      SizedBox(
+                        height: 2,
+                      ),
 
                       TextButton(
-                        onPressed: _toggleForm,
+                        onPressed:
+                            _toggleForm,
                         child: Text(
                           _isLogin
-                              ? AppLocalizations.of(context)!.newSignUp
-                              : AppLocalizations.of(context)!.oldLogin,
+                              ? AppLocalizations.of(
+                                  context,
+                                )!.newSignUp
+                              : AppLocalizations.of(
+                                  context,
+                                )!.oldLogin,
                         ),
                       ),
                     ],

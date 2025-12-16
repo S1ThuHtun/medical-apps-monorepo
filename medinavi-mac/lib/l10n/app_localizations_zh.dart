@@ -76,6 +76,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settings => '设置';
 
   @override
+  String get home => '首页';
+
+  @override
+  String get favorites => '收藏';
+
+  @override
+  String get history => '历史记录';
+
+  @override
   String get medicalServices => '医疗服务';
 
   @override

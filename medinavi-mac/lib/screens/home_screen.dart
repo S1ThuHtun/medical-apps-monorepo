@@ -295,20 +295,10 @@ class _HomeScreenState extends State<HomeScreen> {
         toolbarHeight: 80,
         title: Row(
           children: [
-            Container(
-              // padding: const EdgeInsets.all(12),
-              // decoration: BoxDecoration(
-              //   color: const Color(0xFF2E7D32).withOpacity(0.1),
-              //   borderRadius: BorderRadius.circular(12),
-              // ),
-              // child: const Icon(
-              //   Icons.local_hospital,
-              //   color: Color(0xFF2E7D32),
-              //   size: 28,
-              // ),
-              child: Image.asset('assets/images/MediNavi001.png'),
+            SizedBox(
               height: 50,
               width: 50,
+              child: Image.asset('assets/images/MediNavi001.png'),
             ),
             const SizedBox(width: 16),
             Expanded(

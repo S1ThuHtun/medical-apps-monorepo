@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medinavi/l10n/app_localizations.dart';
 import 'package:medinavi/services/auth_services.dart';
 import 'package:medinavi/widgets/login_screen_setting.dart';
-import 'package:medinavi/screens/home_screen.dart';
+import 'package:medinavi/screens/main_navigation_screen.dart';
 
 class SignUpScreen
     extends StatefulWidget {
@@ -67,13 +67,13 @@ class _SignUpScreenState
               ),
             );
 
-            // Navigate to HomeScreen after successful login
+            // Navigate to MainNavigationScreen after successful login
             Navigator.of(
               context,
             ).pushReplacement(
               MaterialPageRoute(
                 builder: (context) =>
-                    const HomeScreen(),
+                    const MainNavigationScreen(),
               ),
             );
           }
@@ -99,13 +99,13 @@ class _SignUpScreenState
               ),
             );
 
-            // Navigate to HomeScreen after successful sign up
+            // Navigate to MainNavigationScreen after successful sign up
             Navigator.of(
               context,
             ).pushReplacement(
               MaterialPageRoute(
                 builder: (context) =>
-                    const HomeScreen(),
+                    const MainNavigationScreen(),
               ),
             );
           }

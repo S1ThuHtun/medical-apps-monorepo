@@ -23,6 +23,9 @@
     "password" : "密码",
     "confirmPassword" : "确认密码",
     "settings" : "设置",
+    "home": "首页",
+    "favorites": "收藏",
+    "history": "历史记录",
 
     "_comment_home": "=== 主屏幕 ===",
     "medicalServices": "医疗服务",

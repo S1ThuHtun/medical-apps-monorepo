@@ -76,6 +76,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get settings => '設定';
 
   @override
+  String get home => 'ホーム';
+
+  @override
+  String get favorites => 'お気に入り';
+
+  @override
+  String get history => '履歴';
+
+  @override
   String get medicalServices => '医療サービス';
 
   @override

@@ -72,6 +72,9 @@
     "@settings" : {
         "description" : "Title of the endDrawer from the appbar in Login screen"
     },
+    "home": "Home",
+    "favorites": "Favorites",
+    "history": "History",
     "medicalServices": "Medical Services",
     "currentLocation": "Current Location",
     "language": "Language",

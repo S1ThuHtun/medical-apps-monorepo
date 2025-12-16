@@ -143,7 +143,6 @@ class SettingsScreen extends StatelessWidget {
                     // TODO: Navigate to notifications settings
                   },
                 ),
-                Divider(height: 1, color: Colors.grey[300]),
                 ListTile(
                   leading: const Icon(Icons.security_outlined, color: Color(0xFF2E7D32)),
                   title: const Text('Privacy & Security'),
@@ -201,12 +200,45 @@ class SettingsScreen extends StatelessWidget {
           // Logout Button
           ElevatedButton.icon(
             onPressed: () async {
-              await AuthServices().signOut();
-              if (context.mounted) {
-                Navigator.of(context).pushAndRemoveUntil(
-                  MaterialPageRoute(builder: (context) => const SignUpScreen()),
-                  (route) => false,
-                );
+              // Show confirmation dialog
+              final shouldLogout = await showDialog<bool>(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: Text(AppLocalizations.of(context)!.logOut),
+                    content: Text(AppLocalizations.of(context)!.logoutConfirmation),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(false),
+                        child: Text(
+                          AppLocalizations.of(context)!.cancel,
+                          style: const TextStyle(color: Colors.black54),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () => Navigator.of(context).pop(true),
+                        child: Text(
+                          AppLocalizations.of(context)!.logOut,
+                          style: const TextStyle(color: Colors.red),
+                        ),
+                      ),
+                    ],
+                  );
+                },
+              );
+
+              // If user confirmed, proceed with logout
+              if (shouldLogout == true && context.mounted) {
+                await AuthServices().signOut();
+                if (context.mounted) {
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                    (route) => false,
+                  );
+                }
               }
             },
             icon: const Icon(Icons.logout),
@@ -222,18 +254,18 @@ class SettingsScreen extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(height: 16),
+          // const SizedBox(height: 16),
 
-          // Version Info
-          Center(
-            child: Text(
-              'MediNavi v1.0.0',
-              style: TextStyle(
-                fontSize: 12,
-                color: Colors.grey[500],
-              ),
-            ),
-          ),
+          // // Version Info
+          // Center(
+          //   child: Text(
+          //     'MediNavi v1.0.0',
+          //     style: TextStyle(
+          //       fontSize: 12,
+          //       color: Colors.grey[500],
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );

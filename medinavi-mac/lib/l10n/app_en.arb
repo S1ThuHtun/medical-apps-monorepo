@@ -44,6 +44,14 @@
     "@logOut" : {
         "description" : "Text for Logout"
     },
+    "logoutConfirmation" : "Are you sure you want to logout?",
+    "@logoutConfirmation" : {
+        "description" : "Confirmation message before logging out"
+    },
+    "cancel" : "Cancel",
+    "@cancel" : {
+        "description" : "Text for Cancel button"
+    },
     "signUp" : "SignUp",
     "@signUp" : {
         "description" : "Text for SignUp"

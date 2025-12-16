@@ -55,6 +55,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get logOut => 'ログアウト';
 
   @override
+  String get logoutConfirmation => '本当にログアウトしますか？';
+
+  @override
+  String get cancel => 'キャンセル';
+
+  @override
   String get signUp => '新規登録';
 
   @override

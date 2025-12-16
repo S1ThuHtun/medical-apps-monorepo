@@ -16,6 +16,8 @@
     "confirmPasswordMessage" : "请确认密码",
     "confirmPasswordErrorMessage" : "密码与确认密码不一致",
     "logOut" : "登出",
+    "logoutConfirmation" : "您确定要登出吗？",
+    "cancel" : "取消",
     "signUp" : "注册新账户",
     "newSignUp" : "还没有账户？注册新账户",
     "oldLogin" : "已有账户？请登录",

@@ -216,72 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  void _showSettingsMenu() {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (BuildContext context) {
-        return Container(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: 40,
-                height: 4,
-                margin: const EdgeInsets.only(bottom: 20),
-                decoration: BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: BorderRadius.circular(2),
-                ),
-              ),
-              ListTile(
-                leading: const Icon(Icons.language, color: Color(0xFF2E7D32)),
-                title: Text(AppLocalizations.of(context)!.language),
-                trailing: const Icon(Icons.chevron_right),
-                onTap: () {
-                  Navigator.pop(context);
-                  languageSelection(context);
-                },
-              ),
-              const Divider(),
-              ListTile(
-                leading: const Icon(Icons.logout, color: Colors.red),
-                title: Text(AppLocalizations.of(context)!.logout, style: const TextStyle(color: Colors.red)),
-                onTap: () async {
-                  Navigator.pop(context);
-                  await _handleLogout();
-                },
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
 
-  Future<void> _handleLogout() async {
-    try {
-      await authServices.value.signOut();
-      if (mounted) {
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const SignUpScreen()),
-          (route) => false,
-        );
-      }
-    } catch (e) {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text('Error logging out: $e'),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -350,11 +285,6 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(Icons.arrow_drop_down),
             onPressed: _showLocationSelector,
-            color: const Color(0xFF2E7D32),
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: _showSettingsMenu,
             color: const Color(0xFF2E7D32),
           ),
           const SizedBox(width: 8),

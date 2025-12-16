@@ -55,6 +55,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get logOut => '登出';
 
   @override
+  String get logoutConfirmation => '您确定要登出吗？';
+
+  @override
+  String get cancel => '取消';
+
+  @override
   String get signUp => '注册新账户';
 
   @override

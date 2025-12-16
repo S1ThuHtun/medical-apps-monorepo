@@ -16,6 +16,8 @@
     "confirmPasswordMessage" : "パスワード（確認）を入力してください",
     "confirmPasswordErrorMessage" : "パスワードと確認用パスワードが一致しません",
     "logOut" : "ログアウト",
+    "logoutConfirmation" : "本当にログアウトしますか？",
+    "cancel" : "キャンセル",
     "signUp" : "新規登録",
     "newSignUp" : "アカウントをお持ちでないですか？新規登録",
     "oldLogin" : "アカウントはお持ちですか？ログイン",

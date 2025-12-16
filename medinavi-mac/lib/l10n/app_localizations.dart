@@ -184,6 +184,18 @@ abstract class AppLocalizations {
   /// **'Logout'**
   String get logOut;
 
+  /// Confirmation message before logging out
+  ///
+  /// In en, this message translates to:
+  /// **'Are you sure you want to logout?'**
+  String get logoutConfirmation;
+
+  /// Text for Cancel button
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
   /// Text for SignUp
   ///
   /// In en, this message translates to:

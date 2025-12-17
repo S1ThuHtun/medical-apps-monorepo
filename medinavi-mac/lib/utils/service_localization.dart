@@ -12,7 +12,7 @@ String getLocalizedServiceName(String serviceName, AppLocalizations localization
     'ENT': localizations.serviceENT,
     'Dentistry': localizations.serviceDentistry,
     'Pediatrics': localizations.servicePediatrics,
-    'OB/GYN': localizations.serviceOBGYN,
+    'OG/GYN': localizations.serviceOBGYN,
     'Psychiatry': localizations.servicePsychiatry,
     'Psychosomatic Medicine': localizations.servicePsychosomaticMedicine,
   };

@@ -769,7 +769,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get serviceDentistry => 'Dentistry';
 
   @override
-  String get serviceOBGYN => 'OB/GYN';
+  String get serviceOBGYN => 'OG/GYN';
 
   @override
   String get servicePsychosomaticMedicine => 'Psychosomatic Medicine';

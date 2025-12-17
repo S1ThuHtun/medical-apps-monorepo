@@ -89,6 +89,20 @@ const Map<String, dynamic> medicalServicesData = {
 
 // Map service types to Google Places types
 const Map<String, String> serviceToPlacesType = {
+  // Core 11 Medical Services
+  "Internal Medicine": "doctor",
+  "Surgery": "hospital",
+  "Orthopedics": "doctor",
+  "Dermatology": "doctor",
+  "Ophthalmology": "doctor",
+  "ENT": "doctor",
+  "Dentistry": "dentist",
+  "Pediatrics": "doctor",
+  "OG/GYN": "doctor",
+  "Psychiatry": "doctor",
+  "Psychosomatic Medicine": "doctor",
+
+  // Legacy service mappings
   "General Medicine": "doctor",
   "Emergency Care": "hospital",
   "Family Medicine": "doctor",
@@ -96,17 +110,12 @@ const Map<String, String> serviceToPlacesType = {
   "Health Check-ups": "health",
   "Urgent Care": "hospital",
   "Cardiology": "hospital",
-  "Dermatology": "doctor",
   "Endocrinology": "doctor",
   "Gastroenterology": "doctor",
   "Hematology": "doctor",
   "Nephrology": "doctor",
   "Neurology": "doctor",
   "Obstetrics and Gynecology": "doctor",
-  "Ophthalmology": "doctor",
-  "Orthopedics": "doctor",
-  "Pediatrics": "doctor",
-  "Psychiatry": "doctor",
   "Rheumatology": "doctor",
   "Pulmonology": "doctor",
   "Urology": "doctor",

@@ -1585,7 +1585,7 @@ abstract class AppLocalizations {
   /// No description provided for @serviceOBGYN.
   ///
   /// In en, this message translates to:
-  /// **'OB/GYN'**
+  /// **'OG/GYN'**
   String get serviceOBGYN;
 
   /// No description provided for @servicePsychosomaticMedicine.

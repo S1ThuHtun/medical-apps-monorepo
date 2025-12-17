@@ -325,6 +325,6 @@
     "serviceSurgery": "Surgery",
     "serviceENT": "ENT",
     "serviceDentistry": "Dentistry",
-    "serviceOBGYN": "OB/GYN",
+    "serviceOBGYN": "OG/GYN",
     "servicePsychosomaticMedicine": "Psychosomatic Medicine"
 }

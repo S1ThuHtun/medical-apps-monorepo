@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:math';
 import '../data/medical_services_data.dart';
 import '../data/prefecture_data.dart';
@@ -20,7 +21,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMixin {
   final GooglePlacesService _placesService = GooglePlacesService();
   List<MedicalService> _nearbyServices = [];
   bool _isLoading = false;
@@ -33,9 +34,34 @@ class _HomeScreenState extends State<HomeScreen> {
   LocationData? _selectedLocation;
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   void initState() {
     super.initState();
-    _getCurrentLocation();
+    _initializeScreen();
+  }
+
+  Future<void> _initializeScreen() async {
+    // Load saved service first
+    await _loadSavedService();
+    // Then get location and search
+    await _getCurrentLocation();
+  }
+
+  Future<void> _loadSavedService() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedService = prefs.getString('selectedService');
+    if (savedService != null && mounted) {
+      setState(() {
+        _selectedService = savedService;
+      });
+    }
+  }
+
+  Future<void> _saveSelectedService(String serviceName) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('selectedService', serviceName);
   }
 
   @override
@@ -59,8 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
         _isLoading = false;
       });
 
-      // Auto-search for nearby hospitals on app start
-      await _searchNearbyServices('Internal Medicine');
+      // Auto-search for nearby services on app start using the selected service
+      await _searchNearbyServices(_selectedService ?? 'Internal Medicine');
     } else {
       print('🏥 HomeScreen: Failed to get location - ${result.error}');
       setState(() => _isLoading = false);
@@ -122,6 +148,9 @@ class _HomeScreenState extends State<HomeScreen> {
       _isLoading = true;
       _selectedService = serviceName;
     });
+
+    // Save the selected service to SharedPreferences
+    await _saveSelectedService(serviceName);
 
     final placeType = serviceToPlacesType[serviceName] ?? 'hospital';
 
@@ -202,10 +231,10 @@ class _HomeScreenState extends State<HomeScreen> {
               _selectedCity = city;
               _selectedWard = ward;
               _nearbyServices.clear();
-              _selectedService = 'Internal Medicine';
+              // Keep the currently selected service
             });
-            // Auto-search for Internal Medicine in the selected location
-            _searchNearbyServices('Internal Medicine');
+            // Auto-search using the currently selected service in the new location
+            _searchNearbyServices(_selectedService ?? 'Internal Medicine');
           },
         ),
       ),
@@ -216,6 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context); // Required for AutomaticKeepAliveClientMixin
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
@@ -323,7 +353,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     'ENT',
                     'Dentistry',
                     'Pediatrics',
-                    'OB/GYN',
+                    'OG/GYN',
                     'Psychiatry',
                     'Psychosomatic Medicine',
                   ];

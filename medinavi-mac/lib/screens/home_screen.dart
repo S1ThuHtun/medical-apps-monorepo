@@ -43,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void dispose() {
-    // Clean up resources here if needed
     super.dispose();
   }
 
@@ -283,9 +282,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.arrow_drop_down),
+            icon: Image.asset(
+              'assets/images/japan.png',
+              color: const Color(0xFF2E7D32),
+              width: 40,
+              height: 40,
+            ),
             onPressed: _showLocationSelector,
-            color: const Color(0xFF2E7D32),
           ),
           const SizedBox(width: 8),
         ],
@@ -322,6 +325,18 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        elevation: 20,
+        shape: const CircleBorder(),
+        onPressed: () {
+          // TODO: Add action for FAB
+        },
+        backgroundColor: const Color(0xFF2E7D32),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Image.asset('assets/images/medinavi.png',color: Colors.white,),
         ),
       ),
     );

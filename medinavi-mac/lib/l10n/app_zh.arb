@@ -272,5 +272,11 @@
     "areaCanal": "运河城",
     "areaTenjinCentral": "天神中央",
     "areaChinatown": "唐人街",
-    "areaMinatoMirai": "港未来"
+    "areaMinatoMirai": "港未来",
+    "serviceInternalMedicine": "内科",
+    "serviceSurgery": "外科",
+    "serviceENT": "耳鼻喉科",
+    "serviceDentistry": "牙科",
+    "serviceOBGYN": "妇产科",
+    "servicePsychosomaticMedicine": "心身医学"
 }

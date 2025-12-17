@@ -1557,6 +1557,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Minato Mirai'**
   String get areaMinatoMirai;
+
+  /// No description provided for @serviceInternalMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Internal Medicine'**
+  String get serviceInternalMedicine;
+
+  /// No description provided for @serviceSurgery.
+  ///
+  /// In en, this message translates to:
+  /// **'Surgery'**
+  String get serviceSurgery;
+
+  /// No description provided for @serviceENT.
+  ///
+  /// In en, this message translates to:
+  /// **'ENT'**
+  String get serviceENT;
+
+  /// No description provided for @serviceDentistry.
+  ///
+  /// In en, this message translates to:
+  /// **'Dentistry'**
+  String get serviceDentistry;
+
+  /// No description provided for @serviceOBGYN.
+  ///
+  /// In en, this message translates to:
+  /// **'OB/GYN'**
+  String get serviceOBGYN;
+
+  /// No description provided for @servicePsychosomaticMedicine.
+  ///
+  /// In en, this message translates to:
+  /// **'Psychosomatic Medicine'**
+  String get servicePsychosomaticMedicine;
 }
 
 class _AppLocalizationsDelegate

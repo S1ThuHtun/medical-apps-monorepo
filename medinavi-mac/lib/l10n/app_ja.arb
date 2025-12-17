@@ -272,5 +272,11 @@
     "areaCanal": "キャナルシティ",
     "areaTenjinCentral": "天神中央",
     "areaChinatown": "中華街",
-    "areaMinatoMirai": "みなとみらい"
+    "areaMinatoMirai": "みなとみらい",
+    "serviceInternalMedicine": "内科",
+    "serviceSurgery": "外科",
+    "serviceENT": "耳鼻咽喉科",
+    "serviceDentistry": "歯科",
+    "serviceOBGYN": "産婦人科",
+    "servicePsychosomaticMedicine": "心療内科"
 }

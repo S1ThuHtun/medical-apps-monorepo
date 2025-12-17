@@ -748,4 +748,22 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get areaMinatoMirai => '港未来';
+
+  @override
+  String get serviceInternalMedicine => '内科';
+
+  @override
+  String get serviceSurgery => '外科';
+
+  @override
+  String get serviceENT => '耳鼻喉科';
+
+  @override
+  String get serviceDentistry => '牙科';
+
+  @override
+  String get serviceOBGYN => '妇产科';
+
+  @override
+  String get servicePsychosomaticMedicine => '心身医学';
 }

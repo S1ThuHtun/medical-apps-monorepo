@@ -748,4 +748,22 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get areaMinatoMirai => 'みなとみらい';
+
+  @override
+  String get serviceInternalMedicine => '内科';
+
+  @override
+  String get serviceSurgery => '外科';
+
+  @override
+  String get serviceENT => '耳鼻咽喉科';
+
+  @override
+  String get serviceDentistry => '歯科';
+
+  @override
+  String get serviceOBGYN => '産婦人科';
+
+  @override
+  String get servicePsychosomaticMedicine => '心療内科';
 }

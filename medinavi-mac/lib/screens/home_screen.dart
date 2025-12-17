@@ -5,16 +5,13 @@ import '../data/medical_services_data.dart';
 import '../data/prefecture_data.dart';
 import '../models/medical_service.dart';
 import '../services/google_places_service.dart';
-import '../services/auth_services.dart';
-import '../utils/language_selection_utils.dart';
 import '../utils/prefecture_localization.dart';
+import '../utils/service_localization.dart';
 import '../widgets/category_tabs_widget.dart';
-import '../widgets/service_grid_widget.dart';
 import '../widgets/results_header_widget.dart';
 import '../widgets/services_list_widget.dart';
 import '../widgets/location_selector_screen_widget.dart';
 import '../l10n/app_localizations.dart';
-import 'sign_up_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -29,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool _isLoading = false;
   Position? _currentPosition;
   String _selectedCategory = 'General Services';
-  String? _selectedService = 'General Medicine';
+  String? _selectedService = 'Internal Medicine';
   String? _selectedPrefecture;
   String? _selectedCity;
   String? _selectedWard;
@@ -63,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
 
       // Auto-search for nearby hospitals on app start
-      await _searchNearbyServices('General Medicine');
+      await _searchNearbyServices('Internal Medicine');
     } else {
       print('🏥 HomeScreen: Failed to get location - ${result.error}');
       setState(() => _isLoading = false);
@@ -205,10 +202,10 @@ class _HomeScreenState extends State<HomeScreen> {
               _selectedCity = city;
               _selectedWard = ward;
               _nearbyServices.clear();
-              _selectedService = 'General Medicine';
+              _selectedService = 'Internal Medicine';
             });
-            // Auto-search for General Medicine in the selected location
-            _searchNearbyServices('General Medicine');
+            // Auto-search for Internal Medicine in the selected location
+            _searchNearbyServices('Internal Medicine');
           },
         ),
       ),
@@ -308,10 +305,63 @@ class _HomeScreenState extends State<HomeScreen> {
                 });
               },
             ),
-            ServiceGridWidget(
-              selectedCategory: _selectedCategory,
-              selectedService: _selectedService,
-              onServiceSelected: _searchNearbyServices,
+            // Services ListView
+            Container(
+              height: 60,
+              padding: const EdgeInsets.symmetric(vertical: 8),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                itemCount: 11,
+                itemBuilder: (context, index) {
+                  final services = [
+                    'Internal Medicine',
+                    'Surgery',
+                    'Orthopedics',
+                    'Dermatology',
+                    'Ophthalmology',
+                    'ENT',
+                    'Dentistry',
+                    'Pediatrics',
+                    'OB/GYN',
+                    'Psychiatry',
+                    'Psychosomatic Medicine',
+                  ];
+                  final serviceName = services[index];
+                  final isSelected = _selectedService == serviceName;
+                  
+                  return GestureDetector(
+                    onTap: () => _searchNearbyServices(serviceName),
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 12),
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                      decoration: BoxDecoration(
+                        color: isSelected ? const Color(0xFF2E7D32) : Colors.white,
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 4,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: Center(
+                        child: Text(
+                          getLocalizedServiceName(serviceName, AppLocalizations.of(context)!),
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: isSelected ? Colors.white : Colors.black,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
             if (_nearbyServices.isNotEmpty)
               ResultsHeaderWidget(serviceCount: _nearbyServices.length),

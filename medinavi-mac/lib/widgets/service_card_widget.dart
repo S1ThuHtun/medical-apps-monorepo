@@ -55,7 +55,7 @@ class ServiceCardWidget extends StatelessWidget {
                     Text(
                       getLocalizedServiceName(service.name, AppLocalizations.of(context)!),
                       style: const TextStyle(
-                        fontSize: 16,
+                        fontSize: 13,
                         fontWeight: FontWeight.w600,
                       ),
                       maxLines: 1,

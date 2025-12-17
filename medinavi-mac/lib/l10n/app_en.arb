@@ -320,5 +320,11 @@
     "areaCanal": "Canal City",
     "areaTenjinCentral": "Tenjin Central",
     "areaChinatown": "Chinatown",
-    "areaMinatoMirai": "Minato Mirai"
+    "areaMinatoMirai": "Minato Mirai",
+    "serviceInternalMedicine": "Internal Medicine",
+    "serviceSurgery": "Surgery",
+    "serviceENT": "ENT",
+    "serviceDentistry": "Dentistry",
+    "serviceOBGYN": "OB/GYN",
+    "servicePsychosomaticMedicine": "Psychosomatic Medicine"
 }

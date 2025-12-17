@@ -755,4 +755,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get areaMinatoMirai => 'Minato Mirai';
+
+  @override
+  String get serviceInternalMedicine => 'Internal Medicine';
+
+  @override
+  String get serviceSurgery => 'Surgery';
+
+  @override
+  String get serviceENT => 'ENT';
+
+  @override
+  String get serviceDentistry => 'Dentistry';
+
+  @override
+  String get serviceOBGYN => 'OB/GYN';
+
+  @override
+  String get servicePsychosomaticMedicine => 'Psychosomatic Medicine';
 }

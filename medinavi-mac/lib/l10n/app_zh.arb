@@ -1,0 +1,365 @@
+{
+  "@@locale": "zh",
+  "selectLanguage": "选择语言",
+  "@selectLanguage": {
+    "description": "Asking the user what Language would they like to start the app with"
+  },
+  "getStarted": "开始使用",
+  "@getStarted": {
+    "description": "The text to go to the SignUp and Login screen"
+  },
+  "chooseLanguage": "选择语言",
+  "@chooseLanguage": {
+    "description": "Shows the title of the language selection box when the language selection is pressed"
+  },
+  "selectedLanguage": "已选择中文",
+  "@selectedLanguage": {
+    "description": "Shows what language is selected in the messagebox"
+  },
+  "login": "登录",
+  "@login": {
+    "description": "Text for Login"
+  },
+  "loginAs": "已登录为{email}",
+  "@loginAs": {
+    "description": "After logged the snackbar will show logged in as email",
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "signedUpAs": "已注册为{email}",
+  "@signedUpAs": {
+    "description": "After signed up the snackbar will show signed up as email",
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "enterEmail": "请输入您的电子邮件",
+  "@enterEmail": {
+    "description": "When user is not filling email, this message will be shown"
+  },
+  "invalidEmail": "无效的电子邮件格式",
+  "@invalidEmail": {
+    "description": "When user input invalid method, this message will show"
+  },
+  "enteredPasswordMessage": "输入密码",
+  "enteredPasswordErrorMessage": "密码必须至少6个字符",
+  "confirmPasswordMessage": "确认密码",
+  "confirmPasswordErrorMessage": "密码和确认密码不匹配",
+  "logOut": "登出",
+  "@logOut": {
+    "description": "Text for Logout"
+  },
+  "signUp": "注册",
+  "@signUp": {
+    "description": "Text for SignUp"
+  },
+  "newSignUp": "还没有账户？注册",
+  "@newSignUp": {
+    "description": "Text for SignUp new users"
+  },
+  "oldLogin": "已有账户！登录",
+  "@oldLogin": {
+    "description": "Text for old users to login"
+  },
+  "emailAddress": "电子邮件地址",
+  "@emailAddress": {
+    "description": "Input for email address"
+  },
+  "password": "密码",
+  "@password": {
+    "description": "Adding password for the mail"
+  },
+  "confirmPassword": "确认密码",
+  "@confirmPassword": {
+    "description": "Adding the same password for confirmation"
+  },
+  "settings": "设置",
+  "@settings": {
+    "description": "Title of the endDrawer from the appbar in Login screen"
+  },
+  "medicalServices": "医疗服务",
+  "currentLocation": "当前位置",
+  "language": "语言",
+  "logout": "登出",
+  "foundNearby": "附近找到{count}个",
+  "@foundNearby": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "within5km": "5公里内",
+  "kmAway": "{distance}公里远",
+  "@kmAway": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  "open": "营业中",
+  "closed": "已关闭",
+  "viewOnMap": "在地图上查看",
+  "call": "拨打电话",
+  "directions": "路线",
+  "address": "地址",
+  "openNow": "现在营业",
+  "away": "{distance}公里远",
+  "@away": {
+    "placeholders": {
+      "distance": {
+        "type": "Object"
+      }
+    }
+  },
+  "getDirections": "获取路线",
+  "updateRoute": "更新路线",
+  "visitWebsite": "访问网站",
+  "wheelchairAccessible": "轮椅可达",
+  "limitedWheelchairAccess": "轮椅有限通行",
+  "openInGoogleMaps": "在谷歌地图中打开",
+  "noPhoneAvailable": "此服务没有电话号码",
+  "invalidPhoneFormat": "无效的电话号码格式",
+  "cannotOpenPhoneDialer": "无法打开拨号器",
+  "errorOpeningMaps": "无法打开谷歌地图",
+  "categoryGeneralServices": "综合服务",
+  "categorySpecializedServices": "专科服务",
+  "categorySurgicalServices": "外科服务",
+  "categoryRehabilitationServices": "康复服务",
+  "categoryDiagnosticServices": "诊断服务",
+  "categoryEmergencyServices": "急诊服务",
+  "categoryMaternityWomensHealth": "妇产科与女性健康",
+  "categoryPharmacyServices": "药房服务",
+  "categoryMentalHealthServices": "心理健康服务",
+  "categoryAlternativeMedicine": "替代医学",
+  "serviceGeneralMedicine": "内科",
+  "serviceEmergencyCare": "急诊医疗",
+  "serviceFamilyMedicine": "家庭医学",
+  "servicePreventativeMedicine": "预防医学",
+  "serviceHealthCheckups": "健康检查",
+  "serviceUrgentCare": "紧急医疗",
+  "serviceCardiology": "心脏科",
+  "serviceDermatology": "皮肤科",
+  "serviceEndocrinology": "内分泌科",
+  "serviceGastroenterology": "消化内科",
+  "serviceHematology": "血液科",
+  "serviceNephrology": "肾脏科",
+  "serviceNeurology": "神经科",
+  "serviceObstetricsGynecology": "妇产科",
+  "serviceOphthalmology": "眼科",
+  "serviceOrthopedics": "骨科",
+  "servicePediatrics": "儿科",
+  "servicePsychiatry": "精神科",
+  "serviceRheumatology": "风湿科",
+  "servicePulmonology": "呼吸科",
+  "serviceUrology": "泌尿科",
+  "serviceGeneralSurgery": "普通外科",
+  "serviceCardiacSurgery": "心脏外科",
+  "serviceOrthopedicSurgery": "骨科手术",
+  "serviceNeurosurgery": "神经外科",
+  "servicePlasticSurgery": "整形外科",
+  "servicePediatricSurgery": "小儿外科",
+  "serviceObstetricSurgery": "产科手术",
+  "serviceTraumaSurgery": "创伤外科",
+  "servicePhysicalTherapy": "物理治疗",
+  "serviceOccupationalTherapy": "职业治疗",
+  "serviceSpeechTherapy": "语言治疗",
+  "serviceCardiacRehabilitation": "心脏康复",
+  "serviceNeurologicalRehabilitation": "神经康复",
+  "serviceLaboratoryTests": "实验室检测",
+  "serviceRadiology": "放射科",
+  "servicePathology": "病理学",
+  "serviceEndoscopy": "内窥镜检查",
+  "serviceECG": "心电图",
+  "serviceEEG": "脑电图",
+  "serviceEmergencyRoom": "急诊室（ER）",
+  "serviceTraumaCare": "创伤护理",
+  "serviceICU": "重症监护室（ICU）",
+  "serviceBurnUnit": "烧伤病房",
+  "serviceObstetrics": "产科",
+  "serviceGynecology": "妇科",
+  "serviceFamilyPlanning": "计划生育",
+  "serviceBreastHealth": "乳房健康",
+  "servicePrescriptionMedications": "处方药",
+  "serviceOTCMedications": "非处方药",
+  "serviceVaccinations": "疫苗接种",
+  "servicePharmaceuticalConsultations": "药物咨询",
+  "serviceCompoundingPharmacy": "配药房",
+  "serviceHerbalMedicine": "中药",
+  "serviceCounseling": "咨询",
+  "servicePsychotherapy": "心理治疗",
+  "serviceAddictionTreatment": "成瘾治疗",
+  "serviceSupportGroups": "支持小组",
+  "serviceBehavioralTherapy": "行为疗法",
+  "serviceAcupuncture": "针灸",
+  "serviceChiropracticCare": "脊椎按摩疗法",
+  "serviceMassageTherapy": "按摩疗法",
+  "serviceNaturopathy": "自然疗法",
+  "serviceHomeopathy": "顺势疗法",
+  "selectPrefecture": "选择都道府县",
+  "selectCity": "选择城市",
+  "selectWard": "选择区",
+  "useCurrentLocation": "使用当前位置",
+  "prefectures": "都道府县",
+  "citiesDistricts": "城市/地区",
+  "wardsAreas": "区/地区",
+  "allOf": "全部{location}",
+  "@allOf": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      }
+    }
+  },
+  "searchEntirePrefecture": "搜索整个都道府县",
+  "searchEntireCity": "搜索整个城市",
+  "locationError": "无法获取位置信息。请启用位置服务并授予权限。",
+  "selectLocationError": "请选择位置或启用位置服务。",
+  "noServicesFound": "未找到服务",
+  "tryDifferentLocation": "请尝试在不同位置或服务类型中搜索。",
+  "retry": "重试",
+  "gettingLocation": "正在获取您的位置...",
+  "locationNotAvailable": "位置不可用",
+  "pullDownToRefresh": "下拉刷新或选择位置以查找附近的医疗服务",
+  "prefectureTokyo": "东京都",
+  "prefectureOsaka": "大阪府",
+  "prefectureKyoto": "京都府",
+  "prefectureHokkaido": "北海道",
+  "prefectureFukuoka": "福冈县",
+  "prefectureYokohama": "横滨市",
+  "prefectureNagoya": "名古屋市",
+  "prefectureKobe": "神户市",
+  "prefectureHiroshima": "广岛县",
+  "prefectureSendai": "仙台市",
+  "prefectureChiba": "千叶县",
+  "prefectureKanagawa": "神奈川县",
+  "prefectureSaitama": "埼玉县",
+  "prefectureShizuoka": "静冈县",
+  "prefectureAichi": "爱知县",
+  "prefectureHyogo": "兵库县",
+  "prefectureNiigata": "新潟县",
+  "prefectureMiyagi": "宫城县",
+  "prefectureNagano": "长野县",
+  "prefectureGifu": "岐阜县",
+  "prefectureGunma": "群马县",
+  "prefectureTochigi": "栃木县",
+  "prefectureIbaraki": "茨城县",
+  "prefectureOkayama": "冈山县",
+  "prefectureKumamoto": "熊本县",
+  "prefectureKagoshima": "鹿儿岛县",
+  "prefectureOkinawa": "冲绳县",
+  "prefectureNara": "奈良县",
+  "prefectureShiga": "滋贺县",
+  "prefectureMie": "三重县",
+  "prefectureWakayama": "和歌山县",
+  "prefectureYamaguchi": "山口县",
+  "prefectureEhime": "爱媛县",
+  "prefectureKagawa": "香川县",
+  "prefectureTokushima": "德岛县",
+  "prefectureKochi": "高知县",
+  "prefectureFukushima": "福岛县",
+  "prefectureYamagata": "山形县",
+  "prefectureIwate": "岩手县",
+  "prefectureAkita": "秋田县",
+  "prefectureAomori": "青森县",
+  "prefectureIshikawa": "石川县",
+  "prefectureFukui": "福井县",
+  "prefectureToyama": "富山县",
+  "prefectureYamanashi": "山梨县",
+  "prefectureSaga": "佐贺县",
+  "prefectureNagasaki": "长崎县",
+  "prefectureOita": "大分县",
+  "prefectureMiyazaki": "宫崎县",
+  "cityShibuya": "涩谷区",
+  "cityShinjuku": "新宿区",
+  "cityChiyoda": "千代田区",
+  "cityMinato": "港区",
+  "citySetagaya": "世田谷区",
+  "cityKita": "北区",
+  "cityChuo": "中央区",
+  "cityTennoji": "天王寺区",
+  "cityShimogyo": "下京区",
+  "cityHigashiyama": "东山区",
+  "citySakyo": "左京区",
+  "citySapporo": "札幌市",
+  "cityHakodate": "函馆市",
+  "cityAsahikawa": "旭川市",
+  "cityHakata": "博多区",
+  "cityTenjin": "天神",
+  "cityNaka": "中区",
+  "wardShibuya": "涩谷区",
+  "wardShinjuku": "新宿区",
+  "wardChiyoda": "千代田区",
+  "wardTennoji": "天王寺区",
+  "areaHarajuku": "原宿",
+  "areaEbisu": "惠比寿",
+  "areaKabukicho": "歌舞伎町",
+  "areaYotsuya": "四谷",
+  "areaMarunouchi": "丸之内",
+  "areaAkihabara": "秋叶原",
+  "areaKanda": "神田",
+  "areaRoppongi": "六本木",
+  "areaAzabu": "麻布",
+  "areaOdaiba": "台场",
+  "areaShimokitazawa": "下北泽",
+  "areaSangenjaya": "三轩茶屋",
+  "areaUmeda": "梅田",
+  "areaNakanoshima": "中之岛",
+  "areaNamba": "难波",
+  "areaShinsaibashi": "心斋桥",
+  "areaDotonbori": "道顿堀",
+  "areaAbeno": "阿倍野",
+  "areaKyotoStation": "京都站周边",
+  "areaGion": "祇园",
+  "areaKiyomizu": "清水",
+  "areaGinkakuji": "银阁寺周边",
+  "areaChuo": "中央",
+  "areaKita": "北",
+  "areaSusukino": "薄野",
+  "areaHakataStation": "博多站周边",
+  "areaCanal": "运河城",
+  "areaTenjinCentral": "天神中央",
+  "areaChinatown": "唐人街",
+  "areaMinatoMirai": "港未来",
+  "chatbotWelcome": "你好 我是你的医疗助手。你可以对我说话或输入问题。今天我能帮你什么",
+  "medicalAssistant": "医疗助手",
+  "detailed": "详细",
+  "quick": "快速",
+  "responseType": "回复类型",
+  "quickMode": "快速模式",
+  "quickModeDesc": "快速简洁的回答",
+  "detailedMode": "详细模式",
+  "detailedModeDesc": "全面的医疗信息",
+  "quickModeActivated": "⚡ 快速模式已激活",
+  "detailedModeActivated": "📋 详细模式已激活",
+  "chatCleared": "✅ 聊天记录已清除",
+  "thinking": "正在思考...",
+  "overloaded": "服务目前过载。请稍后再试。",
+  "errorOccurred": "发生错误。请再试一次。",
+  "networkError": "网络错误。请检查您的连接。",
+  "speechNotAvailable": "语音识别不可用",
+  "micPermissionRequired": "语音输入需要麦克风权限",
+  "voiceInputError": "语音输入发生错误",
+  "processing": "明白了。正在处理。",
+  "listening": "正在听...",
+  "typeOrSpeak": "输入或说出您的症状",
+  "you": "你",
+  "assistant": "助手",
+  "findNearbyFacilities": "🏥 查找附近设施",
+  "noDepartmentDetected": "尚未推荐医疗部门。请先描述您的症状。",
+  "askAssistant": "询问AI助手",
+  "searchingForService": "正在搜索{service}...",
+  "@searchingForService": {
+    "placeholders": {
+      "service": {
+        "type": "String"
+      }
+    }
+  }
+}

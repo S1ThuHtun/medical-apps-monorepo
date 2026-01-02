@@ -1,0 +1,509 @@
+{
+  "@@locale": "ja",
+  
+  "selectLanguage": "言語を選択",
+  "@selectLanguage": {
+    "description": "Asking the user what Language would they like to start the app with"
+  },
+  
+  "getStarted": "始める",
+  "@getStarted": {
+    "description": "The text to go to the SignUp and Login screen"
+  },
+  
+  "chooseLanguage": "言語を選択してください",
+  "@chooseLanguage": {
+    "description": "Shows the title of the language selection box when the language selection is pressed"
+  },
+  
+  "selectedLanguage": "日本語が選択されています",
+  "@selectedLanguage": {
+    "description": "Shows what language is selected in the messagebox"
+  },
+  
+  "login": "ログイン",
+  "@login": {
+    "description": "Text for Login"
+  },
+  
+  "loginAs": "{email}としてログインしました",
+  "@loginAs": {
+    "description": "After logged the snackbar will show logged in as email",
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "signedUpAs": "{email}として登録しました",
+  "@signedUpAs": {
+    "description": "After signed up the snackbar will show signed up as email",
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "enterEmail": "メールアドレスを入力してください",
+  "@enterEmail": {
+    "description": "When user is not filling email, this message will be shown"
+  },
+  
+  "invalidEmail": "無効なメールアドレス形式です",
+  "@invalidEmail": {
+    "description": "When user input invalid method, this message will show"
+  },
+  
+  "enteredPasswordMessage": "パスワードを入力",
+  
+  "enteredPasswordErrorMessage": "パスワードは6文字以上である必要があります",
+  
+  "confirmPasswordMessage": "パスワードを確認",
+  
+  "confirmPasswordErrorMessage": "パスワードと確認用パスワードが一致しません",
+  
+  "logOut": "ログアウト",
+  "@logOut": {
+    "description": "Text for Logout"
+  },
+  
+  "signUp": "サインアップ",
+  "@signUp": {
+    "description": "Text for SignUp"
+  },
+  
+  "newSignUp": "アカウントをお持ちでないですか？サインアップ",
+  "@newSignUp": {
+    "description": "Text for SignUp new users"
+  },
+  
+  "oldLogin": "既にアカウントをお持ちですか！ログイン",
+  "@oldLogin": {
+    "description": "Text for old users to login"
+  },
+  
+  "emailAddress": "メールアドレス",
+  "@emailAddress": {
+    "description": "Input for email address"
+  },
+  
+  "password": "パスワード",
+  "@password": {
+    "description": "Adding password for the mail"
+  },
+  
+  "confirmPassword": "パスワードを確認",
+  "@confirmPassword": {
+    "description": "Adding the same password for confirmation"
+  },
+  
+  "settings": "設定",
+  "@settings": {
+    "description": "Title of the endDrawer from the appbar in Login screen"
+  },
+  
+  "medicalServices": "医療サービス",
+  
+  "currentLocation": "現在地",
+  
+  "language": "言語",
+  
+  "logout": "ログアウト",
+  
+  "foundNearby": "近くに{count}件見つかりました",
+  "@foundNearby": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  
+  "within5km": "5km以内",
+  
+  "kmAway": "{distance} km先",
+  "@kmAway": {
+    "placeholders": {
+      "distance": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "open": "営業中",
+  
+  "closed": "閉店",
+  
+  "viewOnMap": "地図で見る",
+  
+  "call": "電話",
+  
+  "directions": "道順",
+  
+  "address": "住所",
+  
+  "openNow": "営業中",
+  
+  "away": "{distance} km先",
+  "@away": {
+    "placeholders": {
+      "distance": {
+        "type": "Object"
+      }
+    }
+  },
+  
+  "getDirections": "道順を表示",
+  
+  "updateRoute": "ルートを更新",
+  
+  "visitWebsite": "ウェブサイトを訪問",
+  
+  "wheelchairAccessible": "車椅子でアクセス可能",
+  
+  "limitedWheelchairAccess": "限定的な車椅子アクセス",
+  
+  "openInGoogleMaps": "Googleマップで開く",
+  
+  "noPhoneAvailable": "このサービスには電話番号がありません",
+  
+  "invalidPhoneFormat": "無効な電話番号形式",
+  
+  "cannotOpenPhoneDialer": "電話アプリを開けません",
+  
+  "errorOpeningMaps": "Googleマップを開けません",
+  
+  "categoryGeneralServices": "一般診療",
+  
+  "categorySpecializedServices": "専門診療",
+  
+  "categorySurgicalServices": "外科サービス",
+  
+  "categoryRehabilitationServices": "リハビリテーション",
+  
+  "categoryDiagnosticServices": "診断サービス",
+  
+  "categoryEmergencyServices": "救急サービス",
+  
+  "categoryMaternityWomensHealth": "産婦人科・女性の健康",
+  
+  "categoryPharmacyServices": "薬局サービス",
+  
+  "categoryMentalHealthServices": "メンタルヘルスサービス",
+  
+  "categoryAlternativeMedicine": "代替医療",
+  
+  "serviceGeneralMedicine": "内科",
+  
+  "serviceEmergencyCare": "救急医療",
+  
+  "serviceFamilyMedicine": "家庭医療",
+  
+  "servicePreventativeMedicine": "予防医学",
+  
+  "serviceHealthCheckups": "健康診断",
+  
+  "serviceUrgentCare": "緊急医療",
+  
+  "serviceCardiology": "循環器科",
+  
+  "serviceDermatology": "皮膚科",
+  
+  "serviceEndocrinology": "内分泌科",
+  
+  "serviceGastroenterology": "消化器科",
+  
+  "serviceHematology": "血液内科",
+  
+  "serviceNephrology": "腎臓内科",
+  
+  "serviceNeurology": "神経内科",
+  
+  "serviceObstetricsGynecology": "産婦人科",
+  
+  "serviceOphthalmology": "眼科",
+  
+  "serviceOrthopedics": "整形外科",
+  
+  "servicePediatrics": "小児科",
+  
+  "servicePsychiatry": "精神科",
+  
+  "serviceRheumatology": "リウマチ科",
+  
+  "servicePulmonology": "呼吸器科",
+  
+  "serviceUrology": "泌尿器科",
+  
+  "serviceGeneralSurgery": "一般外科",
+  
+  "serviceCardiacSurgery": "心臓外科",
+  
+  "serviceOrthopedicSurgery": "整形外科手術",
+  
+  "serviceNeurosurgery": "脳神経外科",
+  
+  "servicePlasticSurgery": "形成外科",
+  
+  "servicePediatricSurgery": "小児外科",
+  
+  "serviceObstetricSurgery": "産科手術",
+  
+  "serviceTraumaSurgery": "外傷外科",
+  
+  "servicePhysicalTherapy": "理学療法",
+  
+  "serviceOccupationalTherapy": "作業療法",
+  
+  "serviceSpeechTherapy": "言語療法",
+  
+  "serviceCardiacRehabilitation": "心臓リハビリテーション",
+  
+  "serviceNeurologicalRehabilitation": "神経リハビリテーション",
+  
+  "serviceLaboratoryTests": "臨床検査",
+  
+  "serviceRadiology": "放射線科",
+  
+  "servicePathology": "病理学",
+  
+  "serviceEndoscopy": "内視鏡検査",
+  
+  "serviceECG": "心電図",
+  
+  "serviceEEG": "脳波検査",
+  
+  "serviceEmergencyRoom": "救急室（ER）",
+  
+  "serviceTraumaCare": "外傷治療",
+  
+  "serviceICU": "集中治療室（ICU）",
+  
+  "serviceBurnUnit": "熱傷治療室",
+  
+  "serviceObstetrics": "産科",
+  
+  "serviceGynecology": "婦人科",
+  
+  "serviceFamilyPlanning": "家族計画",
+  
+  "serviceBreastHealth": "乳房の健康",
+  
+  "servicePrescriptionMedications": "処方薬",
+  
+  "serviceOTCMedications": "市販薬",
+  
+  "serviceVaccinations": "予防接種",
+  
+  "servicePharmaceuticalConsultations": "薬剤相談",
+  
+  "serviceCompoundingPharmacy": "調剤薬局",
+  
+  "serviceHerbalMedicine": "漢方薬",
+  
+  "serviceCounseling": "カウンセリング",
+  
+  "servicePsychotherapy": "心理療法",
+  
+  "serviceAddictionTreatment": "依存症治療",
+  
+  "serviceSupportGroups": "サポートグループ",
+  
+  "serviceBehavioralTherapy": "行動療法",
+  
+  "serviceAcupuncture": "鍼治療",
+  
+  "serviceChiropracticCare": "カイロプラクティック",
+  
+  "serviceMassageTherapy": "マッサージ療法",
+  
+  "serviceNaturopathy": "自然療法",
+  
+  "serviceHomeopathy": "ホメオパシー",
+  
+  "selectPrefecture": "都道府県を選択",
+  
+  "selectCity": "市区町村を選択",
+  
+  "selectWard": "区を選択",
+  
+  "useCurrentLocation": "現在地を使用",
+  
+  "prefectures": "都道府県",
+  
+  "citiesDistricts": "市区町村",
+  
+  "wardsAreas": "区・エリア",
+  
+  "allOf": "{location}全体",
+  "@allOf": {
+    "placeholders": {
+      "location": {
+        "type": "String"
+      }
+    }
+  },
+  
+  "searchEntirePrefecture": "都道府県全体を検索",
+  
+  "searchEntireCity": "市区町村全体を検索",
+  
+  "locationError": "位置情報を取得できません。位置情報サービスを有効にして権限を付与してください。",
+  
+  "selectLocationError": "位置情報を選択するか、位置情報サービスを有効にしてください。",
+  
+  "noServicesFound": "サービスが見つかりませんでした",
+  
+  "tryDifferentLocation": "別の場所やサービスタイプで検索してみてください。",
+  
+  "retry": "再試行",
+  
+  "gettingLocation": "位置情報を取得中...",
+  
+  "locationNotAvailable": "位置情報が利用できません",
+  
+  "pullDownToRefresh": "下にスワイプして更新するか、場所を選択して近くの医療サービスを検索してください",
+  
+  "prefectureTokyo": "東京都",
+  "prefectureOsaka": "大阪府",
+  "prefectureKyoto": "京都府",
+  "prefectureHokkaido": "北海道",
+  "prefectureFukuoka": "福岡県",
+  "prefectureYokohama": "横浜市",
+  "prefectureNagoya": "名古屋市",
+  "prefectureKobe": "神戸市",
+  "prefectureHiroshima": "広島県",
+  "prefectureSendai": "仙台市",
+  "prefectureChiba": "千葉県",
+  "prefectureKanagawa": "神奈川県",
+  "prefectureSaitama": "埼玉県",
+  "prefectureShizuoka": "静岡県",
+  "prefectureAichi": "愛知県",
+  "prefectureHyogo": "兵庫県",
+  "prefectureNiigata": "新潟県",
+  "prefectureMiyagi": "宮城県",
+  "prefectureNagano": "長野県",
+  "prefectureGifu": "岐阜県",
+  "prefectureGunma": "群馬県",
+  "prefectureTochigi": "栃木県",
+  "prefectureIbaraki": "茨城県",
+  "prefectureOkayama": "岡山県",
+  "prefectureKumamoto": "熊本県",
+  "prefectureKagoshima": "鹿児島県",
+  "prefectureOkinawa": "沖縄県",
+  "prefectureNara": "奈良県",
+  "prefectureShiga": "滋賀県",
+  "prefectureMie": "三重県",
+  "prefectureWakayama": "和歌山県",
+  "prefectureYamaguchi": "山口県",
+  "prefectureEhime": "愛媛県",
+  "prefectureKagawa": "香川県",
+  "prefectureTokushima": "徳島県",
+  "prefectureKochi": "高知県",
+  "prefectureFukushima": "福島県",
+  "prefectureYamagata": "山形県",
+  "prefectureIwate": "岩手県",
+  "prefectureAkita": "秋田県",
+  "prefectureAomori": "青森県",
+  "prefectureIshikawa": "石川県",
+  "prefectureFukui": "福井県",
+  "prefectureToyama": "富山県",
+  "prefectureYamanashi": "山梨県",
+  "prefectureSaga": "佐賀県",
+  "prefectureNagasaki": "長崎県",
+  "prefectureOita": "大分県",
+  "prefectureMiyazaki": "宮崎県",
+  
+  "cityShibuya": "渋谷区",
+  "cityShinjuku": "新宿区",
+  "cityChiyoda": "千代田区",
+  "cityMinato": "港区",
+  "citySetagaya": "世田谷区",
+  "cityKita": "北区",
+  "cityChuo": "中央区",
+  "cityTennoji": "天王寺区",
+  "cityShimogyo": "下京区",
+  "cityHigashiyama": "東山区",
+  "citySakyo": "左京区",
+  "citySapporo": "札幌市",
+  "cityHakodate": "函館市",
+  "cityAsahikawa": "旭川市",
+  "cityHakata": "博多区",
+  "cityTenjin": "天神",
+  "cityNaka": "中区",
+  
+  "wardShibuya": "渋谷区",
+  "wardShinjuku": "新宿区",
+  "wardChiyoda": "千代田区",
+  "wardTennoji": "天王寺区",
+  
+  "areaHarajuku": "原宿",
+  "areaEbisu": "恵比寿",
+  "areaKabukicho": "歌舞伎町",
+  "areaYotsuya": "四谷",
+  "areaMarunouchi": "丸の内",
+  "areaAkihabara": "秋葉原",
+  "areaKanda": "神田",
+  "areaRoppongi": "六本木",
+  "areaAzabu": "麻布",
+  "areaOdaiba": "お台場",
+  "areaShimokitazawa": "下北沢",
+  "areaSangenjaya": "三軒茶屋",
+  "areaUmeda": "梅田",
+  "areaNakanoshima": "中之島",
+  "areaNamba": "難波",
+  "areaShinsaibashi": "心斎橋",
+  "areaDotonbori": "道頓堀",
+  "areaAbeno": "阿倍野",
+  "areaKyotoStation": "京都駅周辺",
+  "areaGion": "祇園",
+  "areaKiyomizu": "清水",
+  "areaGinkakuji": "銀閣寺周辺",
+  "areaChuo": "中央",
+  "areaKita": "北",
+  "areaSusukino": "すすきの",
+  "areaHakataStation": "博多駅周辺",
+  "areaCanal": "キャナルシティ",
+  "areaTenjinCentral": "天神セントラル",
+  "areaChinatown": "中華街",
+  "areaMinatoMirai": "みなとみらい",
+  
+  "chatbotWelcome": "こんにちは 私はあなたの医療アシスタントです。話しかけるか、質問を入力してください。今日はどのようにお手伝いできますか",
+  "medicalAssistant": "医療アシスタント",
+  "detailed": "詳細",
+  "quick": "クイック",
+  "responseType": "応答タイプ",
+  "quickMode": "クイックモード",
+  "quickModeDesc": "迅速で簡潔な回答",
+  "detailedMode": "詳細モード",
+  "detailedModeDesc": "包括的な医療情報",
+  "quickModeActivated": "⚡ クイックモード起動",
+  "detailedModeActivated": "📋 詳細モード起動",
+  "chatCleared": "✅ チャット履歴をクリアしました",
+  "thinking": "考え中...",
+  "overloaded": "現在サービスが過負荷状態です。後でもう一度お試しください。",
+  "errorOccurred": "エラーが発生しました。もう一度お試しください。",
+  "networkError": "ネットワークエラー。接続を確認してください。",
+  "speechNotAvailable": "音声認識が利用できません",
+  "micPermissionRequired": "音声入力にはマイクの許可が必要です",
+  "voiceInputError": "音声入力エラーが発生しました",
+  "processing": "わかりました。処理中です。",
+  "listening": "聞いています...",
+  "typeOrSpeak": "症状を入力または話してください",
+  "you": "あなた",
+  "assistant": "アシスタント",
+  "findNearbyFacilities": "🏥 近くの施設を探す",
+  "noDepartmentDetected": "まだ医療部門が推奨されていません。まず症状を説明してください。",
+  "askAssistant": "AIアシスタントに質問",
+  "searchingForService": "{service}を検索中...",
+  "@searchingForService": {
+    "placeholders": {
+      "service": {
+        "type": "String"
+      }
+    }
+  }
+}
+

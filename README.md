@@ -1,124 +1,16 @@
-# Medical Apps Monorepo
+# medinavi
 
-This repository contains multiple medical-related Flutter applications in a monorepo structure.
-
-## ⚠️ Important Setup Note
-
-**DO NOT run `flutter pub get` at the root directory!**
-
-This is a monorepo with multiple independent Flutter projects. You must navigate into each project directory before running Flutter commands.
-
-## Projects
-
-### 1. Google Map Clone
-A Flutter application for finding nearby medical services with map integration.
-- **Location**: `google_map_clone/`
-- **Features**: Medical service search, Google Maps integration, Prefecture-based location selection
-
-### 2. MediNavi
-Medical navigation and healthcare services application with Firebase authentication.
-- **Location**: `medinavi-mac/`
-- **Features**: Firebase Auth, Healthcare service finder, integrates with Google Map Clone screens
-- **Note**: This project depends on `google_map_clone` as a local package dependency
+A new Flutter project.
 
 ## Getting Started
 
-### Prerequisites
-- Flutter SDK (3.8.0 or higher)
-- Dart SDK
-- Firebase account (for MediNavi)
+This project is a starting point for a Flutter application.
 
-### Quick Setup (Recommended)
+A few resources to get you started if this is your first Flutter project:
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/S1ThuHtun/medical-apps-monorepo.git
-   cd medical-apps-monorepo
-   ```
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-2. **Run the setup script**
-   
-   **macOS/Linux:**
-   ```bash
-   ./setup.sh
-   ```
-   
-   **Windows:**
-   ```cmd
-   setup.bat
-   ```
-   
-   This will automatically install dependencies for all projects!
-
-3. **Run a project**
-   ```bash
-   cd google_map_clone
-   flutter run
-   ```
-   or
-   ```bash
-   cd medinavi-mac
-   flutter run
-   ```
-
-### Manual Setup (Alternative)
-
-If you prefer to set up projects individually:
-
-1. **Setup Google Map Clone**
-   ```bash
-   cd google_map_clone
-   flutter pub get
-   flutter run
-   ```
-
-2. **Setup MediNavi**
-   ```bash
-   cd medinavi-mac
-   flutter pub get
-   flutter run
-   ```
-
-### Running on Different Platforms
-
-**macOS**
-```bash
-flutter run -d macos
-```
-
-**iOS Simulator**
-```bash
-flutter run -d "iPhone 17 Pro Max"
-```
-
-**Android**
-```bash
-flutter run -d <device-id>
-```
-
-**Web**
-```bash
-flutter run -d chrome
-```
-
-## Project Architecture
-
-- `medinavi-mac/` uses Firebase for authentication
-- After successful login, users are navigated to the HomeScreen from `google_map_clone/`
-- `google_map_clone/` is added as a path dependency in `medinavi-mac/pubspec.yaml`
-
-## Location Permissions
-
-Both projects use location services. Make sure to:
-- Enable Location Services on your device/simulator
-- Grant location permission when prompted
-- For macOS: Check System Settings → Privacy & Security → Location Services
-
-## Development
-
-Each project maintains its own:
-- Dependencies (`pubspec.yaml`)
-- Configuration files
-- Platform-specific code (Android, iOS, macOS, etc.)
-
-**Always run Flutter commands from within the project directory, not from the root!**
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

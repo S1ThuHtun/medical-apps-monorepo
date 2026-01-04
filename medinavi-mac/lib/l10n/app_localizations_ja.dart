@@ -820,4 +820,222 @@ class AppLocalizationsJa extends AppLocalizations {
   String searchingForService(String service) {
     return '$serviceを検索中...';
   }
+
+  @override
+  String get medicineReminderTitle => '服薬リマインダー';
+
+  @override
+  String get reminderEmptyTitle => 'リマインダーがありません';
+
+  @override
+  String get reminderEmptySubtitle => '＋をタップして追加';
+
+  @override
+  String get reminderAddedMessage => 'リマインダーを追加しました';
+
+  @override
+  String get reminderUpdatedMessage => 'リマインダーを更新しました';
+
+  @override
+  String reminderNotificationBody(int index) {
+    return 'お薬の時間です - $index回目';
+  }
+
+  @override
+  String get reminderNotificationChannelName => '服薬リマインダー';
+
+  @override
+  String get reminderNotificationChannelDescription => '服薬をお知らせします';
+
+  @override
+  String get reminderDoseMorning => '朝';
+
+  @override
+  String get reminderDoseNoon => '昼';
+
+  @override
+  String get reminderDoseEvening => '夕';
+
+  @override
+  String get reminderDoseNight => '夜';
+
+  @override
+  String get remindersTabLabel => 'リマインダー';
+
+  @override
+  String reminderPhotoPickError(String error) {
+    return '写真の取得に失敗しました: $error';
+  }
+
+  @override
+  String get reminderAddPhotoTitle => '写真を追加';
+
+  @override
+  String get reminderPhotoFromCamera => 'カメラで撮影';
+
+  @override
+  String get reminderPhotoFromGallery => 'ギャラリーから選択';
+
+  @override
+  String get reminderPhotoRemove => '写真を削除';
+
+  @override
+  String get reminderRepeatSettingsTitle => '繰り返し設定';
+
+  @override
+  String get reminderRepeatNever => '繰り返しなし';
+
+  @override
+  String get reminderRepeatEveryday => '毎日';
+
+  @override
+  String get reminderRepeatWeekdays => '平日のみ';
+
+  @override
+  String get reminderRepeatWeekends => '週末のみ';
+
+  @override
+  String get reminderRepeatCustomOption => 'カスタム...';
+
+  @override
+  String get reminderRepeatDone => '完了';
+
+  @override
+  String get reminderSelectDays => '曜日を選択';
+
+  @override
+  String get reminderDayMonShort => '月';
+
+  @override
+  String get reminderDayTueShort => '火';
+
+  @override
+  String get reminderDayWedShort => '水';
+
+  @override
+  String get reminderDayThuShort => '木';
+
+  @override
+  String get reminderDayFriShort => '金';
+
+  @override
+  String get reminderDaySatShort => '土';
+
+  @override
+  String get reminderDaySunShort => '日';
+
+  @override
+  String get reminderDaySeparator => '、';
+
+  @override
+  String reminderEveryWeekDays(String days) {
+    return '毎週 $days';
+  }
+
+  @override
+  String get reminderAddTitle => 'リマインダーを追加';
+
+  @override
+  String get reminderEditTitle => 'リマインダーを編集';
+
+  @override
+  String get reminderMedicineNameLabel => 'お薬の名前';
+
+  @override
+  String get reminderMedicineNameHint => '例: ビタミンC、アスピリン';
+
+  @override
+  String get reminderPhotoLabel => 'お薬の写真';
+
+  @override
+  String get reminderPhotoOptional => '(任意)';
+
+  @override
+  String get reminderAddPhotoButton => '写真を追加';
+
+  @override
+  String get reminderTimeLabel => '時間';
+
+  @override
+  String get reminderRepeatLabel => '繰り返し';
+
+  @override
+  String get reminderMealTimingLabel => '服用タイミング';
+
+  @override
+  String get reminderMealTimingNone => '指定なし';
+
+  @override
+  String get reminderMealTimingBeforeTitle => '食前のお薬';
+
+  @override
+  String get reminderMealTimingBeforeSubtitle => '食事の30分前に服用';
+
+  @override
+  String get reminderMealTimingAfterTitle => '食後のお薬';
+
+  @override
+  String get reminderMealTimingAfterSubtitle => 'アラーム時に食事確認をします';
+
+  @override
+  String get reminderCancel => 'キャンセル';
+
+  @override
+  String get reminderUpdate => '更新';
+
+  @override
+  String get reminderAdd => '追加';
+
+  @override
+  String get reminderTakenSnackBar => '飲みました';
+
+  @override
+  String get reminderMealConfirmTitle => '食事確認';
+
+  @override
+  String get reminderMealConfirmMessage => 'このお薬は食後に服用してください';
+
+  @override
+  String get reminderMealConfirmQuestion => '食事は済みましたか？';
+
+  @override
+  String get reminderMealConfirmRecommendation => '食後30分以内に服用することをお勧めします';
+
+  @override
+  String get reminderMealConfirmNotYet => 'まだです';
+
+  @override
+  String get reminderMealConfirmDone => '済みました';
+
+  @override
+  String get reminderLaterTitle => 'リマインダー';
+
+  @override
+  String get reminderLaterMessage => '食後に改めてお薬を飲んでください。\\nリマインダーは有効のままです。';
+
+  @override
+  String get reminderLaterOk => 'わかりました';
+
+  @override
+  String get reminderTimeToTakeMessage => 'お薬の時間です';
+
+  @override
+  String get reminderTakenButton => '飲みました';
+
+  @override
+  String get reminderCloseButton => '閉じる';
+
+  @override
+  String get homeTabLabel => 'ホーム';
+
+  @override
+  String get historyTabLabel => '履歴';
+
+  @override
+  String placeholderComingSoon(String title) {
+    return '$title - ????';
+  }
+
+  @override
+  String get placeholderUnderDevelopment => '??????????';
 }

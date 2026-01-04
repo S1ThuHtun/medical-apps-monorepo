@@ -57,6 +57,10 @@
 	<string>This app needs speech recognition to help you describe symptoms by voice</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>This app needs microphone access for voice input</string>
+	<key>NSCameraUsageDescription</key>
+    <string>We need camera access to take photos of your medicine</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need photo library access to select medicine photos</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>tel</string>

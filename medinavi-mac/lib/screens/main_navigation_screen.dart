@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:medinavi_mac/l10n/app_localizations.dart';
 import 'home_screen.dart';
 import 'settings_screen.dart';
+import 'reminder/medicine_reminder_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -19,10 +20,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   void initState() {
     super.initState();
-    _screens = [
+      _screens = [
       const HomeScreen(),
-      const PlaceholderScreen(title: 'Favorites'),
-      const PlaceholderScreen(title: 'History'),
+      const MedicineReminderScreen(),
+      const PlaceholderScreen(
+          titleKey: PlaceholderTitleKey.history),
       const SettingsScreen(),
     ];
   }
@@ -54,17 +56,17 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           BottomNavigationBarItem(
             icon: const Icon(Icons.home_outlined),
             activeIcon: const Icon(Icons.home),
-            label: 'Home',
+            label: AppLocalizations.of(context)!.homeTabLabel,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.favorite_outline),
-            activeIcon: const Icon(Icons.favorite),
-            label: 'Favorites',
+            icon: const Icon(Icons.medication_outlined),
+            activeIcon: const Icon(Icons.medication),
+            label: AppLocalizations.of(context)!.remindersTabLabel,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.history_outlined),
             activeIcon: const Icon(Icons.history),
-            label: 'History',
+            label: AppLocalizations.of(context)!.historyTabLabel,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.settings_outlined),
@@ -78,13 +80,30 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 }
 
 // Placeholder screen for tabs that aren't implemented yet
-class PlaceholderScreen extends StatelessWidget {
-  final String title;
+enum PlaceholderTitleKey {
+  history,
+}
 
-  const PlaceholderScreen({super.key, required this.title});
+class PlaceholderScreen extends StatelessWidget {
+  final PlaceholderTitleKey titleKey;
+
+  const PlaceholderScreen({
+    super.key,
+    required this.titleKey,
+  });
+
+  String _titleFor(
+      AppLocalizations l10n) {
+    switch (titleKey) {
+      case PlaceholderTitleKey.history:
+        return l10n.historyTabLabel;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final title = _titleFor(l10n);
     return Scaffold(
       appBar: AppBar(
         title: Text(title),
@@ -102,7 +121,7 @@ class PlaceholderScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              '$title - Coming Soon',
+              l10n.placeholderComingSoon(title),
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.grey[600],
@@ -111,7 +130,7 @@ class PlaceholderScreen extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             Text(
-              'This feature is under development',
+              l10n.placeholderUnderDevelopment,
               style: TextStyle(
                 fontSize: 14,
                 color: Colors.grey[500],

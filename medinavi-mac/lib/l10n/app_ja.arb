@@ -1,31 +1,25 @@
 {
   "@@locale": "ja",
-  
   "selectLanguage": "言語を選択",
   "@selectLanguage": {
     "description": "Asking the user what Language would they like to start the app with"
   },
-  
   "getStarted": "始める",
   "@getStarted": {
     "description": "The text to go to the SignUp and Login screen"
   },
-  
   "chooseLanguage": "言語を選択してください",
   "@chooseLanguage": {
     "description": "Shows the title of the language selection box when the language selection is pressed"
   },
-  
   "selectedLanguage": "日本語が選択されています",
   "@selectedLanguage": {
     "description": "Shows what language is selected in the messagebox"
   },
-  
   "login": "ログイン",
   "@login": {
     "description": "Text for Login"
   },
-  
   "loginAs": "{email}としてログインしました",
   "@loginAs": {
     "description": "After logged the snackbar will show logged in as email",
@@ -35,7 +29,6 @@
       }
     }
   },
-  
   "signedUpAs": "{email}として登録しました",
   "@signedUpAs": {
     "description": "After signed up the snackbar will show signed up as email",
@@ -45,73 +38,54 @@
       }
     }
   },
-  
   "enterEmail": "メールアドレスを入力してください",
   "@enterEmail": {
     "description": "When user is not filling email, this message will be shown"
   },
-  
   "invalidEmail": "無効なメールアドレス形式です",
   "@invalidEmail": {
     "description": "When user input invalid method, this message will show"
   },
-  
   "enteredPasswordMessage": "パスワードを入力",
-  
   "enteredPasswordErrorMessage": "パスワードは6文字以上である必要があります",
-  
   "confirmPasswordMessage": "パスワードを確認",
-  
   "confirmPasswordErrorMessage": "パスワードと確認用パスワードが一致しません",
-  
   "logOut": "ログアウト",
   "@logOut": {
     "description": "Text for Logout"
   },
-  
   "signUp": "サインアップ",
   "@signUp": {
     "description": "Text for SignUp"
   },
-  
   "newSignUp": "アカウントをお持ちでないですか？サインアップ",
   "@newSignUp": {
     "description": "Text for SignUp new users"
   },
-  
   "oldLogin": "既にアカウントをお持ちですか！ログイン",
   "@oldLogin": {
     "description": "Text for old users to login"
   },
-  
   "emailAddress": "メールアドレス",
   "@emailAddress": {
     "description": "Input for email address"
   },
-  
   "password": "パスワード",
   "@password": {
     "description": "Adding password for the mail"
   },
-  
   "confirmPassword": "パスワードを確認",
   "@confirmPassword": {
     "description": "Adding the same password for confirmation"
   },
-  
   "settings": "設定",
   "@settings": {
     "description": "Title of the endDrawer from the appbar in Login screen"
   },
-  
   "medicalServices": "医療サービス",
-  
   "currentLocation": "現在地",
-  
   "language": "言語",
-  
   "logout": "ログアウト",
-  
   "foundNearby": "近くに{count}件見つかりました",
   "@foundNearby": {
     "placeholders": {
@@ -120,9 +94,7 @@
       }
     }
   },
-  
   "within5km": "5km以内",
-  
   "kmAway": "{distance} km先",
   "@kmAway": {
     "placeholders": {
@@ -131,21 +103,13 @@
       }
     }
   },
-  
   "open": "営業中",
-  
   "closed": "閉店",
-  
   "viewOnMap": "地図で見る",
-  
   "call": "電話",
-  
   "directions": "道順",
-  
   "address": "住所",
-  
   "openNow": "営業中",
-  
   "away": "{distance} km先",
   "@away": {
     "placeholders": {
@@ -154,189 +118,97 @@
       }
     }
   },
-  
   "getDirections": "道順を表示",
-  
   "updateRoute": "ルートを更新",
-  
   "visitWebsite": "ウェブサイトを訪問",
-  
   "wheelchairAccessible": "車椅子でアクセス可能",
-  
   "limitedWheelchairAccess": "限定的な車椅子アクセス",
-  
   "openInGoogleMaps": "Googleマップで開く",
-  
   "noPhoneAvailable": "このサービスには電話番号がありません",
-  
   "invalidPhoneFormat": "無効な電話番号形式",
-  
   "cannotOpenPhoneDialer": "電話アプリを開けません",
-  
   "errorOpeningMaps": "Googleマップを開けません",
-  
   "categoryGeneralServices": "一般診療",
-  
   "categorySpecializedServices": "専門診療",
-  
   "categorySurgicalServices": "外科サービス",
-  
   "categoryRehabilitationServices": "リハビリテーション",
-  
   "categoryDiagnosticServices": "診断サービス",
-  
   "categoryEmergencyServices": "救急サービス",
-  
   "categoryMaternityWomensHealth": "産婦人科・女性の健康",
-  
   "categoryPharmacyServices": "薬局サービス",
-  
   "categoryMentalHealthServices": "メンタルヘルスサービス",
-  
   "categoryAlternativeMedicine": "代替医療",
-  
   "serviceGeneralMedicine": "内科",
-  
   "serviceEmergencyCare": "救急医療",
-  
   "serviceFamilyMedicine": "家庭医療",
-  
   "servicePreventativeMedicine": "予防医学",
-  
   "serviceHealthCheckups": "健康診断",
-  
   "serviceUrgentCare": "緊急医療",
-  
   "serviceCardiology": "循環器科",
-  
   "serviceDermatology": "皮膚科",
-  
   "serviceEndocrinology": "内分泌科",
-  
   "serviceGastroenterology": "消化器科",
-  
   "serviceHematology": "血液内科",
-  
   "serviceNephrology": "腎臓内科",
-  
   "serviceNeurology": "神経内科",
-  
   "serviceObstetricsGynecology": "産婦人科",
-  
   "serviceOphthalmology": "眼科",
-  
   "serviceOrthopedics": "整形外科",
-  
   "servicePediatrics": "小児科",
-  
   "servicePsychiatry": "精神科",
-  
   "serviceRheumatology": "リウマチ科",
-  
   "servicePulmonology": "呼吸器科",
-  
   "serviceUrology": "泌尿器科",
-  
   "serviceGeneralSurgery": "一般外科",
-  
   "serviceCardiacSurgery": "心臓外科",
-  
   "serviceOrthopedicSurgery": "整形外科手術",
-  
   "serviceNeurosurgery": "脳神経外科",
-  
   "servicePlasticSurgery": "形成外科",
-  
   "servicePediatricSurgery": "小児外科",
-  
   "serviceObstetricSurgery": "産科手術",
-  
   "serviceTraumaSurgery": "外傷外科",
-  
   "servicePhysicalTherapy": "理学療法",
-  
   "serviceOccupationalTherapy": "作業療法",
-  
   "serviceSpeechTherapy": "言語療法",
-  
   "serviceCardiacRehabilitation": "心臓リハビリテーション",
-  
   "serviceNeurologicalRehabilitation": "神経リハビリテーション",
-  
   "serviceLaboratoryTests": "臨床検査",
-  
   "serviceRadiology": "放射線科",
-  
   "servicePathology": "病理学",
-  
   "serviceEndoscopy": "内視鏡検査",
-  
   "serviceECG": "心電図",
-  
   "serviceEEG": "脳波検査",
-  
   "serviceEmergencyRoom": "救急室（ER）",
-  
   "serviceTraumaCare": "外傷治療",
-  
   "serviceICU": "集中治療室（ICU）",
-  
   "serviceBurnUnit": "熱傷治療室",
-  
   "serviceObstetrics": "産科",
-  
   "serviceGynecology": "婦人科",
-  
   "serviceFamilyPlanning": "家族計画",
-  
   "serviceBreastHealth": "乳房の健康",
-  
   "servicePrescriptionMedications": "処方薬",
-  
   "serviceOTCMedications": "市販薬",
-  
   "serviceVaccinations": "予防接種",
-  
   "servicePharmaceuticalConsultations": "薬剤相談",
-  
   "serviceCompoundingPharmacy": "調剤薬局",
-  
   "serviceHerbalMedicine": "漢方薬",
-  
   "serviceCounseling": "カウンセリング",
-  
   "servicePsychotherapy": "心理療法",
-  
   "serviceAddictionTreatment": "依存症治療",
-  
   "serviceSupportGroups": "サポートグループ",
-  
   "serviceBehavioralTherapy": "行動療法",
-  
   "serviceAcupuncture": "鍼治療",
-  
   "serviceChiropracticCare": "カイロプラクティック",
-  
   "serviceMassageTherapy": "マッサージ療法",
-  
   "serviceNaturopathy": "自然療法",
-  
   "serviceHomeopathy": "ホメオパシー",
-  
   "selectPrefecture": "都道府県を選択",
-  
   "selectCity": "市区町村を選択",
-  
   "selectWard": "区を選択",
-  
   "useCurrentLocation": "現在地を使用",
-  
   "prefectures": "都道府県",
-  
   "citiesDistricts": "市区町村",
-  
   "wardsAreas": "区・エリア",
-  
   "allOf": "{location}全体",
   "@allOf": {
     "placeholders": {
@@ -345,27 +217,16 @@
       }
     }
   },
-  
   "searchEntirePrefecture": "都道府県全体を検索",
-  
   "searchEntireCity": "市区町村全体を検索",
-  
   "locationError": "位置情報を取得できません。位置情報サービスを有効にして権限を付与してください。",
-  
   "selectLocationError": "位置情報を選択するか、位置情報サービスを有効にしてください。",
-  
   "noServicesFound": "サービスが見つかりませんでした",
-  
   "tryDifferentLocation": "別の場所やサービスタイプで検索してみてください。",
-  
   "retry": "再試行",
-  
   "gettingLocation": "位置情報を取得中...",
-  
   "locationNotAvailable": "位置情報が利用できません",
-  
   "pullDownToRefresh": "下にスワイプして更新するか、場所を選択して近くの医療サービスを検索してください",
-  
   "prefectureTokyo": "東京都",
   "prefectureOsaka": "大阪府",
   "prefectureKyoto": "京都府",
@@ -415,7 +276,6 @@
   "prefectureNagasaki": "長崎県",
   "prefectureOita": "大分県",
   "prefectureMiyazaki": "宮崎県",
-  
   "cityShibuya": "渋谷区",
   "cityShinjuku": "新宿区",
   "cityChiyoda": "千代田区",
@@ -433,12 +293,10 @@
   "cityHakata": "博多区",
   "cityTenjin": "天神",
   "cityNaka": "中区",
-  
   "wardShibuya": "渋谷区",
   "wardShinjuku": "新宿区",
   "wardChiyoda": "千代田区",
   "wardTennoji": "天王寺区",
-  
   "areaHarajuku": "原宿",
   "areaEbisu": "恵比寿",
   "areaKabukicho": "歌舞伎町",
@@ -469,7 +327,6 @@
   "areaTenjinCentral": "天神セントラル",
   "areaChinatown": "中華街",
   "areaMinatoMirai": "みなとみらい",
-  
   "chatbotWelcome": "こんにちは 私はあなたの医療アシスタントです。話しかけるか、質問を入力してください。今日はどのようにお手伝いできますか",
   "medicalAssistant": "医療アシスタント",
   "detailed": "詳細",
@@ -504,6 +361,103 @@
         "type": "String"
       }
     }
-  }
+  },
+  "medicineReminderTitle": "服薬リマインダー",
+  "reminderEmptyTitle": "リマインダーがありません",
+  "reminderEmptySubtitle": "＋をタップして追加",
+  "reminderAddedMessage": "リマインダーを追加しました",
+  "reminderUpdatedMessage": "リマインダーを更新しました",
+  "reminderNotificationBody": "お薬の時間です - {index}回目",
+  "@reminderNotificationBody": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "reminderNotificationChannelName": "服薬リマインダー",
+  "reminderNotificationChannelDescription": "服薬をお知らせします",
+  "reminderDoseMorning": "朝",
+  "reminderDoseNoon": "昼",
+  "reminderDoseEvening": "夕",
+  "reminderDoseNight": "夜",
+  "remindersTabLabel": "リマインダー",
+  "reminderPhotoPickError": "写真の取得に失敗しました: {error}",
+  "@reminderPhotoPickError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderAddPhotoTitle": "写真を追加",
+  "reminderPhotoFromCamera": "カメラで撮影",
+  "reminderPhotoFromGallery": "ギャラリーから選択",
+  "reminderPhotoRemove": "写真を削除",
+  "reminderRepeatSettingsTitle": "繰り返し設定",
+  "reminderRepeatNever": "繰り返しなし",
+  "reminderRepeatEveryday": "毎日",
+  "reminderRepeatWeekdays": "平日のみ",
+  "reminderRepeatWeekends": "週末のみ",
+  "reminderRepeatCustomOption": "カスタム...",
+  "reminderRepeatDone": "完了",
+  "reminderSelectDays": "曜日を選択",
+  "reminderDayMonShort": "月",
+  "reminderDayTueShort": "火",
+  "reminderDayWedShort": "水",
+  "reminderDayThuShort": "木",
+  "reminderDayFriShort": "金",
+  "reminderDaySatShort": "土",
+  "reminderDaySunShort": "日",
+  "reminderDaySeparator": "、",
+  "reminderEveryWeekDays": "毎週 {days}",
+  "@reminderEveryWeekDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderAddTitle": "リマインダーを追加",
+  "reminderEditTitle": "リマインダーを編集",
+  "reminderMedicineNameLabel": "お薬の名前",
+  "reminderMedicineNameHint": "例: ビタミンC、アスピリン",
+  "reminderPhotoLabel": "お薬の写真",
+  "reminderPhotoOptional": "(任意)",
+  "reminderAddPhotoButton": "写真を追加",
+  "reminderTimeLabel": "時間",
+  "reminderRepeatLabel": "繰り返し",
+  "reminderMealTimingLabel": "服用タイミング",
+  "reminderMealTimingNone": "指定なし",
+  "reminderMealTimingBeforeTitle": "食前のお薬",
+  "reminderMealTimingBeforeSubtitle": "食事の30分前に服用",
+  "reminderMealTimingAfterTitle": "食後のお薬",
+  "reminderMealTimingAfterSubtitle": "アラーム時に食事確認をします",
+  "reminderCancel": "キャンセル",
+  "reminderUpdate": "更新",
+  "reminderAdd": "追加",
+  "reminderTakenSnackBar": "飲みました",
+  "reminderMealConfirmTitle": "食事確認",
+  "reminderMealConfirmMessage": "このお薬は食後に服用してください",
+  "reminderMealConfirmQuestion": "食事は済みましたか？",
+  "reminderMealConfirmRecommendation": "食後30分以内に服用することをお勧めします",
+  "reminderMealConfirmNotYet": "まだです",
+  "reminderMealConfirmDone": "済みました",
+  "reminderLaterTitle": "リマインダー",
+  "reminderLaterMessage": "食後に改めてお薬を飲んでください。\\nリマインダーは有効のままです。",
+  "reminderLaterOk": "わかりました",
+  "reminderTimeToTakeMessage": "お薬の時間です",
+  "reminderTakenButton": "飲みました",
+  "reminderCloseButton": "閉じる",
+  "homeTabLabel": "ホーム",
+  "historyTabLabel": "履歴",
+  "placeholderComingSoon": "{title} - ????",
+  "@placeholderComingSoon": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "placeholderUnderDevelopment": "??????????"
 }
-

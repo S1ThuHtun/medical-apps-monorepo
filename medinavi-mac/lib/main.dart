@@ -9,6 +9,7 @@ import 'package:medinavi_mac/screens/sign_up_screen.dart';
 import 'package:medinavi_mac/screens/startup_screen.dart';
 import 'package:medinavi_mac/screens/home_screen.dart';
 import 'package:medinavi_mac/screens/main_navigation_screen.dart';
+import 'package:medinavi_mac/services/notification_service.dart'; // ⭐ ADD THIS LINE
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -27,16 +28,22 @@ void main() async {
         .currentPlatform,
   );
 
-  // 笞・・TESTING ONLY - Remove this after testing
+  // ⭐ ADD THESE 2 LINES - Initialize notification service for medicine reminders
+  await NotificationService()
+      .initialize();
+  await NotificationService()
+      .requestPermissions();
+
+  // TESTING ONLY - Remove this after testing
   // This will reset the first-time user experience
   // await _resetFirstTimeUser(); // Commented out for login testing
 
   await Future.delayed(
-    Duration(seconds: 2),
+    const Duration(seconds: 2),
   );
   FlutterNativeSplash.remove();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -47,7 +54,7 @@ class MyApp extends StatefulWidget {
       _MyAppState();
 
   static void setLocale(
-    context,
+    BuildContext context,
     Locale newLocale,
   ) {
     _MyAppState? state =
@@ -73,8 +80,7 @@ class _MyAppState extends State<MyApp> {
             .getInstance();
     final savedLanguage =
         prefs.getString(
-              'selectedLanguage',
-            ) ??
+                'selectedLanguage') ??
             'en';
     if (!mounted) return;
     setState(() {
@@ -128,22 +134,18 @@ class _MyAppState extends State<MyApp> {
             .authStateChanges(),
         builder: (context, snapshot) {
           print(
-            '剥 StreamBuilder state: ${snapshot.connectionState}',
-          );
+              '🔄 StreamBuilder state: ${snapshot.connectionState}');
           print(
-            '剥 Has data: ${snapshot.hasData}',
-          );
+              '📊 Has data: ${snapshot.hasData}');
           print(
-            '剥 User: ${snapshot.data?.email}',
-          );
+              '👤 User: ${snapshot.data?.email}');
 
           // Loading State - Firebase is still processing
           if (snapshot
                   .connectionState ==
               ConnectionState.waiting) {
             print(
-              '竢ｳ Waiting for Firebase auth...',
-            );
+                '⏳ Waiting for Firebase auth...');
             return const Scaffold(
               body: Center(
                 child:
@@ -155,8 +157,7 @@ class _MyAppState extends State<MyApp> {
           // If there is an Error during Firebase connection
           if (snapshot.hasError) {
             print(
-              '笶・Auth error: ${snapshot.error}',
-            );
+                '❌ Auth error: ${snapshot.error}');
             return Scaffold(
               body: Center(
                 child: Text(
@@ -170,21 +171,18 @@ class _MyAppState extends State<MyApp> {
             );
           }
 
-          // When the user is logged in, it will go to the HomeScreen.
+          // When the user is logged in, go to MainNavigationScreen
           if (snapshot.hasData &&
               snapshot.data != null) {
             print(
-              '笨・User logged in! Email: ${snapshot.data!.email}',
-            );
+                '✅ User logged in! Email: ${snapshot.data!.email}');
             print(
-              '笨・Navigating to HomeScreen...',
-            );
+                '🏠 Navigating to MainNavigationScreen...');
             return const MainNavigationScreen();
           }
 
           print(
-            '側 No user logged in, checking first-time status...',
-          );
+              '❌ No user logged in, checking first-time status...');
 
           // User is NOT logged in - Check if first time user
           return FutureBuilder<bool>(
@@ -230,14 +228,13 @@ class _MyAppState extends State<MyApp> {
             .getInstance();
     final hasSeenStartup =
         prefs.getBool(
-              'hasSeenStartup',
-            ) ??
+                'hasSeenStartup') ??
             false;
     return !hasSeenStartup;
   }
 }
 
-// 笞・・TESTING FUNCTION - For development only
+// 🧪 TESTING FUNCTION - For development only
 // This resets the first-time user experience
 // ignore: unused_element
 Future<void>
@@ -246,6 +243,5 @@ Future<void>
       .getInstance();
   await prefs.remove('hasSeenStartup');
   print(
-    '笨・Reset complete! App will show StartupScreen again.',
-  );
+      '✅ Reset complete! App will show StartupScreen again.');
 }

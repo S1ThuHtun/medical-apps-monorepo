@@ -361,5 +361,103 @@
         "type": "String"
       }
     }
-  }
+  },
+  "medicineReminderTitle": "用药提醒",
+  "reminderEmptyTitle": "暂无提醒",
+  "reminderEmptySubtitle": "点击 + 添加提醒",
+  "reminderAddedMessage": "已添加提醒",
+  "reminderUpdatedMessage": "提醒已更新",
+  "reminderNotificationBody": "该服药了 - 第{index}次",
+  "@reminderNotificationBody": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "reminderNotificationChannelName": "用药提醒",
+  "reminderNotificationChannelDescription": "提醒您按时服药",
+  "reminderDoseMorning": "早上",
+  "reminderDoseNoon": "中午",
+  "reminderDoseEvening": "晚上",
+  "reminderDoseNight": "夜间",
+  "remindersTabLabel": "提醒",
+  "reminderPhotoPickError": "获取照片失败：{error}",
+  "@reminderPhotoPickError": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderAddPhotoTitle": "添加照片",
+  "reminderPhotoFromCamera": "拍照",
+  "reminderPhotoFromGallery": "从相册选择",
+  "reminderPhotoRemove": "删除照片",
+  "reminderRepeatSettingsTitle": "重复设置",
+  "reminderRepeatNever": "不重复",
+  "reminderRepeatEveryday": "每天",
+  "reminderRepeatWeekdays": "仅工作日",
+  "reminderRepeatWeekends": "仅周末",
+  "reminderRepeatCustomOption": "自定义...",
+  "reminderRepeatDone": "完成",
+  "reminderSelectDays": "选择星期",
+  "reminderDayMonShort": "周一",
+  "reminderDayTueShort": "周二",
+  "reminderDayWedShort": "周三",
+  "reminderDayThuShort": "周四",
+  "reminderDayFriShort": "周五",
+  "reminderDaySatShort": "周六",
+  "reminderDaySunShort": "周日",
+  "reminderDaySeparator": "、",
+  "reminderEveryWeekDays": "每周 {days}",
+  "@reminderEveryWeekDays": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      }
+    }
+  },
+  "reminderAddTitle": "添加提醒",
+  "reminderEditTitle": "编辑提醒",
+  "reminderMedicineNameLabel": "药品名称",
+  "reminderMedicineNameHint": "例如：维生素C，阿司匹林",
+  "reminderPhotoLabel": "药品照片",
+  "reminderPhotoOptional": "（可选）",
+  "reminderAddPhotoButton": "添加照片",
+  "reminderTimeLabel": "时间",
+  "reminderRepeatLabel": "重复",
+  "reminderMealTimingLabel": "服药时机",
+  "reminderMealTimingNone": "不指定",
+  "reminderMealTimingBeforeTitle": "饭前服药",
+  "reminderMealTimingBeforeSubtitle": "餐前30分钟服用",
+  "reminderMealTimingAfterTitle": "饭后服药",
+  "reminderMealTimingAfterSubtitle": "闹钟时确认进餐",
+  "reminderCancel": "取消",
+  "reminderUpdate": "更新",
+  "reminderAdd": "添加",
+  "reminderTakenSnackBar": "已服用",
+  "reminderMealConfirmTitle": "用餐确认",
+  "reminderMealConfirmMessage": "请在饭后服用此药。",
+  "reminderMealConfirmQuestion": "您已经吃过饭了吗？",
+  "reminderMealConfirmRecommendation": "建议在饭后30分钟内服用。",
+  "reminderMealConfirmNotYet": "还没有",
+  "reminderMealConfirmDone": "已吃",
+  "reminderLaterTitle": "提醒",
+  "reminderLaterMessage": "请在饭后再服药。\\n提醒将保持有效。",
+  "reminderLaterOk": "知道了",
+  "reminderTimeToTakeMessage": "该服药了",
+  "reminderTakenButton": "我已服用",
+  "reminderCloseButton": "关闭",
+  "homeTabLabel": "首页",
+  "historyTabLabel": "历史",
+  "placeholderComingSoon": "{title} - ????",
+  "@placeholderComingSoon": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "placeholderUnderDevelopment": "????????"
 }

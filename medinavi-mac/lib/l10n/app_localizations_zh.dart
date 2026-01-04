@@ -819,4 +819,222 @@ class AppLocalizationsZh extends AppLocalizations {
   String searchingForService(String service) {
     return '正在搜索$service...';
   }
+
+  @override
+  String get medicineReminderTitle => '用药提醒';
+
+  @override
+  String get reminderEmptyTitle => '暂无提醒';
+
+  @override
+  String get reminderEmptySubtitle => '点击 + 添加提醒';
+
+  @override
+  String get reminderAddedMessage => '已添加提醒';
+
+  @override
+  String get reminderUpdatedMessage => '提醒已更新';
+
+  @override
+  String reminderNotificationBody(int index) {
+    return '该服药了 - 第$index次';
+  }
+
+  @override
+  String get reminderNotificationChannelName => '用药提醒';
+
+  @override
+  String get reminderNotificationChannelDescription => '提醒您按时服药';
+
+  @override
+  String get reminderDoseMorning => '早上';
+
+  @override
+  String get reminderDoseNoon => '中午';
+
+  @override
+  String get reminderDoseEvening => '晚上';
+
+  @override
+  String get reminderDoseNight => '夜间';
+
+  @override
+  String get remindersTabLabel => '提醒';
+
+  @override
+  String reminderPhotoPickError(String error) {
+    return '获取照片失败：$error';
+  }
+
+  @override
+  String get reminderAddPhotoTitle => '添加照片';
+
+  @override
+  String get reminderPhotoFromCamera => '拍照';
+
+  @override
+  String get reminderPhotoFromGallery => '从相册选择';
+
+  @override
+  String get reminderPhotoRemove => '删除照片';
+
+  @override
+  String get reminderRepeatSettingsTitle => '重复设置';
+
+  @override
+  String get reminderRepeatNever => '不重复';
+
+  @override
+  String get reminderRepeatEveryday => '每天';
+
+  @override
+  String get reminderRepeatWeekdays => '仅工作日';
+
+  @override
+  String get reminderRepeatWeekends => '仅周末';
+
+  @override
+  String get reminderRepeatCustomOption => '自定义...';
+
+  @override
+  String get reminderRepeatDone => '完成';
+
+  @override
+  String get reminderSelectDays => '选择星期';
+
+  @override
+  String get reminderDayMonShort => '周一';
+
+  @override
+  String get reminderDayTueShort => '周二';
+
+  @override
+  String get reminderDayWedShort => '周三';
+
+  @override
+  String get reminderDayThuShort => '周四';
+
+  @override
+  String get reminderDayFriShort => '周五';
+
+  @override
+  String get reminderDaySatShort => '周六';
+
+  @override
+  String get reminderDaySunShort => '周日';
+
+  @override
+  String get reminderDaySeparator => '、';
+
+  @override
+  String reminderEveryWeekDays(String days) {
+    return '每周 $days';
+  }
+
+  @override
+  String get reminderAddTitle => '添加提醒';
+
+  @override
+  String get reminderEditTitle => '编辑提醒';
+
+  @override
+  String get reminderMedicineNameLabel => '药品名称';
+
+  @override
+  String get reminderMedicineNameHint => '例如：维生素C，阿司匹林';
+
+  @override
+  String get reminderPhotoLabel => '药品照片';
+
+  @override
+  String get reminderPhotoOptional => '（可选）';
+
+  @override
+  String get reminderAddPhotoButton => '添加照片';
+
+  @override
+  String get reminderTimeLabel => '时间';
+
+  @override
+  String get reminderRepeatLabel => '重复';
+
+  @override
+  String get reminderMealTimingLabel => '服药时机';
+
+  @override
+  String get reminderMealTimingNone => '不指定';
+
+  @override
+  String get reminderMealTimingBeforeTitle => '饭前服药';
+
+  @override
+  String get reminderMealTimingBeforeSubtitle => '餐前30分钟服用';
+
+  @override
+  String get reminderMealTimingAfterTitle => '饭后服药';
+
+  @override
+  String get reminderMealTimingAfterSubtitle => '闹钟时确认进餐';
+
+  @override
+  String get reminderCancel => '取消';
+
+  @override
+  String get reminderUpdate => '更新';
+
+  @override
+  String get reminderAdd => '添加';
+
+  @override
+  String get reminderTakenSnackBar => '已服用';
+
+  @override
+  String get reminderMealConfirmTitle => '用餐确认';
+
+  @override
+  String get reminderMealConfirmMessage => '请在饭后服用此药。';
+
+  @override
+  String get reminderMealConfirmQuestion => '您已经吃过饭了吗？';
+
+  @override
+  String get reminderMealConfirmRecommendation => '建议在饭后30分钟内服用。';
+
+  @override
+  String get reminderMealConfirmNotYet => '还没有';
+
+  @override
+  String get reminderMealConfirmDone => '已吃';
+
+  @override
+  String get reminderLaterTitle => '提醒';
+
+  @override
+  String get reminderLaterMessage => '请在饭后再服药。\\n提醒将保持有效。';
+
+  @override
+  String get reminderLaterOk => '知道了';
+
+  @override
+  String get reminderTimeToTakeMessage => '该服药了';
+
+  @override
+  String get reminderTakenButton => '我已服用';
+
+  @override
+  String get reminderCloseButton => '关闭';
+
+  @override
+  String get homeTabLabel => '首页';
+
+  @override
+  String get historyTabLabel => '历史';
+
+  @override
+  String placeholderComingSoon(String title) {
+    return '$title - ????';
+  }
+
+  @override
+  String get placeholderUnderDevelopment => '????????';
 }

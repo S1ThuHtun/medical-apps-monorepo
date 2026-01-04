@@ -766,4 +766,94 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get servicePsychosomaticMedicine => '心療内科';
+
+  @override
+  String get chatbotWelcome =>
+      'こんにちは！私はあなたの医療アシスタントです。話しかけるか、質問を入力してください。今日はどのようにお手伝いできますか？';
+
+  @override
+  String get medicalAssistant => '医療アシスタント';
+
+  @override
+  String get detailed => '詳細';
+
+  @override
+  String get quick => 'クイック';
+
+  @override
+  String get responseType => '応答タイプ';
+
+  @override
+  String get quickMode => 'クイックモード';
+
+  @override
+  String get quickModeDesc => '迅速で簡潔な回答';
+
+  @override
+  String get detailedMode => '詳細モード';
+
+  @override
+  String get detailedModeDesc => '包括的な医療情報';
+
+  @override
+  String get quickModeActivated => '⚡ クイックモードが有効になりました';
+
+  @override
+  String get detailedModeActivated => '📋 詳細モードが有効になりました';
+
+  @override
+  String get chatCleared => '✅ チャット履歴がクリアされました';
+
+  @override
+  String get thinking => '考え中...';
+
+  @override
+  String get overloaded => 'サービスが現在過負荷状態です。後でもう一度お試しください。';
+
+  @override
+  String get errorOccurred => 'エラーが発生しました。もう一度お試しください。';
+
+  @override
+  String get networkError => 'ネットワークエラー。接続を確認してください。';
+
+  @override
+  String get speechNotAvailable => '音声認識が利用できません';
+
+  @override
+  String get micPermissionRequired => '音声入力にはマイクの許可が必要です';
+
+  @override
+  String get voiceInputError => '音声入力エラーが発生しました';
+
+  @override
+  String get processing => 'わかりました。処理中です。';
+
+  @override
+  String get listening => '聞いています...';
+
+  @override
+  String get typeOrSpeak => '症状を入力または話してください';
+
+  @override
+  String get you => 'あなた';
+
+  @override
+  String get assistant => 'アシスタント';
+
+  @override
+  String get findNearbyFacilities => '🏥 近くの施設を検索';
+
+  @override
+  String get noDepartmentDetected => '医療部門はまだ推奨されていません。まず症状を説明してください。';
+
+  @override
+  String get askAssistant => 'AIアシスタントに聞く';
+
+  @override
+  String searchingForService(String service) {
+    return '$serviceを検索中...';
+  }
+
+  @override
+  String get cannotOpenPhoneDial => '電話ダイヤラーを開けません';
 }

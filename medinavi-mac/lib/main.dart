@@ -224,8 +224,7 @@ class _MyAppState extends State<MyApp> {
 // ⚠️ TESTING FUNCTION - For development only
 // This resets the first-time user experience
 // ignore: unused_element
-Future<void>
-_resetFirstTimeUser() async {
+Future<void> _resetFirstTimeUser() async {
   final prefs =
       await SharedPreferences.getInstance();
   await prefs.remove('hasSeenStartup');

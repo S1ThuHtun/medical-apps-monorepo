@@ -1593,6 +1593,180 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Psychosomatic Medicine'**
   String get servicePsychosomaticMedicine;
+
+  /// No description provided for @chatbotWelcome.
+  ///
+  /// In en, this message translates to:
+  /// **'Hello! I\'m your medical assistant. You can speak to me or type your questions. How can I help you today?'**
+  String get chatbotWelcome;
+
+  /// No description provided for @medicalAssistant.
+  ///
+  /// In en, this message translates to:
+  /// **'Medical Assistant'**
+  String get medicalAssistant;
+
+  /// No description provided for @detailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed'**
+  String get detailed;
+
+  /// No description provided for @quick.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick'**
+  String get quick;
+
+  /// No description provided for @responseType.
+  ///
+  /// In en, this message translates to:
+  /// **'Response Type'**
+  String get responseType;
+
+  /// No description provided for @quickMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Quick Mode'**
+  String get quickMode;
+
+  /// No description provided for @quickModeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Fast, concise responses'**
+  String get quickModeDesc;
+
+  /// No description provided for @detailedMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed Mode'**
+  String get detailedMode;
+
+  /// No description provided for @detailedModeDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Comprehensive medical information'**
+  String get detailedModeDesc;
+
+  /// No description provided for @quickModeActivated.
+  ///
+  /// In en, this message translates to:
+  /// **'⚡ Quick mode activated'**
+  String get quickModeActivated;
+
+  /// No description provided for @detailedModeActivated.
+  ///
+  /// In en, this message translates to:
+  /// **'📋 Detailed mode activated'**
+  String get detailedModeActivated;
+
+  /// No description provided for @chatCleared.
+  ///
+  /// In en, this message translates to:
+  /// **'✅ Chat history cleared'**
+  String get chatCleared;
+
+  /// No description provided for @thinking.
+  ///
+  /// In en, this message translates to:
+  /// **'Thinking...'**
+  String get thinking;
+
+  /// No description provided for @overloaded.
+  ///
+  /// In en, this message translates to:
+  /// **'The service is currently overloaded. Please try again later.'**
+  String get overloaded;
+
+  /// No description provided for @errorOccurred.
+  ///
+  /// In en, this message translates to:
+  /// **'An error occurred. Please try again.'**
+  String get errorOccurred;
+
+  /// No description provided for @networkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Network error. Please check your connection.'**
+  String get networkError;
+
+  /// No description provided for @speechNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Speech recognition is not available'**
+  String get speechNotAvailable;
+
+  /// No description provided for @micPermissionRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone permission is required for voice input'**
+  String get micPermissionRequired;
+
+  /// No description provided for @voiceInputError.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice input error occurred'**
+  String get voiceInputError;
+
+  /// No description provided for @processing.
+  ///
+  /// In en, this message translates to:
+  /// **'Got it. Processing.'**
+  String get processing;
+
+  /// No description provided for @listening.
+  ///
+  /// In en, this message translates to:
+  /// **'Listening...'**
+  String get listening;
+
+  /// No description provided for @typeOrSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'Type or speak your symptoms'**
+  String get typeOrSpeak;
+
+  /// No description provided for @you.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get you;
+
+  /// No description provided for @assistant.
+  ///
+  /// In en, this message translates to:
+  /// **'Assistant'**
+  String get assistant;
+
+  /// No description provided for @findNearbyFacilities.
+  ///
+  /// In en, this message translates to:
+  /// **'🏥 Find Nearby Facilities'**
+  String get findNearbyFacilities;
+
+  /// No description provided for @noDepartmentDetected.
+  ///
+  /// In en, this message translates to:
+  /// **'No medical department was recommended yet. Please describe your symptoms first.'**
+  String get noDepartmentDetected;
+
+  /// No description provided for @askAssistant.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask AI Assistant'**
+  String get askAssistant;
+
+  /// No description provided for @searchingForService.
+  ///
+  /// In en, this message translates to:
+  /// **'Searching for {service}...'**
+  String searchingForService(String service);
+
+  /// No description provided for @cannotOpenPhoneDial.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannot open phone dialer'**
+  String get cannotOpenPhoneDial;
 }
 
 class _AppLocalizationsDelegate

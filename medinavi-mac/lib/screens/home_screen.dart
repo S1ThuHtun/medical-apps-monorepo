@@ -13,6 +13,7 @@ import '../widgets/results_header_widget.dart';
 import '../widgets/services_list_widget.dart';
 import '../widgets/location_selector_screen_widget.dart';
 import '../l10n/app_localizations.dart';
+import 'chatbot_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -410,8 +411,31 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
       floatingActionButton: FloatingActionButton(
         elevation: 20,
         shape: const CircleBorder(),
-        onPressed: () {
-          // TODO: Add action for FAB
+        onPressed: () async {
+          final recommendedService = await Navigator.push<String>(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ChatbotScreen(),
+            ),
+          );
+
+          if (recommendedService != null && mounted) {
+            // User got a department recommendation from chatbot
+            setState(() {
+              _selectedService = recommendedService;
+            });
+            await _searchNearbyServices(recommendedService);
+
+            if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(AppLocalizations.of(context)!.searchingForService(recommendedService)),
+                  backgroundColor: const Color(0xFF2E7D32),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            }
+          }
         },
         backgroundColor: const Color(0xFF2E7D32),
         child: Padding(

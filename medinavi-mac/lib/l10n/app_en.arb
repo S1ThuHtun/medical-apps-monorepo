@@ -326,5 +326,41 @@
     "serviceENT": "ENT",
     "serviceDentistry": "Dentistry",
     "serviceOBGYN": "OG/GYN",
-    "servicePsychosomaticMedicine": "Psychosomatic Medicine"
+    "servicePsychosomaticMedicine": "Psychosomatic Medicine",
+    "chatbotWelcome": "Hello! I'm your medical assistant. You can speak to me or type your questions. How can I help you today?",
+    "medicalAssistant": "Medical Assistant",
+    "detailed": "Detailed",
+    "quick": "Quick",
+    "responseType": "Response Type",
+    "quickMode": "Quick Mode",
+    "quickModeDesc": "Fast, concise responses",
+    "detailedMode": "Detailed Mode",
+    "detailedModeDesc": "Comprehensive medical information",
+    "quickModeActivated": "⚡ Quick mode activated",
+    "detailedModeActivated": "📋 Detailed mode activated",
+    "chatCleared": "✅ Chat history cleared",
+    "thinking": "Thinking...",
+    "overloaded": "The service is currently overloaded. Please try again later.",
+    "errorOccurred": "An error occurred. Please try again.",
+    "networkError": "Network error. Please check your connection.",
+    "speechNotAvailable": "Speech recognition is not available",
+    "micPermissionRequired": "Microphone permission is required for voice input",
+    "voiceInputError": "Voice input error occurred",
+    "processing": "Got it. Processing.",
+    "listening": "Listening...",
+    "typeOrSpeak": "Type or speak your symptoms",
+    "you": "You",
+    "assistant": "Assistant",
+    "findNearbyFacilities": "🏥 Find Nearby Facilities",
+    "noDepartmentDetected": "No medical department was recommended yet. Please describe your symptoms first.",
+    "askAssistant": "Ask AI Assistant",
+    "searchingForService": "Searching for {service}...",
+    "@searchingForService": {
+        "placeholders": {
+            "service": {
+                "type": "String"
+            }
+        }
+    },
+    "cannotOpenPhoneDial": "Cannot open phone dialer"
 }

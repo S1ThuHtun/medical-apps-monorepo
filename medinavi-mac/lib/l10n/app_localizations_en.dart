@@ -773,4 +773,97 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get servicePsychosomaticMedicine => 'Psychosomatic Medicine';
+
+  @override
+  String get chatbotWelcome =>
+      'Hello! I\'m your medical assistant. You can speak to me or type your questions. How can I help you today?';
+
+  @override
+  String get medicalAssistant => 'Medical Assistant';
+
+  @override
+  String get detailed => 'Detailed';
+
+  @override
+  String get quick => 'Quick';
+
+  @override
+  String get responseType => 'Response Type';
+
+  @override
+  String get quickMode => 'Quick Mode';
+
+  @override
+  String get quickModeDesc => 'Fast, concise responses';
+
+  @override
+  String get detailedMode => 'Detailed Mode';
+
+  @override
+  String get detailedModeDesc => 'Comprehensive medical information';
+
+  @override
+  String get quickModeActivated => '⚡ Quick mode activated';
+
+  @override
+  String get detailedModeActivated => '📋 Detailed mode activated';
+
+  @override
+  String get chatCleared => '✅ Chat history cleared';
+
+  @override
+  String get thinking => 'Thinking...';
+
+  @override
+  String get overloaded =>
+      'The service is currently overloaded. Please try again later.';
+
+  @override
+  String get errorOccurred => 'An error occurred. Please try again.';
+
+  @override
+  String get networkError => 'Network error. Please check your connection.';
+
+  @override
+  String get speechNotAvailable => 'Speech recognition is not available';
+
+  @override
+  String get micPermissionRequired =>
+      'Microphone permission is required for voice input';
+
+  @override
+  String get voiceInputError => 'Voice input error occurred';
+
+  @override
+  String get processing => 'Got it. Processing.';
+
+  @override
+  String get listening => 'Listening...';
+
+  @override
+  String get typeOrSpeak => 'Type or speak your symptoms';
+
+  @override
+  String get you => 'You';
+
+  @override
+  String get assistant => 'Assistant';
+
+  @override
+  String get findNearbyFacilities => '🏥 Find Nearby Facilities';
+
+  @override
+  String get noDepartmentDetected =>
+      'No medical department was recommended yet. Please describe your symptoms first.';
+
+  @override
+  String get askAssistant => 'Ask AI Assistant';
+
+  @override
+  String searchingForService(String service) {
+    return 'Searching for $service...';
+  }
+
+  @override
+  String get cannotOpenPhoneDial => 'Cannot open phone dialer';
 }

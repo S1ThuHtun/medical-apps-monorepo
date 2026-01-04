@@ -112,8 +112,8 @@ String getLocalizedLocationName(String locationName, AppLocalizations localizati
     'Gion': localizations.areaGion,
     'Kiyomizu': localizations.areaKiyomizu,
     'Ginkakuji Area': localizations.areaGinkakuji,
-    'Chuo': localizations.areaChuo,
-    'Kita': localizations.areaKita,
+    // 'Chuo': localizations.areaChuo, // Duplicate - already defined as city
+    // 'Kita': localizations.areaKita, // Duplicate - already defined as city
     'Susukino': localizations.areaSusukino,
     'Hakata Station Area': localizations.areaHakataStation,
     'Canal City': localizations.areaCanal,

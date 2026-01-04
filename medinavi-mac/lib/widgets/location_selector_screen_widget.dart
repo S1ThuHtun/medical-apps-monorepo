@@ -20,6 +20,7 @@ class LocationSelectorScreen extends StatefulWidget {
 class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
   String? _selectedPrefecture;
   String? _selectedCity;
+  // ignore: unused_field
   String? _selectedWard;
 
   @override

@@ -766,4 +766,93 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get servicePsychosomaticMedicine => '心身医学';
+
+  @override
+  String get chatbotWelcome => '你好！我是你的医疗助手。你可以对我说话或输入问题。今天我能帮你什么？';
+
+  @override
+  String get medicalAssistant => '医疗助手';
+
+  @override
+  String get detailed => '详细';
+
+  @override
+  String get quick => '快速';
+
+  @override
+  String get responseType => '回复类型';
+
+  @override
+  String get quickMode => '快速模式';
+
+  @override
+  String get quickModeDesc => '快速简洁的回答';
+
+  @override
+  String get detailedMode => '详细模式';
+
+  @override
+  String get detailedModeDesc => '全面的医疗信息';
+
+  @override
+  String get quickModeActivated => '⚡ 快速模式已激活';
+
+  @override
+  String get detailedModeActivated => '📋 详细模式已激活';
+
+  @override
+  String get chatCleared => '✅ 聊天记录已清除';
+
+  @override
+  String get thinking => '正在思考...';
+
+  @override
+  String get overloaded => '服务目前过载。请稍后再试。';
+
+  @override
+  String get errorOccurred => '发生错误。请再试一次。';
+
+  @override
+  String get networkError => '网络错误。请检查您的连接。';
+
+  @override
+  String get speechNotAvailable => '语音识别不可用';
+
+  @override
+  String get micPermissionRequired => '语音输入需要麦克风权限';
+
+  @override
+  String get voiceInputError => '语音输入发生错误';
+
+  @override
+  String get processing => '明白了。正在处理。';
+
+  @override
+  String get listening => '正在听...';
+
+  @override
+  String get typeOrSpeak => '输入或说出您的症状';
+
+  @override
+  String get you => '你';
+
+  @override
+  String get assistant => '助手';
+
+  @override
+  String get findNearbyFacilities => '🏥 查找附近设施';
+
+  @override
+  String get noDepartmentDetected => '尚未推荐医疗部门。请先描述您的症状。';
+
+  @override
+  String get askAssistant => '询问AI助手';
+
+  @override
+  String searchingForService(String service) {
+    return '正在搜索$service...';
+  }
+
+  @override
+  String get cannotOpenPhoneDial => '无法打开电话拨号器';
 }

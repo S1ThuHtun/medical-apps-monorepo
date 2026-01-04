@@ -572,21 +572,8 @@ class _ChatbotScreenState
   }
 
   void _scrollToBottom() {
-    Future.delayed(
-      const Duration(milliseconds: 100),
-      () {
-        if (_scrollController
-            .hasClients) {
-          _scrollController.animateTo(
-            _scrollController.position
-                .maxScrollExtent,
-            duration: const Duration(
-                milliseconds: 300),
-            curve: Curves.easeOut,
-          );
-        }
-      },
-    );
+    // Don't auto-scroll, let user see messages from top
+    return;
   }
 
   String? _detectMedicalDepartment(
@@ -1547,7 +1534,6 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
           children: [
             Expanded(
               child: ListView.builder(
-                reverse: true,
                 controller:
                     _scrollController,
                 padding:
@@ -1558,7 +1544,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
                 itemBuilder:
                     (context, index) {
                   final message =
-                      _messages[_messages.length - 1 - index];
+                      _messages[index];
                   return ColorfulChatBubble(
                     message: message,
                     primaryColor:

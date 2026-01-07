@@ -845,6 +845,7 @@ class _ChatbotScreenState
 
 🚨 **緊急連絡先** (常に表示)
 - 救急車・消防: 119
+- 緊急安心センター: #7119
 - 警察: 110
 - いのちの電話: 0570-783-556
 - よりそいホットライン: 0120-279-338''';
@@ -856,6 +857,7 @@ class _ChatbotScreenState
 
 🚨 **紧急联系方式** (始终显示)
 - 急救/消防: 119
+- 紧急安心中心: #7119
 - 警察: 110
 - 生命热线: 0570-783-556
 - 支援热线: 0120-279-338''';
@@ -867,6 +869,7 @@ class _ChatbotScreenState
 
 🚨 **Emergency Contacts** (Always Available)
 - Ambulance/Fire: 119
+- Emergency Consultation Center: #7119
 - Police: 110
 - Inochi no Denwa (Life Line): 0570-783-556
 - Yorisoi Hotline: 0120-279-338''';
@@ -970,6 +973,9 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
     if (_controller.text.trim().isEmpty)
       return;
 
+    // Get locale before async operations
+    final locale = Localizations.localeOf(context);
+
     String userMessage =
         _controller.text;
     _controller.clear();
@@ -1044,6 +1050,45 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
               data['candidates'][0]
                       ['content']
                   ['parts'][0]['text'];
+
+          // Build emergency section based on current locale
+          String emergencySection;
+          switch (locale.languageCode) {
+            case 'ja':
+              emergencySection = '''
+
+🚨 **緊急連絡先** (常に表示)
+- 救急車・消防: 119
+- 緊急安心センター: #7119
+- 警察: 110
+- いのちの電話: 0570-783-556
+- よりそいホットライン: 0120-279-338''';
+              break;
+            case 'zh':
+              emergencySection = '''
+
+🚨 **紧急联系方式** (始终显示)
+- 急救/消防: 119
+- 紧急安心中心: #7119
+- 警察: 110
+- 生命热线: 0570-783-556
+- 支援热线: 0120-279-338''';
+              break;
+            default:
+              emergencySection = '''
+
+🚨 **Emergency Contacts** (Always Available)
+- Ambulance/Fire: 119
+- Emergency Consultation Center: #7119
+- Police: 110
+- Inochi no Denwa (Life Line): 0570-783-556
+- Yorisoi Hotline: 0120-279-338''';
+          }
+
+          // Ensure emergency section is always included
+          if (!aiResponse.contains('🚨')) {
+            aiResponse = aiResponse + emergencySection;
+          }
 
           _conversationHistory.add({
             "role": "model",
@@ -1880,9 +1925,9 @@ class ColorfulChatBubble
       _buildClickablePhoneNumbers(
           String text,
           BuildContext context) {
-    // Phone number patterns for Japan, International, and common formats
+    // Phone number patterns for Japan, International, and common formats (including #7119)
     final phoneRegex = RegExp(
-      r'(\+?\d{1,4}[-.\s]?)?(\(?\d{1,4}\)?[-.\s]?)?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}',
+      r'([+#]?\d{1,4}[-.\s]?)?(\(?\d{1,4}\)?[-.\s]?)?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}',
     );
 
     List<TextSpan> spans = [];
@@ -2200,9 +2245,12 @@ class ColorfulChatBubble
               .contains('police') ||
           line.contains('119') ||
           line.contains('110') ||
+          line.contains('#7119') ||
           line.contains('救急') ||
           line.contains('警察') ||
-          line.contains('急救')) {
+          line.contains('急救') ||
+          line.contains('緊急安心') ||
+          line.contains('紧急安心')) {
         widgets.add(
           Padding(
             padding: const EdgeInsets

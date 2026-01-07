@@ -7,7 +7,6 @@ import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import '../models/medical_service.dart';
 import '../services/google_places_service.dart';
 import '../l10n/app_localizations.dart';
-import 'transit_details_screen.dart';
 
 class MapScreen extends StatefulWidget {
   final MedicalService service;
@@ -225,14 +224,6 @@ class _MapScreenState extends State<MapScreen> {
         } else if (_selectedTravelMode == 'transit') {
           errorMessage = 'Transit directions not available.\nThis may be due to:\n• No public transit in this area\n• Transit data not available\n• Try driving or walking instead';
         }
-
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(errorMessage),
-            backgroundColor: errorColor,
-            duration: const Duration(seconds: 5),
-          ),
-        );
 
         // Clear previous route if any
         setState(() {
@@ -718,48 +709,6 @@ class _MapScreenState extends State<MapScreen> {
 
                       if (_showDirections) const SizedBox(height: 16),
 
-                      // Transit Details Button (if transit mode and has data)
-                      if (_showDirections && _selectedTravelMode == 'transit' && _directionsData != null)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 16),
-                          child: ElevatedButton.icon(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => TransitDetailsScreen(
-                                    directionsData: _directionsData!,
-                                    routePoints: _routePoints,
-                                    destinationName: widget.service.name,
-                                    startLat: widget.currentPosition.latitude,
-                                    startLng: widget.currentPosition.longitude,
-                                    endLat: widget.service.latitude,
-                                    endLng: widget.service.longitude,
-                                    travelMode: _selectedTravelMode,
-                                  ),
-                                ),
-                              );
-                            },
-                            icon: const Icon(Icons.info_outline),
-                            label: const Text(
-                              'View Transit Details',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue[700],
-                              foregroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(vertical: 16),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              elevation: 0,
-                            ),
-                          ),
-                        ),
-
                       // Action buttons
                       Row(
                         children: [
@@ -980,6 +929,79 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
+  Future<void> _showTransitRedirectDialog() async {
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Row(
+            children: [
+              Icon(Icons.directions_transit, color: const Color(0xFF2E7D32)),
+              const SizedBox(width: 12),
+              const Text('Transit Directions'),
+            ],
+          ),
+          content: const Text(
+            'Transit directions are best viewed in Google Maps.\n\nWould you like to open Google Maps for transit directions?',
+            style: TextStyle(fontSize: 15),
+          ),
+          actionsAlignment: MainAxisAlignment.spaceEvenly,
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text(
+                'Cancel',
+                style: TextStyle(color: Colors.black),
+              ),
+            ),
+            ElevatedButton.icon(
+              onPressed: () => Navigator.of(context).pop(true),
+              icon: const Icon(Icons.open_in_new, size: 18),
+              label: const Text('Open Google Maps'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF2E7D32),
+                foregroundColor: Colors.white,
+              ),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (result == true) {
+      // Open Google Maps with transit directions
+      try {
+        final googleMapsUrl = Uri.parse(
+          'https://www.google.com/maps/dir/?api=1&origin=${widget.currentPosition.latitude},${widget.currentPosition.longitude}&destination=${widget.service.latitude},${widget.service.longitude}&travelmode=transit',
+        );
+
+        final launched = await launchUrl(
+          googleMapsUrl,
+          mode: LaunchMode.externalApplication,
+        );
+
+        if (!launched && mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(AppLocalizations.of(context)!.errorOpeningMaps),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      } catch (e) {
+        print('Error opening Google Maps: $e');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(AppLocalizations.of(context)!.errorOpeningMaps),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+      }
+    }
+  }
+
   Widget _buildTravelModeSelector() {
     final modes = [
       {'mode': 'driving', 'icon': Icons.directions_car},
@@ -994,10 +1016,15 @@ class _MapScreenState extends State<MapScreen> {
         return Expanded(
           child: GestureDetector(
             onTap: () {
-              setState(() {
-                _selectedTravelMode = mode['mode'] as String;
-              });
-              _getDirections();
+              // Check if transit mode is selected
+              if (mode['mode'] == 'transit') {
+                _showTransitRedirectDialog();
+              } else {
+                setState(() {
+                  _selectedTravelMode = mode['mode'] as String;
+                });
+                _getDirections();
+              }
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 4),

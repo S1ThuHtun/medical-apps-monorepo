@@ -11,6 +11,7 @@ class TransitDetailsScreen extends StatefulWidget {
   final double startLng;
   final double endLat;
   final double endLng;
+  final String travelMode;
 
   const TransitDetailsScreen({
     super.key,
@@ -21,6 +22,7 @@ class TransitDetailsScreen extends StatefulWidget {
     required this.startLng,
     required this.endLat,
     required this.endLng,
+    this.travelMode = 'transit',
   });
 
   @override
@@ -258,11 +260,20 @@ class _TransitDetailsScreenState extends State<TransitDetailsScreen> {
           Expanded(
             child: InkWell(
               onTap: () async {
-                final url = Uri.parse(
-                  'https://www.google.com/maps/dir/?api=1&origin=${widget.startLat},${widget.startLng}&destination=${widget.endLat},${widget.endLng}&travelmode=transit'
-                );
-                if (await canLaunchUrl(url)) {
+                try {
+                  final url = Uri.parse(
+                    'https://www.google.com/maps/dir/?api=1&origin=${widget.startLat},${widget.startLng}&destination=${widget.endLat},${widget.endLng}&travelmode=${widget.travelMode}'
+                  );
                   await launchUrl(url, mode: LaunchMode.externalApplication);
+                } catch (e) {
+                  if (mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Could not open Google Maps'),
+                        backgroundColor: Colors.red,
+                      ),
+                    );
+                  }
                 }
               },
               child: Row(
@@ -284,7 +295,7 @@ class _TransitDetailsScreenState extends State<TransitDetailsScreen> {
           const SizedBox(width: 16),
           InkWell(
             onTap: () {
-              final link = 'https://www.google.com/maps/dir/?api=1&origin=${widget.startLat},${widget.startLng}&destination=${widget.endLat},${widget.endLng}&travelmode=transit';
+              final link = 'https://www.google.com/maps/dir/?api=1&origin=${widget.startLat},${widget.startLng}&destination=${widget.endLat},${widget.endLng}&travelmode=${widget.travelMode}';
               Clipboard.setData(ClipboardData(text: link));
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Link copied to clipboard')),

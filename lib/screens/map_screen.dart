@@ -160,30 +160,6 @@ class _MapScreenState extends State<MapScreen> {
         _centerMapOnRoute();
 
         print('✅ Route displayed successfully');
-        
-        // Navigate to transit details screen if transit mode (with slight delay)
-        if (_selectedTravelMode == 'transit' && mounted) {
-          print('🚌 Navigating to transit details screen...');
-          // Small delay to ensure state is updated
-          Future.delayed(const Duration(milliseconds: 300), () {
-            if (mounted) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => TransitDetailsScreen(
-                    directionsData: directions,
-                    routePoints: decodedPoints,
-                    destinationName: widget.service.name,
-                    startLat: widget.currentPosition.latitude,
-                    startLng: widget.currentPosition.longitude,
-                    endLat: widget.service.latitude,
-                    endLng: widget.service.longitude,
-                  ),
-                ),
-              );
-            }
-          });
-        }
       } catch (e) {
         print('❌ Error decoding polyline: $e');
         if (mounted) {
@@ -759,6 +735,7 @@ class _MapScreenState extends State<MapScreen> {
                                     startLng: widget.currentPosition.longitude,
                                     endLat: widget.service.latitude,
                                     endLng: widget.service.longitude,
+                                    travelMode: _selectedTravelMode,
                                   ),
                                 ),
                               );
@@ -952,12 +929,29 @@ class _MapScreenState extends State<MapScreen> {
                         const SizedBox(height: 12),
                         TextButton.icon(
                           onPressed: () async {
-                            final url = Uri.parse(
-                              'https://www.google.com/maps/dir/?api=1&origin=${widget.currentPosition.latitude},${widget.currentPosition.longitude}&destination=${widget.service.latitude},${widget.service.longitude}&travelmode=$_selectedTravelMode'
-                            );
-                            if (await canLaunchUrl(url)) {
-                              await launchUrl(url, mode: LaunchMode.externalApplication);
-                            } else {
+                            try {
+                              // Use Google Maps URL scheme for better app integration
+                              // This will open in the Google Maps app if installed, otherwise in browser
+                              final googleMapsUrl = Uri.parse(
+                                'https://www.google.com/maps/dir/?api=1&origin=${widget.currentPosition.latitude},${widget.currentPosition.longitude}&destination=${widget.service.latitude},${widget.service.longitude}&travelmode=$_selectedTravelMode'
+                              );
+
+                              // Try to launch with external application mode
+                              final launched = await launchUrl(
+                                googleMapsUrl,
+                                mode: LaunchMode.externalApplication,
+                              );
+
+                              if (!launched && mounted) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(AppLocalizations.of(context)!.errorOpeningMaps),
+                                    backgroundColor: Colors.red,
+                                  ),
+                                );
+                              }
+                            } catch (e) {
+                              print('Error opening Google Maps: $e');
                               if (mounted) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
@@ -1003,26 +997,7 @@ class _MapScreenState extends State<MapScreen> {
               setState(() {
                 _selectedTravelMode = mode['mode'] as String;
               });
-              
-              // Special handling for transit - open details screen if data exists
-              if (mode['mode'] == 'transit' && _directionsData != null && _directionsData!['status'] == 'OK') {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => TransitDetailsScreen(
-                      directionsData: _directionsData!,
-                      routePoints: _routePoints,
-                      destinationName: widget.service.name,
-                      startLat: widget.currentPosition.latitude,
-                      startLng: widget.currentPosition.longitude,
-                      endLat: widget.service.latitude,
-                      endLng: widget.service.longitude,
-                    ),
-                  ),
-                );
-              } else {
-                _getDirections();
-              }
+              _getDirections();
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 4),

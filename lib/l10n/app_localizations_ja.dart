@@ -88,6 +88,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get favorites => 'お気に入り';
 
   @override
+  String get noFavorites => 'お気に入りの施設リストは空です';
+
+  @override
+  String get tapHeartToSave => '施設のハートアイコンをタップして保存してください';
+
+  @override
   String get history => '履歴';
 
   @override

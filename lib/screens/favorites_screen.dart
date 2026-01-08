@@ -1,0 +1,268 @@
+import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import '../models/medical_service.dart';
+import '../services/favorites_service.dart';
+import '../widgets/service_card_widget.dart';
+import '../l10n/app_localizations.dart';
+import 'map_screen.dart';
+
+class FavoritesScreen extends StatefulWidget {
+  const FavoritesScreen({super.key});
+
+  @override
+  State<FavoritesScreen> createState() => _FavoritesScreenState();
+}
+
+class _FavoritesScreenState extends State<FavoritesScreen>
+    with AutomaticKeepAliveClientMixin, WidgetsBindingObserver {
+  List<MedicalService> _favorites = [];
+  bool _isLoading = true;
+  Position? _currentPosition;
+
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _loadFavorites();
+    _getCurrentLocation();
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      // Reload favorites when app comes to foreground or tab is switched
+      print('🔄 App resumed, reloading favorites...');
+      _loadFavorites();
+    }
+  }
+
+  @override
+  void didUpdateWidget(FavoritesScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Reload when widget is updated
+    print('🔄 Widget updated, reloading favorites...');
+    _loadFavorites();
+  }
+
+  Future<void> _getCurrentLocation() async {
+    try {
+      final position = await Geolocator.getCurrentPosition();
+      if (mounted) {
+        setState(() {
+          _currentPosition = position;
+        });
+      }
+    } catch (e) {
+      print('Error getting location: $e');
+    }
+  }
+
+  Future<void> _loadFavorites() async {
+    print('🔄 FavoritesScreen: Loading favorites...');
+    if (mounted) {
+      setState(() => _isLoading = true);
+    }
+    final favorites = await FavoritesService.getFavorites();
+    print('✅ FavoritesScreen: Loaded ${favorites.length} favorites');
+    if (mounted) {
+      setState(() {
+        _favorites = favorites;
+        _isLoading = false;
+      });
+    }
+  }
+
+  // Public method to reload favorites from external calls
+  void reloadFavorites() {
+    print('🔄 External reload requested');
+    _loadFavorites();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context); // Required for AutomaticKeepAliveClientMixin
+    return Scaffold(
+      backgroundColor: Colors.grey[50],
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        shadowColor: Colors.black.withOpacity(0.05),
+        surfaceTintColor: Colors.transparent,
+        title: Text(
+          AppLocalizations.of(context)!.favorites,
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.w600,
+            color: Colors.black87,
+          ),
+        ),
+        actions: [
+          if (_favorites.isNotEmpty)
+            IconButton(
+              icon: const Icon(Icons.delete_outline, color: Colors.red),
+              onPressed: _showClearAllDialog,
+              tooltip: 'Clear all favorites',
+            ),
+        ],
+      ),
+      body: _isLoading
+          ? const Center(
+              child: CircularProgressIndicator(color: Color(0xFF2E7D32)),
+            )
+          : _favorites.isEmpty
+          ? _buildEmptyState()
+          : RefreshIndicator(
+              onRefresh: _loadFavorites,
+              color: const Color(0xFF2E7D32),
+              child: ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: _favorites.length,
+                itemBuilder: (context, index) {
+                  final service = _favorites[index];
+                  return Dismissible(
+                    key: Key(service.id),
+                    direction: DismissDirection.endToStart,
+                    background: Container(
+                      alignment: Alignment.centerRight,
+                      padding: const EdgeInsets.only(right: 20),
+                      margin: const EdgeInsets.only(bottom: 12),
+                      decoration: BoxDecoration(
+                        color: Colors.red,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: const Icon(
+                        Icons.delete,
+                        color: Colors.white,
+                        size: 32,
+                      ),
+                    ),
+                    onDismissed: (direction) async {
+                      await FavoritesService.removeFavorite(service.id);
+                      setState(() {
+                        _favorites.removeAt(index);
+                      });
+                      if (mounted) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              '${service.name} removed from favorites',
+                            ),
+                            backgroundColor: const Color(0xFF2E7D32),
+                            duration: const Duration(seconds: 3),
+                          ),
+                        );
+                      }
+                    },
+                    child: ServiceCardWidget(
+                      service: service,
+                      onTap: () async {
+                        if (_currentPosition != null) {
+                          await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MapScreen(
+                                service: service,
+                                currentPosition: _currentPosition!,
+                              ),
+                            ),
+                          );
+                          // Refresh favorites after returning from map screen
+                          _loadFavorites();
+                        } else {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text('Getting your location...'),
+                              backgroundColor: Colors.orange,
+                              duration: Duration(seconds: 2),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
+    );
+  }
+
+  Widget _buildEmptyState() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 32),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.favorite_border, size: 80, color: Colors.grey[500]),
+            const SizedBox(height: 15),
+            Text(
+              AppLocalizations.of(context)!.noFavorites,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey[700],
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              AppLocalizations.of(context)!.tapHeartToSave,
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.grey[600],
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> _showClearAllDialog() async {
+    final confirm = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Clear All Favorites'),
+        content: const Text(
+          'Are you sure you want to remove all favorites? This action cannot be undone.',
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () => Navigator.pop(context, true),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red,
+              foregroundColor: Colors.white,
+            ),
+            child: const Text('Clear All'),
+          ),
+        ],
+      ),
+    );
+
+    if (confirm == true) {
+      for (var service in _favorites) {
+        await FavoritesService.removeFavorite(service.id);
+      }
+      _loadFavorites();
+    }
+  }
+}

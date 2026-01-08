@@ -250,6 +250,18 @@ abstract class AppLocalizations {
   /// **'Favorites'**
   String get favorites;
 
+  /// No description provided for @noFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Favorite Facilities List is Empty'**
+  String get noFavorites;
+
+  /// No description provided for @tapHeartToSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the heart icon on any facility to save it here'**
+  String get tapHeartToSave;
+
   /// No description provided for @history.
   ///
   /// In en, this message translates to:

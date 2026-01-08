@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:medinavi/l10n/app_localizations.dart';
 import 'home_screen.dart';
+import 'favorites_screen.dart';
 import 'settings_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
@@ -12,17 +13,22 @@ class MainNavigationScreen extends StatefulWidget {
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
   int _currentIndex = 0;
+  int _favoritesRefreshKey = 0;
 
   // Create screens once to preserve state across rebuilds
-  late final List<Widget> _screens;
+  late List<Widget> _screens;
 
   @override
   void initState() {
     super.initState();
+    _updateScreens();
+  }
+
+  void _updateScreens() {
     _screens = [
       const HomeScreen(),
-      const PlaceholderScreen(title: 'Favorites'),
       const PlaceholderScreen(title: 'History'),
+      FavoritesScreen(key: ValueKey(_favoritesRefreshKey)),
       const SettingsScreen(),
     ];
   }
@@ -30,16 +36,22 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _screens,
-      ),
+      body: IndexedStack(index: _currentIndex, children: _screens),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
+          // Reload favorites when switching to favorites tab
+          if (index == 2 && _currentIndex != 2) {
+            setState(() {
+              _favoritesRefreshKey++;
+              _updateScreens();
+              _currentIndex = index;
+            });
+          } else {
+            setState(() {
+              _currentIndex = index;
+            });
+          }
         },
         type: BottomNavigationBarType.fixed,
         selectedItemColor: const Color(0xFF2E7D32),
@@ -57,14 +69,14 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             label: AppLocalizations.of(context)!.home,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.favorite_outline),
-            activeIcon: const Icon(Icons.favorite),
-            label: AppLocalizations.of(context)!.favorites,
-          ),
-          BottomNavigationBarItem(
             icon: const Icon(Icons.history_outlined),
             activeIcon: const Icon(Icons.history),
             label: AppLocalizations.of(context)!.history,
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.favorite_outline),
+            activeIcon: const Icon(Icons.favorite),
+            label: AppLocalizations.of(context)!.favorites,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.settings_outlined),
@@ -95,11 +107,7 @@ class PlaceholderScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.construction,
-              size: 64,
-              color: Colors.grey[400],
-            ),
+            Icon(Icons.construction, size: 64, color: Colors.grey[400]),
             const SizedBox(height: 16),
             Text(
               '$title - Coming Soon',
@@ -112,10 +120,7 @@ class PlaceholderScreen extends StatelessWidget {
             const SizedBox(height: 8),
             Text(
               'This feature is under development',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.grey[500],
-              ),
+              style: TextStyle(fontSize: 14, color: Colors.grey[500]),
             ),
           ],
         ),

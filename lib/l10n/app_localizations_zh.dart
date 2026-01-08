@@ -88,6 +88,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get favorites => '收藏';
 
   @override
+  String get noFavorites => '您的收藏设施列表为空';
+
+  @override
+  String get tapHeartToSave => '点击任意设施的心形图标将其保存到这里';
+
+  @override
   String get history => '历史记录';
 
   @override

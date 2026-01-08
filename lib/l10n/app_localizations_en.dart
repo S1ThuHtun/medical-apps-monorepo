@@ -90,6 +90,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favorites => 'Favorites';
 
   @override
+  String get noFavorites => 'Your Favorite Facilities List is Empty';
+
+  @override
+  String get tapHeartToSave =>
+      'Tap the heart icon on any facility to save it here';
+
+  @override
   String get history => 'History';
 
   @override

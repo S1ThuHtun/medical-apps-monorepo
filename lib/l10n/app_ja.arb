@@ -27,6 +27,8 @@
     "settings" : "設定",
     "home": "ホーム",
     "favorites": "お気に入り",
+    "noFavorites": "お気に入りの施設リストは空です",
+    "tapHeartToSave": "施設のハートアイコンをタップして保存してください",
     "history": "履歴",
 
     "_comment_home": "=== ホーム画面 ===",

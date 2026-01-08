@@ -82,6 +82,8 @@
     },
     "home": "Home",
     "favorites": "Favorites",
+    "noFavorites": "Your Favorite Facilities List is Empty",
+    "tapHeartToSave": "Tap the heart icon on any facility to save it here",
     "history": "History",
     "medicalServices": "Medical Services",
     "currentLocation": "Current Location",

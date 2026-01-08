@@ -138,6 +138,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
           SnackBar(
             content: Text(AppLocalizations.of(context)!.selectLocationError),
             backgroundColor: Colors.orange,
+            duration: const Duration(seconds: 3),
           ),
         );
       }

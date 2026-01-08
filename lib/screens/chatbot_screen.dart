@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/gestures.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:speech_to_text/speech_to_text.dart'
     as stt;
 import 'package:permission_handler/permission_handler.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../l10n/app_localizations.dart';
 
 class ChatbotScreen
@@ -36,16 +36,14 @@ class _ChatbotScreenState
 
   bool _isDetailedMode = true;
 
-  // Voice features
-  late FlutterTts _flutterTts;
+  // Voice features (speech-to-text only, TTS disabled)
   late stt.SpeechToText _speech;
   bool _isListening = false;
   bool _speechEnabled = false;
-  bool _ttsEnabled = true;
   String _recognizedWords = '';
 
-  // Your Google Gemini API Key
-  static const String _geminiApiKey = "AIzaSyDT7sjULZLMzyt6cW8gE-lvwzS_Vc9Renk";
+  // Load API Key from environment variables
+  static final String _geminiApiKey = dotenv.env['GEMINI_API_KEY'] ?? '';
   
   // Context management: Keep last 10 message pairs (20 messages) + initial message
   static const int _maxHistoryMessages = 20;
@@ -76,13 +74,41 @@ class _ChatbotScreenState
 
   String? _detectedDepartment;
   String? _lastRecommendedService;
+  String? _lastLanguageCode;
 
   @override
   void initState() {
     super.initState();
-    _initializeTTS();
+    // Don't initialize TTS - we only want speech-to-text
     _initializeSpeech();
     _loadChatHistory(); // Load saved chat history
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+
+    // Detect language change and clear conversation history
+    final currentLocale = Localizations.localeOf(context);
+    if (_lastLanguageCode != null && _lastLanguageCode != currentLocale.languageCode) {
+      // Language changed - clear conversation history to force new language
+      setState(() {
+        _conversationHistory.clear();
+      });
+
+      // Notify user about language switch
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('Language changed. Conversation history cleared for new language.'),
+            backgroundColor: successGreen,
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      });
+    }
+    _lastLanguageCode = currentLocale.languageCode;
   }
 
   // NEW: Load chat history from storage
@@ -122,21 +148,38 @@ class _ChatbotScreenState
         // If no saved messages, add welcome message
         WidgetsBinding.instance
             .addPostFrameCallback((_) {
-          final l10n =
-              AppLocalizations.of(
-                  context)!;
-          setState(() {
-            _messages.add(
-              ChatMessage(
-                text:
-                    l10n.chatbotWelcome,
-                isUser: false,
-                timestamp:
-                    DateTime.now(),
-              ),
-            );
-          });
-          _saveChatHistory();
+          if (!mounted) return;
+          try {
+            final l10n =
+                AppLocalizations.of(
+                    context)!;
+            setState(() {
+              _messages.add(
+                ChatMessage(
+                  text:
+                      l10n.chatbotWelcome,
+                  isUser: false,
+                  timestamp:
+                      DateTime.now(),
+                ),
+              );
+            });
+            _saveChatHistory();
+          } catch (e) {
+            print("Error adding welcome message: $e");
+            // Fallback to English welcome message
+            setState(() {
+              _messages.add(
+                ChatMessage(
+                  text:
+                      "Hello! I'm your medical assistant. How can I help you today?",
+                  isUser: false,
+                  timestamp:
+                      DateTime.now(),
+                ),
+              );
+            });
+          }
         });
       }
 
@@ -162,18 +205,34 @@ class _ChatbotScreenState
       // Add welcome message if loading fails
       WidgetsBinding.instance
           .addPostFrameCallback((_) {
-        final l10n =
-            AppLocalizations.of(
-                context)!;
-        setState(() {
-          _messages.add(
-            ChatMessage(
-              text: l10n.chatbotWelcome,
-              isUser: false,
-              timestamp: DateTime.now(),
-            ),
-          );
-        });
+        if (!mounted) return;
+        try {
+          final l10n =
+              AppLocalizations.of(
+                  context)!;
+          setState(() {
+            _messages.add(
+              ChatMessage(
+                text: l10n.chatbotWelcome,
+                isUser: false,
+                timestamp: DateTime.now(),
+              ),
+            );
+          });
+        } catch (e) {
+          print("Error adding fallback welcome message: $e");
+          // Fallback to English welcome message
+          setState(() {
+            _messages.add(
+              ChatMessage(
+                text:
+                    "Hello! I'm your medical assistant. How can I help you today?",
+                isUser: false,
+                timestamp: DateTime.now(),
+              ),
+            );
+          });
+        }
       });
     }
   }
@@ -298,51 +357,6 @@ class _ChatbotScreenState
     }
   }
 
-  Future<void> _initializeTTS() async {
-    try {
-      _flutterTts = FlutterTts();
-      _flutterTts.setErrorHandler(
-          (msg) =>
-              print("TTS Error: $msg"));
-      _flutterTts.setCompletionHandler(
-          () => print("TTS completed"));
-
-      try {
-        final locale =
-            Localizations.localeOf(
-                context);
-        String languageCode;
-        switch (locale.languageCode) {
-          case 'ja':
-            languageCode = "ja-JP";
-            break;
-          case 'zh':
-            languageCode = "zh-CN";
-            break;
-          default:
-            languageCode = "en-US";
-        }
-        await _flutterTts
-            .setLanguage(languageCode);
-      } catch (e) {
-        print(
-            "Error setting language: $e");
-      }
-
-      await _flutterTts
-          .setSpeechRate(0.5);
-      await _flutterTts.setVolume(1.0);
-      await _flutterTts.setPitch(1.0);
-      print(
-          "✅ TTS initialized successfully");
-    } catch (e) {
-      print(
-          "❌ Error initializing TTS: $e");
-      setState(
-          () => _ttsEnabled = false);
-    }
-  }
-
   Future<void>
       _initializeSpeech() async {
     try {
@@ -376,48 +390,17 @@ class _ChatbotScreenState
     }
   }
 
-  Future<void> _speak(
-      String text) async {
-    if (!_ttsEnabled || text.isEmpty)
-      return;
-
-    try {
-      String cleanText = text
-          .replaceAll(
-              RegExp(
-                  r'[🎯🏥📍✅❌💡⚠️📋📏🗺️✨🦷🩺👂👁️🔪👶🤰🧠🩹🦴💙🔊🎙️📳👆📞🚨]'),
-              '')
-          .replaceAll(
-              RegExp(r'\*\*'), '')
-          .replaceAll(RegExp(r'•'), ' ')
-          .replaceAll('\n\n', '. ')
-          .replaceAll('\n', '. ')
-          .trim();
-
-      if (cleanText.isNotEmpty) {
-        await _flutterTts
-            .speak(cleanText);
-      }
-    } catch (e) {
-      print("Error speaking: $e");
-    }
-  }
-
-  Future<void> _stopSpeaking() async {
-    try {
-      await _flutterTts.stop();
-    } catch (e) {
-      print(
-          "Error stopping speech: $e");
-    }
-  }
-
   Future<void> _startListening() async {
     if (!_speechEnabled) {
-      final l10n =
-          AppLocalizations.of(context)!;
-      await _speak(
-          l10n.speechNotAvailable);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Speech recognition not available'),
+            backgroundColor: Colors.orange,
+            duration: Duration(seconds: 2),
+          ),
+        );
+      }
       return;
     }
 
@@ -427,8 +410,6 @@ class _ChatbotScreenState
           .request();
 
       if (status.isGranted) {
-        await _stopSpeaking();
-
         setState(() {
           _isListening = true;
           _recognizedWords = '';
@@ -474,11 +455,15 @@ class _ChatbotScreenState
               .ListenMode.confirmation,
         );
       } else if (status.isDenied) {
-        final l10n =
-            AppLocalizations.of(
-                context)!;
-        await _speak(
-            l10n.micPermissionRequired);
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Microphone permission required for voice input'),
+              backgroundColor: Colors.orange,
+              duration: Duration(seconds: 3),
+            ),
+          );
+        }
       } else if (status
           .isPermanentlyDenied) {
         openAppSettings();
@@ -488,10 +473,15 @@ class _ChatbotScreenState
           "❌ ERROR starting speech recognition: $e");
       setState(
           () => _isListening = false);
-      final l10n =
-          AppLocalizations.of(context)!;
-      await _speak(
-          l10n.voiceInputError);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Error starting voice input'),
+            backgroundColor: Colors.red,
+            duration: Duration(seconds: 3),
+          ),
+        );
+      }
     }
   }
 
@@ -505,13 +495,7 @@ class _ChatbotScreenState
       if (_recognizedWords
           .trim()
           .isNotEmpty) {
-        final l10n =
-            AppLocalizations.of(
-                context)!;
-        await _speak(l10n.processing);
-        await Future.delayed(
-            const Duration(
-                milliseconds: 500));
+        // Don't speak "processing" - just process the input
         askGemini();
       }
     } catch (e) {
@@ -526,12 +510,7 @@ class _ChatbotScreenState
   void dispose() {
     _controller.dispose();
     _scrollController.dispose();
-    try {
-      _flutterTts.stop();
-    } catch (e) {
-      print(
-          "Error stopping TTS in dispose: $e");
-    }
+    // TTS is disabled, no need to stop it
     try {
       _speech.stop();
     } catch (e) {
@@ -992,9 +971,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
       _isLoading = true;
     });
 
-    final l10n =
-        AppLocalizations.of(context)!;
-    await _speak(l10n.thinking);
+    // Don't speak "thinking" - TTS is disabled
     _scrollToBottom();
 
     // Detect department from user message
@@ -1120,7 +1097,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
           await _saveChatHistory();
 
           _scrollToBottom();
-          await _speak(aiResponse);
+          // Don't speak AI response - TTS is disabled
           return;
         } else if (response
                     .statusCode ==
@@ -1134,6 +1111,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
                     seconds: 2 *
                         retryCount));
           } else {
+            final l10n = AppLocalizations.of(context)!;
             setState(() {
               _messages.add(
                 ChatMessage(
@@ -1150,6 +1128,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
             return;
           }
         } else {
+          final l10n = AppLocalizations.of(context)!;
           setState(() {
             _messages.add(
               ChatMessage(
@@ -1167,6 +1146,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
           return;
         }
       } catch (e) {
+        final l10n = AppLocalizations.of(context)!;
         setState(() {
           _messages.add(
             ChatMessage(
@@ -2157,36 +2137,22 @@ class ColorfulChatBubble
                       .withOpacity(0.3),
                   width: 1.5),
             ),
-            child: Row(
-              children: [
-                if (icon != null) ...[
-                  Icon(icon,
-                      color:
-                          headerColor,
-                      size: 20),
-                  const SizedBox(
-                      width: 8),
-                ],
-                Expanded(
-                  child: RichText(
-                    text: TextSpan(
-                      children:
-                          _buildClickablePhoneNumbers(
-                              cleanLine,
-                              context),
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight:
-                            FontWeight
-                                .bold,
-                        color:
-                            headerColor,
-                        height: 1.4,
-                      ),
-                    ),
-                  ),
+            child: RichText(
+              text: TextSpan(
+                children:
+                    _buildClickablePhoneNumbers(
+                        cleanLine,
+                        context),
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight:
+                      FontWeight
+                          .bold,
+                  color:
+                      headerColor,
+                  height: 1.4,
                 ),
-              ],
+              ),
             ),
           ),
         );

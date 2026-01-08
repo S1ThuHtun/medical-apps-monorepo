@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import '../models/medical_service.dart';
@@ -60,6 +61,8 @@ class _FavoritesScreenState extends State<FavoritesScreen>
         setState(() {
           _currentPosition = position;
         });
+        // Reload favorites after getting location to recalculate distances
+        _loadFavorites();
       }
     } catch (e) {
       print('Error getting location: $e');
@@ -73,12 +76,48 @@ class _FavoritesScreenState extends State<FavoritesScreen>
     }
     final favorites = await FavoritesService.getFavorites();
     print('✅ FavoritesScreen: Loaded ${favorites.length} favorites');
+
+    // Recalculate distances based on current position
+    List<MedicalService> updatedFavorites = favorites;
+    if (_currentPosition != null) {
+      updatedFavorites = favorites.map((service) {
+        final distance = _calculateDistance(
+          _currentPosition!.latitude,
+          _currentPosition!.longitude,
+          service.latitude,
+          service.longitude,
+        );
+        return service.copyWith(distance: distance);
+      }).toList();
+
+      // Sort by distance
+      updatedFavorites.sort((a, b) => a.distance.compareTo(b.distance));
+    }
+
     if (mounted) {
       setState(() {
-        _favorites = favorites;
+        _favorites = updatedFavorites;
         _isLoading = false;
       });
     }
+  }
+
+  // Calculate distance using Haversine formula
+  double _calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+    const double earthRadius = 6371; // Earth's radius in kilometers
+    final double dLat = _toRadians(lat2 - lat1);
+    final double dLon = _toRadians(lon2 - lon1);
+
+    final double a = sin(dLat / 2) * sin(dLat / 2) +
+        cos(_toRadians(lat1)) * cos(_toRadians(lat2)) *
+        sin(dLon / 2) * sin(dLon / 2);
+
+    final double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    return earthRadius * c;
+  }
+
+  double _toRadians(double degree) {
+    return degree * pi / 180;
   }
 
   // Public method to reload favorites from external calls

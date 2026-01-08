@@ -413,26 +413,39 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
         elevation: 20,
         shape: const CircleBorder(),
         onPressed: () async {
-          final recommendedService = await Navigator.push<String>(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const ChatbotScreen(),
-            ),
-          );
+          try {
+            final recommendedService = await Navigator.push<String>(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ChatbotScreen(),
+              ),
+            );
 
-          if (recommendedService != null && mounted) {
-            // User got a department recommendation from chatbot
-            setState(() {
-              _selectedService = recommendedService;
-            });
-            await _searchNearbyServices(recommendedService);
+            if (recommendedService != null && mounted) {
+              // User got a department recommendation from chatbot
+              setState(() {
+                _selectedService = recommendedService;
+              });
+              await _searchNearbyServices(recommendedService);
 
+              if (mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(AppLocalizations.of(context)!.searchingForService(recommendedService)),
+                    backgroundColor: const Color(0xFF2E7D32),
+                    duration: const Duration(seconds: 2),
+                  ),
+                );
+              }
+            }
+          } catch (e) {
+            print('Error opening chatbot: $e');
             if (mounted) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
-                  content: Text(AppLocalizations.of(context)!.searchingForService(recommendedService)),
-                  backgroundColor: const Color(0xFF2E7D32),
-                  duration: const Duration(seconds: 2),
+                  content: Text('Error opening chatbot: $e'),
+                  backgroundColor: Colors.red,
+                  duration: const Duration(seconds: 3),
                 ),
               );
             }
@@ -441,7 +454,13 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
         backgroundColor: const Color(0xFF2E7D32),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
-          child: Image.asset('assets/images/medinavi.png',color: Colors.white,),
+          child: Image.asset(
+            'assets/images/medinavi.png',
+            color: Colors.white,
+            errorBuilder: (context, error, stackTrace) {
+              return const Icon(Icons.chat, color: Colors.white);
+            },
+          ),
         ),
       ),
     );

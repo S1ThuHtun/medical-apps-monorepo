@@ -80,6 +80,7 @@ class FavoritesService {
       'formatted_address': service.address,
       'formatted_phone_number': service.phone,
       'rating': service.rating,
+      'distance': service.distance, // Save distance
       'opening_hours': {
         'open_now': service.isOpen,
         'weekday_text': service.openingHoursWeekday,

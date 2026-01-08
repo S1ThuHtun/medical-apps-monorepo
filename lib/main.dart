@@ -9,6 +9,7 @@ import 'package:medinavi/screens/startup_screen.dart';
 import 'package:medinavi/screens/main_navigation_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -17,6 +18,9 @@ void main() async {
   FlutterNativeSplash.preserve(
     widgetsBinding: widgetsBinding,
   );
+
+  // Load environment variables
+  await dotenv.load(fileName: ".env");
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions

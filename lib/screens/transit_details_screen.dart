@@ -326,7 +326,7 @@ class _TransitDetailsScreenState extends State<TransitDetailsScreen> {
     final leg = route['legs'][0];
     final steps = leg['steps'] as List<dynamic>;
     final totalDuration = leg['duration']['text'];
-    final totalDistance = leg['distance']['text'];
+    // final totalDistance = leg['distance']['text']; // Unused
     final departureTime = leg['departure_time']?['text'];
     final arrivalTime = leg['arrival_time']?['text'];
     final fare = leg['fare'];

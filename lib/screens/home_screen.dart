@@ -251,9 +251,9 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
     return Scaffold(
       backgroundColor: Colors.grey[50],
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFF2E7D32),
         elevation: 0,
-        shadowColor: Colors.black.withOpacity(0.05),
+        shadowColor: Colors.black.withValues(alpha: 0.05),
         surfaceTintColor: Colors.transparent,
         toolbarHeight: 80,
         title: Row(
@@ -261,9 +261,9 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
             SizedBox(
               height: 50,
               width: 50,
-              child: Image.asset('assets/images/MediNavi001.png'),
+              child: Image.asset('assets/images/medinavi.png',color: Colors.white,),
             ),
-            const SizedBox(width: 16),
+            const SizedBox(width: 8),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -275,7 +275,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                       letterSpacing: -0.5,
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -288,7 +288,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                               ? Icons.location_city
                               : Icons.location_on,
                           size: 16,
-                          color: const Color(0xFF2E7D32),
+                          color: Colors.white,
                         ),
                         const SizedBox(width: 4),
                         Expanded(
@@ -296,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                             _getLocationDisplayText(),
                             style: const TextStyle(
                               fontSize: 14,
-                              color: Color(0xFF2E7D32),
+                              color: Colors.white,
                               fontWeight: FontWeight.w600,
                             ),
                           ),
@@ -313,7 +313,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
           IconButton(
             icon: Image.asset(
               'assets/images/japan.png',
-              color: const Color(0xFF2E7D32),
+              color: Colors.white,
               width: 40,
               height: 40,
             ),
@@ -372,7 +372,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
                         borderRadius: BorderRadius.circular(25),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
+                            color: Colors.black.withValues(alpha: 0.05),
                             blurRadius: 4,
                             offset: const Offset(0, 2),
                           ),

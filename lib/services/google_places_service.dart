@@ -192,8 +192,10 @@ class GooglePlacesService {
 
       print('📍 Getting current position...');
       final position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high,
-        timeLimit: Duration(seconds: 15),
+        locationSettings: LocationSettings(
+          accuracy: LocationAccuracy.high,
+          timeLimit: Duration(seconds: 15),
+        ),
       );
       print('✅ Got position: ${position.latitude}, ${position.longitude}');
       return (position: position, error: null, needsSettings: false);

@@ -449,10 +449,11 @@ class _ChatbotScreenState
               seconds: 30),
           pauseFor: const Duration(
               seconds: 3),
-          partialResults: true,
+          listenOptions: stt.SpeechListenOptions(
+            partialResults: true,
+            listenMode: stt.ListenMode.confirmation,
+          ),
           localeId: localeId,
-          listenMode: stt
-              .ListenMode.confirmation,
         );
       } else if (status.isDenied) {
         if (mounted) {
@@ -949,8 +950,9 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
   }
 
   Future<void> askGemini() async {
-    if (_controller.text.trim().isEmpty)
+    if (_controller.text.trim().isEmpty) {
       return;
+    }
 
     // Get locale before async operations
     final locale = Localizations.localeOf(context);
@@ -1337,7 +1339,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
             const EdgeInsets.all(18),
         decoration: BoxDecoration(
           color: isSelected
-              ? color.withOpacity(0.1)
+              ? color.withValues(alpha: 0.1)
               : Colors.grey.shade50,
           borderRadius:
               BorderRadius.circular(16),
@@ -2041,7 +2043,7 @@ class ColorfulChatBubble
         Color headerColor =
             primaryColor;
         Color bgColor =
-            lightColor.withOpacity(0.1);
+            lightColor.withValues(alpha: 0.1);
         IconData? icon;
 
         if (line.contains('💙') ||
@@ -2055,7 +2057,7 @@ class ColorfulChatBubble
           headerColor = successGreen;
           bgColor =
               const Color(0xFFc8e6c9)
-                  .withOpacity(0.3);
+                  .withValues(alpha: 0.3);
           icon = Icons.check_circle;
         } else if (line
                 .contains('💡') ||
@@ -2065,7 +2067,7 @@ class ColorfulChatBubble
           headerColor = infoYellow;
           bgColor =
               const Color(0xFFfff9c4)
-                  .withOpacity(0.4);
+                  .withValues(alpha: 0.4);
           icon = Icons.lightbulb;
         } else if (line
                 .contains('⚠️') ||
@@ -2073,7 +2075,7 @@ class ColorfulChatBubble
             line.contains('Warning')) {
           headerColor = warningRed;
           bgColor =
-              lightRed.withOpacity(0.3);
+              lightRed.withValues(alpha: 0.3);
           icon = Icons.warning;
         } else if (line.contains('❓') ||
             line.contains('Question')) {
@@ -2081,7 +2083,7 @@ class ColorfulChatBubble
               const Color(0xFF9c27b0);
           bgColor =
               const Color(0xFFe1bee7)
-                  .withOpacity(0.3);
+                  .withValues(alpha: 0.3);
           icon = Icons.help;
         } else if (line
                 .contains('🏥') ||
@@ -2092,7 +2094,7 @@ class ColorfulChatBubble
               const Color(0xFF00897b);
           bgColor =
               const Color(0xFFb2dfdb)
-                  .withOpacity(0.3);
+                  .withValues(alpha: 0.3);
           icon = Icons.local_hospital;
         } else if (line
                 .contains('🚨') ||
@@ -2102,7 +2104,7 @@ class ColorfulChatBubble
             line.contains('紧急')) {
           headerColor = warningRed;
           bgColor =
-              lightRed.withOpacity(0.4);
+              lightRed.withValues(alpha: 0.4);
           icon = Icons.emergency;
         } else if (line
                 .contains('📞') ||
@@ -2114,7 +2116,7 @@ class ColorfulChatBubble
               const Color(0xFF1976D2);
           bgColor =
               const Color(0xFFBBDEFB)
-                  .withOpacity(0.3);
+                  .withValues(alpha: 0.3);
           icon = Icons.phone;
         }
 
@@ -2134,7 +2136,7 @@ class ColorfulChatBubble
                       12),
               border: Border.all(
                   color: headerColor
-                      .withOpacity(0.3),
+                      .withValues(alpha: 0.3),
                   width: 1.5),
             ),
             child: RichText(

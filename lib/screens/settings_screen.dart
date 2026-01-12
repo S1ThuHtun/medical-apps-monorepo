@@ -32,7 +32,7 @@ class SettingsScreen extends StatelessWidget {
           if (user != null)
             Card(
               elevation: 0,
-              color: const Color(0xFF2E7D32).withOpacity(0.1),
+              color: const Color(0xFF2E7D32).withValues(alpha: 0.1),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
               ),

@@ -51,6 +51,10 @@ dependencies:
   speech_to_text: ^7.0.0
   permission_handler: ^11.3.1
   flutter_dotenv: ^5.2.1
+  image_picker: ^1.2.1
+  flutter_local_notifications: ^19.5.0
+  timezone: ^0.10.1
+  audioplayers: ^6.1.0
 
 dev_dependencies:
   flutter_test:
@@ -80,6 +84,7 @@ flutter:
     - assets/images/medinavi.png
     - assets/images/MediNavi001.png
     - assets/images/japan.png
+    - assets/sounds/
     - .env
   #   - images/a_dot_ham.jpeg
 

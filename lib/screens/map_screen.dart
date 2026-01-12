@@ -328,9 +328,12 @@ class _MapScreenState extends State<MapScreen> {
     // Calculate height for enhanced details (website, reviews, accessibility)
     double enhancedDetailsHeight = 0.0;
     if (_placeDetails != null) {
-      if (_placeDetails!['website'] != null) enhancedDetailsHeight += 30.0;
-      if (_placeDetails!['wheelchair_accessible_entrance'] != null)
+      if (_placeDetails!['website'] != null) {
         enhancedDetailsHeight += 30.0;
+      }
+      if (_placeDetails!['wheelchair_accessible_entrance'] != null) {
+        enhancedDetailsHeight += 30.0;
+      }
     }
 
     final totalContentHeight =
@@ -398,7 +401,7 @@ class _MapScreenState extends State<MapScreen> {
                         border: Border.all(color: Colors.white, width: 3),
                         boxShadow: [
                           BoxShadow(
-                            color: Colors.black.withOpacity(0.3),
+                            color: Colors.black.withValues(alpha: 0.3),
                             blurRadius: 6,
                             offset: const Offset(0, 2),
                           ),
@@ -518,7 +521,7 @@ class _MapScreenState extends State<MapScreen> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withValues(alpha: 0.1),
             blurRadius: 10,
             offset: const Offset(0, -2),
           ),
@@ -613,8 +616,8 @@ class _MapScreenState extends State<MapScreen> {
                                       ),
                                       decoration: BoxDecoration(
                                         color: widget.service.isOpen
-                                            ? Colors.green.withOpacity(0.1)
-                                            : Colors.red.withOpacity(0.1),
+                                            ? Colors.green.withValues(alpha: 0.1)
+                                            : Colors.red.withValues(alpha: 0.1),
                                         borderRadius: BorderRadius.circular(4),
                                       ),
                                       child: Text(
@@ -1194,7 +1197,7 @@ class _MapScreenState extends State<MapScreen> {
               padding: const EdgeInsets.symmetric(vertical: 12),
               decoration: BoxDecoration(
                 color: isSelected
-                    ? const Color(0xFF2E7D32).withOpacity(0.1)
+                    ? const Color(0xFF2E7D32).withValues(alpha: 0.1)
                     : Colors.grey[100],
                 borderRadius: BorderRadius.circular(8),
                 border: Border.all(

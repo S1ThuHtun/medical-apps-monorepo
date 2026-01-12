@@ -1,8 +1,14 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:medinavi/l10n/app_localizations.dart';
+import 'package:medinavi/services/alarm_monitor_service.dart';
+import 'package:medinavi/services/notification_service.dart';
+import 'package:medinavi/models/reminder.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'home_screen.dart';
 import 'favorites_screen.dart';
 import 'settings_screen.dart';
+import 'reminder/medicine_reminder_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -22,12 +28,54 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   void initState() {
     super.initState();
     _updateScreens();
+    _initializeAlarmMonitor();
+  }
+
+  // Load reminders and start alarm monitoring
+  Future<void> _initializeAlarmMonitor() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final remindersJson = prefs.getString('reminders');
+
+      List<Reminder> reminders = [];
+      if (remindersJson != null) {
+        final List<dynamic> decodedList = json.decode(remindersJson);
+        reminders = decodedList.map((item) => Reminder.fromJson(item)).toList();
+
+        // Cache all reminders for notification navigation
+        for (final reminder in reminders) {
+          NotificationService().cacheReminder(reminder.id, reminder);
+        }
+
+        print('✅ Loaded ${reminders.length} reminders in MainNavigationScreen');
+      }
+
+      // Start alarm monitoring with loaded reminders
+      AlarmMonitorService().startMonitoring(reminders);
+      print('✅ AlarmMonitorService started with ${reminders.length} reminders');
+    } catch (e) {
+      print('⚠️ Failed to initialize AlarmMonitorService: $e');
+      // Start with empty list if loading fails
+      AlarmMonitorService().startMonitoring([]);
+    }
+  }
+
+  @override
+  void dispose() {
+    // Stop alarm monitoring when the app is closed
+    try {
+      AlarmMonitorService().stopMonitoring();
+      print('🛑 Global AlarmMonitorService stopped');
+    } catch (e) {
+      print('⚠️ Failed to stop global AlarmMonitorService: $e');
+    }
+    super.dispose();
   }
 
   void _updateScreens() {
     _screens = [
       const HomeScreen(),
-      const PlaceholderScreen(title: 'History'),
+      const MedicineReminderScreen(),
       FavoritesScreen(key: ValueKey(_favoritesRefreshKey)),
       const SettingsScreen(),
     ];
@@ -69,9 +117,9 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             label: AppLocalizations.of(context)!.home,
           ),
           BottomNavigationBarItem(
-            icon: const Icon(Icons.history_outlined),
-            activeIcon: const Icon(Icons.history),
-            label: AppLocalizations.of(context)!.history,
+            icon: const Icon(Icons.notifications_outlined),
+            activeIcon: const Icon(Icons.notifications),
+            label: AppLocalizations.of(context)!.reminders,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.favorite_outline),
@@ -99,9 +147,19 @@ class PlaceholderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            letterSpacing: -0.5,
+            color: Colors.black,
+          ),
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
+        shadowColor: Colors.black.withValues(alpha: 0.05),
+        surfaceTintColor: Colors.transparent,
       ),
       body: Center(
         child: Column(

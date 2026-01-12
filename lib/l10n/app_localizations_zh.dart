@@ -85,6 +85,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get home => '首页';
 
   @override
+  String get reminders => 'Reminders';
+
+  @override
   String get favorites => '收藏';
 
   @override
@@ -861,4 +864,213 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cannotOpenPhoneDial => '无法打开电话拨号器';
+
+  @override
+  String get reminderAddTitle => 'Add Reminder';
+
+  @override
+  String get reminderEditTitle => 'Edit Reminder';
+
+  @override
+  String get reminderMedicineNameLabel => 'Medicine Name';
+
+  @override
+  String get reminderMedicineNameHint => 'Enter medicine name';
+
+  @override
+  String get reminderPhotoLabel => 'Medicine Photo';
+
+  @override
+  String get reminderPhotoOptional => '(Optional)';
+
+  @override
+  String get reminderAddPhotoTitle => 'Add Photo';
+
+  @override
+  String get reminderAddPhotoButton => 'Tap to add photo';
+
+  @override
+  String get reminderPhotoFromCamera => 'Take Photo';
+
+  @override
+  String get reminderPhotoFromGallery => 'Choose from Gallery';
+
+  @override
+  String get reminderPhotoRemove => 'Remove Photo';
+
+  @override
+  String reminderPhotoPickError(String error) {
+    return 'Error picking photo: $error';
+  }
+
+  @override
+  String get reminderTimeLabel => 'Time';
+
+  @override
+  String get reminderRepeatLabel => 'Repeat';
+
+  @override
+  String get reminderRepeatNever => 'Never';
+
+  @override
+  String get reminderRepeatEveryday => 'Every day';
+
+  @override
+  String get reminderRepeatWeekdays => 'Weekdays only';
+
+  @override
+  String get reminderRepeatWeekends => 'Weekends only';
+
+  @override
+  String get reminderRepeatCustomOption => 'Custom';
+
+  @override
+  String get reminderRepeatSettingsTitle => 'Repeat Settings';
+
+  @override
+  String get reminderRepeatDone => 'Done';
+
+  @override
+  String get reminderSelectDays => 'Select days';
+
+  @override
+  String get reminderDayMonShort => 'Mon';
+
+  @override
+  String get reminderDayTueShort => 'Tue';
+
+  @override
+  String get reminderDayWedShort => 'Wed';
+
+  @override
+  String get reminderDayThuShort => 'Thu';
+
+  @override
+  String get reminderDayFriShort => 'Fri';
+
+  @override
+  String get reminderDaySatShort => 'Sat';
+
+  @override
+  String get reminderDaySunShort => 'Sun';
+
+  @override
+  String get reminderDaySeparator => ', ';
+
+  @override
+  String reminderEveryWeekDays(String days) {
+    return 'Every $days';
+  }
+
+  @override
+  String get reminderMealTimingLabel => 'Meal Timing';
+
+  @override
+  String get reminderMealTimingNone => 'No specific timing';
+
+  @override
+  String get reminderMealTimingBeforeTitle => 'Before Meals';
+
+  @override
+  String get reminderMealTimingBeforeSubtitle => 'Take 30 mins before eating';
+
+  @override
+  String get reminderMealTimingAfterTitle => 'After Meals';
+
+  @override
+  String get reminderMealTimingAfterSubtitle => 'Take 30 mins after eating';
+
+  @override
+  String get reminderCancel => 'Cancel';
+
+  @override
+  String get reminderAdd => 'Add';
+
+  @override
+  String get reminderUpdate => 'Update';
+
+  @override
+  String get reminderDoseMorning => 'Morning';
+
+  @override
+  String get reminderDoseNoon => 'Noon';
+
+  @override
+  String get reminderDoseEvening => 'Evening';
+
+  @override
+  String get reminderDoseNight => 'Night';
+
+  @override
+  String reminderNotificationBody(int dose) {
+    return 'Time to take your medicine (Dose $dose)';
+  }
+
+  @override
+  String get reminderNotificationChannelName => 'Medicine Reminders';
+
+  @override
+  String get reminderNotificationChannelDescription =>
+      'Notifications for medicine reminders';
+
+  @override
+  String get reminderAddedMessage => 'Reminder added successfully!';
+
+  @override
+  String get reminderUpdatedMessage => 'Reminder updated successfully!';
+
+  @override
+  String get reminderDeletedMessage => 'Reminder deleted';
+
+  @override
+  String get reminderTakenSnackBar => 'Medicine taken!';
+
+  @override
+  String get reminderTimeToTakeMessage => 'Time to take your medicine';
+
+  @override
+  String get reminderTakenButton => 'I took it';
+
+  @override
+  String get reminderCloseButton => 'Close';
+
+  @override
+  String get reminderMealConfirmTitle => 'Meal Check';
+
+  @override
+  String get reminderMealConfirmMessage =>
+      'This medicine should be taken after meals';
+
+  @override
+  String get reminderMealConfirmQuestion => 'Have you finished eating?';
+
+  @override
+  String get reminderMealConfirmRecommendation =>
+      'For best results, take medicine 30 minutes after eating';
+
+  @override
+  String get reminderMealConfirmNotYet => 'Not yet';
+
+  @override
+  String get reminderMealConfirmDone => 'Yes, I ate';
+
+  @override
+  String get reminderLaterTitle => 'Reminder Set';
+
+  @override
+  String get reminderLaterMessage =>
+      'Please remember to take your medicine after eating!';
+
+  @override
+  String get reminderLaterOk => 'OK';
+
+  @override
+  String get medicineReminderTitle => 'Medicine Reminders';
+
+  @override
+  String get reminderEmptyTitle => 'No reminders yet';
+
+  @override
+  String get reminderEmptySubtitle =>
+      'Tap + to add your first medicine reminder';
 }

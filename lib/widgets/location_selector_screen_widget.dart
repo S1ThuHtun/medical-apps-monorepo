@@ -238,8 +238,8 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: isSelected
-                ? const Color(0xFF2E7D32).withOpacity(0.1)
-                : Colors.grey.withOpacity(0.1),
+                ? const Color(0xFF2E7D32).withValues(alpha: 0.1)
+                : Colors.grey.withValues(alpha: 0.1),
             borderRadius: BorderRadius.circular(8),
           ),
           child: Icon(

@@ -244,6 +244,12 @@ abstract class AppLocalizations {
   /// **'Home'**
   String get home;
 
+  /// No description provided for @reminders.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminders'**
+  String get reminders;
+
   /// No description provided for @favorites.
   ///
   /// In en, this message translates to:
@@ -1779,6 +1785,402 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cannot open phone dialer'**
   String get cannotOpenPhoneDial;
+
+  /// No description provided for @reminderAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Reminder'**
+  String get reminderAddTitle;
+
+  /// No description provided for @reminderEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit Reminder'**
+  String get reminderEditTitle;
+
+  /// No description provided for @reminderMedicineNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine Name'**
+  String get reminderMedicineNameLabel;
+
+  /// No description provided for @reminderMedicineNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter medicine name'**
+  String get reminderMedicineNameHint;
+
+  /// No description provided for @reminderPhotoLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine Photo'**
+  String get reminderPhotoLabel;
+
+  /// No description provided for @reminderPhotoOptional.
+  ///
+  /// In en, this message translates to:
+  /// **'(Optional)'**
+  String get reminderPhotoOptional;
+
+  /// No description provided for @reminderAddPhotoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Photo'**
+  String get reminderAddPhotoTitle;
+
+  /// No description provided for @reminderAddPhotoButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to add photo'**
+  String get reminderAddPhotoButton;
+
+  /// No description provided for @reminderPhotoFromCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Take Photo'**
+  String get reminderPhotoFromCamera;
+
+  /// No description provided for @reminderPhotoFromGallery.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose from Gallery'**
+  String get reminderPhotoFromGallery;
+
+  /// No description provided for @reminderPhotoRemove.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove Photo'**
+  String get reminderPhotoRemove;
+
+  /// No description provided for @reminderPhotoPickError.
+  ///
+  /// In en, this message translates to:
+  /// **'Error picking photo: {error}'**
+  String reminderPhotoPickError(String error);
+
+  /// No description provided for @reminderTimeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Time'**
+  String get reminderTimeLabel;
+
+  /// No description provided for @reminderRepeatLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat'**
+  String get reminderRepeatLabel;
+
+  /// No description provided for @reminderRepeatNever.
+  ///
+  /// In en, this message translates to:
+  /// **'Never'**
+  String get reminderRepeatNever;
+
+  /// No description provided for @reminderRepeatEveryday.
+  ///
+  /// In en, this message translates to:
+  /// **'Every day'**
+  String get reminderRepeatEveryday;
+
+  /// No description provided for @reminderRepeatWeekdays.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekdays only'**
+  String get reminderRepeatWeekdays;
+
+  /// No description provided for @reminderRepeatWeekends.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekends only'**
+  String get reminderRepeatWeekends;
+
+  /// No description provided for @reminderRepeatCustomOption.
+  ///
+  /// In en, this message translates to:
+  /// **'Custom'**
+  String get reminderRepeatCustomOption;
+
+  /// No description provided for @reminderRepeatSettingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat Settings'**
+  String get reminderRepeatSettingsTitle;
+
+  /// No description provided for @reminderRepeatDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get reminderRepeatDone;
+
+  /// No description provided for @reminderSelectDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Select days'**
+  String get reminderSelectDays;
+
+  /// No description provided for @reminderDayMonShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Mon'**
+  String get reminderDayMonShort;
+
+  /// No description provided for @reminderDayTueShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Tue'**
+  String get reminderDayTueShort;
+
+  /// No description provided for @reminderDayWedShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Wed'**
+  String get reminderDayWedShort;
+
+  /// No description provided for @reminderDayThuShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Thu'**
+  String get reminderDayThuShort;
+
+  /// No description provided for @reminderDayFriShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Fri'**
+  String get reminderDayFriShort;
+
+  /// No description provided for @reminderDaySatShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sat'**
+  String get reminderDaySatShort;
+
+  /// No description provided for @reminderDaySunShort.
+  ///
+  /// In en, this message translates to:
+  /// **'Sun'**
+  String get reminderDaySunShort;
+
+  /// No description provided for @reminderDaySeparator.
+  ///
+  /// In en, this message translates to:
+  /// **', '**
+  String get reminderDaySeparator;
+
+  /// No description provided for @reminderEveryWeekDays.
+  ///
+  /// In en, this message translates to:
+  /// **'Every {days}'**
+  String reminderEveryWeekDays(String days);
+
+  /// No description provided for @reminderMealTimingLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal Timing'**
+  String get reminderMealTimingLabel;
+
+  /// No description provided for @reminderMealTimingNone.
+  ///
+  /// In en, this message translates to:
+  /// **'No specific timing'**
+  String get reminderMealTimingNone;
+
+  /// No description provided for @reminderMealTimingBeforeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Before Meals'**
+  String get reminderMealTimingBeforeTitle;
+
+  /// No description provided for @reminderMealTimingBeforeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Take 30 mins before eating'**
+  String get reminderMealTimingBeforeSubtitle;
+
+  /// No description provided for @reminderMealTimingAfterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'After Meals'**
+  String get reminderMealTimingAfterTitle;
+
+  /// No description provided for @reminderMealTimingAfterSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Take 30 mins after eating'**
+  String get reminderMealTimingAfterSubtitle;
+
+  /// No description provided for @reminderCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get reminderCancel;
+
+  /// No description provided for @reminderAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get reminderAdd;
+
+  /// No description provided for @reminderUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Update'**
+  String get reminderUpdate;
+
+  /// No description provided for @reminderDoseMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning'**
+  String get reminderDoseMorning;
+
+  /// No description provided for @reminderDoseNoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Noon'**
+  String get reminderDoseNoon;
+
+  /// No description provided for @reminderDoseEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening'**
+  String get reminderDoseEvening;
+
+  /// No description provided for @reminderDoseNight.
+  ///
+  /// In en, this message translates to:
+  /// **'Night'**
+  String get reminderDoseNight;
+
+  /// No description provided for @reminderNotificationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Time to take your medicine (Dose {dose})'**
+  String reminderNotificationBody(int dose);
+
+  /// No description provided for @reminderNotificationChannelName.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine Reminders'**
+  String get reminderNotificationChannelName;
+
+  /// No description provided for @reminderNotificationChannelDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications for medicine reminders'**
+  String get reminderNotificationChannelDescription;
+
+  /// No description provided for @reminderAddedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder added successfully!'**
+  String get reminderAddedMessage;
+
+  /// No description provided for @reminderUpdatedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder updated successfully!'**
+  String get reminderUpdatedMessage;
+
+  /// No description provided for @reminderDeletedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder deleted'**
+  String get reminderDeletedMessage;
+
+  /// No description provided for @reminderTakenSnackBar.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine taken!'**
+  String get reminderTakenSnackBar;
+
+  /// No description provided for @reminderTimeToTakeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Time to take your medicine'**
+  String get reminderTimeToTakeMessage;
+
+  /// No description provided for @reminderTakenButton.
+  ///
+  /// In en, this message translates to:
+  /// **'I took it'**
+  String get reminderTakenButton;
+
+  /// No description provided for @reminderCloseButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get reminderCloseButton;
+
+  /// No description provided for @reminderMealConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Meal Check'**
+  String get reminderMealConfirmTitle;
+
+  /// No description provided for @reminderMealConfirmMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'This medicine should be taken after meals'**
+  String get reminderMealConfirmMessage;
+
+  /// No description provided for @reminderMealConfirmQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Have you finished eating?'**
+  String get reminderMealConfirmQuestion;
+
+  /// No description provided for @reminderMealConfirmRecommendation.
+  ///
+  /// In en, this message translates to:
+  /// **'For best results, take medicine 30 minutes after eating'**
+  String get reminderMealConfirmRecommendation;
+
+  /// No description provided for @reminderMealConfirmNotYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Not yet'**
+  String get reminderMealConfirmNotYet;
+
+  /// No description provided for @reminderMealConfirmDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Yes, I ate'**
+  String get reminderMealConfirmDone;
+
+  /// No description provided for @reminderLaterTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reminder Set'**
+  String get reminderLaterTitle;
+
+  /// No description provided for @reminderLaterMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please remember to take your medicine after eating!'**
+  String get reminderLaterMessage;
+
+  /// No description provided for @reminderLaterOk.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get reminderLaterOk;
+
+  /// No description provided for @medicineReminderTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Medicine Reminders'**
+  String get medicineReminderTitle;
+
+  /// No description provided for @reminderEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No reminders yet'**
+  String get reminderEmptyTitle;
+
+  /// No description provided for @reminderEmptySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap + to add your first medicine reminder'**
+  String get reminderEmptySubtitle;
 }
 
 class _AppLocalizationsDelegate

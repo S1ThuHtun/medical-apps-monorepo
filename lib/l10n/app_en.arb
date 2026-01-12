@@ -81,6 +81,7 @@
         "description" : "Title of the endDrawer from the appbar in Login screen"
     },
     "home": "Home",
+    "reminders": "Reminders",
     "favorites": "Favorites",
     "noFavorites": "Your Favorite Facilities List is Empty",
     "tapHeartToSave": "Tap the heart icon on any facility to save it here",
@@ -364,5 +365,92 @@
             }
         }
     },
-    "cannotOpenPhoneDial": "Cannot open phone dialer"
+    "cannotOpenPhoneDial": "Cannot open phone dialer",
+    "reminderAddTitle": "Add Reminder",
+    "reminderEditTitle": "Edit Reminder",
+    "reminderMedicineNameLabel": "Medicine Name",
+    "reminderMedicineNameHint": "Enter medicine name",
+    "reminderPhotoLabel": "Medicine Photo",
+    "reminderPhotoOptional": "(Optional)",
+    "reminderAddPhotoTitle": "Add Photo",
+    "reminderAddPhotoButton": "Tap to add photo",
+    "reminderPhotoFromCamera": "Take Photo",
+    "reminderPhotoFromGallery": "Choose from Gallery",
+    "reminderPhotoRemove": "Remove Photo",
+    "reminderPhotoPickError": "Error picking photo: {error}",
+    "@reminderPhotoPickError": {
+        "placeholders": {
+            "error": {
+                "type": "String"
+            }
+        }
+    },
+    "reminderTimeLabel": "Time",
+    "reminderRepeatLabel": "Repeat",
+    "reminderRepeatNever": "Never",
+    "reminderRepeatEveryday": "Every day",
+    "reminderRepeatWeekdays": "Weekdays only",
+    "reminderRepeatWeekends": "Weekends only",
+    "reminderRepeatCustomOption": "Custom",
+    "reminderRepeatSettingsTitle": "Repeat Settings",
+    "reminderRepeatDone": "Done",
+    "reminderSelectDays": "Select days",
+    "reminderDayMonShort": "Mon",
+    "reminderDayTueShort": "Tue",
+    "reminderDayWedShort": "Wed",
+    "reminderDayThuShort": "Thu",
+    "reminderDayFriShort": "Fri",
+    "reminderDaySatShort": "Sat",
+    "reminderDaySunShort": "Sun",
+    "reminderDaySeparator": ", ",
+    "reminderEveryWeekDays": "Every {days}",
+    "@reminderEveryWeekDays": {
+        "placeholders": {
+            "days": {
+                "type": "String"
+            }
+        }
+    },
+    "reminderMealTimingLabel": "Meal Timing",
+    "reminderMealTimingNone": "No specific timing",
+    "reminderMealTimingBeforeTitle": "Before Meals",
+    "reminderMealTimingBeforeSubtitle": "Take 30 mins before eating",
+    "reminderMealTimingAfterTitle": "After Meals",
+    "reminderMealTimingAfterSubtitle": "Take 30 mins after eating",
+    "reminderCancel": "Cancel",
+    "reminderAdd": "Add",
+    "reminderUpdate": "Update",
+    "reminderDoseMorning": "Morning",
+    "reminderDoseNoon": "Noon",
+    "reminderDoseEvening": "Evening",
+    "reminderDoseNight": "Night",
+    "reminderNotificationBody": "Time to take your medicine (Dose {dose})",
+    "@reminderNotificationBody": {
+        "placeholders": {
+            "dose": {
+                "type": "int"
+            }
+        }
+    },
+    "reminderNotificationChannelName": "Medicine Reminders",
+    "reminderNotificationChannelDescription": "Notifications for medicine reminders",
+    "reminderAddedMessage": "Reminder added successfully!",
+    "reminderUpdatedMessage": "Reminder updated successfully!",
+    "reminderDeletedMessage": "Reminder deleted",
+    "reminderTakenSnackBar": "Medicine taken!",
+    "reminderTimeToTakeMessage": "Time to take your medicine",
+    "reminderTakenButton": "I took it",
+    "reminderCloseButton": "Close",
+    "reminderMealConfirmTitle": "Meal Check",
+    "reminderMealConfirmMessage": "This medicine should be taken after meals",
+    "reminderMealConfirmQuestion": "Have you finished eating?",
+    "reminderMealConfirmRecommendation": "For best results, take medicine 30 minutes after eating",
+    "reminderMealConfirmNotYet": "Not yet",
+    "reminderMealConfirmDone": "Yes, I ate",
+    "reminderLaterTitle": "Reminder Set",
+    "reminderLaterMessage": "Please remember to take your medicine after eating!",
+    "reminderLaterOk": "OK",
+    "medicineReminderTitle": "Medicine Reminders",
+    "reminderEmptyTitle": "No reminders yet",
+    "reminderEmptySubtitle": "Tap + to add your first medicine reminder"
 }

@@ -6,6 +6,7 @@ import '../../models/reminder.dart';
 import '../../widgets/reminder_card.dart';
 import '../../services/notification_service.dart';
 import '../../services/background_alarm_service.dart';
+import '../../services/foreground_alarm_monitor.dart';
 import 'add_reminder_screen.dart';
 import 'notification_screen.dart';
 
@@ -24,6 +25,13 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
   void initState() {
     super.initState();
     _loadReminders();
+  }
+
+  @override
+  void dispose() {
+    // Stop foreground monitoring when this screen is disposed
+    ForegroundAlarmMonitor().stopMonitoring();
+    super.dispose();
   }
 
   // Load reminders from SharedPreferences
@@ -46,6 +54,10 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
         // Schedule all reminders as local notifications (works even when screen is locked)
         await BackgroundAlarmService().scheduleAllReminders(reminders);
+        
+        // Start foreground monitoring (auto-shows notification screen when app is open)
+        ForegroundAlarmMonitor().startMonitoring(reminders);
+        
         print('✅ Loaded ${reminders.length} reminders from storage');
       } else {
         setState(() {
@@ -89,6 +101,9 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
     // Schedule notification with BackgroundAlarmService (works even when screen is locked)
     await BackgroundAlarmService().scheduleAllReminders(reminders);
+    
+    // Update foreground monitor
+    ForegroundAlarmMonitor().updateReminders(reminders);
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -116,6 +131,12 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
       // Reschedule all reminders (works even when screen is locked)
       await BackgroundAlarmService().scheduleAllReminders(reminders);
+      
+      // Update foreground monitor
+      ForegroundAlarmMonitor().updateReminders(reminders);
+      
+      // Clear trigger for edited reminder so it can fire again
+      ForegroundAlarmMonitor().clearTrigger(updatedReminder.id);
 
       if (mounted) {
         final l10n = AppLocalizations.of(context)!;
@@ -145,6 +166,9 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
     // Reschedule remaining reminders
     await BackgroundAlarmService().scheduleAllReminders(reminders);
+    
+    // Update foreground monitor
+    ForegroundAlarmMonitor().updateReminders(reminders);
   }
 
   void _toggleReminder(String id) async {
@@ -160,6 +184,9 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
     // Reschedule reminders when toggled (disabled reminders won't be scheduled)
     await BackgroundAlarmService().scheduleAllReminders(reminders);
+    
+    // Update foreground monitor
+    ForegroundAlarmMonitor().updateReminders(reminders);
   }
 
   void _editReminder(Reminder reminder) async {

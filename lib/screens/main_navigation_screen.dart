@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:medinavi/l10n/app_localizations.dart';
 import 'package:medinavi/services/background_alarm_service.dart';
+import 'package:medinavi/services/foreground_alarm_monitor.dart';
 import 'package:medinavi/services/notification_service.dart';
 import 'package:medinavi/models/reminder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -52,7 +53,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
       // Schedule all reminders as local notifications (works even when screen is locked)
       await BackgroundAlarmService().scheduleAllReminders(reminders);
+      
+      // Start foreground alarm monitor (auto-shows notification screen when app is open)
+      ForegroundAlarmMonitor().startMonitoring(reminders);
+      
       print('✅ BackgroundAlarmService scheduled ${reminders.length} reminders');
+      print('✅ ForegroundAlarmMonitor started with ${reminders.length} reminders');
     } catch (e) {
       print('⚠️ Failed to initialize BackgroundAlarmService: $e');
     }
@@ -60,6 +66,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   @override
   void dispose() {
+    // Stop foreground monitoring when app closes
+    ForegroundAlarmMonitor().stopMonitoring();
     super.dispose();
   }
 

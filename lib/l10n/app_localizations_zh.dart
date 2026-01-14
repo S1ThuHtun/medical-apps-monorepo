@@ -25,12 +25,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String loginAs(Object email) {
-    return '已登录为 $email';
+    return '已以 $email 登录';
   }
 
   @override
   String signedUpAs(Object email) {
-    return '已注册为 $email';
+    return '已以 $email 注册';
   }
 
   @override
@@ -49,25 +49,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get confirmPasswordMessage => '请确认密码';
 
   @override
-  String get confirmPasswordErrorMessage => '密码与确认密码不一致';
+  String get confirmPasswordErrorMessage => '密码不一致';
 
   @override
-  String get logOut => '登出';
+  String get logOut => '退出登录';
 
   @override
-  String get logoutConfirmation => '您确定要登出吗？';
+  String get logoutConfirmation => '确定要退出登录吗？';
 
   @override
   String get cancel => '取消';
 
   @override
-  String get signUp => '注册新账户';
+  String get signUp => '注册';
 
   @override
-  String get newSignUp => '还没有账户？注册新账户';
+  String get newSignUp => '没有账户？立即注册';
 
   @override
-  String get oldLogin => '已有账户？请登录';
+  String get oldLogin => '已有账户？立即登录';
 
   @override
   String get emailAddress => '电子邮件地址';
@@ -85,10 +85,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get home => '首页';
 
   @override
-  String get reminders => 'Reminders';
+  String get reminders => '提醒';
 
   @override
   String get favorites => '收藏';
+
+  @override
+  String get member => '会员';
 
   @override
   String get noFavorites => '您的收藏设施列表为空';
@@ -963,22 +966,22 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get reminderMealTimingLabel => 'Meal Timing';
+  String get reminderMealTimingLabel => '用药时机';
 
   @override
-  String get reminderMealTimingNone => 'No specific timing';
+  String get reminderMealTimingNone => '无特定时间';
 
   @override
-  String get reminderMealTimingBeforeTitle => 'Before Meals';
+  String get reminderMealTimingBeforeTitle => '饭前';
 
   @override
-  String get reminderMealTimingBeforeSubtitle => 'Take 30 mins before eating';
+  String get reminderMealTimingBeforeSubtitle => '饭前30分钟服用';
 
   @override
-  String get reminderMealTimingAfterTitle => 'After Meals';
+  String get reminderMealTimingAfterTitle => '饭后';
 
   @override
-  String get reminderMealTimingAfterSubtitle => 'Take 30 mins after eating';
+  String get reminderMealTimingAfterSubtitle => '饭后30分钟服用';
 
   @override
   String get reminderCancel => 'Cancel';
@@ -1026,51 +1029,57 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reminderTakenSnackBar => 'Medicine taken!';
 
   @override
-  String get reminderTimeToTakeMessage => 'Time to take your medicine';
+  String get reminderTimeToTakeMessage => '该服药了';
 
   @override
-  String get reminderTakenButton => 'I took it';
+  String get reminderTakenButton => '已服用';
 
   @override
-  String get reminderCloseButton => 'Close';
+  String get reminderCloseButton => '关闭';
 
   @override
-  String get reminderMealConfirmTitle => 'Meal Check';
+  String get reminderMealConfirmTitle => '用餐确认';
 
   @override
-  String get reminderMealConfirmMessage =>
-      'This medicine should be taken after meals';
+  String get reminderMealConfirmMessage => '此药应在饭后服用';
 
   @override
-  String get reminderMealConfirmQuestion => 'Have you finished eating?';
+  String get reminderMealConfirmQuestion => '您吃完饭了吗？';
 
   @override
-  String get reminderMealConfirmRecommendation =>
-      'For best results, take medicine 30 minutes after eating';
+  String get reminderMealConfirmRecommendation => '为达到最佳效果，请在饭后30分钟内服药';
 
   @override
-  String get reminderMealConfirmNotYet => 'Not yet';
+  String get reminderMealConfirmNotYet => '还没有';
 
   @override
-  String get reminderMealConfirmDone => 'Yes, I ate';
+  String get reminderMealConfirmDone => '是的，我吃了';
 
   @override
-  String get reminderLaterTitle => 'Reminder Set';
+  String get reminderLaterTitle => '提醒已设置';
 
   @override
-  String get reminderLaterMessage =>
-      'Please remember to take your medicine after eating!';
+  String get reminderLaterMessage => '请记得饭后服药！';
 
   @override
-  String get reminderLaterOk => 'OK';
+  String get reminderLaterOk => '确定';
 
   @override
-  String get medicineReminderTitle => 'Medicine Reminders';
+  String get medicineReminderTitle => '药物提醒';
 
   @override
-  String get reminderEmptyTitle => 'No reminders yet';
+  String get reminderEmptyTitle => '暂无提醒';
 
   @override
-  String get reminderEmptySubtitle =>
-      'Tap + to add your first medicine reminder';
+  String get reminderEmptySubtitle => '点击+添加您的第一个用药提醒';
+
+  @override
+  String addedToFavorites(String name) {
+    return '$name已添加到收藏';
+  }
+
+  @override
+  String removedFromFavorites(String name) {
+    return '$name已从收藏中移除';
+  }
 }

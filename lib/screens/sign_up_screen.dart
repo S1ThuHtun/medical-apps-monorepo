@@ -180,43 +180,50 @@ class _SignUpScreenState
       ),
       endDrawer: LoginScreenSetting(),
 
-      body: Center(
-        child: Column(
-          mainAxisAlignment:
-              MainAxisAlignment.center,
-          children: [
-            Text(
-              _isLogin
-                  ? AppLocalizations.of(
-                      context,
-                    )!.login
-                  : AppLocalizations.of(
-                      context,
-                    )!.signUp,
-              style: TextStyle(
-                fontWeight:
-                    FontWeight.bold,
-                fontSize: 35,
-              ),
-            ),
-            SizedBox(height: 5),
-
-            Card(
-              margin:
-                  const EdgeInsets.all(
-                    20,
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height - 
+                       MediaQuery.of(context).padding.top - 
+                       kToolbarHeight,
+          ),
+          child: IntrinsicHeight(
+            child: Column(
+              mainAxisAlignment:
+                  MainAxisAlignment.center,
+              children: [
+                Text(
+                  _isLogin
+                      ? AppLocalizations.of(
+                          context,
+                        )!.login
+                      : AppLocalizations.of(
+                          context,
+                        )!.signUp,
+                  style: TextStyle(
+                    fontWeight:
+                        FontWeight.bold,
+                    fontSize: 35,
                   ),
-              child: SingleChildScrollView(
-                padding: EdgeInsets.all(
-                  20,
                 ),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisSize:
-                        MainAxisSize
-                            .min,
-                    children: [
+                SizedBox(height: 5),
+
+                Card(
+                  margin:
+                      const EdgeInsets.all(
+                        20,
+                      ),
+                  child: Padding(
+                    padding: EdgeInsets.all(
+                      20,
+                    ),
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        mainAxisSize:
+                            MainAxisSize
+                                .min,
+                        children: [
                       TextFormField(
                         controller:
                             _emailController,
@@ -388,7 +395,28 @@ class _SignUpScreenState
                 ),
               ),
             ),
+
+            // TextButton(
+            //   onPressed:
+            //       () {
+            //     setState(() {
+            //       _isLogin =
+            //           !_isLogin;
+            //     });
+            //   },
+            //   child: Text(
+            //     _isLogin
+            //         ? AppLocalizations.of(
+            //             context,
+            //           )!.newSignUp
+            //         : AppLocalizations.of(
+            //             context,
+            //           )!.oldLogin,
+            //   ),
+            // ),
           ],
+        ),
+      ),
         ),
       ),
     );

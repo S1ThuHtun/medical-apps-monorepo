@@ -83,6 +83,7 @@
     "home": "Home",
     "reminders": "Reminders",
     "favorites": "Favorites",
+    "member": "Member",
     "noFavorites": "Your Favorite Facilities List is Empty",
     "tapHeartToSave": "Tap the heart icon on any facility to save it here",
     "history": "History",
@@ -452,5 +453,21 @@
     "reminderLaterOk": "OK",
     "medicineReminderTitle": "Medicine Reminders",
     "reminderEmptyTitle": "No reminders yet",
-    "reminderEmptySubtitle": "Tap + to add your first medicine reminder"
+    "reminderEmptySubtitle": "Tap + to add your first medicine reminder",
+    "addedToFavorites": "{name} added to favorites",
+    "@addedToFavorites": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "removedFromFavorites": "{name} removed from favorites",
+    "@removedFromFavorites": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    }
 }

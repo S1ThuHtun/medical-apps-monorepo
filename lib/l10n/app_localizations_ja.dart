@@ -12,7 +12,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get selectLanguage => '言語選択';
 
   @override
-  String get getStarted => '開始';
+  String get getStarted => 'はじめる';
 
   @override
   String get chooseLanguage => '言語を選択してください';
@@ -25,12 +25,12 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String loginAs(Object email) {
-    return '$emailでログインしています';
+    return '$emailとしてログインしました';
   }
 
   @override
   String signedUpAs(Object email) {
-    return '$emailで登録しました';
+    return '$emailとして登録しました';
   }
 
   @override
@@ -49,13 +49,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get confirmPasswordMessage => 'パスワード（確認）を入力してください';
 
   @override
-  String get confirmPasswordErrorMessage => 'パスワードと確認用パスワードが一致しません';
+  String get confirmPasswordErrorMessage => 'パスワードが一致しません';
 
   @override
   String get logOut => 'ログアウト';
 
   @override
-  String get logoutConfirmation => '本当にログアウトしますか？';
+  String get logoutConfirmation => 'ログアウトしてもよろしいですか？';
 
   @override
   String get cancel => 'キャンセル';
@@ -64,10 +64,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get signUp => '新規登録';
 
   @override
-  String get newSignUp => 'アカウントをお持ちでないですか？新規登録';
+  String get newSignUp => 'アカウントをお持ちでない方はこちら';
 
   @override
-  String get oldLogin => 'アカウントはお持ちですか？ログイン';
+  String get oldLogin => 'アカウントをお持ちの方はこちら';
 
   @override
   String get emailAddress => 'メールアドレス';
@@ -85,10 +85,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get home => 'ホーム';
 
   @override
-  String get reminders => 'Reminders';
+  String get reminders => 'リマインダー';
 
   @override
   String get favorites => 'お気に入り';
+
+  @override
+  String get member => 'メンバー';
 
   @override
   String get noFavorites => 'お気に入りの施設リストは空です';
@@ -964,22 +967,22 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get reminderMealTimingLabel => 'Meal Timing';
+  String get reminderMealTimingLabel => '服用タイミング';
 
   @override
-  String get reminderMealTimingNone => 'No specific timing';
+  String get reminderMealTimingNone => '指定なし';
 
   @override
-  String get reminderMealTimingBeforeTitle => 'Before Meals';
+  String get reminderMealTimingBeforeTitle => '食前';
 
   @override
-  String get reminderMealTimingBeforeSubtitle => 'Take 30 mins before eating';
+  String get reminderMealTimingBeforeSubtitle => '食事の30分前に服用';
 
   @override
-  String get reminderMealTimingAfterTitle => 'After Meals';
+  String get reminderMealTimingAfterTitle => '食後';
 
   @override
-  String get reminderMealTimingAfterSubtitle => 'Take 30 mins after eating';
+  String get reminderMealTimingAfterSubtitle => '食事の30分後に服用';
 
   @override
   String get reminderCancel => 'Cancel';
@@ -1027,51 +1030,57 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderTakenSnackBar => 'Medicine taken!';
 
   @override
-  String get reminderTimeToTakeMessage => 'Time to take your medicine';
+  String get reminderTimeToTakeMessage => 'お薬を飲む時間です';
 
   @override
-  String get reminderTakenButton => 'I took it';
+  String get reminderTakenButton => '飲みました';
 
   @override
-  String get reminderCloseButton => 'Close';
+  String get reminderCloseButton => '閉じる';
 
   @override
-  String get reminderMealConfirmTitle => 'Meal Check';
+  String get reminderMealConfirmTitle => '食事確認';
 
   @override
-  String get reminderMealConfirmMessage =>
-      'This medicine should be taken after meals';
+  String get reminderMealConfirmMessage => 'このお薬は食後に服用してください';
 
   @override
-  String get reminderMealConfirmQuestion => 'Have you finished eating?';
+  String get reminderMealConfirmQuestion => '食事は済みましたか？';
 
   @override
-  String get reminderMealConfirmRecommendation =>
-      'For best results, take medicine 30 minutes after eating';
+  String get reminderMealConfirmRecommendation => '効果を高めるため、食後30分以内の服用をお勧めします';
 
   @override
-  String get reminderMealConfirmNotYet => 'Not yet';
+  String get reminderMealConfirmNotYet => 'まだです';
 
   @override
-  String get reminderMealConfirmDone => 'Yes, I ate';
+  String get reminderMealConfirmDone => 'はい、食べました';
 
   @override
-  String get reminderLaterTitle => 'Reminder Set';
+  String get reminderLaterTitle => 'リマインダー設定';
 
   @override
-  String get reminderLaterMessage =>
-      'Please remember to take your medicine after eating!';
+  String get reminderLaterMessage => '食後にお薬を飲むことを忘れないでください！';
 
   @override
   String get reminderLaterOk => 'OK';
 
   @override
-  String get medicineReminderTitle => 'Medicine Reminders';
+  String get medicineReminderTitle => '服薬リマインダー';
 
   @override
-  String get reminderEmptyTitle => 'No reminders yet';
+  String get reminderEmptyTitle => 'リマインダーはまだありません';
 
   @override
-  String get reminderEmptySubtitle =>
-      'Tap + to add your first medicine reminder';
+  String get reminderEmptySubtitle => '+ボタンをタップして最初の服薬リマインダーを追加';
+
+  @override
+  String addedToFavorites(String name) {
+    return '$nameをお気に入りに追加しました';
+  }
+
+  @override
+  String removedFromFavorites(String name) {
+    return '$nameをお気に入りから削除しました';
+  }
 }

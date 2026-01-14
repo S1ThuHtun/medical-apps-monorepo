@@ -141,12 +141,14 @@ class _FavoritesScreenState extends State<FavoritesScreen>
         elevation: 0,
         shadowColor: Colors.black.withValues(alpha: 0.05),
         surfaceTintColor: Colors.transparent,
-        title: Text(
-          AppLocalizations.of(context)!.favorites,
-          style: const TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
+        title: Center(
+          child: Text(
+            AppLocalizations.of(context)!.favorites,
+            style: const TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+            ),
           ),
         ),
         actions: [
@@ -195,10 +197,11 @@ class _FavoritesScreenState extends State<FavoritesScreen>
                         _favorites.removeAt(index);
                       });
                       if (mounted) {
+                        final l10n = AppLocalizations.of(context)!;
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text(
-                              '${service.name} removed from favorites',
+                              l10n.removedFromFavorites(service.name),
                             ),
                             backgroundColor: const Color(0xFF2E7D32),
                             duration: const Duration(seconds: 3),

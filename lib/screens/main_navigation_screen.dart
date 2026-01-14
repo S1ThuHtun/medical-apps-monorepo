@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:medinavi/l10n/app_localizations.dart';
-import 'package:medinavi/services/alarm_monitor_service.dart';
+import 'package:medinavi/services/background_alarm_service.dart';
 import 'package:medinavi/services/notification_service.dart';
 import 'package:medinavi/models/reminder.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +31,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     _initializeAlarmMonitor();
   }
 
-  // Load reminders and start alarm monitoring
+  // Load reminders and schedule notifications
   Future<void> _initializeAlarmMonitor() async {
     try {
       final prefs = await SharedPreferences.getInstance();
@@ -50,25 +50,16 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         print('✅ Loaded ${reminders.length} reminders in MainNavigationScreen');
       }
 
-      // Start alarm monitoring with loaded reminders
-      AlarmMonitorService().startMonitoring(reminders);
-      print('✅ AlarmMonitorService started with ${reminders.length} reminders');
+      // Schedule all reminders as local notifications (works even when screen is locked)
+      await BackgroundAlarmService().scheduleAllReminders(reminders);
+      print('✅ BackgroundAlarmService scheduled ${reminders.length} reminders');
     } catch (e) {
-      print('⚠️ Failed to initialize AlarmMonitorService: $e');
-      // Start with empty list if loading fails
-      AlarmMonitorService().startMonitoring([]);
+      print('⚠️ Failed to initialize BackgroundAlarmService: $e');
     }
   }
 
   @override
   void dispose() {
-    // Stop alarm monitoring when the app is closed
-    try {
-      AlarmMonitorService().stopMonitoring();
-      print('🛑 Global AlarmMonitorService stopped');
-    } catch (e) {
-      print('⚠️ Failed to stop global AlarmMonitorService: $e');
-    }
     super.dispose();
   }
 

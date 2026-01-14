@@ -256,6 +256,12 @@ abstract class AppLocalizations {
   /// **'Favorites'**
   String get favorites;
 
+  /// No description provided for @member.
+  ///
+  /// In en, this message translates to:
+  /// **'Member'**
+  String get member;
+
   /// No description provided for @noFavorites.
   ///
   /// In en, this message translates to:
@@ -2181,6 +2187,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap + to add your first medicine reminder'**
   String get reminderEmptySubtitle;
+
+  /// No description provided for @addedToFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} added to favorites'**
+  String addedToFavorites(String name);
+
+  /// No description provided for @removedFromFavorites.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} removed from favorites'**
+  String removedFromFavorites(String name);
 }
 
 class _AppLocalizationsDelegate

@@ -7,6 +7,14 @@ import '../main.dart';
 import '../screens/reminder/notification_screen.dart';
 import '../models/reminder.dart';
 
+// Top-level function for background notification handling
+// This is required by iOS for notifications when app is terminated
+@pragma('vm:entry-point')
+void notificationTapBackground(NotificationResponse response) {
+  // Background tap - just log it, navigation happens when app opens
+  print('Background notification tapped: ${response.payload}');
+}
+
 class NotificationService {
   static final NotificationService _instance = NotificationService._();
   factory NotificationService() => _instance;
@@ -43,10 +51,13 @@ class NotificationService {
       iOS: iosSettings,
     );
 
+    // Register callback for when notification is received (even in background on iOS)
+    // This allows the notification sound to play even when screen is locked
+
     await _notifications.initialize(
       initSettings,
       onDidReceiveNotificationResponse: _onNotificationTap,
-      onDidReceiveBackgroundNotificationResponse: _onNotificationTap,
+      onDidReceiveBackgroundNotificationResponse: notificationTapBackground,
     );
 
     _initialized = true;
@@ -183,6 +194,7 @@ class NotificationService {
           presentAlert: true,
           presentBadge: true,
           presentSound: true,
+          sound: 'default',
           interruptionLevel: InterruptionLevel.timeSensitive,
         ),
       ),
@@ -225,6 +237,7 @@ class NotificationService {
           presentAlert: true,
           presentBadge: true,
           presentSound: true,
+          sound: 'default',
           interruptionLevel: InterruptionLevel.timeSensitive,
         ),
       ),

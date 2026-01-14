@@ -60,12 +60,13 @@ class _MapScreenState extends State<MapScreen> {
       setState(() {
         _isFavorite = newStatus;
       });
+      final l10n = AppLocalizations.of(context)!;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
             newStatus
-                ? '${widget.service.name} added to favorites'
-                : '${widget.service.name} removed from favorites',
+                ? l10n.addedToFavorites(widget.service.name)
+                : l10n.removedFromFavorites(widget.service.name),
           ),
           backgroundColor: const Color(0xFF2E7D32),
           duration: const Duration(seconds: 2),
@@ -559,17 +560,17 @@ class _MapScreenState extends State<MapScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      widget.service.name,
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
+                                    Expanded(
+                                      child: Text(
+                                        widget.service.name,
+                                        style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
                                       ),
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
                                     ),
                                     IconButton(
                                       onPressed: _toggleFavorite,

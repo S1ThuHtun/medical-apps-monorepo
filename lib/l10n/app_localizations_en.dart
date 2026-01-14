@@ -93,6 +93,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get favorites => 'Favorites';
 
   @override
+  String get member => 'Member';
+
+  @override
   String get noFavorites => 'Your Favorite Facilities List is Empty';
 
   @override
@@ -1085,4 +1088,14 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get reminderEmptySubtitle =>
       'Tap + to add your first medicine reminder';
+
+  @override
+  String addedToFavorites(String name) {
+    return '$name added to favorites';
+  }
+
+  @override
+  String removedFromFavorites(String name) {
+    return '$name removed from favorites';
+  }
 }

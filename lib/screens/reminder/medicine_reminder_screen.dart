@@ -5,7 +5,7 @@ import '../../l10n/app_localizations.dart';
 import '../../models/reminder.dart';
 import '../../widgets/reminder_card.dart';
 import '../../services/notification_service.dart';
-import '../../services/alarm_monitor_service.dart';
+import '../../services/background_alarm_service.dart';
 import 'add_reminder_screen.dart';
 import 'notification_screen.dart';
 
@@ -44,8 +44,8 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
           NotificationService().cacheReminder(reminder.id, reminder);
         }
 
-        // Update alarm monitor with loaded reminders
-        AlarmMonitorService().updateReminders(reminders);
+        // Schedule all reminders as local notifications (works even when screen is locked)
+        await BackgroundAlarmService().scheduleAllReminders(reminders);
         print('✅ Loaded ${reminders.length} reminders from storage');
       } else {
         setState(() {
@@ -73,28 +73,6 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
     }
   }
 
-  List<String> _buildDoseLabels(AppLocalizations l10n, int count) {
-    switch (count) {
-      case 2:
-        return [l10n.reminderDoseMorning, l10n.reminderDoseEvening];
-      case 3:
-        return [
-          l10n.reminderDoseMorning,
-          l10n.reminderDoseNoon,
-          l10n.reminderDoseEvening,
-        ];
-      case 4:
-        return [
-          l10n.reminderDoseMorning,
-          l10n.reminderDoseNoon,
-          l10n.reminderDoseEvening,
-          l10n.reminderDoseNight,
-        ];
-      default:
-        return List<String>.filled(count, '');
-    }
-  }
-
   void _addReminder(Reminder reminder) async {
     setState(() {
       reminders.add(reminder);
@@ -105,29 +83,12 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
     if (!mounted) return;
     final l10n = AppLocalizations.of(context)!;
-    final doseLabels = _buildDoseLabels(l10n, reminder.doseTimes.length);
-    final notificationBodies = List<String>.generate(
-      reminder.doseTimes.length,
-      (index) => l10n.reminderNotificationBody(index + 1),
-    );
 
     // Cache reminder for notification navigation
     NotificationService().cacheReminder(reminder.id, reminder);
 
-    await NotificationService().scheduleReminderDoses(
-      reminderId: reminder.id,
-      medicineName: reminder.medicineName,
-      doseTimes: reminder.doseTimes,
-      repeatType: reminder.repeatType,
-      notificationChannelName: l10n.reminderNotificationChannelName,
-      notificationChannelDescription:
-          l10n.reminderNotificationChannelDescription,
-      doseLabels: doseLabels,
-      notificationBodies: notificationBodies,
-    );
-
-    // Update alarm monitor with new reminder
-    AlarmMonitorService().updateReminders(reminders);
+    // Schedule notification with BackgroundAlarmService (works even when screen is locked)
+    await BackgroundAlarmService().scheduleAllReminders(reminders);
 
     if (mounted) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -143,8 +104,6 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
   void _updateReminder(Reminder updatedReminder) async {
     final index = reminders.indexWhere((r) => r.id == updatedReminder.id);
     if (index != -1) {
-      final oldReminder = reminders[index];
-
       setState(() {
         reminders[index] = updatedReminder;
       });
@@ -152,43 +111,14 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
       // Save to persistent storage
       await _saveReminders();
 
-      await NotificationService().cancelReminderNotifications(
-        oldReminder.id,
-        oldReminder.dosesPerDay,
-      );
-
-      // Clear permanent trigger when editing (allows it to trigger again)
-      await AlarmMonitorService().clearPermanentTrigger(updatedReminder.id);
-
-      final l10n = AppLocalizations.of(context)!;
-      final doseLabels = _buildDoseLabels(
-        l10n,
-        updatedReminder.doseTimes.length,
-      );
-      final notificationBodies = List<String>.generate(
-        updatedReminder.doseTimes.length,
-        (index) => l10n.reminderNotificationBody(index + 1),
-      );
-
       // Cache updated reminder for notification navigation
       NotificationService().cacheReminder(updatedReminder.id, updatedReminder);
 
-      await NotificationService().scheduleReminderDoses(
-        reminderId: updatedReminder.id,
-        medicineName: updatedReminder.medicineName,
-        doseTimes: updatedReminder.doseTimes,
-        repeatType: updatedReminder.repeatType,
-        notificationChannelName: l10n.reminderNotificationChannelName,
-        notificationChannelDescription:
-            l10n.reminderNotificationChannelDescription,
-        doseLabels: doseLabels,
-        notificationBodies: notificationBodies,
-      );
-
-      // Update alarm monitor with updated reminders
-      AlarmMonitorService().updateReminders(reminders);
+      // Reschedule all reminders (works even when screen is locked)
+      await BackgroundAlarmService().scheduleAllReminders(reminders);
 
       if (mounted) {
+        final l10n = AppLocalizations.of(context)!;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(l10n.reminderUpdatedMessage),
@@ -210,16 +140,11 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
     // Save to persistent storage
     await _saveReminders();
 
-    await NotificationService().cancelReminderNotifications(
-      id,
-      reminder.dosesPerDay,
-    );
+    // Cancel notifications for deleted reminder
+    await BackgroundAlarmService().cancelReminder(id, reminder.dosesPerDay);
 
-    // Clear permanent trigger if it was 'never' mode
-    await AlarmMonitorService().clearPermanentTrigger(id);
-
-    // Update alarm monitor after deletion
-    AlarmMonitorService().updateReminders(reminders);
+    // Reschedule remaining reminders
+    await BackgroundAlarmService().scheduleAllReminders(reminders);
   }
 
   void _toggleReminder(String id) async {
@@ -233,8 +158,8 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
     // Save to persistent storage
     await _saveReminders();
 
-    // Update alarm monitor when reminder is toggled
-    AlarmMonitorService().updateReminders(reminders);
+    // Reschedule reminders when toggled (disabled reminders won't be scheduled)
+    await BackgroundAlarmService().scheduleAllReminders(reminders);
   }
 
   void _editReminder(Reminder reminder) async {

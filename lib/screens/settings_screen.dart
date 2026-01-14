@@ -66,7 +66,7 @@ class SettingsScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 4),
                           Text(
-                            'Member',
+                            AppLocalizations.of(context)!.member,
                             style: TextStyle(
                               fontSize: 14,
                               color: Colors.grey[600],

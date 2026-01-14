@@ -314,6 +314,7 @@ class _NotificationScreenState
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Scaffold(
+      backgroundColor: const Color(0xFF4CAF50),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -326,8 +327,11 @@ class _NotificationScreenState
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
+          child: Column(
+            children: [
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Padding(
               padding:
                   const EdgeInsets.all(
                       24.0),
@@ -601,12 +605,15 @@ class _NotificationScreenState
                       ],
                     ),
                   ),
-
-                  const SizedBox(
-                      height: 40),
-
-                  // Action buttons
-                  Column(
+                ],
+              ),
+            ),
+          ),
+              ),
+              // Action buttons pinned at bottom
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
                     children: [
                       // "I took it" button
                       SizedBox(
@@ -694,9 +701,8 @@ class _NotificationScreenState
                       ),
                     ],
                   ),
-                ],
               ),
-            ),
+            ],
           ),
         ),
       ),

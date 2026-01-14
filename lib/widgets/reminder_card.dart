@@ -67,9 +67,27 @@ class ReminderCard
           return '';
       }
     }
-    return Container(
+    return Dismissible(
+      key: Key(reminder.id),
+      direction: DismissDirection.endToStart,
+      onDismissed: (_) => onDelete(),
+      background: Container(
+        margin: const EdgeInsets.only(bottom: 12),
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        alignment: Alignment.centerRight,
+        padding: const EdgeInsets.only(right: 20),
+        child: const Icon(
+          Icons.delete,
+          color: Colors.white,
+          size: 32,
+        ),
+      ),
+      child: Container(
       margin: const EdgeInsets.only(
-          bottom: 12),
+          bottom: 10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius:
@@ -92,28 +110,9 @@ class ReminderCard
           child: Padding(
             padding:
                 const EdgeInsets.all(
-                    16.0),
+                    10.0),
             child: Row(
               children: [
-                Transform.scale(
-                  scale: 0.9,
-                  child: Switch(
-                    value: reminder
-                        .isEnabled,
-                    onChanged: (_) =>
-                        onToggle(),
-                    activeColor:
-                        const Color(
-                            0xFF2E7D32),
-                    activeTrackColor:
-                        const Color(
-                                0xFF2E7D32)
-                            .withValues(
-                                alpha: 0.5),
-                  ),
-                ),
-                const SizedBox(
-                    width: 8),
                 Container(
                   width: 56,
                   height: 56,
@@ -175,7 +174,7 @@ class ReminderCard
                             .medicineName,
                         style:
                             TextStyle(
-                          fontSize: 16,
+                          fontSize: 14,
                           fontWeight:
                               FontWeight
                                   .bold,
@@ -359,23 +358,14 @@ class ReminderCard
                               minHeight:
                                   36),
                     ),
-                    IconButton(
-                      onPressed:
-                          onDelete,
-                      icon: const Icon(
-                          Icons.delete,
-                          color: Colors
-                              .red,
-                          size: 22),
-                      padding:
-                          EdgeInsets
-                              .zero,
-                      constraints:
-                          const BoxConstraints(
-                              minWidth:
-                                  36,
-                              minHeight:
-                                  36),
+                    Transform.scale(
+                      scale: 0.9,
+                      child: Switch(
+                        value: reminder.isEnabled,
+                        onChanged: (_) => onToggle(),
+                        activeColor: const Color(0xFF2E7D32),
+                        activeTrackColor: const Color(0xFF2E7D32).withValues(alpha: 0.5),
+                      ),
                     ),
                   ],
                 ),
@@ -384,6 +374,7 @@ class ReminderCard
           ),
         ),
       ),
+    ),
     );
   }
 }

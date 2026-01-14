@@ -1082,4 +1082,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String removedFromFavorites(String name) {
     return '$name已从收藏中移除';
   }
+
+  @override
+  String get reminderTestAlarmTooltip => 'Test alarm for this reminder';
 }

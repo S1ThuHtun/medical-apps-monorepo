@@ -2199,6 +2199,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{name} removed from favorites'**
   String removedFromFavorites(String name);
+
+  /// No description provided for @reminderTestAlarmTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Test alarm for this reminder'**
+  String get reminderTestAlarmTooltip;
 }
 
 class _AppLocalizationsDelegate

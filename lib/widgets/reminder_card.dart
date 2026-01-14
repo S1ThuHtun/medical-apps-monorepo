@@ -339,7 +339,7 @@ class ReminderCard
                                   36,
                               minHeight:
                                   36),
-                      tooltip: 'Test alarm for this reminder',
+                      tooltip: l10n.reminderTestAlarmTooltip,
                     ),
                     IconButton(
                       onPressed: onEdit,

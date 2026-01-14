@@ -469,5 +469,6 @@
                 "type": "String"
             }
         }
-    }
+    },
+    "reminderTestAlarmTooltip": "Test alarm for this reminder"
 }

@@ -1083,4 +1083,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String removedFromFavorites(String name) {
     return '$nameをお気に入りから削除しました';
   }
+
+  @override
+  String get reminderTestAlarmTooltip => 'このリマインダーのアラームをテスト';
 }

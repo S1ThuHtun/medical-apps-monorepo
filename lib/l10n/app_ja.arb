@@ -334,5 +334,6 @@
     "addedToFavorites": "{name}をお気に入りに追加しました",
     "removedFromFavorites": "{name}をお気に入りから削除しました",
     "reminderEmptyTitle": "リマインダーはまだありません",
-    "reminderEmptySubtitle": "+ボタンをタップして最初の服薬リマインダーを追加"
+    "reminderEmptySubtitle": "+ボタンをタップして最初の服薬リマインダーを追加",
+    "reminderTestAlarmTooltip": "このリマインダーのアラームをテスト"
 }

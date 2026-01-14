@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediNavi - Complete Project Documentation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: white;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2E7D32;
+            font-size: 2.5em;
+            margin: 30px 0 20px 0;
+            border-bottom: 4px solid #4CAF50;
+            padding-bottom: 15px;
+            page-break-after: avoid;
+        }
+        h1:first-of-type {
+            margin-top: 0;
+            font-size: 3em;
+            text-align: center;
+            border-bottom: none;
+            color: #1B5E20;
+        }
+        h2 {
+            color: #388E3C;
+            font-size: 1.8em;
+            margin: 35px 0 15px 0;
+            border-bottom: 3px solid #81C784;
+            padding-bottom: 10px;
+            page-break-after: avoid;
+        }
+        h3 {
+            color: #43A047;
+            font-size: 1.4em;
+            margin: 25px 0 12px 0;
+            page-break-after: avoid;
+        }
+        p {
+            margin: 12px 0;
+            text-align: justify;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #c7254e;
+            border: 1px solid #e1e1e1;
+        }
+        pre {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        pre code {
+            background: none;
+            padding: 0;
+            border: none;
+            color: #2c3e50;
+            font-size: 0.85em;
+        }
+        ul, ol {
+            margin: 15px 0 15px 30px;
+        }
+        li {
+            margin: 8px 0;
+        }
+        a {
+            color: #2E7D32;
+            text-decoration: none;
+            border-bottom: 1px dotted #4CAF50;
+        }
+        a:hover {
+            color: #1B5E20;
+            border-bottom: 1px solid #1B5E20;
+        }
+        strong {
+            color: #1B5E20;
+            font-weight: 600;
+        }
+        em {
+            color: #555;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #e0e0e0;
+            margin: 40px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            page-break-inside: avoid;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background: linear-gradient(135deg, #4CAF50 0%, #388E3C 100%);
+            color: white;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .toc {
+            background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 6px solid #4CAF50;
+        }
+        .toc h2 {
+            margin-top: 0;
+            border-bottom: none;
+        }
+        blockquote {
+            border-left: 5px solid #4CAF50;
+            padding-left: 25px;
+            margin: 20px 0;
+            color: #666;
+            font-style: italic;
+            background: #f9f9f9;
+            padding: 15px 15px 15px 25px;
+            border-radius: 4px;
+        }
+        .header-info {
+            text-align: center;
+            color: #666;
+            margin: 20px 0 40px 0;
+            font-size: 1.1em;
+        }
+        .section-divider {
+            text-align: center;
+            margin: 50px 0;
+            color: #4CAF50;
+            font-size: 2em;
+        }
+        @media print {
+            body {
+                padding: 20px;
+            }
+            h1 {
+                page-break-before: always;
+            }
+            h1:first-of-type {
+                page-break-before: avoid;
+            }
+            h2, h3 {
+                page-break-after: avoid;
+            }
+            pre, table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>MediNavi - Medical Services Locator & Reminder App</h1>
+
+<h2>Project Overview</h2>
+
+<strong>MediNavi</strong> is a comprehensive Flutter-based mobile application designed to help users in Japan find nearby medical services and manage their medicine reminders. The app combines location-based healthcare facility search with an intelligent medication management system.
+
+<h3>Version Information</h3>
+<ul>
+  <li><strong>Version</strong>: 1.0.0+1</li>
+  <li><strong>SDK</strong>: Dart >=3.8.0 <4.0.0</li>
+  <li><strong>Platforms</strong>: iOS, Android</li>
+  <li><strong>Last Updated</strong>: January 2026</li>
+</ul>
+
+<p>---</p>
+
+<h2>Table of Contents</h2>
+
+<ol>
+  <li><a href="#core-features">Core Features</a></li>
+  <li><a href="#architecture-overview">Architecture Overview</a></li>
+  <li><a href="#project-structure">Project Structure</a></li>
+  <li><a href="#key-components">Key Components</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#screens">Screens</a></li>
+  <li><a href="#notification-system">Notification System</a></li>
+  <li><a href="#localization">Localization</a></li>
+  <li><a href="#dependencies">Dependencies</a></li>
+</ul>
+<p>10. <a href="#setup--installation">Setup & Installation</a></p>
+<p>11. <a href="#configuration">Configuration</a></p>
+<p>12. <a href="#usage-guide">Usage Guide</a></p>
+<p>13. <a href="#api-integration">API Integration</a></p>
+<p>14. <a href="#testing">Testing</a></p>
+<p>15. <a href="#future-enhancements">Future Enhancements</a></p>
+
+<p>---</p>
+
+<h2>Core Features</h2>
+
+<h3>1. Medical Service Finder</h3>
+<ul>
+  <li><strong>Location-Based Search</strong>: Find nearby hospitals, clinics, pharmacies, and specialized medical services</li>
+  <li><strong>Google Maps Integration</strong>: View facilities on interactive maps with real-time directions</li>
+  <li><strong>Category Filtering</strong>: Browse services by categories (General Medicine, Specialized Services, Emergency, etc.)</li>
+  <li><strong>Favorites System</strong>: Save frequently visited medical facilities</li>
+  <li><strong>Multi-Language Support</strong>: Japanese, English, and Chinese interfaces</li>
+</ul>
+
+<h3>2. Medicine Reminder System</h3>
+<ul>
+  <li><strong>Smart Reminders</strong>: Schedule medicine reminders with customizable frequencies</li>
+  <li>One-time reminders</li>
+  <li>Daily reminders</li>
+  <li>Weekdays only</li>
+  <li>Weekends only</li>
+  <li>Custom day selection</li>
+  <li><strong>Meal Timing</strong>: Set reminders for before/after meal medications</li>
+  <li><strong>Photo Attachments</strong>: Add photos of medicines for easy identification</li>
+  <li><strong>Push Notifications</strong>: Receive notifications when it's time to take medicine</li>
+  <li><strong>Alarm System</strong>: In-app alarm with audio playback</li>
+  <li><strong>Automatic Tracking</strong>: Mark medicines as taken and track adherence</li>
+</ul>
+
+<h3>3. AI Medical Assistant (Chatbot)</h3>
+<ul>
+  <li><strong>Voice & Text Input</strong>: Communicate via speech or typing</li>
+  <li><strong>Symptom Analysis</strong>: Describe symptoms to get preliminary guidance</li>
+  <li><strong>Quick & Detailed Modes</strong>: Choose response depth based on your needs</li>
+  <li><strong>Department Recommendations</strong>: Get suggestions for appropriate medical departments</li>
+  <li><strong>Facility Search Integration</strong>: Directly search for recommended services</li>
+</ul>
+
+<h3>4. User Authentication</h3>
+<ul>
+  <li><strong>Firebase Authentication</strong>: Secure login/signup with email</li>
+  <li><strong>Session Management</strong>: Persistent login state</li>
+  <li><strong>Multi-language Onboarding</strong>: First-time user experience in multiple languages</li>
+</ul>
+
+<p>---</p>
+
+<h2>Architecture Overview</h2>
+
+<h3>Design Pattern</h3>
+<p>MediNavi follows a <strong>Service-Oriented Architecture</strong> with clear separation of concerns:</p>
+
+<pre><code>┌─────────────────────────────────────────────────┐
+<p>│              Presentation Layer                  │</p>
+<p>│  (Screens, Widgets, UI Components)              │</p>
+<p>└─────────────────┬───────────────────────────────┘</p>
+<p>                  │</p>
+<p>┌─────────────────▼───────────────────────────────┐</p>
+<p>│              Business Logic Layer                │</p>
+<p>│  (Services, State Management, Utils)            │</p>
+<p>└─────────────────┬───────────────────────────────┘</p>
+<p>                  │</p>
+<p>┌─────────────────▼───────────────────────────────┐</p>
+<p>│                Data Layer                        │</p>
+<p>│  (Models, Local Storage, API Integration)       │</p>
+<p>└──────────────────────────────────────────────────┘</p>
+</code></pre>
+
+<h3>Technology Stack</h3>
+<ul>
+  <li><strong>Framework</strong>: Flutter 3.8.0+</li>
+  <li><strong>Language</strong>: Dart</li>
+  <li><strong>State Management</strong>: Provider pattern with StatefulWidgets</li>
+  <li><strong>Backend</strong>: Firebase (Authentication)</li>
+  <li><strong>Local Storage</strong>: SharedPreferences</li>
+  <li><strong>Notifications</strong>: flutter_local_notifications</li>
+  <li><strong>Maps</strong>: Google Maps API</li>
+  <li><strong>Location</strong>: Geolocator</li>
+  <li><strong>Audio</strong>: audioplayers</li>
+</ul>
+
+<p>---</p>
+
+<h2>Project Structure</h2>
+
+<pre><code>lib/
+<p>├── data/</p>
+<p>│   └── medical_services_data.dart       # Medical service categories & data</p>
+<p>├── l10n/                                 # Localization files</p>
+<p>│   ├── app_en.arb                       # English translations</p>
+<p>│   ├── app_ja.arb                       # Japanese translations</p>
+<p>│   ├── app_zh.arb                       # Chinese translations</p>
+<p>│   └── app_localizations*.dart          # Generated localization classes</p>
+<p>├── models/</p>
+<p>│   ├── medical_service.dart             # Medical service data model</p>
+<p>│   └── reminder.dart                    # Medicine reminder model</p>
+<p>├── providers/</p>
+<p>│   └── locale_providers.dart            # Locale state management</p>
+<p>├── screens/</p>
+<p>│   ├── home_screen.dart                 # Main home screen</p>
+<p>│   ├── chatbot_screen.dart              # AI assistant interface</p>
+<p>│   ├── favorites_screen.dart            # Saved facilities</p>
+<p>│   ├── map_screen.dart                  # Map view with markers</p>
+<p>│   ├── settings_screen.dart             # App settings</p>
+<p>│   ├── startup_screen.dart              # Language selection</p>
+<p>│   ├── sign_up_screen.dart              # Authentication</p>
+<p>│   └── reminder/                        # Medicine reminder screens</p>
+<p>│       ├── medicine_reminder_screen.dart    # Reminder list</p>
+<p>│       ├── add_reminder_screen.dart         # Add/edit reminder</p>
+<p>│       └── notification_screen.dart         # Alarm notification UI</p>
+<p>├── services/</p>
+<p>│   ├── notification_service.dart        # Notification management</p>
+<p>│   ├── background_alarm_service.dart    # Background notifications</p>
+<p>│   ├── foreground_alarm_monitor.dart    # Foreground alarm detection</p>
+<p>│   ├── google_places_service.dart       # Google Places API</p>
+<p>│   ├── favorites_service.dart           # Favorites persistence</p>
+<p>│   └── auth_services.dart               # Firebase auth wrapper</p>
+<p>├── utils/</p>
+<p>│   ├── service_localization.dart        # Service name translations</p>
+<p>│   ├── prefecture_localization.dart     # Location translations</p>
+<p>│   └── language_selection_utils.dart    # Language utilities</p>
+<p>├── widgets/</p>
+<p>│   ├── reminder_card.dart               # Reminder list item</p>
+<p>│   ├── service_card_widget.dart         # Service list item</p>
+<p>│   ├── category_tabs_widget.dart        # Category filter tabs</p>
+<p>│   └── location_selector_screen_widget.dart  # Location picker</p>
+<p>└── main.dart                            # App entry point</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>Key Components</h2>
+
+<h3>Models</h3>
+
+<p>#### Reminder Model</p>
+<pre><code>class Reminder {
+<p>  final String id;</p>
+<p>  final String medicineName;</p>
+<p>  final String time;</p>
+<p>  final String repeatType;      // 'never', 'everyday', 'weekdays', etc.</p>
+<p>  final List<int>? customDays;  // Custom day selection</p>
+<p>  final String? photoPath;      // Medicine photo</p>
+<p>  final String mealTiming;      // 'none', 'before', 'after'</p>
+<p>  final int dosesPerDay;        // Number of daily doses</p>
+<p>  final List<String> doseTimes; // Times for each dose</p>
+<p>  List<bool> takenToday;        // Tracking adherence</p>
+<p>  bool isEnabled;               // Active/inactive state</p>
+<p>}</p>
+</code></pre>
+
+<strong>Key Features</strong>:
+<ul>
+  <li>Flexible repeat patterns (daily, weekdays, weekends, custom)</li>
+  <li>Meal timing support for medication compliance</li>
+  <li>Multiple doses per day</li>
+  <li>Photo attachment for visual identification</li>
+  <li>Daily adherence tracking</li>
+</ul>
+
+<p>#### Medical Service Model</p>
+<pre><code>class MedicalService {
+<p>  final String id;</p>
+<p>  final String name;</p>
+<p>  final String category;</p>
+<p>  final String serviceType;</p>
+<p>  final double latitude;</p>
+<p>  final double longitude;</p>
+<p>  final String address;</p>
+<p>  final String? phone;</p>
+<p>  final String? website;</p>
+<p>  final bool isOpen;</p>
+<p>}</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>Services</h2>
+
+<h3>1. NotificationService</h3>
+<strong>File</strong>: <code>lib/services/notification_service.dart</code>
+
+<strong>Purpose</strong>: Central notification management system
+
+<strong>Key Methods</strong>:
+<ul>
+  <li><code>initialize()</code>: Setup notification channels and permissions</li>
+  <li><code>scheduleNotification()</code>: Schedule one-time notifications</li>
+  <li><code>scheduleDailyNotification()</code>: Schedule recurring daily notifications</li>
+  <li><code>scheduleReminderDoses()</code>: Schedule multiple doses for a reminder</li>
+  <li><code>showAlarmSetConfirmation()</code>: Show confirmation when alarm is set</li>
+  <li><code>playAlarm()</code>: Play alarm sound with looping</li>
+  <li><code>stopAlarm()</code>: Stop alarm playback</li>
+  <li><code>cancelAll()</code>: Cancel all pending notifications</li>
+</ul>
+
+<strong>Platform Support</strong>:
+<ul>
+  <li><strong>Android</strong>: High priority notifications with full-screen intent</li>
+  <li><strong>iOS</strong>: Time-sensitive notifications with sound</li>
+</ul>
+
+<h3>2. BackgroundAlarmService</h3>
+<strong>File</strong>: <code>lib/services/background_alarm_service.dart</code>
+
+<strong>Purpose</strong>: Handle notifications when app is closed or in background
+
+<strong>Key Features</strong>:
+<ul>
+  <li>Schedules local notifications that fire even when app is terminated</li>
+  <li>Supports all repeat types (everyday, weekdays, weekends, custom, never)</li>
+  <li>Automatically calculates next occurrence times</li>
+  <li>Manages notification lifecycle</li>
+</ul>
+
+<strong>How It Works</strong>:
+<pre><code>User sets reminder → BackgroundAlarmService schedules notification
+<p>                  ↓</p>
+<p>       System time reaches scheduled time</p>
+<p>                  ↓</p>
+<p>    Notification appears in device tray</p>
+<p>                  ↓</p>
+<p>       User taps notification</p>
+<p>                  ↓</p>
+<p>        App opens to NotificationScreen</p>
+</code></pre>
+
+<h3>3. ForegroundAlarmMonitor</h3>
+<strong>File</strong>: <code>lib/services/foreground_alarm_monitor.dart</code>
+
+<strong>Purpose</strong>: Auto-trigger alarm screen when app is in foreground
+
+<strong>Key Features</strong>:
+<ul>
+  <li>Checks every second for matching reminder times</li>
+  <li>Automatically opens notification screen</li>
+  <li>Plays alarm sound</li>
+  <li>Prevents duplicate triggers on same day</li>
+  <li>Resets triggers at midnight</li>
+</ul>
+
+<strong>Implementation</strong>:
+<pre><code>// Monitors reminders every second
+<p>Timer.periodic(const Duration(seconds: 1), (_) {</p>
+<p>  // Check if current time matches any reminder</p>
+<p>  // If match found and not triggered today:</p>
+<p>  //   - Play alarm</p>
+<p>  //   - Navigate to notification screen</p>
+<p>  //   - Mark as triggered for today</p>
+<p>});</p>
+</code></pre>
+
+<h3>4. GooglePlacesService</h3>
+<strong>File</strong>: <code>lib/services/google_places_service.dart</code>
+
+<strong>Purpose</strong>: Search for medical facilities using Google Places API
+
+<strong>Key Methods</strong>:
+<ul>
+  <li><code>searchNearbyPlaces()</code>: Find facilities near a location</li>
+  <li><code>getPlaceDetails()</code>: Get detailed information about a place</li>
+  <li><code>searchByType()</code>: Filter by medical service type</li>
+</ul>
+
+<strong>API Integration</strong>:
+<ul>
+  <li>Uses Google Places API (Nearby Search)</li>
+  <li>Filters by healthcare-related types</li>
+  <li>Returns distance calculations</li>
+  <li>Caches API responses</li>
+</ul>
+
+<h3>5. FavoritesService</h3>
+<strong>File</strong>: <code>lib/services/favorites_service.dart</code>
+
+<strong>Purpose</strong>: Persist user's favorite medical facilities
+
+<strong>Storage</strong>: SharedPreferences (local JSON storage)
+
+<p>---</p>
+
+<h2>Screens</h2>
+
+<h3>Home Screen</h3>
+<strong>File</strong>: <code>lib/screens/home_screen.dart</code>
+
+<strong>Features</strong>:
+<ul>
+  <li>Location-based service discovery</li>
+  <li>Category filtering (10+ categories)</li>
+  <li>Search by prefecture, city, ward</li>
+  <li>Current location detection</li>
+  <li>Distance calculation and sorting</li>
+  <li>Direct call and directions to facilities</li>
+</ul>
+
+<strong>UI Components</strong>:
+<ul>
+  <li>Location selector dropdown</li>
+  <li>Category tabs</li>
+  <li>Service cards with distance</li>
+  <li>Map view button</li>
+  <li>Favorites toggle</li>
+</ul>
+
+<h3>Medicine Reminder Screen</h3>
+<strong>File</strong>: <code>lib/screens/reminder/medicine_reminder_screen.dart</code>
+
+<strong>Features</strong>:
+<ul>
+  <li>List of all medicine reminders</li>
+  <li>Enable/disable toggle for each reminder</li>
+  <li>Edit and delete actions</li>
+  <li>Swipe to delete</li>
+  <li>Test alarm functionality</li>
+  <li>Empty state with call-to-action</li>
+</ul>
+
+<strong>Data Persistence</strong>:
+<ul>
+  <li>Stores reminders in SharedPreferences as JSON</li>
+  <li>Auto-saves on any change</li>
+  <li>Loads on app start</li>
+</ul>
+
+<h3>Add Reminder Screen</h3>
+<strong>File</strong>: <code>lib/screens/reminder/add_reminder_screen.dart</code>
+
+<strong>Features</strong>:
+<ul>
+  <li>Medicine name input</li>
+  <li>Time picker (12-hour format)</li>
+  <li>Repeat options (never, daily, weekdays, weekends, custom)</li>
+  <li>Meal timing selection (none, before meal, after meal)</li>
+  <li>Photo capture/selection</li>
+  <li>Form validation</li>
+</ul>
+
+<strong>Repeat Patterns</strong>:
+<ol>
+  <li><strong>Never</strong>: One-time reminder</li>
+  <li><strong>Everyday</strong>: Repeats every day at same time</li>
+  <li><strong>Weekdays</strong>: Monday-Friday only</li>
+  <li><strong>Weekends</strong>: Saturday-Sunday only</li>
+  <li><strong>Custom</strong>: Select specific days of week</li>
+</ul>
+
+<h3>Notification Screen</h3>
+<strong>File</strong>: <code>lib/screens/reminder/notification_screen.dart</code>
+
+<strong>Features</strong>:
+<ul>
+  <li>Full-screen alarm display</li>
+  <li>Medicine photo (if available)</li>
+  <li>Time and dose information</li>
+  <li>Meal timing badge</li>
+  <li>"I took it" button</li>
+  <li>Close button</li>
+  <li>Auto-dismiss alarm on action</li>
+</ul>
+
+<strong>Special Handling</strong>:
+<ul>
+  <li>After-meal medicines show confirmation dialog</li>
+  <li>"Have you eaten?" prompt</li>
+  <li>Snooze suggestion for not-yet-eaten</li>
+</ul>
+
+<h3>Chatbot Screen</h3>
+<strong>File</strong>: <code>lib/screens/chatbot_screen.dart</code>
+
+<strong>Features</strong>:
+<ul>
+  <li>Voice and text input</li>
+  <li>Quick/Detailed mode toggle</li>
+  <li>Chat history</li>
+  <li>Department recommendations</li>
+  <li>Direct search from chat</li>
+  <li>TTS support</li>
+  <li>Speech recognition</li>
+</ul>
+
+<strong>AI Integration</strong>:
+<ul>
+  <li>Connects to medical AI API</li>
+  <li>Analyzes symptoms</li>
+  <li>Suggests appropriate medical departments</li>
+  <li>Provides health guidance</li>
+</ul>
+
+<h3>Map Screen</h3>
+<strong>File</strong>: <code>lib/screens/map_screen.dart</code>
+
+<strong>Features</strong>:
+<ul>
+  <li>Interactive Google Maps</li>
+  <li>Custom markers for facilities</li>
+  <li>Info windows with details</li>
+  <li>Directions integration</li>
+  <li>Current location marker</li>
+  <li>Zoom controls</li>
+</ul>
+
+<h3>Favorites Screen</h3>
+<strong>File</strong>: <code>lib/screens/favorites_screen.dart</code>
+
+<strong>Features</strong>:
+<ul>
+  <li>Saved facility list</li>
+  <li>Distance from current location</li>
+  <li>Quick call and directions</li>
+  <li>Remove from favorites</li>
+  <li>Empty state handling</li>
+</ul>
+
+<p>---</p>
+
+<h2>Notification System</h2>
+
+<h3>Architecture</h3>
+
+<pre><code>┌──────────────────────────────────────────────┐
+<p>│          User Sets Reminder                  │</p>
+<p>└──────────────┬───────────────────────────────┘</p>
+<p>               │</p>
+<p>               ▼</p>
+<p>┌──────────────────────────────────────────────┐</p>
+<p>│   MedicineReminderScreen                     │</p>
+<p>│   - Saves reminder to SharedPreferences      │</p>
+<p>│   - Caches in NotificationService            │</p>
+<p>└──────────────┬───────────────────────────────┘</p>
+<p>               │</p>
+<p>       ┌───────┴──────┐</p>
+<p>       │              │</p>
+<p>       ▼              ▼</p>
+<p>┌──────────────┐  ┌──────────────────────────┐</p>
+<p>│ Background   │  │ Foreground               │</p>
+<p>│ Service      │  │ Monitor                  │</p>
+<p>│              │  │                          │</p>
+<p>│ Schedules    │  │ Checks every second      │</p>
+<p>│ system       │  │ when app is open         │</p>
+<p>│ notifications│  │                          │</p>
+<p>└──────┬───────┘  └───────┬──────────────────┘</p>
+<p>       │                  │</p>
+<p>       ▼                  ▼</p>
+<p>┌──────────────┐  ┌──────────────────────────┐</p>
+<p>│ Notification │  │ Auto-open                │</p>
+<p>│ appears in   │  │ NotificationScreen       │</p>
+<p>│ tray         │  │ + Play alarm             │</p>
+<p>└──────────────┘  └──────────────────────────┘</p>
+</code></pre>
+
+<h3>Notification Flow</h3>
+
+<p>#### When App is Closed/Background</p>
+<ol>
+  <li>BackgroundAlarmService schedules local notification</li>
+  <li>System triggers notification at scheduled time</li>
+  <li>Notification appears in device notification tray</li>
+  <li>User taps notification</li>
+  <li>App opens to NotificationScreen</li>
+  <li>Alarm plays</li>
+</ul>
+
+<p>#### When App is Open/Foreground</p>
+<ol>
+  <li>ForegroundAlarmMonitor checks time every second</li>
+  <li>Matches reminder time</li>
+  <li>Automatically opens NotificationScreen</li>
+  <li>Alarm plays</li>
+  <li>No system notification needed</li>
+</ul>
+
+<h3>Notification Configuration</h3>
+
+<strong>Android</strong> (<code>AndroidManifest.xml</code>):
+<pre><code><uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+<uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.VIBRATE" />
+</code></pre>
+
+<strong>iOS</strong> (<code>Info.plist</code>):
+<pre><code><key>UIBackgroundModes</key>
+<array>
+<p>    <string>audio</string></p>
+<p>    <string>fetch</string></p>
+<p>    <string>remote-notification</string></p>
+</array>
+</code></pre>
+
+<h3>Notification Details</h3>
+
+<strong>Channel Configuration</strong>:
+<ul>
+  <li><strong>Channel ID</strong>: <code>pill_reminder_channel</code></li>
+  <li><strong>Importance</strong>: Max (Android)</li>
+  <li><strong>Priority</strong>: High</li>
+  <li><strong>Sound</strong>: Enabled</li>
+  <li><strong>Vibration</strong>: Enabled</li>
+  <li><strong>Full Screen Intent</strong>: Enabled (pops up on lock screen)</li>
+</ul>
+
+<strong>iOS Configuration</strong>:
+<ul>
+  <li><strong>Presentation</strong>: Alert, Badge, Sound</li>
+  <li><strong>Interruption Level</strong>: Time-sensitive</li>
+  <li><strong>Sound</strong>: Default system sound</li>
+</ul>
+
+<p>---</p>
+
+<h2>Localization</h2>
+
+<h3>Supported Languages</h3>
+<ol>
+  <li><strong>English (en)</strong> - Default</li>
+  <li><strong>Japanese (ja)</strong> - Primary target market</li>
+  <li><strong>Chinese (zh)</strong> - Additional support</li>
+</ul>
+
+<h3>Localization Files</h3>
+<ul>
+  <li><code>lib/l10n/app_en.arb</code> - English strings (473 entries)</li>
+  <li><code>lib/l10n/app_ja.arb</code> - Japanese strings (338 entries)</li>
+  <li><code>lib/l10n/app_zh.arb</code> - Chinese strings (partial)</li>
+</ul>
+
+<h3>Key Translation Categories</h3>
+<ul>
+  <li>Authentication & Onboarding</li>
+  <li>Medical Services (150+ service types)</li>
+  <li>Locations (47 prefectures, cities, wards)</li>
+  <li>Reminder System (40+ strings)</li>
+  <li>Chatbot Interface</li>
+  <li>UI Elements</li>
+</ul>
+
+<h3>Usage Example</h3>
+<pre><code>final l10n = AppLocalizations.of(context)!;
+<p>Text(l10n.medicineReminderTitle);  // "Medicine Reminders" or "服薬リマインダー"</p>
+</code></pre>
+
+<h3>Dynamic Content</h3>
+<ul>
+  <li>Service names localized by type</li>
+  <li>Prefecture/city names translated</li>
+  <li>Medical categories in all languages</li>
+  <li>Error messages localized</li>
+</ul>
+
+<p>---</p>
+
+<h2>Dependencies</h2>
+
+<h3>Core Dependencies</h3>
+
+<p>#### UI & Framework</p>
+<pre><code>flutter:
+<p>  sdk: flutter</p>
+<p>flutter_localizations:</p>
+<p>  sdk: flutter</p>
+<p>cupertino_icons: ^1.0.8</p>
+</code></pre>
+
+<p>#### Firebase & Authentication</p>
+<pre><code>firebase_core: ^4.1.1
+<p>firebase_auth: ^6.1.0</p>
+</code></pre>
+
+<p>#### Location & Maps</p>
+<pre><code>google_maps_flutter: ^2.5.0
+<p>geolocator: ^14.0.2</p>
+<p>latlong2: ^0.9.1</p>
+<p>flutter_map: ^8.2.2</p>
+</code></pre>
+
+<p>#### Notifications & Alarms</p>
+<pre><code>flutter_local_notifications: ^19.5.0
+<p>timezone: ^0.10.1</p>
+<p>audioplayers: ^6.1.0</p>
+</code></pre>
+
+<p>#### Storage & Data</p>
+<pre><code>shared_preferences: ^2.3.4
+</code></pre>
+
+<p>#### Media & Input</p>
+<pre><code>image_picker: ^1.2.1
+<p>speech_to_text: ^7.0.0</p>
+<p>flutter_tts: ^4.2.0</p>
+<p>permission_handler: ^11.3.1</p>
+</code></pre>
+
+<p>#### Network & Communication</p>
+<pre><code>http: ^1.6.0
+<p>url_launcher: ^6.3.2</p>
+<p>flutter_phone_direct_caller: ^2.1.1</p>
+</code></pre>
+
+<p>#### Utilities</p>
+<pre><code>intl: any
+<p>flutter_dotenv: ^5.2.1</p>
+</code></pre>
+
+<h3>Dev Dependencies</h3>
+<pre><code>flutter_test:
+<p>  sdk: flutter</p>
+<p>flutter_lints: ^5.0.0</p>
+<p>flutter_native_splash: ^2.4.6</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>Setup & Installation</h2>
+
+<h3>Prerequisites</h3>
+<ol>
+  <li><strong>Flutter SDK</strong>: 3.8.0 or higher</li>
+  <li><strong>Dart SDK</strong>: 3.8.0 or higher</li>
+  <li><strong>IDE</strong>: VS Code or Android Studio</li>
+  <li><strong>Platform SDKs</strong>:</li>
+  <li>Android Studio with Android SDK</li>
+  <li>Xcode (for iOS development on macOS)</li>
+</ul>
+
+<h3>Installation Steps</h3>
+
+<ol>
+  <li><strong>Clone Repository</strong></li>
+</ul>
+<pre><code>git clone <repository-url>
+<p>cd medinavi-mac</p>
+</code></pre>
+
+<ol>
+  <li><strong>Install Dependencies</strong></li>
+</ul>
+<pre><code>flutter pub get
+</code></pre>
+
+<ol>
+  <li><strong>Configure Environment</strong></li>
+</ul>
+<p>Create <code>.env</code> file in project root:</p>
+<pre><code>GOOGLE_MAPS_API_KEY=your_api_key_here
+<p>GEMINI_API_KEY=your_gemini_api_key_here</p>
+</code></pre>
+
+<ol>
+  <li><strong>Generate Localization Files</strong></li>
+</ul>
+<pre><code>flutter gen-l10n
+</code></pre>
+
+<ol>
+  <li><strong>Configure Firebase</strong></li>
+  <li>Add <code>google-services.json</code> (Android) to <code>android/app/</code></li>
+  <li>Add <code>GoogleService-Info.plist</code> (iOS) to <code>ios/Runner/</code></li>
+</ul>
+
+<ol>
+  <li><strong>Run the App</strong></li>
+</ul>
+<pre><code>flutter run
+</code></pre>
+
+<h3>Platform-Specific Setup</h3>
+
+<p>#### Android</p>
+<ol>
+  <li>Update <code>android/app/build.gradle</code>:</li>
+</ul>
+<pre><code>minSdkVersion 21
+<p>targetSdkVersion 34</p>
+</code></pre>
+
+<ol>
+  <li>Enable permissions in <code>AndroidManifest.xml</code> (already configured)</li>
+</ul>
+
+<p>#### iOS</p>
+<ol>
+  <li>Update <code>ios/Podfile</code>:</li>
+</ul>
+<pre><code>platform :ios, '12.0'
+</code></pre>
+
+<ol>
+  <li>Install pods:</li>
+</ul>
+<pre><code>cd ios
+<p>pod install</p>
+</code></pre>
+
+<ol>
+  <li>Configure capabilities in Xcode:</li>
+  <li>Background Modes (Audio, Remote Notifications)</li>
+  <li>Push Notifications</li>
+  <li>Location When In Use</li>
+</ul>
+
+<p>---</p>
+
+<h2>Configuration</h2>
+
+<h3>Google Maps API</h3>
+<ol>
+  <li>Enable Google Maps SDK for Android/iOS</li>
+  <li>Enable Places API</li>
+  <li>Enable Directions API</li>
+  <li>Add API key to <code>.env</code> and platform-specific files</li>
+</ul>
+
+<h3>Firebase Configuration</h3>
+<ol>
+  <li>Create Firebase project</li>
+  <li>Enable Authentication (Email/Password)</li>
+  <li>Download configuration files</li>
+  <li>Add to project</li>
+</ul>
+
+<h3>Notification Sounds</h3>
+<p>Place alarm sound file at:</p>
+<pre><code>assets/sounds/alarm.mp3
+</code></pre>
+
+<p>Update <code>pubspec.yaml</code>:</p>
+<pre><code>assets:
+<ul>
+  <li>assets/sounds/</li>
+</ul>
+</code></pre>
+
+<p>---</p>
+
+<h2>Usage Guide</h2>
+
+<h3>For End Users</h3>
+
+<p>#### Setting Up Medicine Reminders</p>
+
+<ol>
+  <li><strong>Navigate to Reminders Tab</strong></li>
+  <li>Tap "Reminders" in bottom navigation</li>
+</ul>
+
+<ol>
+  <li><strong>Add New Reminder</strong></li>
+  <li>Tap the "+" button</li>
+  <li>Enter medicine name</li>
+  <li>Select time</li>
+  <li>Choose repeat pattern</li>
+  <li>(Optional) Set meal timing</li>
+  <li>(Optional) Add medicine photo</li>
+  <li>Tap "Add"</li>
+</ul>
+
+<ol>
+  <li><strong>Managing Reminders</strong></li>
+  <li>Toggle switch to enable/disable</li>
+  <li>Tap edit icon to modify</li>
+  <li>Swipe left to delete</li>
+  <li>Tap alarm icon to test</li>
+</ul>
+
+<ol>
+  <li><strong>When Alarm Triggers</strong></li>
+  <li>Screen shows medicine details</li>
+  <li>Tap "I took it" to mark as taken</li>
+  <li>Or tap "Close" to dismiss</li>
+</ul>
+
+<p>#### Finding Medical Services</p>
+
+<ol>
+  <li><strong>Select Location</strong></li>
+  <li>Tap location dropdown at top</li>
+  <li>Choose prefecture, city, ward</li>
+  <li>Or tap "Use Current Location"</li>
+</ul>
+
+<ol>
+  <li><strong>Filter by Category</strong></li>
+  <li>Swipe through category tabs</li>
+  <li>Select desired service type</li>
+</ul>
+
+<ol>
+  <li><strong>View Results</strong></li>
+  <li>See list of nearby facilities</li>
+  <li>Distance shown for each</li>
+  <li>Tap for more details</li>
+</ul>
+
+<ol>
+  <li><strong>Take Action</strong></li>
+  <li>Tap phone icon to call</li>
+  <li>Tap map icon for directions</li>
+  <li>Tap heart to save to favorites</li>
+</ul>
+
+<p>#### Using AI Chatbot</p>
+
+<ol>
+  <li><strong>Open Chatbot</strong></li>
+  <li>Tap "Home" tab</li>
+  <li>Scroll to chatbot section</li>
+</ul>
+
+<ol>
+  <li><strong>Describe Symptoms</strong></li>
+  <li>Type or speak your symptoms</li>
+  <li>Be specific about location and severity</li>
+</ul>
+
+<ol>
+  <li><strong>Get Recommendations</strong></li>
+  <li>Review AI suggestions</li>
+  <li>See recommended departments</li>
+  <li>Tap "Find Nearby Facilities"</li>
+</ul>
+
+<ol>
+  <li><strong>Switch Response Mode</strong></li>
+  <li>Toggle Quick/Detailed mode</li>
+  <li>Quick: Brief answers</li>
+  <li>Detailed: Comprehensive info</li>
+</ul>
+
+<h3>For Developers</h3>
+
+<p>#### Adding New Medical Services</p>
+
+<p>Edit <code>lib/data/medical_services_data.dart</code>:</p>
+<pre><code>MedicalService(
+<p>  id: 'unique_id',</p>
+<p>  name: 'Service Name',</p>
+<p>  category: 'categoryGeneralServices',</p>
+<p>  serviceType: 'serviceGeneralMedicine',</p>
+<p>  latitude: 35.6762,</p>
+<p>  longitude: 139.6503,</p>
+<p>  address: 'Full address',</p>
+<p>  phone: '+81-xx-xxxx-xxxx',</p>
+<p>  website: 'https://example.com',</p>
+<p>  isOpen: true,</p>
+<p>)</p>
+</code></pre>
+
+<p>#### Adding Localization Strings</p>
+
+<ol>
+  <li>Add to <code>lib/l10n/app_en.arb</code>:</li>
+</ul>
+<pre><code>"keyName": "English text"
+</code></pre>
+
+<ol>
+  <li>Add to <code>lib/l10n/app_ja.arb</code>:</li>
+</ul>
+<pre><code>"keyName": "日本語テキスト"
+</code></pre>
+
+<ol>
+  <li>Regenerate:</li>
+</ul>
+<pre><code>flutter gen-l10n
+</code></pre>
+
+<ol>
+  <li>Use in code:</li>
+</ul>
+<pre><code>Text(l10n.keyName)
+</code></pre>
+
+<p>#### Customizing Notification Behavior</p>
+
+<p>Edit <code>lib/services/notification_service.dart</code>:</p>
+<pre><code>// Change notification priority
+<p>importance: Importance.max,</p>
+
+<p>// Change sound</p>
+<p>sound: 'custom_sound.mp3',</p>
+
+<p>// Change vibration pattern</p>
+<p>enableVibration: true,</p>
+</code></pre>
+
+<p>---</p>
+
+<h2>API Integration</h2>
+
+<h3>Google Places API</h3>
+
+<strong>Base URL</strong>: <code>https://maps.googleapis.com/maps/api/place/</code>
+
+<strong>Endpoints Used</strong>:
+
+<ol>
+  <li><strong>Nearby Search</strong></li>
+</ul>
+<pre><code>GET /nearbysearch/json
+<p>Parameters:</p>
+<ul>
+  <li>location: lat,lng</li>
+  <li>radius: meters</li>
+  <li>type: hospital|pharmacy|doctor</li>
+  <li>key: API_KEY</li>
+</ul>
+</code></pre>
+
+<ol>
+  <li><strong>Place Details</strong></li>
+</ul>
+<pre><code>GET /details/json
+<p>Parameters:</p>
+<ul>
+  <li>place_id: string</li>
+  <li>fields: name,rating,formatted_phone_number</li>
+  <li>key: API_KEY</li>
+</ul>
+</code></pre>
+
+<h3>Gemini AI API</h3>
+
+<strong>Purpose</strong>: Power the medical chatbot
+
+<strong>Base URL</strong>: <code>https://generativelanguage.googleapis.com/</code>
+
+<strong>Request Format</strong>:
+<pre><code>{
+<p>  "contents": [{</p>
+<p>    "parts": [{</p>
+<p>      "text": "User's medical question"</p>
+<p>    }]</p>
+<p>  }],</p>
+<p>  "generationConfig": {</p>
+<p>    "temperature": 0.7,</p>
+<p>    "maxOutputTokens": 500</p>
+<p>  }</p>
+<p>}</p>
+</code></pre>
+
+<strong>Response Handling</strong>:
+<ul>
+  <li>Parse AI recommendations</li>
+  <li>Extract medical department suggestions</li>
+  <li>Format for user display</li>
+</ul>
+
+<p>---</p>
+
+<h2>Testing</h2>
+
+<h3>Manual Testing Checklist</h3>
+
+<p>#### Reminder System</p>
+<ul>
+  <li>[ ] Create reminder with all repeat types</li>
+  <li>[ ] Test notifications on lock screen</li>
+  <li>[ ] Test notifications when app is closed</li>
+  <li>[ ] Test alarm sound playback</li>
+  <li>[ ] Verify "I took it" marks reminder as taken</li>
+  <li>[ ] Test meal timing confirmations</li>
+  <li>[ ] Verify reminders persist after app restart</li>
+  <li>[ ] Test reminder edit and delete</li>
+</ul>
+
+<p>#### Medical Services</p>
+<ul>
+  <li>[ ] Search by current location</li>
+  <li>[ ] Search by prefecture/city/ward</li>
+  <li>[ ] Filter by different categories</li>
+  <li>[ ] Verify distance calculations</li>
+  <li>[ ] Test call functionality</li>
+  <li>[ ] Test directions to Google Maps</li>
+  <li>[ ] Add/remove favorites</li>
+  <li>[ ] Verify favorites persist</li>
+</ul>
+
+<p>#### Chatbot</p>
+<ul>
+  <li>[ ] Test voice input</li>
+  <li>[ ] Test text input</li>
+  <li>[ ] Switch between Quick/Detailed modes</li>
+  <li>[ ] Verify department recommendations</li>
+  <li>[ ] Test facility search from chat</li>
+  <li>[ ] Clear chat history</li>
+</ul>
+
+<p>#### Localization</p>
+<ul>
+  <li>[ ] Switch to Japanese</li>
+  <li>[ ] Switch to English</li>
+  <li>[ ] Verify all screens translate</li>
+  <li>[ ] Check date/time formatting</li>
+  <li>[ ] Verify language persists</li>
+</ul>
+
+<h3>Automated Testing</h3>
+
+<p>Create test files in <code>test/</code> directory:</p>
+
+<pre><code>// test/reminder_test.dart
+<p>void main() {</p>
+<p>  group('Reminder Tests', () {</p>
+<p>    test('Create reminder', () {</p>
+<p>      final reminder = Reminder(</p>
+<p>        id: '1',</p>
+<p>        medicineName: 'Test Medicine',</p>
+<p>        time: '08:00',</p>
+<p>      );</p>
+<p>      expect(reminder.medicineName, 'Test Medicine');</p>
+<p>    });</p>
+<p>  });</p>
+<p>}</p>
+</code></pre>
+
+<p>Run tests:</p>
+<pre><code>flutter test
+</code></pre>
+
+<p>---</p>
+
+<h2>Troubleshooting</h2>
+
+<h3>Common Issues</h3>
+
+<p>#### Notifications Not Showing</p>
+
+<strong>Symptoms</strong>: Reminders set but no notifications appear
+
+<strong>Solutions</strong>:
+<ol>
+  <li>Check device notification permissions</li>
+  <li>Android: Settings → Apps → MediNavi → Notifications</li>
+  <li>iOS: Settings → MediNavi → Notifications</li>
+  <li>Disable Do Not Disturb mode</li>
+  <li>Verify alarm sound file exists</li>
+  <li>Check app has background execution permission</li>
+  <li>Rebuild app:</li>
+</ul>
+<p>   <pre><code>   flutter clean</p>
+<p>   flutter pub get</p>
+<p>   flutter run</p>
+<p>   </code></pre></p>
+
+<p>#### Location Services Not Working</p>
+
+<strong>Symptoms</strong>: "Use Current Location" doesn't work
+
+<strong>Solutions</strong>:
+<ol>
+  <li>Enable location services</li>
+  <li>Grant location permission to app</li>
+  <li>Check GPS is enabled</li>
+  <li>Verify Google Maps API key is valid</li>
+  <li>Test on real device (emulators may have issues)</li>
+</ul>
+
+<p>#### Google Maps Not Displaying</p>
+
+<strong>Symptoms</strong>: Map screen shows blank or error
+
+<strong>Solutions</strong>:
+<ol>
+  <li>Verify API key in <code>.env</code> file</li>
+  <li>Enable Maps SDK in Google Cloud Console</li>
+  <li>Check API key restrictions</li>
+  <li>Ensure billing is enabled on Google Cloud</li>
+  <li>Wait 5-10 minutes for API key to propagate</li>
+</ul>
+
+<p>#### Chatbot Not Responding</p>
+
+<strong>Symptoms</strong>: AI assistant doesn't reply
+
+<strong>Solutions</strong>:
+<ol>
+  <li>Check internet connection</li>
+  <li>Verify Gemini API key</li>
+  <li>Check API quota limits</li>
+  <li>Review API endpoint URL</li>
+  <li>Check response timeout settings</li>
+</ul>
+
+<p>---</p>
+
+<h2>Future Enhancements</h2>
+
+<h3>Planned Features</h3>
+
+<p>#### Short-term (1-3 months)</p>
+<ol>
+  <li><strong>Reminder Improvements</strong></li>
+  <li>Dose quantity tracking</li>
+  <li>Refill reminders</li>
+  <li>Medicine interaction warnings</li>
+  <li>Export reminder history</li>
+</ul>
+
+<ol>
+  <li><strong>UI/UX Enhancements</strong></li>
+  <li>Dark mode support</li>
+  <li>Customizable themes</li>
+  <li>Widget for home screen</li>
+  <li>Quick actions</li>
+</ul>
+
+<ol>
+  <li><strong>Social Features</strong></li>
+  <li>Share favorite facilities</li>
+  <li>Review and rate facilities</li>
+  <li>Emergency contacts</li>
+</ul>
+
+<p>#### Medium-term (3-6 months)</p>
+<ol>
+  <li><strong>Health Tracking</strong></li>
+  <li>Symptom diary</li>
+  <li>Medication logs</li>
+  <li>Appointment scheduler</li>
+  <li>Health metrics tracking</li>
+</ul>
+
+<ol>
+  <li><strong>Advanced Notifications</strong></li>
+  <li>Smart snooze (dynamic rescheduling)</li>
+  <li>Weather-based medicine reminders</li>
+  <li>Interaction with health apps</li>
+</ul>
+
+<ol>
+  <li><strong>Cloud Sync</strong></li>
+  <li>Multi-device sync</li>
+  <li>Cloud backup</li>
+  <li>Family sharing</li>
+</ul>
+
+<p>#### Long-term (6+ months)</p>
+<ol>
+  <li><strong>AI Enhancements</strong></li>
+  <li>Personalized health insights</li>
+  <li>Predictive reminders</li>
+  <li>Health trend analysis</li>
+  <li>Telemedicine integration</li>
+</ul>
+
+<ol>
+  <li><strong>Wearable Integration</strong></li>
+  <li>Apple Watch app</li>
+  <li>Android Wear support</li>
+  <li>Fitbit integration</li>
+</ul>
+
+<ol>
+  <li><strong>Healthcare Provider Features</strong></li>
+  <li>Doctor portal</li>
+  <li>Prescription management</li>
+  <li>Direct appointment booking</li>
+  <li>Medical records integration</li>
+</ul>
+
+<h3>Technical Improvements</h3>
+
+<ol>
+  <li><strong>Architecture</strong></li>
+  <li>Migrate to BLoC pattern</li>
+  <li>Implement clean architecture</li>
+  <li>Add dependency injection</li>
+</ul>
+
+<ol>
+  <li><strong>Performance</strong></li>
+  <li>Optimize map rendering</li>
+  <li>Implement caching strategies</li>
+  <li>Reduce app size</li>
+</ul>
+
+<ol>
+  <li><strong>Testing</strong></li>
+  <li>Unit test coverage >80%</li>
+  <li>Integration tests</li>
+  <li>UI/E2E tests</li>
+  <li>Performance benchmarks</li>
+</ul>
+
+<ol>
+  <li><strong>DevOps</strong></li>
+  <li>CI/CD pipeline</li>
+  <li>Automated releases</li>
+  <li>Crash reporting</li>
+  <li>Analytics integration</li>
+</ul>
+
+<p>---</p>
+
+<h2>Security & Privacy</h2>
+
+<h3>Data Storage</h3>
+<ul>
+  <li><strong>Local</strong>: SharedPreferences (encrypted on device)</li>
+  <li><strong>Cloud</strong>: Firebase Authentication (secure)</li>
+  <li><strong>Sensitive Data</strong>: Medicine photos stored locally only</li>
+</ul>
+
+<h3>Permissions</h3>
+<ul>
+  <li><strong>Location</strong>: Required for finding nearby facilities</li>
+  <li><strong>Camera</strong>: Optional, for medicine photos</li>
+  <li><strong>Microphone</strong>: Optional, for voice chatbot</li>
+  <li><strong>Notifications</strong>: Required for reminders</li>
+  <li><strong>Phone</strong>: Optional, for calling facilities</li>
+</ul>
+
+<h3>Privacy Policy</h3>
+<ul>
+  <li>No personal health data sent to servers</li>
+  <li>Medicine information stored locally only</li>
+  <li>Location data not stored persistently</li>
+  <li>Firebase handles authentication securely</li>
+  <li>Google Maps data subject to Google's privacy policy</li>
+</ul>
+
+<p>---</p>
+
+<h2>Contributing</h2>
+
+<h3>Development Workflow</h3>
+<ol>
+  <li>Fork the repository</li>
+  <li>Create feature branch (<code>git checkout -b feature/AmazingFeature</code>)</li>
+  <li>Commit changes (<code>git commit -m 'Add AmazingFeature'</code>)</li>
+  <li>Push to branch (<code>git push origin feature/AmazingFeature</code>)</li>
+  <li>Open Pull Request</li>
+</ul>
+
+<h3>Code Style</h3>
+<ul>
+  <li>Follow Dart style guide</li>
+  <li>Use <code>flutter analyze</code> before committing</li>
+  <li>Format code with <code>dart format</code></li>
+  <li>Add comments for complex logic</li>
+  <li>Write descriptive commit messages</li>
+</ul>
+
+<h3>Pull Request Guidelines</h3>
+<ul>
+  <li>Describe changes clearly</li>
+  <li>Include screenshots for UI changes</li>
+  <li>Update documentation</li>
+  <li>Add tests if applicable</li>
+  <li>Ensure all tests pass</li>
+</ul>
+
+<p>---</p>
+
+<h2>License</h2>
+
+<p>This project is licensed under a proprietary license. All rights reserved.</p>
+
+<p>---</p>
+
+<h2>Contact & Support</h2>
+
+<strong>Developer</strong>: S1ThuHtun
+<strong>Email</strong>: sithuhtunn97@gmail.com
+<strong>GitHub</strong>: [Repository Link]
+
+<h3>Reporting Issues</h3>
+<ol>
+  <li>Check existing issues first</li>
+  <li>Provide detailed description</li>
+  <li>Include reproduction steps</li>
+  <li>Add screenshots/logs if applicable</li>
+  <li>Specify device and OS version</li>
+</ul>
+
+<p>---</p>
+
+<h2>Acknowledgments</h2>
+
+<h3>Technologies Used</h3>
+<ul>
+  <li><strong>Flutter Team</strong>: For the amazing framework</li>
+  <li><strong>Firebase</strong>: For authentication services</li>
+  <li><strong>Google</strong>: For Maps and Places APIs</li>
+  <li><strong>OpenStreetMap</strong>: For map tiles</li>
+  <li><strong>Gemini AI</strong>: For chatbot capabilities</li>
+</ul>
+
+<h3>Third-Party Libraries</h3>
+<p>Special thanks to the maintainers of:</p>
+<ul>
+  <li>flutter_local_notifications</li>
+  <li>geolocator</li>
+  <li>shared_preferences</li>
+  <li>audioplayers</li>
+  <li>And all other dependencies</li>
+</ul>
+
+<p>---</p>
+
+<h2>Changelog</h2>
+
+<h3>Version 1.0.0 (January 2026)</h3>
+<strong>Initial Release</strong>
+<ul>
+  <li>Medicine reminder system with notifications</li>
+  <li>Medical facility finder with Google Maps</li>
+  <li>AI-powered medical chatbot</li>
+  <li>Multi-language support (EN, JA, ZH)</li>
+  <li>Favorites system</li>
+  <li>User authentication</li>
+</ul>
+
+<h3>Recent Updates</h3>
+<ul>
+  <li>Added localization for reminder test alarm tooltip</li>
+  <li>Fixed notification permissions for Android 13+</li>
+  <li>Improved alarm reliability on iOS</li>
+  <li>Enhanced meal timing confirmation dialogs</li>
+  <li>Optimized location search performance</li>
+</ul>
+
+<p>---</p>
+
+<h2>Appendix</h2>
+
+<h3>A. Medical Service Categories</h3>
+
+<ol>
+  <li><strong>General Services</strong> (6 types)</li>
+  <li>General Medicine, Emergency Care, Family Medicine</li>
+  <li>Preventative Medicine, Health Check-ups, Urgent Care</li>
+</ul>
+
+<ol>
+  <li><strong>Specialized Services</strong> (14 types)</li>
+  <li>Cardiology, Dermatology, Endocrinology</li>
+  <li>Gastroenterology, Hematology, Nephrology</li>
+  <li>Neurology, OB/GYN, Ophthalmology</li>
+  <li>Orthopedics, Pediatrics, Psychiatry</li>
+  <li>Rheumatology, Pulmonology, Urology</li>
+</ul>
+
+<ol>
+  <li><strong>Surgical Services</strong> (8 types)</li>
+  <li>General Surgery, Cardiac Surgery</li>
+  <li>Orthopedic Surgery, Neurosurgery</li>
+  <li>Plastic Surgery, Pediatric Surgery</li>
+  <li>Obstetric Surgery, Trauma Surgery</li>
+</ul>
+
+<ol>
+  <li><strong>Rehabilitation Services</strong> (5 types)</li>
+  <li>Physical Therapy, Occupational Therapy</li>
+  <li>Speech Therapy, Cardiac Rehabilitation</li>
+  <li>Neurological Rehabilitation</li>
+</ul>
+
+<ol>
+  <li><strong>Diagnostic Services</strong> (6 types)</li>
+  <li>Laboratory Tests, Radiology, Pathology</li>
+  <li>Endoscopy, ECG, EEG</li>
+</ul>
+
+<ol>
+  <li><strong>Emergency Services</strong> (4 types)</li>
+  <li>Emergency Room, Trauma Care, ICU, Burn Unit</li>
+</ul>
+
+<ol>
+  <li><strong>Maternity & Women's Health</strong> (4 types)</li>
+  <li>Obstetrics, Gynecology</li>
+  <li>Family Planning, Breast Health</li>
+</ul>
+
+<ol>
+  <li><strong>Pharmacy Services</strong> (5 types)</li>
+  <li>Prescription Medications, OTC Medications</li>
+  <li>Vaccinations, Consultations, Compounding</li>
+</ul>
+
+<ol>
+  <li><strong>Mental Health Services</strong> (5 types)</li>
+  <li>Counseling, Psychotherapy</li>
+  <li>Addiction Treatment, Support Groups</li>
+  <li>Behavioral Therapy</li>
+</ul>
+
+<p>10. <strong>Alternative Medicine</strong> (5 types)</p>
+<ul>
+  <li>Acupuncture, Chiropractic Care</li>
+  <li>Massage Therapy, Naturopathy, Homeopathy</li>
+</ul>
+
+<h3>B. Supported Locations</h3>
+
+<strong>47 Prefectures</strong> including:
+<ul>
+  <li>Tokyo, Osaka, Kyoto, Hokkaido, Fukuoka</li>
+  <li>Kanagawa, Saitama, Chiba, Aichi, Hyogo</li>
+  <li>And 37 more prefectures</li>
+</ul>
+
+<strong>Major Cities</strong> including:
+<ul>
+  <li>Shibuya, Shinjuku, Chiyoda (Tokyo)</li>
+  <li>Umeda, Namba, Tennoji (Osaka)</li>
+  <li>Gion, Kyoto Station (Kyoto)</li>
+  <li>And many more</li>
+</ul>
+
+<h3>C. Notification Settings Reference</h3>
+
+<strong>Android Notification Details</strong>:
+<pre><code>Importance: IMPORTANCE_MAX
+<p>Priority: PRIORITY_MAX</p>
+<p>Category: CATEGORY_ALARM</p>
+<p>Sound: Default or Custom</p>
+<p>Vibration: Enabled</p>
+<p>LED: Enabled (if device supports)</p>
+<p>Lock Screen: Full screen intent</p>
+<p>Channel: pill_reminder_channel</p>
+</code></pre>
+
+<strong>iOS Notification Details</strong>:
+<pre><code>Alert: Enabled
+<p>Sound: Default</p>
+<p>Badge: Enabled</p>
+<p>Interruption Level: TimeSensitive</p>
+<p>Authorization: Alert, Sound, Badge</p>
+<p>Critical Alerts: Not used</p>
+</code></pre>
+
+<p>---</p>
+
+<strong>Document Version</strong>: 1.0
+<strong>Last Updated</strong>: January 14, 2026
+<strong>Status</strong>: Production Ready
+
+<p>---</p>
+
+<em>This documentation is maintained alongside the codebase. For the latest updates, please refer to the repository.</em>
+
+<hr>
+<div class="header-info">
+    <p><strong>Generated:</strong> January 14, 2026</p>
+    <p><strong>Project:</strong> MediNavi - Medical Services Locator & Reminder App</p>
+    <p><strong>Developer:</strong> S1ThuHtun</p>
+</div>
+</body>
+</html>

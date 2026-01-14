@@ -105,12 +105,49 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
     // Update foreground monitor
     ForegroundAlarmMonitor().updateReminders(reminders);
 
+    // Show confirmation notification on device
+    await NotificationService().showAlarmSetConfirmation(
+      medicineName: reminder.medicineName,
+      time: reminder.time,
+      repeatType: reminder.repeatType,
+    );
+
     if (mounted) {
+      // Show on-screen confirmation message
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(l10n.reminderAddedMessage),
-          duration: const Duration(seconds: 2),
+          content: Row(
+            children: [
+              const Icon(Icons.check_circle, color: Colors.white),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.reminderAddedMessage,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '${reminder.medicineName} at ${reminder.time}',
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          duration: const Duration(seconds: 4),
           backgroundColor: const Color(0xFF4CAF50),
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
         ),
       );
     }
@@ -138,13 +175,50 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
       // Clear trigger for edited reminder so it can fire again
       ForegroundAlarmMonitor().clearTrigger(updatedReminder.id);
 
+      // Show confirmation notification on device
+      await NotificationService().showAlarmSetConfirmation(
+        medicineName: updatedReminder.medicineName,
+        time: updatedReminder.time,
+        repeatType: updatedReminder.repeatType,
+      );
+
       if (mounted) {
         final l10n = AppLocalizations.of(context)!;
+        // Show on-screen confirmation message
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text(l10n.reminderUpdatedMessage),
-            duration: Duration(seconds: 2),
-            backgroundColor: Color(0xFF4CAF50),
+            content: Row(
+              children: [
+                const Icon(Icons.check_circle, color: Colors.white),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        l10n.reminderUpdatedMessage,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Text(
+                        '${updatedReminder.medicineName} at ${updatedReminder.time}',
+                        style: const TextStyle(fontSize: 14),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            duration: const Duration(seconds: 4),
+            backgroundColor: const Color(0xFF4CAF50),
+            behavior: SnackBarBehavior.floating,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
         );
       }

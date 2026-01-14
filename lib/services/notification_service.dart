@@ -412,4 +412,54 @@ class NotificationService {
       payload: '$reminderId|0',
     );
   }
+
+  // Show alarm set confirmation notification
+  Future<void> showAlarmSetConfirmation({
+    required String medicineName,
+    required String time,
+    required String repeatType,
+  }) async {
+    String repeatText = '';
+    switch (repeatType) {
+      case 'everyday':
+        repeatText = 'Every day';
+        break;
+      case 'weekdays':
+        repeatText = 'Weekdays';
+        break;
+      case 'weekends':
+        repeatText = 'Weekends';
+        break;
+      case 'custom':
+        repeatText = 'Custom days';
+        break;
+      case 'never':
+        repeatText = 'One time';
+        break;
+    }
+
+    await _notifications.show(
+      DateTime.now().millisecondsSinceEpoch % 100000, // Unique ID
+      '✅ Reminder Set',
+      '$medicineName - $time ($repeatText)',
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          'reminder_confirmation_channel',
+          'Reminder Confirmation',
+          channelDescription: 'Confirms when a reminder is set',
+          importance: Importance.defaultImportance,
+          priority: Priority.defaultPriority,
+          showWhen: true,
+          autoCancel: true,
+          playSound: true,
+          enableVibration: false,
+        ),
+        iOS: const DarwinNotificationDetails(
+          presentAlert: true,
+          presentBadge: false,
+          presentSound: true,
+        ),
+      ),
+    );
+  }
 }

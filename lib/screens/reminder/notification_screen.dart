@@ -158,69 +158,77 @@ class _NotificationScreenState
             ),
           ],
         ),
+        actionsPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         actions: [
-          OutlinedButton(
-            onPressed: () {
-              Navigator.pop(
-                  context, false);
-            },
-            style: OutlinedButton
-                .styleFrom(
-              padding: const EdgeInsets
-                  .symmetric(
-                  horizontal: 24,
-                  vertical: 12),
-              side: BorderSide(
-                  color: Colors
-                      .grey.shade400,
-                  width: 2),
-              shape:
-                  RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius
-                        .circular(12),
+          Row(
+            children: [
+              Expanded(
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.pop(
+                        context, false);
+                  },
+                  style: OutlinedButton
+                      .styleFrom(
+                    padding: const EdgeInsets
+                        .symmetric(
+                        vertical: 12),
+                    side: BorderSide(
+                        color: Colors
+                            .grey.shade400,
+                        width: 2),
+                    shape:
+                        RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius
+                              .circular(12),
+                    ),
+                  ),
+                  child: Text(
+                    l10n.reminderMealConfirmNotYet,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey,
+                      fontWeight:
+                          FontWeight.w600,
+                    ),
+                  ),
+                ),
               ),
-            ),
-            child: Text(
-              l10n.reminderMealConfirmNotYet,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.grey,
-                fontWeight:
-                    FontWeight.w600,
+              const SizedBox(width: 12),
+              Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(
+                        context, true);
+                  },
+                  style: ElevatedButton
+                      .styleFrom(
+                    backgroundColor:
+                        Colors.green,
+                    padding: const EdgeInsets
+                        .symmetric(
+                        vertical: 12),
+                    shape:
+                        RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius
+                              .circular(12),
+                    ),
+                    elevation: 0,
+                  ),
+                  child: Text(
+                    l10n.reminderMealConfirmDone,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.white,
+                      fontWeight:
+                          FontWeight.w600,
+                    ),
+                  ),
+                ),
               ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(
-                  context, true);
-            },
-            style: ElevatedButton
-                .styleFrom(
-              backgroundColor:
-                  Colors.green,
-              padding: const EdgeInsets
-                  .symmetric(
-                  horizontal: 24,
-                  vertical: 12),
-              shape:
-                  RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius
-                        .circular(12),
-              ),
-              elevation: 0,
-            ),
-            child: Text(
-              l10n.reminderMealConfirmDone,
-              style: const TextStyle(
-                fontSize: 16,
-                color: Colors.white,
-                fontWeight:
-                    FontWeight.w600,
-              ),
-            ),
+            ],
           ),
         ],
       ),

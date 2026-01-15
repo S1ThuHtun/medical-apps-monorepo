@@ -914,19 +914,19 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderRepeatLabel => 'Repeat';
 
   @override
-  String get reminderRepeatNever => 'Never';
+  String get reminderRepeatNever => 'なし';
 
   @override
-  String get reminderRepeatEveryday => 'Every day';
+  String get reminderRepeatEveryday => '毎日';
 
   @override
-  String get reminderRepeatWeekdays => 'Weekdays only';
+  String get reminderRepeatWeekdays => '平日のみ';
 
   @override
-  String get reminderRepeatWeekends => 'Weekends only';
+  String get reminderRepeatWeekends => '週末のみ';
 
   @override
-  String get reminderRepeatCustomOption => 'Custom';
+  String get reminderRepeatCustomOption => 'カスタム';
 
   @override
   String get reminderRepeatSettingsTitle => 'Repeat Settings';
@@ -935,35 +935,35 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderRepeatDone => 'Done';
 
   @override
-  String get reminderSelectDays => 'Select days';
+  String get reminderSelectDays => '曜日を選択';
 
   @override
-  String get reminderDayMonShort => 'Mon';
+  String get reminderDayMonShort => '月';
 
   @override
-  String get reminderDayTueShort => 'Tue';
+  String get reminderDayTueShort => '火';
 
   @override
-  String get reminderDayWedShort => 'Wed';
+  String get reminderDayWedShort => '水';
 
   @override
-  String get reminderDayThuShort => 'Thu';
+  String get reminderDayThuShort => '木';
 
   @override
-  String get reminderDayFriShort => 'Fri';
+  String get reminderDayFriShort => '金';
 
   @override
-  String get reminderDaySatShort => 'Sat';
+  String get reminderDaySatShort => '土';
 
   @override
-  String get reminderDaySunShort => 'Sun';
+  String get reminderDaySunShort => '日';
 
   @override
-  String get reminderDaySeparator => ', ';
+  String get reminderDaySeparator => '、';
 
   @override
   String reminderEveryWeekDays(String days) {
-    return 'Every $days';
+    return '毎週$days';
   }
 
   @override
@@ -1018,16 +1018,16 @@ class AppLocalizationsJa extends AppLocalizations {
       'Notifications for medicine reminders';
 
   @override
-  String get reminderAddedMessage => 'Reminder added successfully!';
+  String get reminderAddedMessage => 'リマインダーを追加しました！';
 
   @override
-  String get reminderUpdatedMessage => 'Reminder updated successfully!';
+  String get reminderUpdatedMessage => 'リマインダーを更新しました！';
 
   @override
-  String get reminderDeletedMessage => 'Reminder deleted';
+  String get reminderDeletedMessage => 'リマインダーを削除しました';
 
   @override
-  String get reminderTakenSnackBar => 'Medicine taken!';
+  String get reminderTakenSnackBar => '服用しました！';
 
   @override
   String get reminderTimeToTakeMessage => 'お薬を飲む時間です';

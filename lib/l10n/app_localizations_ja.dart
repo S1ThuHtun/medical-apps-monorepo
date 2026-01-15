@@ -1054,7 +1054,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderMealConfirmNotYet => 'まだです';
 
   @override
-  String get reminderMealConfirmDone => 'はい、食べました';
+  String get reminderMealConfirmDone => '食べ済み';
 
   @override
   String get reminderLaterTitle => 'リマインダー設定';

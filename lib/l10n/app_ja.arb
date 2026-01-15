@@ -321,7 +321,7 @@
     "reminderMealConfirmQuestion": "食事は済みましたか？",
     "reminderMealConfirmRecommendation": "効果を高めるため、食後30分以内の服用をお勧めします",
     "reminderMealConfirmNotYet": "まだです",
-    "reminderMealConfirmDone": "はい、食べました",
+    "reminderMealConfirmDone": "食べ済み",
     "reminderLaterTitle": "リマインダー設定",
     "reminderLaterMessage": "食後にお薬を飲むことを忘れないでください！",
     "reminderLaterOk": "OK",

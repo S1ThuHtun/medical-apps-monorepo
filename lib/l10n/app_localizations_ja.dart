@@ -1033,7 +1033,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderTimeToTakeMessage => 'お薬を飲む時間です';
 
   @override
-  String get reminderTakenButton => '飲みました';
+  String get reminderTakenButton => '飲み済み';
 
   @override
   String get reminderCloseButton => '閉じる';
@@ -1054,7 +1054,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderMealConfirmNotYet => 'まだです';
 
   @override
-  String get reminderMealConfirmDone => '食べ済み';
+  String get reminderMealConfirmDone => '食事済み';
 
   @override
   String get reminderLaterTitle => 'リマインダー設定';

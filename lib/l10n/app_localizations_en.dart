@@ -974,7 +974,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String reminderEveryWeekDays(String days) {
-    return 'Every $days';
+    return '$days';
   }
 
   @override
@@ -1067,7 +1067,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reminderMealConfirmNotYet => 'Not yet';
 
   @override
-  String get reminderMealConfirmDone => 'Yes, I ate';
+  String get reminderMealConfirmDone => 'Already finished';
 
   @override
   String get reminderLaterTitle => 'Reminder Set';

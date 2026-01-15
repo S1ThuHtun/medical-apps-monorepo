@@ -1975,7 +1975,7 @@ abstract class AppLocalizations {
   /// No description provided for @reminderEveryWeekDays.
   ///
   /// In en, this message translates to:
-  /// **'Every {days}'**
+  /// **'{days}'**
   String reminderEveryWeekDays(String days);
 
   /// No description provided for @reminderMealTimingLabel.
@@ -2149,7 +2149,7 @@ abstract class AppLocalizations {
   /// No description provided for @reminderMealConfirmDone.
   ///
   /// In en, this message translates to:
-  /// **'Yes, I ate'**
+  /// **'Already finished'**
   String get reminderMealConfirmDone;
 
   /// No description provided for @reminderLaterTitle.

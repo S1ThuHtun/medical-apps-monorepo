@@ -349,7 +349,7 @@
     "reminderDaySatShort": "周六",
     "reminderDaySunShort": "周日",
     "reminderDaySeparator": "、",
-    "reminderEveryWeekDays": "每{days}",
+    "reminderEveryWeekDays": "{days}",
     "medicineReminderTitle": "用药提醒",
     "reminderAddedMessage": "提醒添加成功！",
     "reminderUpdatedMessage": "提醒更新成功！",

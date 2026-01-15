@@ -962,7 +962,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String reminderEveryWeekDays(String days) {
-    return '每$days';
+    return '$days';
   }
 
   @override

@@ -404,7 +404,7 @@
     "reminderDaySatShort": "Sat",
     "reminderDaySunShort": "Sun",
     "reminderDaySeparator": ", ",
-    "reminderEveryWeekDays": "Every {days}",
+    "reminderEveryWeekDays": "{days}",
     "@reminderEveryWeekDays": {
         "placeholders": {
             "days": {
@@ -447,7 +447,7 @@
     "reminderMealConfirmQuestion": "Have you finished eating?",
     "reminderMealConfirmRecommendation": "For best results, take medicine 30 minutes after eating",
     "reminderMealConfirmNotYet": "Not yet",
-    "reminderMealConfirmDone": "Yes, I ate",
+    "reminderMealConfirmDone": "Already finished",
     "reminderLaterTitle": "Reminder Set",
     "reminderLaterMessage": "Please remember to take your medicine after eating!",
     "reminderLaterOk": "OK",

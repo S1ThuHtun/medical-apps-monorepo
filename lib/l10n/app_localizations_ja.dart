@@ -963,7 +963,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String reminderEveryWeekDays(String days) {
-    return '毎週$days';
+    return '$days';
   }
 
   @override
@@ -1033,7 +1033,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderTimeToTakeMessage => 'お薬を飲む時間です';
 
   @override
-  String get reminderTakenButton => '飲み済み';
+  String get reminderTakenButton => '服薬済み';
 
   @override
   String get reminderCloseButton => '閉じる';

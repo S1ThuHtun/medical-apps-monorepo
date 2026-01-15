@@ -869,48 +869,48 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cannotOpenPhoneDial => '无法打开电话拨号器';
 
   @override
-  String get reminderAddTitle => 'Add Reminder';
+  String get reminderAddTitle => '添加提醒';
 
   @override
-  String get reminderEditTitle => 'Edit Reminder';
+  String get reminderEditTitle => '编辑提醒';
 
   @override
-  String get reminderMedicineNameLabel => 'Medicine Name';
+  String get reminderMedicineNameLabel => '药品名称';
 
   @override
-  String get reminderMedicineNameHint => 'Enter medicine name';
+  String get reminderMedicineNameHint => '请输入药品名称';
 
   @override
-  String get reminderPhotoLabel => 'Medicine Photo';
+  String get reminderPhotoLabel => '药品照片';
 
   @override
-  String get reminderPhotoOptional => '(Optional)';
+  String get reminderPhotoOptional => '（可选）';
 
   @override
-  String get reminderAddPhotoTitle => 'Add Photo';
+  String get reminderAddPhotoTitle => '添加照片';
 
   @override
-  String get reminderAddPhotoButton => 'Tap to add photo';
+  String get reminderAddPhotoButton => '点击添加照片';
 
   @override
-  String get reminderPhotoFromCamera => 'Take Photo';
+  String get reminderPhotoFromCamera => '拍照';
 
   @override
-  String get reminderPhotoFromGallery => 'Choose from Gallery';
+  String get reminderPhotoFromGallery => '从相册选择';
 
   @override
-  String get reminderPhotoRemove => 'Remove Photo';
+  String get reminderPhotoRemove => '移除照片';
 
   @override
   String reminderPhotoPickError(String error) {
-    return 'Error picking photo: $error';
+    return '选择照片出错: $error';
   }
 
   @override
-  String get reminderTimeLabel => 'Time';
+  String get reminderTimeLabel => '时间';
 
   @override
-  String get reminderRepeatLabel => 'Repeat';
+  String get reminderRepeatLabel => '重复';
 
   @override
   String get reminderRepeatNever => '从不';
@@ -928,10 +928,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reminderRepeatCustomOption => 'Custom';
 
   @override
-  String get reminderRepeatSettingsTitle => 'Repeat Settings';
+  String get reminderRepeatSettingsTitle => '重复设置';
 
   @override
-  String get reminderRepeatDone => 'Done';
+  String get reminderRepeatDone => '完成';
 
   @override
   String get reminderSelectDays => '选择日期';
@@ -984,25 +984,25 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reminderMealTimingAfterSubtitle => '饭后30分钟服用';
 
   @override
-  String get reminderCancel => 'Cancel';
+  String get reminderCancel => '取消';
 
   @override
-  String get reminderAdd => 'Add';
+  String get reminderAdd => '添加';
 
   @override
-  String get reminderUpdate => 'Update';
+  String get reminderUpdate => '更新';
 
   @override
-  String get reminderDoseMorning => 'Morning';
+  String get reminderDoseMorning => '早上';
 
   @override
-  String get reminderDoseNoon => 'Noon';
+  String get reminderDoseNoon => '中午';
 
   @override
-  String get reminderDoseEvening => 'Evening';
+  String get reminderDoseEvening => '傍晚';
 
   @override
-  String get reminderDoseNight => 'Night';
+  String get reminderDoseNight => '晚上';
 
   @override
   String reminderNotificationBody(int dose) {

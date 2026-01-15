@@ -870,48 +870,48 @@ class AppLocalizationsJa extends AppLocalizations {
   String get cannotOpenPhoneDial => '電話ダイヤラーを開けません';
 
   @override
-  String get reminderAddTitle => 'Add Reminder';
+  String get reminderAddTitle => 'リマインダーを追加';
 
   @override
-  String get reminderEditTitle => 'Edit Reminder';
+  String get reminderEditTitle => 'リマインダーを編集';
 
   @override
-  String get reminderMedicineNameLabel => 'Medicine Name';
+  String get reminderMedicineNameLabel => '薬の名前';
 
   @override
-  String get reminderMedicineNameHint => 'Enter medicine name';
+  String get reminderMedicineNameHint => '薬の名前を入力';
 
   @override
-  String get reminderPhotoLabel => 'Medicine Photo';
+  String get reminderPhotoLabel => '薬の写真';
 
   @override
-  String get reminderPhotoOptional => '(Optional)';
+  String get reminderPhotoOptional => '（オプション）';
 
   @override
-  String get reminderAddPhotoTitle => 'Add Photo';
+  String get reminderAddPhotoTitle => '写真を追加';
 
   @override
-  String get reminderAddPhotoButton => 'Tap to add photo';
+  String get reminderAddPhotoButton => 'タップして写真を追加';
 
   @override
-  String get reminderPhotoFromCamera => 'Take Photo';
+  String get reminderPhotoFromCamera => '写真を撮る';
 
   @override
-  String get reminderPhotoFromGallery => 'Choose from Gallery';
+  String get reminderPhotoFromGallery => 'ギャラリーから選択';
 
   @override
-  String get reminderPhotoRemove => 'Remove Photo';
+  String get reminderPhotoRemove => '写真を削除';
 
   @override
   String reminderPhotoPickError(String error) {
-    return 'Error picking photo: $error';
+    return '写真の選択エラー: $error';
   }
 
   @override
-  String get reminderTimeLabel => 'Time';
+  String get reminderTimeLabel => '時刻';
 
   @override
-  String get reminderRepeatLabel => 'Repeat';
+  String get reminderRepeatLabel => '繰り返し';
 
   @override
   String get reminderRepeatNever => 'なし';
@@ -929,10 +929,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderRepeatCustomOption => 'カスタム';
 
   @override
-  String get reminderRepeatSettingsTitle => 'Repeat Settings';
+  String get reminderRepeatSettingsTitle => '繰り返し設定';
 
   @override
-  String get reminderRepeatDone => 'Done';
+  String get reminderRepeatDone => '完了';
 
   @override
   String get reminderSelectDays => '曜日を選択';
@@ -985,25 +985,25 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reminderMealTimingAfterSubtitle => '食事の30分後に服用';
 
   @override
-  String get reminderCancel => 'Cancel';
+  String get reminderCancel => 'キャンセル';
 
   @override
-  String get reminderAdd => 'Add';
+  String get reminderAdd => '追加';
 
   @override
-  String get reminderUpdate => 'Update';
+  String get reminderUpdate => '更新';
 
   @override
-  String get reminderDoseMorning => 'Morning';
+  String get reminderDoseMorning => '朝';
 
   @override
-  String get reminderDoseNoon => 'Noon';
+  String get reminderDoseNoon => '昼';
 
   @override
-  String get reminderDoseEvening => 'Evening';
+  String get reminderDoseEvening => '夕';
 
   @override
-  String get reminderDoseNight => 'Night';
+  String get reminderDoseNight => '夜';
 
   @override
   String reminderNotificationBody(int dose) {

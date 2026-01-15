@@ -1083,6 +1083,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   Future<void> _showTransitRedirectDialog() async {
+    final l10n = AppLocalizations.of(context)!;
     final result = await showDialog<bool>(
       context: context,
       builder: (BuildContext context) {
@@ -1091,12 +1092,12 @@ class _MapScreenState extends State<MapScreen> {
             children: [
               Icon(Icons.directions_transit, color: const Color(0xFF2E7D32)),
               const SizedBox(width: 12),
-              const Text('Transit Directions'),
+              Text(l10n.transitDirectionsTitle),
             ],
           ),
-          content: const Text(
-            'Transit directions are best viewed in Google Maps.\n\nWould you like to open Google Maps for transit directions?',
-            style: TextStyle(fontSize: 15),
+          content: Text(
+            l10n.transitDirectionsMessage,
+            style: const TextStyle(fontSize: 15),
           ),
           actions: [
             Row(
@@ -1107,9 +1108,9 @@ class _MapScreenState extends State<MapScreen> {
                     style: TextButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 12),
                     ),
-                    child: const Text(
-                      'Cancel',
-                      style: TextStyle(color: Colors.black),
+                    child: Text(
+                      l10n.cancel,
+                      style: const TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
@@ -1118,7 +1119,7 @@ class _MapScreenState extends State<MapScreen> {
                   child: ElevatedButton.icon(
                     onPressed: () => Navigator.of(context).pop(true),
                     icon: const Icon(Icons.open_in_new, size: 18),
-                    label: const Text('Open Maps'),
+                    label: Text(l10n.openMaps),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2E7D32),
                       foregroundColor: Colors.white,

@@ -187,6 +187,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorOpeningMaps => 'Unable to open Google Maps';
 
   @override
+  String get transitDirectionsTitle => 'Transit Directions';
+
+  @override
+  String get transitDirectionsMessage =>
+      'Transit directions are best viewed in Google Maps.\n\nWould you like to open Google Maps for transit directions?';
+
+  @override
+  String get openMaps => 'Open Maps';
+
+  @override
   String get categoryGeneralServices => 'General Services';
 
   @override

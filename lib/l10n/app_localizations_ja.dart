@@ -184,6 +184,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get errorOpeningMaps => 'Google Mapsを開けません';
 
   @override
+  String get transitDirectionsTitle => '公共交通機関での経路';
+
+  @override
+  String get transitDirectionsMessage =>
+      '公共交通機関の経路はGoogle Mapsで表示することをお勧めします。\n\nGoogle Mapsで経路を表示しますか？';
+
+  @override
+  String get openMaps => 'マップを開く';
+
+  @override
   String get categoryGeneralServices => '一般診療';
 
   @override

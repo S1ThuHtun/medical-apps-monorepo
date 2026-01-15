@@ -59,6 +59,9 @@
     "invalidPhoneFormat": "無効な電話番号形式です",
     "cannotOpenPhoneDialer": "電話ダイアラーを開くことができません",
     "errorOpeningMaps": "Google Mapsを開けません",
+    "transitDirectionsTitle": "公共交通機関での経路",
+    "transitDirectionsMessage": "公共交通機関の経路はGoogle Mapsで表示することをお勧めします。\n\nGoogle Mapsで経路を表示しますか？",
+    "openMaps": "マップを開く",
 
     "_comment_categories": "=== 医療サービスカテゴリ ===",
     "categoryGeneralServices": "一般診療",

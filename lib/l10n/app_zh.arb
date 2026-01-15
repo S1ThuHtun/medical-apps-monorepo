@@ -59,6 +59,9 @@
     "invalidPhoneFormat": "电话号码格式无效",
     "cannotOpenPhoneDialer": "无法打开电话拨号器",
     "errorOpeningMaps": "无法打开Google地图",
+    "transitDirectionsTitle": "公共交通路线",
+    "transitDirectionsMessage": "公共交通路线在Google地图中查看效果最佳。\n\n是否要在Google地图中打开公共交通路线？",
+    "openMaps": "打开地图",
 
     "_comment_categories": "=== 医疗服务类别 ===",
     "categoryGeneralServices": "一般服务",

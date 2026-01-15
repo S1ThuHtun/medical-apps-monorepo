@@ -184,6 +184,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get errorOpeningMaps => '无法打开Google地图';
 
   @override
+  String get transitDirectionsTitle => '公共交通路线';
+
+  @override
+  String get transitDirectionsMessage =>
+      '公共交通路线在Google地图中查看效果最佳。\n\n是否要在Google地图中打开公共交通路线？';
+
+  @override
+  String get openMaps => '打开地图';
+
+  @override
   String get categoryGeneralServices => '一般服务';
 
   @override

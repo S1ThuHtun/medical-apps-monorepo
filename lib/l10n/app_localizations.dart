@@ -430,6 +430,24 @@ abstract class AppLocalizations {
   /// **'Unable to open Google Maps'**
   String get errorOpeningMaps;
 
+  /// No description provided for @transitDirectionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Transit Directions'**
+  String get transitDirectionsTitle;
+
+  /// No description provided for @transitDirectionsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Transit directions are best viewed in Google Maps.\n\nWould you like to open Google Maps for transit directions?'**
+  String get transitDirectionsMessage;
+
+  /// No description provided for @openMaps.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Maps'**
+  String get openMaps;
+
   /// No description provided for @categoryGeneralServices.
   ///
   /// In en, this message translates to:

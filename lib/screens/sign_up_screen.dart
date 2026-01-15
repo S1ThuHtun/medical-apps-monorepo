@@ -149,9 +149,7 @@ class _SignUpScreenState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(leading: SizedBox(),
-        backgroundColor: Theme.of(
-          context,
-        ).colorScheme.primary,
+        backgroundColor: const Color(0xFF2E7D32),
         title: Center(
           child: Image.asset(
             'assets/images/medinavi.png',

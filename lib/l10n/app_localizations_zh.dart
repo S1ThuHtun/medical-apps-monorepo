@@ -913,16 +913,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reminderRepeatLabel => 'Repeat';
 
   @override
-  String get reminderRepeatNever => 'Never';
+  String get reminderRepeatNever => '从不';
 
   @override
-  String get reminderRepeatEveryday => 'Every day';
+  String get reminderRepeatEveryday => '每天';
 
   @override
-  String get reminderRepeatWeekdays => 'Weekdays only';
+  String get reminderRepeatWeekdays => '仅工作日';
 
   @override
-  String get reminderRepeatWeekends => 'Weekends only';
+  String get reminderRepeatWeekends => '仅周末';
 
   @override
   String get reminderRepeatCustomOption => 'Custom';
@@ -934,35 +934,35 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reminderRepeatDone => 'Done';
 
   @override
-  String get reminderSelectDays => 'Select days';
+  String get reminderSelectDays => '选择日期';
 
   @override
-  String get reminderDayMonShort => 'Mon';
+  String get reminderDayMonShort => '周一';
 
   @override
-  String get reminderDayTueShort => 'Tue';
+  String get reminderDayTueShort => '周二';
 
   @override
-  String get reminderDayWedShort => 'Wed';
+  String get reminderDayWedShort => '周三';
 
   @override
-  String get reminderDayThuShort => 'Thu';
+  String get reminderDayThuShort => '周四';
 
   @override
-  String get reminderDayFriShort => 'Fri';
+  String get reminderDayFriShort => '周五';
 
   @override
-  String get reminderDaySatShort => 'Sat';
+  String get reminderDaySatShort => '周六';
 
   @override
-  String get reminderDaySunShort => 'Sun';
+  String get reminderDaySunShort => '周日';
 
   @override
-  String get reminderDaySeparator => ', ';
+  String get reminderDaySeparator => '、';
 
   @override
   String reminderEveryWeekDays(String days) {
-    return 'Every $days';
+    return '每$days';
   }
 
   @override
@@ -1017,16 +1017,16 @@ class AppLocalizationsZh extends AppLocalizations {
       'Notifications for medicine reminders';
 
   @override
-  String get reminderAddedMessage => 'Reminder added successfully!';
+  String get reminderAddedMessage => '提醒添加成功！';
 
   @override
-  String get reminderUpdatedMessage => 'Reminder updated successfully!';
+  String get reminderUpdatedMessage => '提醒更新成功！';
 
   @override
-  String get reminderDeletedMessage => 'Reminder deleted';
+  String get reminderDeletedMessage => '提醒已删除';
 
   @override
-  String get reminderTakenSnackBar => 'Medicine taken!';
+  String get reminderTakenSnackBar => '已服药！';
 
   @override
   String get reminderTimeToTakeMessage => '该服药了';
@@ -1065,7 +1065,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get reminderLaterOk => '确定';
 
   @override
-  String get medicineReminderTitle => '药物提醒';
+  String get medicineReminderTitle => '用药提醒';
 
   @override
   String get reminderEmptyTitle => '暂无提醒';
@@ -1084,5 +1084,5 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get reminderTestAlarmTooltip => 'Test alarm for this reminder';
+  String get reminderTestAlarmTooltip => '测试此提醒的闹钟';
 }

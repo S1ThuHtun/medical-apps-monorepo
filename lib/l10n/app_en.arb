@@ -470,5 +470,12 @@
             }
         }
     },
-    "reminderTestAlarmTooltip": "Test alarm for this reminder"
+    "reminderTestAlarmTooltip": "Test alarm for this reminder",
+    "settingsAccount": "Account",
+    "settingsProfile": "Profile",
+    "settingsNotifications": "Notifications",
+    "settingsPrivacySecurity": "Privacy & Security",
+    "settingsAbout": "About",
+    "settingsHelpSupport": "Help & Support",
+    "settingsAboutApp": "About MediNavi"
 }

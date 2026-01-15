@@ -378,5 +378,12 @@
     "reminderDoseMorning": "朝",
     "reminderDoseNoon": "昼",
     "reminderDoseEvening": "夕",
-    "reminderDoseNight": "夜"
+    "reminderDoseNight": "夜",
+    "settingsAccount": "アカウント",
+    "settingsProfile": "プロフィール",
+    "settingsNotifications": "通知",
+    "settingsPrivacySecurity": "プライバシーとセキュリティ",
+    "settingsAbout": "について",
+    "settingsHelpSupport": "ヘルプとサポート",
+    "settingsAboutApp": "MediNaviについて"
 }

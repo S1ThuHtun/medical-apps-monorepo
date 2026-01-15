@@ -1085,4 +1085,25 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get reminderTestAlarmTooltip => '测试此提醒的闹钟';
+
+  @override
+  String get settingsAccount => '账户';
+
+  @override
+  String get settingsProfile => '个人资料';
+
+  @override
+  String get settingsNotifications => '通知';
+
+  @override
+  String get settingsPrivacySecurity => '隐私和安全';
+
+  @override
+  String get settingsAbout => '关于';
+
+  @override
+  String get settingsHelpSupport => '帮助与支持';
+
+  @override
+  String get settingsAboutApp => '关于MediNavi';
 }

@@ -111,7 +111,7 @@ class SettingsScreen extends StatelessWidget {
 
           // Account Section
           Text(
-            'Account',
+            AppLocalizations.of(context)!.settingsAccount,
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -128,7 +128,7 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Icons.person_outline, color: Color(0xFF2E7D32)),
-                  title: const Text('Profile'),
+                  title: Text(AppLocalizations.of(context)!.settingsProfile),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   onTap: () {
                     // TODO: Navigate to profile screen
@@ -137,7 +137,7 @@ class SettingsScreen extends StatelessWidget {
                 Divider(height: 1, color: Colors.grey[300]),
                 ListTile(
                   leading: const Icon(Icons.notifications_outlined, color: Color(0xFF2E7D32)),
-                  title: const Text('Notifications'),
+                  title: Text(AppLocalizations.of(context)!.settingsNotifications),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   onTap: () {
                     // TODO: Navigate to notifications settings
@@ -145,7 +145,7 @@ class SettingsScreen extends StatelessWidget {
                 ),
                 ListTile(
                   leading: const Icon(Icons.security_outlined, color: Color(0xFF2E7D32)),
-                  title: const Text('Privacy & Security'),
+                  title: Text(AppLocalizations.of(context)!.settingsPrivacySecurity),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   onTap: () {
                     // TODO: Navigate to privacy settings
@@ -159,7 +159,7 @@ class SettingsScreen extends StatelessWidget {
 
           // About Section
           Text(
-            'About',
+            AppLocalizations.of(context)!.settingsAbout,
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -176,7 +176,7 @@ class SettingsScreen extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Icons.help_outline, color: Color(0xFF2E7D32)),
-                  title: const Text('Help & Support'),
+                  title: Text(AppLocalizations.of(context)!.settingsHelpSupport),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   onTap: () {
                     // TODO: Navigate to help screen
@@ -185,7 +185,7 @@ class SettingsScreen extends StatelessWidget {
                 Divider(height: 1, color: Colors.grey[300]),
                 ListTile(
                   leading: const Icon(Icons.info_outline, color: Color(0xFF2E7D32)),
-                  title: const Text('About MediNavi'),
+                  title: Text(AppLocalizations.of(context)!.settingsAboutApp),
                   trailing: const Icon(Icons.arrow_forward_ios, size: 16),
                   onTap: () {
                     // TODO: Navigate to about screen

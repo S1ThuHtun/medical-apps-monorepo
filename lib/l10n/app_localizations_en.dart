@@ -1101,4 +1101,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get reminderTestAlarmTooltip => 'Test alarm for this reminder';
+
+  @override
+  String get settingsAccount => 'Account';
+
+  @override
+  String get settingsProfile => 'Profile';
+
+  @override
+  String get settingsNotifications => 'Notifications';
+
+  @override
+  String get settingsPrivacySecurity => 'Privacy & Security';
+
+  @override
+  String get settingsAbout => 'About';
+
+  @override
+  String get settingsHelpSupport => 'Help & Support';
+
+  @override
+  String get settingsAboutApp => 'About MediNavi';
 }

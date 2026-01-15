@@ -1086,4 +1086,25 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get reminderTestAlarmTooltip => 'このリマインダーのアラームをテスト';
+
+  @override
+  String get settingsAccount => 'アカウント';
+
+  @override
+  String get settingsProfile => 'プロフィール';
+
+  @override
+  String get settingsNotifications => '通知';
+
+  @override
+  String get settingsPrivacySecurity => 'プライバシーとセキュリティ';
+
+  @override
+  String get settingsAbout => 'について';
+
+  @override
+  String get settingsHelpSupport => 'ヘルプとサポート';
+
+  @override
+  String get settingsAboutApp => 'MediNaviについて';
 }

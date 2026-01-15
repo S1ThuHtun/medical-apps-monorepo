@@ -377,5 +377,12 @@
     "reminderDoseMorning": "早上",
     "reminderDoseNoon": "中午",
     "reminderDoseEvening": "傍晚",
-    "reminderDoseNight": "晚上"
+    "reminderDoseNight": "晚上",
+    "settingsAccount": "账户",
+    "settingsProfile": "个人资料",
+    "settingsNotifications": "通知",
+    "settingsPrivacySecurity": "隐私和安全",
+    "settingsAbout": "关于",
+    "settingsHelpSupport": "帮助与支持",
+    "settingsAboutApp": "关于MediNavi"
 }

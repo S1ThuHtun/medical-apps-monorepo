@@ -1116,4 +1116,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get settingsAboutApp => '关于MediNavi';
+
+  @override
+  String get clearChat => '清除聊天';
+
+  @override
+  String get clearChatMessage => '开始新对话？当前聊天将被清除。';
+
+  @override
+  String get clearChatConfirm => '清除';
 }

@@ -388,5 +388,8 @@
     "settingsPrivacySecurity": "プライバシーとセキュリティ",
     "settingsAbout": "について",
     "settingsHelpSupport": "ヘルプとサポート",
-    "settingsAboutApp": "MediNaviについて"
+    "settingsAboutApp": "MediNaviについて",
+    "clearChat": "チャットをクリア",
+    "clearChatMessage": "新しい会話を開始しますか？現在のチャットはクリアされます。",
+    "clearChatConfirm": "クリア"
 }

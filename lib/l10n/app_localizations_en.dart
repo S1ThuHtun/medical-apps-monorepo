@@ -1132,4 +1132,14 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsAboutApp => 'About MediNavi';
+
+  @override
+  String get clearChat => 'Clear Chat';
+
+  @override
+  String get clearChatMessage =>
+      'Start a new conversation? Current chat will be cleared.';
+
+  @override
+  String get clearChatConfirm => 'Clear';
 }

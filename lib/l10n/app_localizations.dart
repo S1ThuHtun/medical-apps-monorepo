@@ -2265,6 +2265,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'About MediNavi'**
   String get settingsAboutApp;
+
+  /// No description provided for @clearChat.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear Chat'**
+  String get clearChat;
+
+  /// No description provided for @clearChatMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Start a new conversation? Current chat will be cleared.'**
+  String get clearChatMessage;
+
+  /// No description provided for @clearChatConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Clear'**
+  String get clearChatConfirm;
 }
 
 class _AppLocalizationsDelegate

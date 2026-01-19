@@ -297,19 +297,19 @@ class _ChatbotScreenState
                 Icons.refresh_rounded,
                 color: primaryGreen),
             const SizedBox(width: 12),
-            const Text(
-                'Clear Chat'),
+            Text(
+                l10n.clearChat),
           ],
         ),
-        content: const Text(
-          'Start a new conversation? Current chat will be cleared.',
+        content: Text(
+          l10n.clearChatMessage,
         ),
         actions: [
           TextButton(
             onPressed: () =>
                 Navigator.pop(
                     context, false),
-            child: const Text('Cancel'),
+            child: Text(l10n.cancel),
           ),
           ElevatedButton(
             onPressed: () =>
@@ -323,7 +323,7 @@ class _ChatbotScreenState
                   Colors.white,
             ),
             child:
-                const Text('Clear'),
+                Text(l10n.clearChatConfirm),
           ),
         ],
       ),

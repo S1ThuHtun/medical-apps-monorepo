@@ -480,5 +480,8 @@
     "settingsPrivacySecurity": "Privacy & Security",
     "settingsAbout": "About",
     "settingsHelpSupport": "Help & Support",
-    "settingsAboutApp": "About MediNavi"
+    "settingsAboutApp": "About MediNavi",
+    "clearChat": "Clear Chat",
+    "clearChatMessage": "Start a new conversation? Current chat will be cleared.",
+    "clearChatConfirm": "Clear"
 }

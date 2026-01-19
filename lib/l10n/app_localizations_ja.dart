@@ -1117,4 +1117,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get settingsAboutApp => 'MediNaviについて';
+
+  @override
+  String get clearChat => 'チャットをクリア';
+
+  @override
+  String get clearChatMessage => '新しい会話を開始しますか？現在のチャットはクリアされます。';
+
+  @override
+  String get clearChatConfirm => 'クリア';
 }

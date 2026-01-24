@@ -65,6 +65,18 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
   }
 
   Widget _buildPrefectureList() {
+    // Define regions with their prefectures
+    final regions = {
+      'Hokkaido Region': ['Hokkaido'],
+      'Tohoku Region': ['Aomori', 'Iwate', 'Miyagi', 'Akita', 'Yamagata', 'Fukushima'],
+      'Kanto Region': ['Tokyo', 'Kanagawa', 'Yokohama', 'Saitama', 'Chiba', 'Ibaraki', 'Tochigi', 'Gunma'],
+      'Chubu Region': ['Niigata', 'Toyama', 'Ishikawa', 'Fukui', 'Yamanashi', 'Nagano', 'Gifu', 'Shizuoka', 'Aichi', 'Nagoya'],
+      'Kansai Region': ['Mie', 'Shiga', 'Kyoto', 'Osaka', 'Hyogo', 'Kobe', 'Nara', 'Wakayama'],
+      'Chugoku Region': ['Hiroshima', 'Okayama', 'Yamaguchi', 'Shimane', 'Tottori'],
+      'Shikoku Region': ['Tokushima', 'Kagawa', 'Ehime', 'Kochi'],
+      'Kyushu & Okinawa Region': ['Fukuoka', 'Saga', 'Nagasaki', 'Kumamoto', 'Oita', 'Miyazaki', 'Kagoshima', 'Okinawa'],
+    };
+
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -77,37 +89,67 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
             Navigator.pop(context);
           },
         ),
-        const SizedBox(height: 16),
-        Padding(
-          padding: EdgeInsets.only(left: 8, bottom: 8),
-          child: Text(
-            AppLocalizations.of(context)!.prefectures,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey,
-            ),
-          ),
-        ),
-        ...japanesePrefectures.keys.map((prefecture) {
-          final prefectureData = japanesePrefectures[prefecture]!;
-          final hasChildren = prefectureData.children != null;
+        const SizedBox(height: 24),
+        
+        // Display prefectures grouped by regions
+        ...regions.entries.map((regionEntry) {
+          final regionName = regionEntry.key;
+          final prefectures = regionEntry.value;
 
-          return _buildLocationTile(
-            icon: Icons.location_city,
-            title: getLocalizedLocationName(prefecture, AppLocalizations.of(context)!),
-            isSelected: false,
-            trailing: hasChildren ? Icons.chevron_right : null,
-            onTap: () {
-              if (hasChildren) {
-                setState(() {
-                  _selectedPrefecture = prefecture;
-                });
-              } else {
-                widget.onLocationSelected(prefectureData, prefecture, null, null);
-                Navigator.pop(context);
-              }
-            },
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Region header
+              Padding(
+                padding: const EdgeInsets.only(left: 8, bottom: 12, top: 8),
+                child: Row(
+                  children: [
+                    Container(
+                      width: 4,
+                      height: 20,
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF2E7D32),
+                        borderRadius: BorderRadius.circular(2),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Text(
+                      regionName,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF2E7D32),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              
+              // Prefectures in this region
+              ...prefectures.where((prefecture) => japanesePrefectures.containsKey(prefecture)).map((prefecture) {
+                final prefectureData = japanesePrefectures[prefecture]!;
+                final hasChildren = prefectureData.children != null;
+
+                return _buildLocationTile(
+                  icon: Icons.location_city,
+                  title: getLocalizedLocationName(prefecture, AppLocalizations.of(context)!),
+                  isSelected: false,
+                  trailing: hasChildren ? Icons.chevron_right : null,
+                  onTap: () {
+                    if (hasChildren) {
+                      setState(() {
+                        _selectedPrefecture = prefecture;
+                      });
+                    } else {
+                      widget.onLocationSelected(prefectureData, prefecture, null, null);
+                      Navigator.pop(context);
+                    }
+                  },
+                );
+              }),
+              
+              const SizedBox(height: 16),
+            ],
           );
         }),
       ],

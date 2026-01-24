@@ -124,14 +124,19 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
 
     double? searchLat;
     double? searchLng;
+    String locationSource = '';
 
     // Determine search location - use most specific location selected
     if (_selectedLocation != null) {
       searchLat = _selectedLocation!.lat;
       searchLng = _selectedLocation!.lng;
+      locationSource = _selectedCity ?? _selectedPrefecture ?? 'Selected Location';
+      print('🔍 Searching near: $locationSource (${_selectedLocation!.name}) at lat: $searchLat, lng: $searchLng');
     } else if (_currentPosition != null) {
       searchLat = _currentPosition!.latitude;
       searchLng = _currentPosition!.longitude;
+      locationSource = 'Current GPS Location';
+      print('🔍 Searching near current location at lat: $searchLat, lng: $searchLng');
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -155,6 +160,8 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
     await _saveSelectedService(serviceName);
 
     final placeType = serviceToPlacesType[serviceName] ?? 'hospital';
+    
+    print('🏥 Searching for $serviceName ($placeType) within 5km...');
 
     final services = await _placesService.searchNearbyServices(
       latitude: searchLat,
@@ -162,6 +169,8 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
       serviceType: placeType,
       radiusInMeters: 5000,
     );
+    
+    print('✅ Found ${services.length} services near $locationSource');
 
     if (!mounted) return;
 

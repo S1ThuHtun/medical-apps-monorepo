@@ -1152,4 +1152,2263 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get clearChatConfirm => '清除';
+
+  @override
+  String get cityAbashiri => 'Abashiri';
+
+  @override
+  String get cityAbeno => 'Abeno';
+
+  @override
+  String get cityAbiko => 'Abiko';
+
+  @override
+  String get cityAgeo => 'Ageo';
+
+  @override
+  String get cityAichi => 'Aichi';
+
+  @override
+  String get cityAioi => 'Aioi';
+
+  @override
+  String get cityAira => 'Aira';
+
+  @override
+  String get cityAisai => 'Aisai';
+
+  @override
+  String get cityAizuwakamatsu => 'Aizuwakamatsu';
+
+  @override
+  String get cityAkaiwa => 'Akaiwa';
+
+  @override
+  String get cityAkashi => 'Akashi';
+
+  @override
+  String get cityAki => 'Aki';
+
+  @override
+  String get cityAkihabara => '秋叶原';
+
+  @override
+  String get cityAkita => 'Akita';
+
+  @override
+  String get cityAkitaCity => 'Akita City';
+
+  @override
+  String get cityAkitakata => 'Akitakata';
+
+  @override
+  String get cityAko => 'Ako';
+
+  @override
+  String get cityAkune => 'Akune';
+
+  @override
+  String get cityAma => 'Ama';
+
+  @override
+  String get cityAmagasaki => 'Amagasaki';
+
+  @override
+  String get cityAmakusa => 'Amakusa';
+
+  @override
+  String get cityAnan => 'Anan';
+
+  @override
+  String get cityAnjo => 'Anjo';
+
+  @override
+  String get cityAnnaka => 'Annaka';
+
+  @override
+  String get cityAomori => 'Aomori';
+
+  @override
+  String get cityAomoriCity => 'Aomori City';
+
+  @override
+  String get cityArao => 'Arao';
+
+  @override
+  String get cityArida => 'Arida';
+
+  @override
+  String get cityAsago => 'Asago';
+
+  @override
+  String get cityAsahi => 'Asahi';
+
+  @override
+  String get cityAsaka => 'Asaka';
+
+  @override
+  String get cityAsakuchi => 'Asakuchi';
+
+  @override
+  String get cityAsakura => 'Asakura';
+
+  @override
+  String get cityAsakusa => '浅草';
+
+  @override
+  String get cityAshikaga => 'Ashikaga';
+
+  @override
+  String get cityAshiya => 'Ashiya';
+
+  @override
+  String get citySo => 'Aso';
+
+  @override
+  String get cityAtami => 'Atami';
+
+  @override
+  String get cityAtsugi => 'Atsugi';
+
+  @override
+  String get cityAwa => 'Awa';
+
+  @override
+  String get cityAwaji => 'Awaji';
+
+  @override
+  String get cityAwara => 'Awara';
+
+  @override
+  String get cityAyabe => 'Ayabe';
+
+  @override
+  String get cityAyase => 'Ayase';
+
+  @override
+  String get cityAzabu => 'Azabu';
+
+  @override
+  String get cityAzumino => 'Azumino';
+
+  @override
+  String get cityBeppu => 'Beppu';
+
+  @override
+  String get cityBibai => 'Bibai';
+
+  @override
+  String get cityBizen => 'Bizen';
+
+  @override
+  String get cityBungoono => 'Bungoono';
+
+  @override
+  String get cityBungotakada => 'Bungotakada';
+
+  @override
+  String get cityBuzen => 'Buzen';
+
+  @override
+  String get cityCanelCity => 'Canal City';
+
+  @override
+  String get cityChiba => 'Chiba';
+
+  @override
+  String get cityChibaCity => 'Chiba City';
+
+  @override
+  String get cityChichibu => 'Chichibu';
+
+  @override
+  String get cityChigasaki => 'Chigasaki';
+
+  @override
+  String get cityChikugo => 'Chikugo';
+
+  @override
+  String get cityChikuma => 'Chikuma';
+
+  @override
+  String get cityChikushino => 'Chikushino';
+
+  @override
+  String get cityChinatown => 'Chinatown';
+
+  @override
+  String get cityChino => 'Chino';
+
+  @override
+  String get cityChiryu => 'Chiryu';
+
+  @override
+  String get cityChita => 'Chita';
+
+  @override
+  String get cityChitose => 'Chitose';
+
+  @override
+  String get cityDaisen => 'Daisen';
+
+  @override
+  String get cityDaito => 'Daito';
+
+  @override
+  String get cityDate => 'Date';
+
+  @override
+  String get cityDazaifu => 'Dazaifu';
+
+  @override
+  String get cityDotonbori => 'Dotonbori';
+
+  @override
+  String get cityEbetsu => 'Ebetsu';
+
+  @override
+  String get cityEbina => 'Ebina';
+
+  @override
+  String get cityEbino => 'Ebino';
+
+  @override
+  String get cityEbisu => 'Ebisu';
+
+  @override
+  String get cityEchizen => 'Echizen';
+
+  @override
+  String get cityEhime => 'Ehime';
+
+  @override
+  String get cityEna => 'Ena';
+
+  @override
+  String get cityEniwa => 'Eniwa';
+
+  @override
+  String get cityEtajima => 'Etajima';
+
+  @override
+  String get cityFuchu => 'Fuchu';
+
+  @override
+  String get cityFuefuki => 'Fuefuki';
+
+  @override
+  String get cityFujieda => 'Fujieda';
+
+  @override
+  String get cityFujiidera => 'Fujiidera';
+
+  @override
+  String get cityFujimi => 'Fujimi';
+
+  @override
+  String get cityFujimino => 'Fujimino';
+
+  @override
+  String get cityFujinomiya => 'Fujinomiya';
+
+  @override
+  String get cityFujioka => 'Fujioka';
+
+  @override
+  String get cityFujisawa => 'Fujisawa';
+
+  @override
+  String get cityFujiyoshida => 'Fujiyoshida';
+
+  @override
+  String get cityFukuchiyama => 'Fukuchiyama';
+
+  @override
+  String get cityFukui => 'Fukui';
+
+  @override
+  String get cityFukuiCity => 'Fukui City';
+
+  @override
+  String get cityFukuoka => '福冈';
+
+  @override
+  String get cityFukuokaCity => 'Fukuoka City';
+
+  @override
+  String get cityFukuroi => 'Fukuroi';
+
+  @override
+  String get cityFukushima => 'Fukushima';
+
+  @override
+  String get cityFukushimaCity => 'Fukushima City';
+
+  @override
+  String get cityFukutsu => 'Fukutsu';
+
+  @override
+  String get cityFunabashi => 'Funabashi';
+
+  @override
+  String get cityFurano => 'Furano';
+
+  @override
+  String get cityFuttsu => 'Futtsu';
+
+  @override
+  String get cityGamagori => 'Gamagori';
+
+  @override
+  String get cityGero => 'Gero';
+
+  @override
+  String get cityGifu => 'Gifu';
+
+  @override
+  String get cityGifuCity => 'Gifu City';
+
+  @override
+  String get cityGinkakujiArea => 'Ginkakuji Area';
+
+  @override
+  String get cityGinza => '银座';
+
+  @override
+  String get cityGinowan => 'Ginowan';
+
+  @override
+  String get cityGion => 'Gion';
+
+  @override
+  String get cityGobo => 'Gobo';
+
+  @override
+  String get cityGojo => 'Gojo';
+
+  @override
+  String get cityGose => 'Gose';
+
+  @override
+  String get cityGosen => 'Gosen';
+
+  @override
+  String get cityGoshogawara => 'Goshogawara';
+
+  @override
+  String get cityGoto => 'Goto';
+
+  @override
+  String get cityGotemba => 'Gotemba';
+
+  @override
+  String get cityGotsu => 'Gotsu';
+
+  @override
+  String get cityGunma => 'Gunma';
+
+  @override
+  String get cityGyoda => 'Gyoda';
+
+  @override
+  String get cityHabikino => 'Habikino';
+
+  @override
+  String get cityHachijo => 'Hachinohe';
+
+  @override
+  String get cityHadano => 'Hadano';
+
+  @override
+  String get cityHagi => 'Hagi';
+
+  @override
+  String get cityHakataStationArea => 'Hakata Station Area';
+
+  @override
+  String get cityHakui => 'Hakui';
+
+  @override
+  String get cityHakusan => 'Hakusan';
+
+  @override
+  String get cityHamada => 'Hamada';
+
+  @override
+  String get cityHamamatsu => 'Hamamatsu';
+
+  @override
+  String get cityHana => 'Handa';
+
+  @override
+  String get cityHanamaki => 'Hanamaki';
+
+  @override
+  String get cityHannan => 'Hannan';
+
+  @override
+  String get cityHanyu => 'Hanyu';
+
+  @override
+  String get cityHarajuku => '原宿';
+
+  @override
+  String get cityHashima => 'Hashima';
+
+  @override
+  String get cityHashimoto => 'Hashimoto';
+
+  @override
+  String get cityHasuda => 'Hasuda';
+
+  @override
+  String get cityHatsukaichi => 'Hatsukaichi';
+
+  @override
+  String get cityHekinan => 'Hekinan';
+
+  @override
+  String get cityHida => 'Hida';
+
+  @override
+  String get cityHidaka => 'Hidaka';
+
+  @override
+  String get cityHigashihiroshima => 'Higashihiroshima';
+
+  @override
+  String get cityHigashikagawa => 'Higashikagawa';
+
+  @override
+  String get cityHigashimatsushima => 'Higashimatsushima';
+
+  @override
+  String get cityHigashimatsuyama => 'Higashimatsuyama';
+
+  @override
+  String get cityHigashiomi => 'Higashiomi';
+
+  @override
+  String get cityHigashiosaka => 'Higashiosaka';
+
+  @override
+  String get cityHikari => 'Hikari';
+
+  @override
+  String get cityHikone => 'Hikone';
+
+  @override
+  String get cityHimi => 'Himi';
+
+  @override
+  String get cityHimeji => 'Himeji';
+
+  @override
+  String get cityHioki => 'Hioki';
+
+  @override
+  String get cityHirakata => 'Hirakata';
+
+  @override
+  String get cityHirado => 'Hirado';
+
+  @override
+  String get cityHiratsuka => 'Hiratsuka';
+
+  @override
+  String get cityHirosaki => 'Hirosaki';
+
+  @override
+  String get cityHiroshima => '广岛';
+
+  @override
+  String get cityHiroshimaCity => 'Hiroshima City';
+
+  @override
+  String get cityHitachi => 'Hitachi';
+
+  @override
+  String get cityHitachinaka => 'Hitachinaka';
+
+  @override
+  String get cityHitachiomiya => 'Hitachiomiya';
+
+  @override
+  String get cityHitoyoshi => 'Hitoyoshi';
+
+  @override
+  String get cityHofu => 'Hofu';
+
+  @override
+  String get cityHokkaido => '北海道';
+
+  @override
+  String get cityHokuto => 'Hokuto';
+
+  @override
+  String get cityHonjo => 'Honjo';
+
+  @override
+  String get cityHyogo => 'Hyogo';
+
+  @override
+  String get cityHyuga => 'Hyuga';
+
+  @override
+  String get cityIbaraki => 'Ibaraki';
+
+  @override
+  String get cityIbara => 'Ibara';
+
+  @override
+  String get cityIbusuki => 'Ibusuki';
+
+  @override
+  String get cityIchihara => 'Ichihara';
+
+  @override
+  String get cityIchikawa => 'Ichikawa';
+
+  @override
+  String get cityIchikikushikino => 'Ichikikushikino';
+
+  @override
+  String get cityIchinoseki => 'Ichinoseki';
+
+  @override
+  String get cityIchinomiya => 'Ichinomiya';
+
+  @override
+  String get cityIda => 'Iida';
+
+  @override
+  String get cityIga => 'Iga';
+
+  @override
+  String get cityIizuka => 'Iizuka';
+
+  @override
+  String get cityIiyama => 'Iiyama';
+
+  @override
+  String get cityIkebukuro => '池袋';
+
+  @override
+  String get cityIkeda => 'Ikeda';
+
+  @override
+  String get cityIkoma => 'Ikoma';
+
+  @override
+  String get cityIki => 'Iki';
+
+  @override
+  String get cityImabari => 'Imabari';
+
+  @override
+  String get cityImari => 'Imari';
+
+  @override
+  String get cityImizu => 'Imizu';
+
+  @override
+  String get cityInabe => 'Inabe';
+
+  @override
+  String get cityInashiki => 'Inashiki';
+
+  @override
+  String get cityInazawa => 'Inazawa';
+
+  @override
+  String get cityInuyama => 'Inuyama';
+
+  @override
+  String get cityInzai => 'Inzai';
+
+  @override
+  String get cityIruma => 'Iruma';
+
+  @override
+  String get cityIsahaya => 'Isahaya';
+
+  @override
+  String get cityIse => 'Ise';
+
+  @override
+  String get cityIsehara => 'Isehara';
+
+  @override
+  String get cityIsesaki => 'Isesaki';
+
+  @override
+  String get cityIshigaki => 'Ishigaki';
+
+  @override
+  String get cityIshikari => 'Ishikari';
+
+  @override
+  String get cityIshikawa => 'Ishikawa';
+
+  @override
+  String get cityIshioka => 'Ishioka';
+
+  @override
+  String get cityIshinomaki => 'Ishinomaki';
+
+  @override
+  String get cityIsumi => 'Isumi';
+
+  @override
+  String get cityItako => 'Itako';
+
+  @override
+  String get cityItami => 'Itami';
+
+  @override
+  String get cityIto => 'Ito';
+
+  @override
+  String get cityItoigawa => 'Itoigawa';
+
+  @override
+  String get cityItoman => 'Itoman';
+
+  @override
+  String get cityItoshima => 'Itoshima';
+
+  @override
+  String get cityIwade => 'Iwade';
+
+  @override
+  String get cityIwaki => 'Iwaki';
+
+  @override
+  String get cityIwakuni => 'Iwakuni';
+
+  @override
+  String get cityIwakura => 'Iwakura';
+
+  @override
+  String get cityIwamizawa => 'Iwamizawa';
+
+  @override
+  String get cityIwanuma => 'Iwanuma';
+
+  @override
+  String get cityIwate => 'Iwate';
+
+  @override
+  String get cityIwata => 'Iwata';
+
+  @override
+  String get cityIyo => 'Iyo';
+
+  @override
+  String get cityIzu => 'Izu';
+
+  @override
+  String get cityIzumi => 'Izumi';
+
+  @override
+  String get cityIzumiotsu => 'Izumiotsu';
+
+  @override
+  String get cityIzumisano => 'Izumisano';
+
+  @override
+  String get cityIzumo => 'Izumo';
+
+  @override
+  String get cityIzunokuni => 'Izunokuni';
+
+  @override
+  String get cityJoetsu => 'Joetsu';
+
+  @override
+  String get cityJoso => 'Joso';
+
+  @override
+  String get cityJoyo => 'Joyo';
+
+  @override
+  String get cityKabukicho => 'Kabukicho';
+
+  @override
+  String get cityKadoma => 'Kadoma';
+
+  @override
+  String get cityKaga => 'Kaga';
+
+  @override
+  String get cityKagawa => 'Kagawa';
+
+  @override
+  String get cityKagoshima => 'Kagoshima';
+
+  @override
+  String get cityKagoshimaCity => 'Kagoshima City';
+
+  @override
+  String get cityKahoku => 'Kahoku';
+
+  @override
+  String get cityKai => 'Kai';
+
+  @override
+  String get cityKainan => 'Kainan';
+
+  @override
+  String get cityKaizuka => 'Kaizuka';
+
+  @override
+  String get cityKaizu => 'Kaizu';
+
+  @override
+  String get cityKakamigahara => 'Kakamigahara';
+
+  @override
+  String get cityKakegawa => 'Kakegawa';
+
+  @override
+  String get cityKakogawa => 'Kakogawa';
+
+  @override
+  String get cityKama => 'Kama';
+
+  @override
+  String get cityKamagaya => 'Kamagaya';
+
+  @override
+  String get cityKamaishi => 'Kamaishi';
+
+  @override
+  String get cityKamakura => 'Kamakura';
+
+  @override
+  String get cityKami => 'Kami';
+
+  @override
+  String get cityKamiamakusa => 'Kamiamakusa';
+
+  @override
+  String get cityKaminoyama => 'Kaminoyama';
+
+  @override
+  String get cityKamo => 'Kamo';
+
+  @override
+  String get cityKamogawa => 'Kamogawa';
+
+  @override
+  String get cityKanagawa => 'Kanagawa';
+
+  @override
+  String get cityKanda => 'Kanda';
+
+  @override
+  String get cityKani => 'Kani';
+
+  @override
+  String get cityKannonji => 'Kan\'onji';
+
+  @override
+  String get cityKanoya => 'Kanoya';
+
+  @override
+  String get cityKanuma => 'Kanuma';
+
+  @override
+  String get cityKanzaki => 'Kanzaki';
+
+  @override
+  String get cityKanazawa => 'Kanazawa';
+
+  @override
+  String get cityKariya => 'Kariya';
+
+  @override
+  String get cityKaratsu => 'Karatsu';
+
+  @override
+  String get cityKasai => 'Kasai';
+
+  @override
+  String get cityKasama => 'Kasama';
+
+  @override
+  String get cityKasaoka => 'Kasaoka';
+
+  @override
+  String get cityKashiba => 'Kashiba';
+
+  @override
+  String get cityKashihara => 'Kashihara';
+
+  @override
+  String get cityKashima => 'Kashima';
+
+  @override
+  String get cityKashiwa => 'Kashiwa';
+
+  @override
+  String get cityKashiwabara => 'Kashiwara';
+
+  @override
+  String get cityKashiwazaki => 'Kashiwazaki';
+
+  @override
+  String get cityKasuga => 'Kasuga';
+
+  @override
+  String get cityKasugai => 'Kasugai';
+
+  @override
+  String get cityKasukabe => 'Kasukabe';
+
+  @override
+  String get cityKatagami => 'Katagami';
+
+  @override
+  String get cityKatano => 'Katano';
+
+  @override
+  String get cityKato => 'Kato';
+
+  @override
+  String get cityKatori => 'Katori';
+
+  @override
+  String get cityKatsuragi => 'Katsuragi';
+
+  @override
+  String get cityKatsuura => 'Katsuura';
+
+  @override
+  String get cityKatsuyama => 'Katsuyama';
+
+  @override
+  String get cityKawachinagano => 'Kawachinagano';
+
+  @override
+  String get cityKawagoe => 'Kawagoe';
+
+  @override
+  String get cityKawaguchi => 'Kawaguchi';
+
+  @override
+  String get cityKawanishi => 'Kawanishi';
+
+  @override
+  String get cityKawasaki => 'Kawasaki';
+
+  @override
+  String get cityKazuno => 'Kazuno';
+
+  @override
+  String get cityKazo => 'Kazo';
+
+  @override
+  String get cityKesennuma => 'Kesennuma';
+
+  @override
+  String get cityKikuchi => 'Kikuchi';
+
+  @override
+  String get cityKikugawa => 'Kikugawa';
+
+  @override
+  String get cityKimitsu => 'Kimitsu';
+
+  @override
+  String get cityKinokawa => 'Kinokawa';
+
+  @override
+  String get cityKirishima => 'Kirishima';
+
+  @override
+  String get cityKiryu => 'Kiryu';
+
+  @override
+  String get cityKisarazu => 'Kisarazu';
+
+  @override
+  String get cityKishiwada => 'Kishiwada';
+
+  @override
+  String get cityKitakami => 'Kitakami';
+
+  @override
+  String get cityKitakata => 'Kitakata';
+
+  @override
+  String get cityKitakyushu => 'Kitakyushu';
+
+  @override
+  String get cityKitami => 'Kitami';
+
+  @override
+  String get cityKitamoto => 'Kitamoto';
+
+  @override
+  String get cityKitanagoya => 'Kitanagoya';
+
+  @override
+  String get cityKitsuki => 'Kitsuki';
+
+  @override
+  String get cityKiyomizu => 'Kiyomizu';
+
+  @override
+  String get cityKiyosu => 'Kiyosu';
+
+  @override
+  String get cityKizugawa => 'Kizugawa';
+
+  @override
+  String get cityKobe => '神户';
+
+  @override
+  String get cityKobayashi => 'Kobayashi';
+
+  @override
+  String get cityKochi => 'Kochi';
+
+  @override
+  String get cityKochiCity => 'Kochi City';
+
+  @override
+  String get cityKofu => 'Kofu';
+
+  @override
+  String get cityKoga => 'Koga';
+
+  @override
+  String get cityKoka => 'Koka';
+
+  @override
+  String get cityKomagane => 'Komagane';
+
+  @override
+  String get cityKomaki => 'Komaki';
+
+  @override
+  String get cityKomatsu => 'Komatsu';
+
+  @override
+  String get cityKomatsushima => 'Komatsushima';
+
+  @override
+  String get cityKonan => 'Konan';
+
+  @override
+  String get cityKoriyama => 'Koriyama';
+
+  @override
+  String get cityKosai => 'Kosai';
+
+  @override
+  String get cityKoshigaya => 'Koshigaya';
+
+  @override
+  String get cityKoshi => 'Koshi';
+
+  @override
+  String get cityKoshu => 'Koshu';
+
+  @override
+  String get cityKudamatsu => 'Kudamatsu';
+
+  @override
+  String get cityKuki => 'Kuki';
+
+  @override
+  String get cityKumamoto => 'Kumamoto';
+
+  @override
+  String get cityKumamotoCity => 'Kumamoto City';
+
+  @override
+  String get cityKumagaya => 'Kumagaya';
+
+  @override
+  String get cityKumano => 'Kumano';
+
+  @override
+  String get cityKunisaki => 'Kunisaki';
+
+  @override
+  String get cityKurashiki => 'Kurashiki';
+
+  @override
+  String get cityKurayoshi => 'Kurayoshi';
+
+  @override
+  String get cityKure => 'Kure';
+
+  @override
+  String get cityKurihara => 'Kurihara';
+
+  @override
+  String get cityKuroishi => 'Kuroishi';
+
+  @override
+  String get cityKurobe => 'Kurobe';
+
+  @override
+  String get cityKurume => 'Kurume';
+
+  @override
+  String get cityKushima => 'Kushima';
+
+  @override
+  String get cityKushiro => 'Kushiro';
+
+  @override
+  String get cityKusatsu => 'Kusatsu';
+
+  @override
+  String get cityKuwana => 'Kuwana';
+
+  @override
+  String get cityKyoto => '京都';
+
+  @override
+  String get cityKyotoCity => 'Kyoto City';
+
+  @override
+  String get cityKyotanabe => 'Kyotanabe';
+
+  @override
+  String get cityKyotango => 'Kyotango';
+
+  @override
+  String get cityKyotoStationArea => 'Kyoto Station Area';
+
+  @override
+  String get cityMaebashi => 'Maebashi';
+
+  @override
+  String get cityMaibara => 'Maibara';
+
+  @override
+  String get cityMaizuru => 'Maizuru';
+
+  @override
+  String get cityMakinohara => 'Makinohara';
+
+  @override
+  String get cityMakurazaki => 'Makurazaki';
+
+  @override
+  String get cityManiwa => 'Maniwa';
+
+  @override
+  String get cityMarugame => 'Marugame';
+
+  @override
+  String get cityMarunouchi => 'Marunouchi';
+
+  @override
+  String get cityMasuda => 'Masuda';
+
+  @override
+  String get cityMatsubara => 'Matsubara';
+
+  @override
+  String get cityMatsudo => 'Matsudo';
+
+  @override
+  String get cityMatsue => 'Matsue';
+
+  @override
+  String get cityMatsumoto => 'Matsumoto';
+
+  @override
+  String get cityMatsusaka => 'Matsusaka';
+
+  @override
+  String get cityMatsuura => 'Matsuura';
+
+  @override
+  String get cityMatsuyama => 'Matsuyama';
+
+  @override
+  String get cityMie => 'Mie';
+
+  @override
+  String get cityMidori => 'Midori';
+
+  @override
+  String get cityMihara => 'Mihara';
+
+  @override
+  String get cityMiki => 'Miki';
+
+  @override
+  String get cityMima => 'Mima';
+
+  @override
+  String get cityMimasaka => 'Mimasaka';
+
+  @override
+  String get cityMinamiAlps => 'Minami-Alps';
+
+  @override
+  String get cityMinamiashigara => 'Minamiashigara';
+
+  @override
+  String get cityMinamiawaji => 'Minamiawaji';
+
+  @override
+  String get cityMinamiboso => 'Minamiboso';
+
+  @override
+  String get cityMinamisatsuma => 'Minamisatsuma';
+
+  @override
+  String get cityMinamishimabara => 'Minamishimabara';
+
+  @override
+  String get cityMinamiuonuma => 'Minamiuonuma';
+
+  @override
+  String get cityMinatoMirai => 'Minato Mirai';
+
+  @override
+  String get cityMine => 'Mine';
+
+  @override
+  String get cityMinoh => 'Minoh';
+
+  @override
+  String get cityMino => 'Mino';
+
+  @override
+  String get cityMinokamo => 'Minokamo';
+
+  @override
+  String get cityMisato => 'Misato';
+
+  @override
+  String get cityMisawa => 'Misawa';
+
+  @override
+  String get cityMishima => 'Mishima';
+
+  @override
+  String get cityMito => 'Mito';
+
+  @override
+  String get cityMitoyo => 'Mitoyo';
+
+  @override
+  String get cityMitsuke => 'Mitsuke';
+
+  @override
+  String get cityMiura => 'Miura';
+
+  @override
+  String get cityMiyagi => 'Miyagi';
+
+  @override
+  String get cityMiyako => 'Miyako';
+
+  @override
+  String get cityMiyakojima => 'Miyakojima';
+
+  @override
+  String get cityMiyakonojo => 'Miyakonojo';
+
+  @override
+  String get cityMiyama => 'Miyama';
+
+  @override
+  String get cityMiyawaka => 'Miyawaka';
+
+  @override
+  String get cityMiyazaki => 'Miyazaki';
+
+  @override
+  String get cityMiyazakiCity => 'Miyazaki City';
+
+  @override
+  String get cityMiyazu => 'Miyazu';
+
+  @override
+  String get cityMiyoshi => 'Miyoshi';
+
+  @override
+  String get cityMizuho => 'Mizuho';
+
+  @override
+  String get cityMizunami => 'Mizunami';
+
+  @override
+  String get cityMobara => 'Mobara';
+
+  @override
+  String get cityMoka => 'Moka';
+
+  @override
+  String get cityMoriguchi => 'Moriguchi';
+
+  @override
+  String get cityMorioka => 'Morioka';
+
+  @override
+  String get cityMoriya => 'Moriya';
+
+  @override
+  String get cityMoriyama => 'Moriyama';
+
+  @override
+  String get cityMotomiya => 'Motomiya';
+
+  @override
+  String get cityMotosu => 'Motosu';
+
+  @override
+  String get cityMuko => 'Muko';
+
+  @override
+  String get cityMunakata => 'Munakata';
+
+  @override
+  String get cityMurakami => 'Murakami';
+
+  @override
+  String get cityMurayama => 'Murayama';
+
+  @override
+  String get cityMuroran => 'Muroran';
+
+  @override
+  String get cityMuroto => 'Muroto';
+
+  @override
+  String get cityMutsu => 'Mutsu';
+
+  @override
+  String get cityMyoko => 'Myoko';
+
+  @override
+  String get cityNabari => 'Nabari';
+
+  @override
+  String get cityNaga => 'Nagai';
+
+  @override
+  String get cityNagahama => 'Nagahama';
+
+  @override
+  String get cityNagakute => 'Nagakute';
+
+  @override
+  String get cityNagano => 'Nagano';
+
+  @override
+  String get cityNaganoCity => 'Nagano City';
+
+  @override
+  String get cityNagaoka => 'Nagaoka';
+
+  @override
+  String get cityNagaokakyo => 'Nagaokakyo';
+
+  @override
+  String get cityNagareyama => 'Nagareyama';
+
+  @override
+  String get cityNagasaki => 'Nagasaki';
+
+  @override
+  String get cityNagasakiCity => 'Nagasaki City';
+
+  @override
+  String get cityNagato => 'Nagato';
+
+  @override
+  String get cityNagoya => '名古屋';
+
+  @override
+  String get cityNaha => '那霸';
+
+  @override
+  String get cityNakagawa => 'Nakagawa';
+
+  @override
+  String get cityNakama => 'Nakama';
+
+  @override
+  String get cityNakanoshima => 'Nakanoshima';
+
+  @override
+  String get cityNakano => 'Nakano';
+
+  @override
+  String get cityNakatsugawa => 'Nakatsugawa';
+
+  @override
+  String get cityNamba => 'Namba';
+
+  @override
+  String get cityNamerikawa => 'Namerikawa';
+
+  @override
+  String get cityNankoku => 'Nankoku';
+
+  @override
+  String get cityNanao => 'Nanao';
+
+  @override
+  String get cityNanjo => 'Nanjo';
+
+  @override
+  String get cityNantan => 'Nantan';
+
+  @override
+  String get cityNanto => 'Nanto';
+
+  @override
+  String get cityNara => 'Nara';
+
+  @override
+  String get cityNaraCity => 'Nara City';
+
+  @override
+  String get cityNarashino => 'Narashino';
+
+  @override
+  String get cityNarita => 'Narita';
+
+  @override
+  String get cityNaruto => 'Naruto';
+
+  @override
+  String get cityNasushiobara => 'Nasushiobara';
+
+  @override
+  String get cityNasukarasuyama => 'Nasukarasuyama';
+
+  @override
+  String get cityNatori => 'Natori';
+
+  @override
+  String get cityNemuro => 'Nemuro';
+
+  @override
+  String get cityNeyagawa => 'Neyagawa';
+
+  @override
+  String get cityNichinan => 'Nichinan';
+
+  @override
+  String get cityNiigata => 'Niigata';
+
+  @override
+  String get cityNiigataCity => 'Niigata City';
+
+  @override
+  String get cityNiihama => 'Niihama';
+
+  @override
+  String get cityNiimi => 'Niimi';
+
+  @override
+  String get cityNiiza => 'Niiza';
+
+  @override
+  String get cityNihonmatsu => 'Nihonmatsu';
+
+  @override
+  String get cityNikaho => 'Nikaho';
+
+  @override
+  String get cityNikko => 'Nikko';
+
+  @override
+  String get cityNirasaki => 'Nirasaki';
+
+  @override
+  String get cityNishinomiya => 'Nishinomiya';
+
+  @override
+  String get cityNishinoomote => 'Nishinoomote';
+
+  @override
+  String get cityNishio => 'Nishio';
+
+  @override
+  String get cityNishiwaki => 'Nishiwaki';
+
+  @override
+  String get cityNobeoka => 'Nobeoka';
+
+  @override
+  String get cityNoda => 'Noda';
+
+  @override
+  String get cityNogata => 'Nogata';
+
+  @override
+  String get cityNomi => 'Nomi';
+
+  @override
+  String get cityNonoichi => 'Nonoichi';
+
+  @override
+  String get cityNoshiro => 'Noshiro';
+
+  @override
+  String get cityNumata => 'Numata';
+
+  @override
+  String get cityNumazu => 'Numazu';
+
+  @override
+  String get cityOamishirasato => 'Oamishirasato';
+
+  @override
+  String get cityObama => 'Obama';
+
+  @override
+  String get cityObihiro => 'Obihiro';
+
+  @override
+  String get cityObu => 'Obu';
+
+  @override
+  String get cityOda => 'Oda';
+
+  @override
+  String get cityOdaiba => 'Odaiba';
+
+  @override
+  String get cityOdate => 'Odate';
+
+  @override
+  String get cityOdawara => 'Odawara';
+
+  @override
+  String get cityOfunato => 'Ofunato';
+
+  @override
+  String get cityOgaki => 'Ogaki';
+
+  @override
+  String get cityOgi => 'Ogi';
+
+  @override
+  String get cityOgori => 'Ogori';
+
+  @override
+  String get cityOita => 'Oita';
+
+  @override
+  String get cityOitaCity => 'Oita City';
+
+  @override
+  String get cityOjiya => 'Ojiya';
+
+  @override
+  String get cityOkawa => 'Okawa';
+
+  @override
+  String get cityOkaya => 'Okaya';
+
+  @override
+  String get cityOkayama => 'Okayama';
+
+  @override
+  String get cityOkayamaCity => 'Okayama City';
+
+  @override
+  String get cityOkegawa => 'Okegawa';
+
+  @override
+  String get cityOkinawa => 'Okinawa';
+
+  @override
+  String get cityOmaezaki => 'Omaezaki';
+
+  @override
+  String get cityOmachi => 'Omachi';
+
+  @override
+  String get cityOmihachiman => 'Omihachiman';
+
+  @override
+  String get cityOmiya => 'Omiya';
+
+  @override
+  String get cityOmuta => 'Omuta';
+
+  @override
+  String get cityOmura => 'Omura';
+
+  @override
+  String get cityOnojo => 'Onojo';
+
+  @override
+  String get cityOnomichi => 'Onomichi';
+
+  @override
+  String get cityOno => 'Ono';
+
+  @override
+  String get cityOsaka => '大阪';
+
+  @override
+  String get cityOsakaCity => 'Osaka City';
+
+  @override
+  String get cityOsakasayama => 'Osakasayama';
+
+  @override
+  String get cityOshu => 'Oshu';
+
+  @override
+  String get cityOta => 'Ota';
+
+  @override
+  String get cityOtake => 'Otake';
+
+  @override
+  String get cityOtaru => 'Otaru';
+
+  @override
+  String get cityOhtawara => 'Ohtawara';
+
+  @override
+  String get cityOtsu => 'Otsu';
+
+  @override
+  String get cityOtsuki => 'Otsuki';
+
+  @override
+  String get cityOwariasahi => 'Owariasahi';
+
+  @override
+  String get cityOwase => 'Owase';
+
+  @override
+  String get cityOyabe => 'Oyabe';
+
+  @override
+  String get cityOyama => 'Oyama';
+
+  @override
+  String get cityOzu => 'Ozu';
+
+  @override
+  String get cityRitto => 'Ritto';
+
+  @override
+  String get cityRoppongi => 'Roppongi';
+
+  @override
+  String get cityRumoi => 'Rumoi';
+
+  @override
+  String get cityRyugasaki => 'Ryugasaki';
+
+  @override
+  String get citySabae => 'Sabae';
+
+  @override
+  String get citySado => 'Sado';
+
+  @override
+  String get citySaga => 'Saga';
+
+  @override
+  String get citySagaCity => 'Saga City';
+
+  @override
+  String get citySagae => 'Sagae';
+
+  @override
+  String get citySagamihara => 'Sagamihara';
+
+  @override
+  String get citySaijo => 'Saijo';
+
+  @override
+  String get citySaiki => 'Saiki';
+
+  @override
+  String get citySaikai => 'Saikai';
+
+  @override
+  String get citySaitama => 'Saitama';
+
+  @override
+  String get citySaito => 'Saito';
+
+  @override
+  String get citySakado => 'Sakado';
+
+  @override
+  String get citySakai => 'Sakai';
+
+  @override
+  String get citySakaide => 'Sakaide';
+
+  @override
+  String get citySakaiminato => 'Sakaiminato';
+
+  @override
+  String get citySakata => 'Sakata';
+
+  @override
+  String get citySakura => 'Sakura';
+
+  @override
+  String get citySakurai => 'Sakurai';
+
+  @override
+  String get citySaku => 'Saku';
+
+  @override
+  String get citySangenjaya => 'Sangenjaya';
+
+  @override
+  String get citySanjo => 'Sanjo';
+
+  @override
+  String get citySanmu => 'Sanmu';
+
+  @override
+  String get citySano => 'Sano';
+
+  @override
+  String get citySanuki => 'Sanuki';
+
+  @override
+  String get citySanyoOnoda => 'Sanyo-Onoda';
+
+  @override
+  String get citySasayama => 'Sasayama';
+
+  @override
+  String get citySasebo => 'Sasebo';
+
+  @override
+  String get citySatsuma => 'Satsuma';
+
+  @override
+  String get citySatsumasendai => 'Satsumasendai';
+
+  @override
+  String get citySayama => 'Sayama';
+
+  @override
+  String get citySeki => 'Seki';
+
+  @override
+  String get citySeiyo => 'Seiyo';
+
+  @override
+  String get citySendai => '仙台';
+
+  @override
+  String get citySennan => 'Sennan';
+
+  @override
+  String get citySeto => 'Seto';
+
+  @override
+  String get citySetouchi => 'Setouchi';
+
+  @override
+  String get citySettsu => 'Settsu';
+
+  @override
+  String get cityShibata => 'Shibata';
+
+  @override
+  String get cityShibukawa => 'Shibukawa';
+
+  @override
+  String get cityShiga => 'Shiga';
+
+  @override
+  String get cityShiki => 'Shiki';
+
+  @override
+  String get cityShikokuchuo => 'Shikokuchuo';
+
+  @override
+  String get cityShima => 'Shima';
+
+  @override
+  String get cityShimabara => 'Shimabara';
+
+  @override
+  String get cityShimada => 'Shimada';
+
+  @override
+  String get cityShimane => 'Shimane';
+
+  @override
+  String get cityShimanto => 'Shimanto';
+
+  @override
+  String get cityShimoda => 'Shimoda';
+
+  @override
+  String get cityShimokitazawa => 'Shimokitazawa';
+
+  @override
+  String get cityShimonoseki => 'Shimonoseki';
+
+  @override
+  String get cityShimotsuke => 'Shimotsuke';
+
+  @override
+  String get cityShimotsuma => 'Shimotsuma';
+
+  @override
+  String get cityShingu => 'Shingu';
+
+  @override
+  String get cityShinio => 'Shinjo';
+
+  @override
+  String get cityShinsaibashi => 'Shinsaibashi';
+
+  @override
+  String get cityShinsho => 'Shinshiro';
+
+  @override
+  String get cityShinan => 'Shiogama';
+
+  @override
+  String get cityShiojiri => 'Shiojiri';
+
+  @override
+  String get cityShijonawate => 'Shijonawate';
+
+  @override
+  String get cityShiraoka => 'Shiraoka';
+
+  @override
+  String get cityShirakawa => 'Shirakawa';
+
+  @override
+  String get cityShiroi => 'Shiroi';
+
+  @override
+  String get cityShiso => 'Shiso';
+
+  @override
+  String get cityShizuoka => 'Shizuoka';
+
+  @override
+  String get cityShizuokaCity => 'Shizuoka City';
+
+  @override
+  String get cityShobara => 'Shobara';
+
+  @override
+  String get cityShunan => 'Shunan';
+
+  @override
+  String get citySodegaura => 'Sodegaura';
+
+  @override
+  String get citySoja => 'Soja';
+
+  @override
+  String get citySoka => 'Soka';
+
+  @override
+  String get citySoma => 'Soma';
+
+  @override
+  String get citySoo => 'Soo';
+
+  @override
+  String get citySosa => 'Sosa';
+
+  @override
+  String get citySuita => 'Suita';
+
+  @override
+  String get citySukagawa => 'Sukagawa';
+
+  @override
+  String get citySukumo => 'Sukumo';
+
+  @override
+  String get citySumoto => 'Sumoto';
+
+  @override
+  String get citySusaki => 'Susaki';
+
+  @override
+  String get citySusono => 'Susono';
+
+  @override
+  String get citySusukino => 'Susukino';
+
+  @override
+  String get citySuwa => 'Suwa';
+
+  @override
+  String get citySuzu => 'Suzu';
+
+  @override
+  String get citySuzaka => 'Suzaka';
+
+  @override
+  String get citySuzuka => 'Suzuka';
+
+  @override
+  String get cityTagajo => 'Tagajo';
+
+  @override
+  String get cityTagawa => 'Tagawa';
+
+  @override
+  String get cityTainai => 'Tainai';
+
+  @override
+  String get cityTajimi => 'Tajimi';
+
+  @override
+  String get cityTakahama => 'Takahama';
+
+  @override
+  String get cityTakahashi => 'Takahashi';
+
+  @override
+  String get cityTakaishi => 'Takaishi';
+
+  @override
+  String get cityTakamatsu => 'Takamatsu';
+
+  @override
+  String get cityTakaoka => 'Takaoka';
+
+  @override
+  String get cityTakaoaka => 'Takasago';
+
+  @override
+  String get cityTakasaki => 'Takasaki';
+
+  @override
+  String get cityTakashima => 'Takashima';
+
+  @override
+  String get cityTakarazuka => 'Takarazuka';
+
+  @override
+  String get cityTakatsuki => 'Takatsuki';
+
+  @override
+  String get cityTakayama => 'Takayama';
+
+  @override
+  String get cityTakeo => 'Takeo';
+
+  @override
+  String get cityTakehara => 'Takehara';
+
+  @override
+  String get cityTaketa => 'Taketa';
+
+  @override
+  String get cityTakizawa => 'Takizawa';
+
+  @override
+  String get cityTama => 'Tamana';
+
+  @override
+  String get cityTamano => 'Tamano';
+
+  @override
+  String get cityTamba => 'Tanba';
+
+  @override
+  String get cityTambaSasayama => 'Tamba-Sasayama';
+
+  @override
+  String get cityTamura => 'Tamura';
+
+  @override
+  String get cityTanabe => 'Tanabe';
+
+  @override
+  String get cityTatebayashi => 'Tatebayashi';
+
+  @override
+  String get cityTarumizu => 'Tarumizu';
+
+  @override
+  String get cityTendo => 'Tendo';
+
+  @override
+  String get cityTenjinCentral => 'Tenjin Central';
+
+  @override
+  String get cityTenri => 'Tenri';
+
+  @override
+  String get cityToba => 'Toba';
+
+  @override
+  String get cityTochigi => 'Tochigi';
+
+  @override
+  String get cityToda => 'Toda';
+
+  @override
+  String get cityTogane => 'Togane';
+
+  @override
+  String get cityToki => 'Toki';
+
+  @override
+  String get cityTokai => 'Tokai';
+
+  @override
+  String get cityTokamachi => 'Tokamachi';
+
+  @override
+  String get cityTokoname => 'Tokoname';
+
+  @override
+  String get cityTokorozawa => 'Tokorozawa';
+
+  @override
+  String get cityTokushima => 'Tokushima';
+
+  @override
+  String get cityTokushimaCity => 'Tokushima City';
+
+  @override
+  String get cityTokyo => '东京';
+
+  @override
+  String get cityTomakomai => 'Tomakomai';
+
+  @override
+  String get cityTome => 'Tome';
+
+  @override
+  String get cityTomi => 'Tomi';
+
+  @override
+  String get cityTomigusuku => 'Tomigusuku';
+
+  @override
+  String get cityTomioka => 'Tomioka';
+
+  @override
+  String get cityTomisato => 'Tomisato';
+
+  @override
+  String get cityTonami => 'Tonami';
+
+  @override
+  String get cityTondabayashi => 'Tondabayashi';
+
+  @override
+  String get cityTono => 'Tono';
+
+  @override
+  String get cityToon => 'Toon';
+
+  @override
+  String get cityToride => 'Toride';
+
+  @override
+  String get cityTosa => 'Tosa';
+
+  @override
+  String get cityTosashimizu => 'Tosashimizu';
+
+  @override
+  String get cityTosu => 'Tosu';
+
+  @override
+  String get cityTottori => 'Tottori';
+
+  @override
+  String get cityTottoriCity => 'Tottori City';
+
+  @override
+  String get cityTowada => 'Towada';
+
+  @override
+  String get cityToyama => 'Toyama';
+
+  @override
+  String get cityToyamaCity => 'Toyama City';
+
+  @override
+  String get cityToyohashi => 'Toyohashi';
+
+  @override
+  String get cityToyokawa => 'Toyokawa';
+
+  @override
+  String get cityToyonaka => 'Toyonaka';
+
+  @override
+  String get cityToyooka => 'Toyooka';
+
+  @override
+  String get cityToyota => 'Toyota';
+
+  @override
+  String get cityTsubame => 'Tsubame';
+
+  @override
+  String get cityTsuchiura => 'Tsuchiura';
+
+  @override
+  String get cityTsugaru => 'Tsugaru';
+
+  @override
+  String get cityTsukuba => 'Tsukuba';
+
+  @override
+  String get cityTsukumi => 'Tsukumi';
+
+  @override
+  String get cityTsu => 'Tsu';
+
+  @override
+  String get cityTsuruga => 'Tsuruga';
+
+  @override
+  String get cityTsurugashima => 'Tsurugashima';
+
+  @override
+  String get cityTsuruoka => 'Tsuruoka';
+
+  @override
+  String get cityTsuru => 'Tsuru';
+
+  @override
+  String get cityTsushima => 'Tsushima';
+
+  @override
+  String get cityTsuyama => 'Tsuyama';
+
+  @override
+  String get cityUbe => 'Ube';
+
+  @override
+  String get cityUchi => 'Uchiko';
+
+  @override
+  String get cityUda => 'Uda';
+
+  @override
+  String get cityUeda => 'Ueda';
+
+  @override
+  String get cityUenohara => 'Uenohara';
+
+  @override
+  String get cityUeno => '上野';
+
+  @override
+  String get cityUji => 'Uji';
+
+  @override
+  String get cityUkiha => 'Ukiha';
+
+  @override
+  String get cityUki => 'Uki';
+
+  @override
+  String get cityUmeda => 'Umeda';
+
+  @override
+  String get cityUnnan => 'Unnan';
+
+  @override
+  String get cityUnzen => 'Unzen';
+
+  @override
+  String get cityUonuma => 'Uonuma';
+
+  @override
+  String get cityUozu => 'Uozu';
+
+  @override
+  String get cityUrasoe => 'Urasoe';
+
+  @override
+  String get cityUrayasu => 'Urayasu';
+
+  @override
+  String get cityUreshino => 'Ureshino';
+
+  @override
+  String get cityUruma => 'Uruma';
+
+  @override
+  String get cityUrawa => 'Urawa';
+
+  @override
+  String get cityUsa => 'Usa';
+
+  @override
+  String get cityUshiku => 'Ushiku';
+
+  @override
+  String get cityUto => 'Uto';
+
+  @override
+  String get cityUtsunomiya => 'Utsunomiya';
+
+  @override
+  String get cityUwajima => 'Uwajima';
+
+  @override
+  String get cityWajima => 'Wajima';
+
+  @override
+  String get cityWakayama => 'Wakayama';
+
+  @override
+  String get cityWakayamaCity => 'Wakayama City';
+
+  @override
+  String get cityWakkanai => 'Wakkanai';
+
+  @override
+  String get cityWako => 'Wako';
+
+  @override
+  String get cityWarabi => 'Warabi';
+
+  @override
+  String get cityYabu => 'Yabu';
+
+  @override
+  String get cityYachimat => 'Yachimata';
+
+  @override
+  String get cityYachiyo => 'Yachiyo';
+
+  @override
+  String get cityYaita => 'Yaita';
+
+  @override
+  String get cityYaizu => 'Yaizu';
+
+  @override
+  String get cityYakumo => 'Yame';
+
+  @override
+  String get cityYamagata => 'Yamagata';
+
+  @override
+  String get cityYamagataCity => 'Yamagata City';
+
+  @override
+  String get cityYamaguchi => 'Yamaguchi';
+
+  @override
+  String get cityYamaguchiCity => 'Yamaguchi City';
+
+  @override
+  String get cityYamaga => 'Yamaga';
+
+  @override
+  String get cityYamanashi => 'Yamanashi';
+
+  @override
+  String get cityYamato => 'Yamato';
+
+  @override
+  String get cityYamatokoriyama => 'Yamatokoriyama';
+
+  @override
+  String get cityYamatoTakada => 'Yamato-Takada';
+
+  @override
+  String get cityYanagawa => 'Yanagawa';
+
+  @override
+  String get cityYanai => 'Yanai';
+
+  @override
+  String get cityYao => 'Yao';
+
+  @override
+  String get cityYashio => 'Yashio';
+
+  @override
+  String get cityYasu => 'Yasu';
+
+  @override
+  String get cityYasugi => 'Yasugi';
+
+  @override
+  String get cityYatsushiro => 'Yatsushiro';
+
+  @override
+  String get cityYawata => 'Yawata';
+
+  @override
+  String get cityYawatahama => 'Yawatahama';
+
+  @override
+  String get cityYokkaichi => 'Yokkaichi';
+
+  @override
+  String get cityYokoha => 'Yokohama';
+
+  @override
+  String get cityYokosuka => 'Yokosuka';
+
+  @override
+  String get cityYokote => 'Yokote';
+
+  @override
+  String get cityYonago => 'Yonago';
+
+  @override
+  String get cityYonezawa => 'Yonezawa';
+
+  @override
+  String get cityYoshikawa => 'Yoshikawa';
+
+  @override
+  String get cityYoshinogawa => 'Yoshinogawa';
+
+  @override
+  String get cityYotsukaido => 'Yotsukaido';
+
+  @override
+  String get cityYotsuy => 'Yotsuya';
+
+  @override
+  String get cityYufu => 'Yufu';
+
+  @override
+  String get cityYuki => 'Yuki';
+
+  @override
+  String get cityYukuhashi => 'Yukuhashi';
+
+  @override
+  String get cityYuzawa => 'Yuzawa';
+
+  @override
+  String get cityZama => 'Zama';
+
+  @override
+  String get cityZentsuji => 'Zentsuji';
+
+  @override
+  String get cityZushi => 'Zushi';
 }

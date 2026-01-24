@@ -922,6 +922,54 @@ abstract class AppLocalizations {
   /// **'Prefectures'**
   String get prefectures;
 
+  /// No description provided for @regionHokkaido.
+  ///
+  /// In en, this message translates to:
+  /// **'Hokkaido Region'**
+  String get regionHokkaido;
+
+  /// No description provided for @regionTohoku.
+  ///
+  /// In en, this message translates to:
+  /// **'Tohoku Region'**
+  String get regionTohoku;
+
+  /// No description provided for @regionKanto.
+  ///
+  /// In en, this message translates to:
+  /// **'Kanto Region'**
+  String get regionKanto;
+
+  /// No description provided for @regionChubu.
+  ///
+  /// In en, this message translates to:
+  /// **'Chubu Region'**
+  String get regionChubu;
+
+  /// No description provided for @regionKansai.
+  ///
+  /// In en, this message translates to:
+  /// **'Kansai Region'**
+  String get regionKansai;
+
+  /// No description provided for @regionChugoku.
+  ///
+  /// In en, this message translates to:
+  /// **'Chugoku Region'**
+  String get regionChugoku;
+
+  /// No description provided for @regionShikoku.
+  ///
+  /// In en, this message translates to:
+  /// **'Shikoku Region'**
+  String get regionShikoku;
+
+  /// No description provided for @regionKyushuOkinawa.
+  ///
+  /// In en, this message translates to:
+  /// **'Kyushu & Okinawa Region'**
+  String get regionKyushuOkinawa;
+
   /// No description provided for @citiesDistricts.
   ///
   /// In en, this message translates to:

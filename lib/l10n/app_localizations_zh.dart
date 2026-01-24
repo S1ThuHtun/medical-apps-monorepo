@@ -419,16 +419,40 @@ class AppLocalizationsZh extends AppLocalizations {
   String get selectPrefecture => '选择都道府县';
 
   @override
-  String get selectCity => '选择城市';
+  String get selectCity => '选择市区町村';
 
   @override
-  String get selectWard => '选择地区';
+  String get selectWard => '选择区';
 
   @override
   String get useCurrentLocation => '使用当前位置';
 
   @override
   String get prefectures => '都道府县';
+
+  @override
+  String get regionHokkaido => '北海道地区';
+
+  @override
+  String get regionTohoku => '东北地区';
+
+  @override
+  String get regionKanto => '关东地区';
+
+  @override
+  String get regionChubu => '中部地区';
+
+  @override
+  String get regionKansai => '关西地区';
+
+  @override
+  String get regionChugoku => '中国地区';
+
+  @override
+  String get regionShikoku => '四国地区';
+
+  @override
+  String get regionKyushuOkinawa => '九州及冲绳地区';
 
   @override
   String get citiesDistricts => '城市/地区';

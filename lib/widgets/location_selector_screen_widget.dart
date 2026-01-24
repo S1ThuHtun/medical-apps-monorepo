@@ -65,16 +65,18 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
   }
 
   Widget _buildPrefectureList() {
-    // Define regions with their prefectures
+    final l10n = AppLocalizations.of(context)!;
+    
+    // Define regions with their prefectures (keys will be used for localization)
     final regions = {
-      'Hokkaido Region': ['Hokkaido'],
-      'Tohoku Region': ['Aomori', 'Iwate', 'Miyagi', 'Akita', 'Yamagata', 'Fukushima'],
-      'Kanto Region': ['Tokyo', 'Kanagawa', 'Yokohama', 'Saitama', 'Chiba', 'Ibaraki', 'Tochigi', 'Gunma'],
-      'Chubu Region': ['Niigata', 'Toyama', 'Ishikawa', 'Fukui', 'Yamanashi', 'Nagano', 'Gifu', 'Shizuoka', 'Aichi', 'Nagoya'],
-      'Kansai Region': ['Mie', 'Shiga', 'Kyoto', 'Osaka', 'Hyogo', 'Kobe', 'Nara', 'Wakayama'],
-      'Chugoku Region': ['Hiroshima', 'Okayama', 'Yamaguchi', 'Shimane', 'Tottori'],
-      'Shikoku Region': ['Tokushima', 'Kagawa', 'Ehime', 'Kochi'],
-      'Kyushu & Okinawa Region': ['Fukuoka', 'Saga', 'Nagasaki', 'Kumamoto', 'Oita', 'Miyazaki', 'Kagoshima', 'Okinawa'],
+      'regionHokkaido': ['Hokkaido'],
+      'regionTohoku': ['Aomori', 'Iwate', 'Miyagi', 'Akita', 'Yamagata', 'Fukushima'],
+      'regionKanto': ['Tokyo', 'Kanagawa', 'Yokohama', 'Saitama', 'Chiba', 'Ibaraki', 'Tochigi', 'Gunma'],
+      'regionChubu': ['Niigata', 'Toyama', 'Ishikawa', 'Fukui', 'Yamanashi', 'Nagano', 'Gifu', 'Shizuoka', 'Aichi', 'Nagoya'],
+      'regionKansai': ['Mie', 'Shiga', 'Kyoto', 'Osaka', 'Hyogo', 'Kobe', 'Nara', 'Wakayama'],
+      'regionChugoku': ['Hiroshima', 'Okayama', 'Yamaguchi', 'Shimane', 'Tottori'],
+      'regionShikoku': ['Tokushima', 'Kagawa', 'Ehime', 'Kochi'],
+      'regionKyushuOkinawa': ['Fukuoka', 'Saga', 'Nagasaki', 'Kumamoto', 'Oita', 'Miyazaki', 'Kagoshima', 'Okinawa'],
     };
 
     return ListView(
@@ -93,8 +95,25 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
         
         // Display prefectures grouped by regions
         ...regions.entries.map((regionEntry) {
-          final regionName = regionEntry.key;
+          final regionKey = regionEntry.key;
           final prefectures = regionEntry.value;
+          
+          // Get localized region name
+          String getLocalizedRegionName(String key) {
+            switch (key) {
+              case 'regionHokkaido': return l10n.regionHokkaido;
+              case 'regionTohoku': return l10n.regionTohoku;
+              case 'regionKanto': return l10n.regionKanto;
+              case 'regionChubu': return l10n.regionChubu;
+              case 'regionKansai': return l10n.regionKansai;
+              case 'regionChugoku': return l10n.regionChugoku;
+              case 'regionShikoku': return l10n.regionShikoku;
+              case 'regionKyushuOkinawa': return l10n.regionKyushuOkinawa;
+              default: return key;
+            }
+          }
+          
+          final regionName = getLocalizedRegionName(regionKey);
 
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,

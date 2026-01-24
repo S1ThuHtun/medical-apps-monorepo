@@ -435,6 +435,30 @@ class AppLocalizationsEn extends AppLocalizations {
   String get prefectures => 'Prefectures';
 
   @override
+  String get regionHokkaido => 'Hokkaido Region';
+
+  @override
+  String get regionTohoku => 'Tohoku Region';
+
+  @override
+  String get regionKanto => 'Kanto Region';
+
+  @override
+  String get regionChubu => 'Chubu Region';
+
+  @override
+  String get regionKansai => 'Kansai Region';
+
+  @override
+  String get regionChugoku => 'Chugoku Region';
+
+  @override
+  String get regionShikoku => 'Shikoku Region';
+
+  @override
+  String get regionKyushuOkinawa => 'Kyushu & Okinawa Region';
+
+  @override
   String get citiesDistricts => 'Cities / Districts';
 
   @override

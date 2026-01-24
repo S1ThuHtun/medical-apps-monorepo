@@ -422,13 +422,37 @@ class AppLocalizationsJa extends AppLocalizations {
   String get selectCity => '市区町村を選択';
 
   @override
-  String get selectWard => '地域を選択';
+  String get selectWard => '区を選択';
 
   @override
   String get useCurrentLocation => '現在地を使用';
 
   @override
   String get prefectures => '都道府県';
+
+  @override
+  String get regionHokkaido => '北海道地方';
+
+  @override
+  String get regionTohoku => '東北地方';
+
+  @override
+  String get regionKanto => '関東地方';
+
+  @override
+  String get regionChubu => '中部地方';
+
+  @override
+  String get regionKansai => '関西地方';
+
+  @override
+  String get regionChugoku => '中国地方';
+
+  @override
+  String get regionShikoku => '四国地方';
+
+  @override
+  String get regionKyushuOkinawa => '九州・沖縄地方';
 
   @override
   String get citiesDistricts => '市区町村';

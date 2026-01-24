@@ -101,6 +101,7 @@ const Map<String, String> serviceToPlacesType = {
   "OG/GYN": "doctor",
   "Psychiatry": "doctor",
   "Psychosomatic Medicine": "doctor",
+  "Pharmacy": "pharmacy",
 
   // Legacy service mappings
   "General Medicine": "doctor",

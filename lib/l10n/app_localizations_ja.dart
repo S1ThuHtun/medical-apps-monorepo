@@ -790,6 +790,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get servicePsychosomaticMedicine => '心療内科';
 
   @override
+  String get servicePharmacy => '薬局';
+
+  @override
   String get chatbotWelcome =>
       'こんにちは！私はあなたの医療アシスタントです。話しかけるか、質問を入力してください。今日はどのようにお手伝いできますか？';
 
@@ -824,7 +827,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get detailedModeActivated => '📋 詳細モードが有効になりました';
 
   @override
-  String get chatCleared => '✅ チャット履歴がクリアされました';
+  String get chatCleared => 'チャット履歴がクリアされました';
 
   @override
   String get thinking => '考え中...';

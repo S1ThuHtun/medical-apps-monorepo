@@ -798,6 +798,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get servicePsychosomaticMedicine => 'Psychosomatic Medicine';
 
   @override
+  String get servicePharmacy => 'Pharmacy';
+
+  @override
   String get chatbotWelcome =>
       'Hello! I\'m your medical assistant. You can speak to me or type your questions. How can I help you today?';
 
@@ -832,7 +835,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get detailedModeActivated => '📋 Detailed mode activated';
 
   @override
-  String get chatCleared => '✅ Chat history cleared';
+  String get chatCleared => 'Chat history cleared';
 
   @override
   String get thinking => 'Thinking...';

@@ -5,12 +5,13 @@ String getLocalizedServiceName(String serviceName, AppLocalizations localization
   final localizationMap = {
     // Core 11 Medical Services
     'Internal Medicine': localizations.serviceInternalMedicine,
+    'Pharmacy': localizations.servicePharmacy,
+    'Dentistry': localizations.serviceDentistry,
     'Surgery': localizations.serviceSurgery,
     'Orthopedics': localizations.serviceOrthopedics,
     'Dermatology': localizations.serviceDermatology,
     'Ophthalmology': localizations.serviceOphthalmology,
     'ENT': localizations.serviceENT,
-    'Dentistry': localizations.serviceDentistry,
     'Pediatrics': localizations.servicePediatrics,
     'OG/GYN': localizations.serviceOBGYN,
     'Psychiatry': localizations.servicePsychiatry,

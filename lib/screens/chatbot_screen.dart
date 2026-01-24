@@ -348,8 +348,8 @@ class _ChatbotScreenState
       ScaffoldMessenger.of(context)
           .showSnackBar(
         SnackBar(
-          content: const Text(
-              'Chat cleared. Ready for new conversation!'),
+          content: Text(
+              l10n.chatCleared),
           backgroundColor: successGreen,
           duration: const Duration(seconds: 2),
         ),
@@ -610,7 +610,7 @@ class _ChatbotScreenState
         lowerText.contains('片頭痛') ||
         lowerText.contains('头痛') ||
         lowerText.contains('偏头痛')) {
-      return 'General Medicine';
+      return 'Internal Medicine';
     }
 
     // Priority 3: Orthopedics
@@ -690,7 +690,7 @@ class _ChatbotScreenState
         lowerText.contains('鼻子') ||
         lowerText.contains('喉咙') ||
         lowerText.contains('耳鼻喉科')) {
-      return 'General Medicine';
+      return 'ENT';
     }
 
     // Priority 7: Surgery - Map to General Surgery
@@ -709,7 +709,7 @@ class _ChatbotScreenState
         lowerText.contains('伤口') ||
         lowerText.contains('受伤') ||
         lowerText.contains('手术')) {
-      return 'General Surgery';
+      return 'Surgery';
     }
 
     // Priority 8: Pediatrics
@@ -743,7 +743,7 @@ class _ChatbotScreenState
         lowerText.contains('怀孕') ||
         lowerText.contains('妇科') ||
         lowerText.contains('产科')) {
-      return 'Obstetrics and Gynecology';
+      return 'OG/GYN';
     }
 
     // Priority 10: Psychiatry
@@ -768,7 +768,42 @@ class _ChatbotScreenState
       return 'Psychiatry';
     }
 
-    // Priority 11: Internal Medicine (LAST - most general)
+    // Priority 10.5: Psychosomatic Medicine
+    if (lowerText.contains('psychosomatic') ||
+        lowerText.contains('心身症') ||
+        lowerText.contains('心療内科') ||
+        lowerText.contains('心身医学')) {
+      return 'Psychosomatic Medicine';
+    }
+
+    // Priority 11: Pharmacy
+    if (lowerText.contains('pharmacy') ||
+        lowerText.contains('pharmacist') ||
+        lowerText.contains('medication') ||
+        lowerText.contains('prescription') ||
+        lowerText.contains('pills') ||
+        lowerText.contains('tablets') ||
+        lowerText.contains('capsules') ||
+        lowerText.contains('buy medicine') ||
+        lowerText.contains('get medicine') ||
+        lowerText.contains('pick up medicine') ||
+        lowerText.contains('fill prescription') ||
+        lowerText.contains('refill') ||
+        lowerText.contains('薬局') ||
+        lowerText.contains('薬剤師') ||
+        lowerText.contains('処方') ||
+        lowerText.contains('薬品') ||
+        lowerText.contains('錠剤') ||
+        lowerText.contains('药房') ||
+        lowerText.contains('药店') ||
+        lowerText.contains('药剂师') ||
+        lowerText.contains('处方药') ||
+        lowerText.contains('买药') ||
+        lowerText.contains('取药')) {
+      return 'Pharmacy';
+    }
+
+    // Priority 12: Internal Medicine (LAST - most general)
     if (lowerText.contains('fever') ||
         lowerText.contains('cold') ||
         lowerText.contains('flu') ||
@@ -805,7 +840,7 @@ class _ChatbotScreenState
         lowerText.contains('恶心') ||
         lowerText.contains('腹泻') ||
         lowerText.contains('头晕')) {
-      return 'General Medicine';
+      return 'Internal Medicine';
     }
 
     return null;
@@ -1735,6 +1770,7 @@ Keep total response under 150 words but ALWAYS include emergency contacts.''';
                         ),
                       ),
                       child: TextField(
+                        key: ValueKey('textfield_${Localizations.localeOf(context).languageCode}'),
                         controller:
                             _controller,
                         style: const TextStyle(

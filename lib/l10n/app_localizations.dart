@@ -1636,6 +1636,12 @@ abstract class AppLocalizations {
   /// **'Psychosomatic Medicine'**
   String get servicePsychosomaticMedicine;
 
+  /// No description provided for @servicePharmacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Pharmacy'**
+  String get servicePharmacy;
+
   /// No description provided for @chatbotWelcome.
   ///
   /// In en, this message translates to:
@@ -1705,7 +1711,7 @@ abstract class AppLocalizations {
   /// No description provided for @chatCleared.
   ///
   /// In en, this message translates to:
-  /// **'✅ Chat history cleared'**
+  /// **'Chat history cleared'**
   String get chatCleared;
 
   /// No description provided for @thinking.

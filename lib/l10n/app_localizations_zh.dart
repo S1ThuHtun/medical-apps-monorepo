@@ -790,6 +790,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get servicePsychosomaticMedicine => '心身医学';
 
   @override
+  String get servicePharmacy => '药房';
+
+  @override
   String get chatbotWelcome => '你好！我是你的医疗助手。你可以对我说话或输入问题。今天我能帮你什么？';
 
   @override
@@ -823,7 +826,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get detailedModeActivated => '📋 详细模式已激活';
 
   @override
-  String get chatCleared => '✅ 聊天记录已清除';
+  String get chatCleared => '聊天记录已清除';
 
   @override
   String get thinking => '正在思考...';

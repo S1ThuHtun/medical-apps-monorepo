@@ -344,16 +344,17 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                itemCount: 11,
+                itemCount: 12,
                 itemBuilder: (context, index) {
                   final services = [
                     'Internal Medicine',
+                    'Pharmacy',
+                    'Dentistry',
                     'Surgery',
                     'Orthopedics',
                     'Dermatology',
                     'Ophthalmology',
                     'ENT',
-                    'Dentistry',
                     'Pediatrics',
                     'OG/GYN',
                     'Psychiatry',
@@ -429,9 +430,13 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
               await _searchNearbyServices(recommendedService);
 
               if (mounted) {
+                final localizedServiceName = getLocalizedServiceName(
+                  recommendedService, 
+                  AppLocalizations.of(context)!
+                );
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
-                    content: Text(AppLocalizations.of(context)!.searchingForService(recommendedService)),
+                    content: Text(AppLocalizations.of(context)!.searchingForService(localizedServiceName)),
                     backgroundColor: const Color(0xFF2E7D32),
                     duration: const Duration(seconds: 2),
                   ),

@@ -309,8 +309,10 @@ class _LocationSelectorScreenState extends State<LocationSelectorScreen> {
             size: 20,
           ),
         ),
+        // Title is automatically localized via getLocalizedLocationName()
+        // Falls back to romanized English name if translation not available
         title: Text(
-          title,
+          title, // Localized location name (EN/JA/ZH with fallback)
           style: TextStyle(
             fontWeight: isSelected ? FontWeight.w600 : FontWeight.w500,
             color: isSelected ? const Color(0xFF2E7D32) : Colors.black87,

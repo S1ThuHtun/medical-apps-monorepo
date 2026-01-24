@@ -24,7 +24,7 @@ class NotificationService {
       FlutterLocalNotificationsPlugin();
   bool _initialized = false;
   final AudioPlayer _audioPlayer = AudioPlayer();
-  
+
   // Store reminders for navigation
   final Map<String, Reminder> _reminderCache = {};
 
@@ -32,21 +32,18 @@ class NotificationService {
     if (_initialized) return;
 
     tzdata.initializeTimeZones();
-    tz.setLocalLocation(
-        tz.getLocation('Asia/Tokyo'));
+    tz.setLocalLocation(tz.getLocation('Asia/Tokyo'));
 
-    const androidSettings =
-        AndroidInitializationSettings(
-            '@mipmap/ic_launcher');
-    const iosSettings =
-        DarwinInitializationSettings(
+    const androidSettings = AndroidInitializationSettings(
+      '@mipmap/ic_launcher',
+    );
+    const iosSettings = DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true,
     );
 
-    const initSettings =
-        InitializationSettings(
+    const initSettings = InitializationSettings(
       android: androidSettings,
       iOS: iosSettings,
     );
@@ -73,29 +70,31 @@ class NotificationService {
     // when a scheduled notification fires in the foreground on iOS/Android.
     // The notification will appear in the notification shade, and the user must tap it.
     // This is by design for both iOS and Android - apps cannot auto-open when locked.
-    
+
     // For Android, we can use fullScreenIntent which will show on lock screen
     // For iOS, the notification must be tapped to open the app
     print('✅ Foreground notification handler setup complete');
-    print('⚠️ Note: On iOS/Android, user must tap notification to open app when screen is locked');
+    print(
+      '⚠️ Note: On iOS/Android, user must tap notification to open app when screen is locked',
+    );
   }
 
   void _onNotificationTap(NotificationResponse response) {
     print('Notification tapped: ${response.payload}');
-    
+
     if (response.payload != null) {
       final parts = response.payload!.split('|');
       if (parts.isNotEmpty) {
         final reminderId = parts[0];
         final reminder = _reminderCache[reminderId];
-        
+
         print('Looking for reminder: $reminderId');
         print('Reminder found: ${reminder != null}');
-        
+
         if (reminder != null) {
           // Play alarm sound
           playAlarm();
-          
+
           print('Navigating to notification screen...');
           // Navigate to notification screen
           Future.delayed(Duration.zero, () {
@@ -112,7 +111,7 @@ class NotificationService {
       }
     }
   }
-  
+
   Future<void> playAlarm() async {
     try {
       // Set audio player to loop continuously for persistent alarm
@@ -127,12 +126,16 @@ class NotificationService {
         // Fallback: Try to play a simple tone from a free online source
         // This URL provides a simple notification beep sound
         try {
-          await _audioPlayer.play(UrlSource(
-            'https://actions.google.com/sounds/v1/alarms/beep_short.ogg'
-          ));
+          await _audioPlayer.play(
+            UrlSource(
+              'https://actions.google.com/sounds/v1/alarms/beep_short.ogg',
+            ),
+          );
           print('🔔 Playing fallback alarm sound from URL');
         } catch (urlError) {
-          print('⚠️ Could not play alarm sound. Asset error: $assetError, URL error: $urlError');
+          print(
+            '⚠️ Could not play alarm sound. Asset error: $assetError, URL error: $urlError',
+          );
           print('💡 To fix: Add an alarm.mp3 file to assets/sounds/');
         }
       }
@@ -140,34 +143,38 @@ class NotificationService {
       print('⚠️ Error playing alarm: $e');
     }
   }
-  
+
   Future<void> stopAlarm() async {
     await _audioPlayer.stop();
   }
-  
+
   void cacheReminder(String reminderId, Reminder reminder) {
     _reminderCache[reminderId] = reminder;
   }
 
-  Future<bool>
-      requestPermissions() async {
+  void removeCachedReminder(String reminderId) {
+    _reminderCache.remove(reminderId);
+    print('🗑️ Removed cached reminder: $reminderId');
+  }
+
+  Future<bool> requestPermissions() async {
     final android = _notifications
         .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin>();
+          AndroidFlutterLocalNotificationsPlugin
+        >();
 
     if (android != null) {
-      final granted = await android
-          .requestNotificationsPermission();
+      final granted = await android.requestNotificationsPermission();
       return granted ?? false;
     }
 
     final iOS = _notifications
         .resolvePlatformSpecificImplementation<
-            IOSFlutterLocalNotificationsPlugin>();
+          IOSFlutterLocalNotificationsPlugin
+        >();
 
     if (iOS != null) {
-      final granted =
-          await iOS.requestPermissions(
+      final granted = await iOS.requestPermissions(
         alert: true,
         badge: true,
         sound: true,
@@ -264,10 +271,8 @@ class NotificationService {
     );
   }
 
-  tz.TZDateTime _nextInstanceOfTime(
-      int hour, int minute) {
-    final now =
-        tz.TZDateTime.now(tz.local);
+  tz.TZDateTime _nextInstanceOfTime(int hour, int minute) {
+    final now = tz.TZDateTime.now(tz.local);
     var scheduledDate = tz.TZDateTime(
       tz.local,
       now.year,
@@ -278,8 +283,7 @@ class NotificationService {
     );
 
     if (scheduledDate.isBefore(now)) {
-      scheduledDate = scheduledDate
-          .add(const Duration(days: 1));
+      scheduledDate = scheduledDate.add(const Duration(days: 1));
     }
 
     return scheduledDate;
@@ -295,26 +299,19 @@ class NotificationService {
     required List<String> doseLabels,
     required List<String> notificationBodies,
   }) async {
-    for (int i = 0;
-        i < doseTimes.length;
-        i++) {
+    for (int i = 0; i < doseTimes.length; i++) {
       final time = doseTimes[i];
       final parts = time.split(':');
       final hour = int.parse(parts[0]);
-      final minute =
-          int.parse(parts[1]);
+      final minute = int.parse(parts[1]);
 
-      final notificationId =
-          '${reminderId}_$i'.hashCode;
-      final doseLabel =
-          i < doseLabels.length ? doseLabels[i] : '';
+      final notificationId = '${reminderId}_$i'.hashCode;
+      final doseLabel = i < doseLabels.length ? doseLabels[i] : '';
 
       final title = doseLabel.isNotEmpty
           ? '$medicineName ($doseLabel)'
           : medicineName;
-      final body = i < notificationBodies.length
-          ? notificationBodies[i]
-          : '';
+      final body = i < notificationBodies.length ? notificationBodies[i] : '';
 
       if (repeatType == 'everyday') {
         await scheduleDailyNotification(
@@ -328,10 +325,7 @@ class NotificationService {
           channelDescription: notificationChannelDescription,
         );
       } else {
-        final scheduledTime =
-            _nextInstanceOfTime(
-                    hour, minute)
-                .toLocal();
+        final scheduledTime = _nextInstanceOfTime(hour, minute).toLocal();
         await scheduleNotification(
           id: notificationId,
           title: title,
@@ -345,25 +339,17 @@ class NotificationService {
     }
   }
 
-  Future<void> cancelDoseNotification(
-      String reminderId,
-      int doseIndex) async {
-    final notificationId =
-        '${reminderId}_$doseIndex'
-            .hashCode;
-    await _notifications
-        .cancel(notificationId);
+  Future<void> cancelDoseNotification(String reminderId, int doseIndex) async {
+    final notificationId = '${reminderId}_$doseIndex'.hashCode;
+    await _notifications.cancel(notificationId);
   }
 
-  Future<void>
-      cancelReminderNotifications(
-          String reminderId,
-          int dosesCount) async {
-    for (int i = 0;
-        i < dosesCount;
-        i++) {
-      await cancelDoseNotification(
-          reminderId, i);
+  Future<void> cancelReminderNotifications(
+    String reminderId,
+    int dosesCount,
+  ) async {
+    for (int i = 0; i < dosesCount; i++) {
+      await cancelDoseNotification(reminderId, i);
     }
   }
 
@@ -371,12 +357,10 @@ class NotificationService {
     await _notifications.cancelAll();
   }
 
-  Future<List<PendingNotificationRequest>>
-      getPendingNotifications() async {
-    return await _notifications
-        .pendingNotificationRequests();
+  Future<List<PendingNotificationRequest>> getPendingNotifications() async {
+    return await _notifications.pendingNotificationRequests();
   }
-  
+
   // Show immediate notification for testing
   Future<void> showImmediateNotification({
     required String reminderId,

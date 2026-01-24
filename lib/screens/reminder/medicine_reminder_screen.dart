@@ -43,7 +43,9 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
       if (remindersJson != null) {
         final List<dynamic> decodedList = json.decode(remindersJson);
         setState(() {
-          reminders = decodedList.map((item) => Reminder.fromJson(item)).toList();
+          reminders = decodedList
+              .map((item) => Reminder.fromJson(item))
+              .toList();
           _isLoading = false;
         });
 
@@ -54,10 +56,10 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
         // Schedule all reminders as local notifications (works even when screen is locked)
         await BackgroundAlarmService().scheduleAllReminders(reminders);
-        
+
         // Start foreground monitoring (auto-shows notification screen when app is open)
         ForegroundAlarmMonitor().startMonitoring(reminders);
-        
+
         print('✅ Loaded ${reminders.length} reminders from storage');
       } else {
         setState(() {
@@ -77,7 +79,9 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
   Future<void> _saveReminders() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      final remindersJson = json.encode(reminders.map((r) => r.toJson()).toList());
+      final remindersJson = json.encode(
+        reminders.map((r) => r.toJson()).toList(),
+      );
       await prefs.setString('reminders', remindersJson);
       print('✅ Saved ${reminders.length} reminders to storage');
     } catch (e) {
@@ -101,7 +105,7 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
     // Schedule notification with BackgroundAlarmService (works even when screen is locked)
     await BackgroundAlarmService().scheduleAllReminders(reminders);
-    
+
     // Update foreground monitor
     ForegroundAlarmMonitor().updateReminders(reminders);
 
@@ -168,10 +172,10 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
       // Reschedule all reminders (works even when screen is locked)
       await BackgroundAlarmService().scheduleAllReminders(reminders);
-      
+
       // Update foreground monitor
       ForegroundAlarmMonitor().updateReminders(reminders);
-      
+
       // Clear trigger for edited reminder so it can fire again
       ForegroundAlarmMonitor().clearTrigger(updatedReminder.id);
 
@@ -235,13 +239,22 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
     // Save to persistent storage
     await _saveReminders();
 
+    // Stop alarm if currently playing
+    await NotificationService().stopAlarm();
+
+    // Remove from notification cache
+    NotificationService().removeCachedReminder(id);
+
     // Cancel notifications for deleted reminder
     await BackgroundAlarmService().cancelReminder(id, reminder.dosesPerDay);
 
+    // Clear triggers for deleted reminder from foreground monitor
+    ForegroundAlarmMonitor().clearTrigger(id);
+
     // Reschedule remaining reminders
     await BackgroundAlarmService().scheduleAllReminders(reminders);
-    
-    // Update foreground monitor
+
+    // Update foreground monitor with new list
     ForegroundAlarmMonitor().updateReminders(reminders);
   }
 
@@ -258,7 +271,7 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
 
     // Reschedule reminders when toggled (disabled reminders won't be scheduled)
     await BackgroundAlarmService().scheduleAllReminders(reminders);
-    
+
     // Update foreground monitor
     ForegroundAlarmMonitor().updateReminders(reminders);
   }
@@ -298,15 +311,15 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
         // ),
         child: _isLoading
             ? const Center(child: CircularProgressIndicator())
-            : reminders.isEmpty ? _buildEmptyState() : _buildReminderList(),
+            : reminders.isEmpty
+            ? _buildEmptyState()
+            : _buildReminderList(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final newReminder = await Navigator.push<Reminder>(
             context,
-            MaterialPageRoute(
-              builder: (context) => const AddReminderScreen(),
-            ),
+            MaterialPageRoute(builder: (context) => const AddReminderScreen()),
           );
           if (newReminder != null) {
             _addReminder(newReminder);
@@ -349,10 +362,7 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
           const SizedBox(height: 8),
           Text(
             l10n.reminderEmptySubtitle,
-            style: TextStyle(
-              fontSize: 12,
-              color: Colors.grey[600],
-            ),
+            style: TextStyle(fontSize: 12, color: Colors.grey[600]),
           ),
         ],
       ),

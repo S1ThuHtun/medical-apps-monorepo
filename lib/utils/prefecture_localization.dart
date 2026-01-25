@@ -147,11 +147,14 @@ String getLocalizedLocationName(String locationName, AppLocalizations localizati
     'Ibaraki': localizations.cityIbaraki,
     'Mito': localizations.cityMito,
     'Hitachi': localizations.cityHitachi,
+    'Hitachiota': localizations.cityHitachiota,
     'Tsuchiura': localizations.cityTsuchiura,
     'Tsukuba': localizations.cityTsukuba,
     'Koga': localizations.cityKoga,
     'Ishioka': localizations.cityIshioka,
     'Kasama': localizations.cityKasama,
+    'Kitaibaraki': localizations.cityKitaibaraki,
+    'Takahagi': localizations.cityTakahagi,
     'Toride': localizations.cityToride,
     'Ushiku': localizations.cityUshiku,
 
@@ -185,14 +188,17 @@ String getLocalizedLocationName(String locationName, AppLocalizations localizati
 
     // --- Saitama Prefecture ---
     'Saitama': localizations.citySaitama,
+    'Saitama City': localizations.citySaitama,
     'Kawagoe': localizations.cityKawagoe,
     'Kawaguchi': localizations.cityKawaguchi,
     'Tokorozawa': localizations.cityTokorozawa,
     'Kumagaya': localizations.cityKumagaya,
     'Koshigaya': localizations.cityKoshigaya,
     'Kasukabe': localizations.cityKasukabe,
+    'Fukaya': localizations.cityFukaya,
     'Ageo': localizations.cityAgeo,
     'Soka': localizations.citySoka,
+    'Hanno': localizations.cityHanno,
     'Niiza': localizations.cityNiiza,
     'Sayama': localizations.citySayama,
 

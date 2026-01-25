@@ -1241,7 +1241,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityAsago => 'Asago';
 
   @override
-  String get cityAsahi => 'Asahi';
+  String get cityAsahi => '旭区';
 
   @override
   String get cityAsaka => 'Asaka';
@@ -1283,13 +1283,127 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityAyabe => 'Ayabe';
 
   @override
-  String get cityAyase => 'Ayase';
+  String get cityAyase => '绫濑';
 
   @override
   String get cityAzabu => 'Azabu';
 
   @override
   String get cityAzumino => 'Azumino';
+
+  @override
+  String get cityAdachi => '足立区';
+
+  @override
+  String get cityArakawa => '荒川区';
+
+  @override
+  String get cityBunkyo => '文京区';
+
+  @override
+  String get cityEdogawa => '江户川区';
+
+  @override
+  String get cityItabashi => '板桥区';
+
+  @override
+  String get cityKatsushika => '葛饰区';
+
+  @override
+  String get cityKoto => '江东区';
+
+  @override
+  String get cityMeguro => '目黑区';
+
+  @override
+  String get cityNakano => '中野区';
+
+  @override
+  String get cityNerima => '练马区';
+
+  @override
+  String get cityOta => '太田';
+
+  @override
+  String get cityOtaWard => '大田区';
+
+  @override
+  String get cityShinagawa => '品川区';
+
+  @override
+  String get citySuginami => '杉并区';
+
+  @override
+  String get citySumida => '墨田区';
+
+  @override
+  String get cityTaito => '台东区';
+
+  @override
+  String get cityToshima => '丰岛区';
+
+  @override
+  String get cityMiura => '三浦';
+
+  @override
+  String get cityHadano => '秦野';
+
+  @override
+  String get cityIsehara => '伊势原';
+
+  @override
+  String get cityMinamiashigara => '南足柄';
+
+  @override
+  String get cityTsurumi => '鹤见区';
+
+  @override
+  String get cityKanagawaWard => '神奈川区';
+
+  @override
+  String get cityKohoku => '港北区';
+
+  @override
+  String get cityTotsuka => '户塚区';
+
+  @override
+  String get cityHodogaya => '保土谷区';
+
+  @override
+  String get cityIsogo => '矶子区';
+
+  @override
+  String get cityKanazawaWard => '金泽区';
+
+  @override
+  String get cityKonanWard => '港南区';
+
+  @override
+  String get cityMidori => '绿区';
+
+  @override
+  String get citySeya => '濑谷区';
+
+  @override
+  String get citySakae => '荣区';
+
+  @override
+  String get cityIzumiWard => '泉区';
+
+  @override
+  String get cityAoba => '青叶区';
+
+  @override
+  String get cityTsuzuki => '都筑区';
+
+  @override
+  String get cityNishi => '西区';
+
+  @override
+  String get cityMinami => '南区';
+
+  @override
+  String get cityNakaWard => '中区';
 
   @override
   String get cityBeppu => 'Beppu';
@@ -1526,9 +1640,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityHachimantai => '八幡平';
 
   @override
-  String get cityHadano => 'Hadano';
-
-  @override
   String get cityHagi => 'Hagi';
 
   @override
@@ -1755,9 +1866,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityIse => 'Ise';
-
-  @override
-  String get cityIsehara => 'Isehara';
 
   @override
   String get cityIsesaki => 'Isesaki';
@@ -2267,9 +2375,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityMie => 'Mie';
 
   @override
-  String get cityMidori => 'Midori';
-
-  @override
   String get cityMihara => 'Mihara';
 
   @override
@@ -2286,9 +2391,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityMinamiAlps => 'Minami-Alps';
-
-  @override
-  String get cityMinamiashigara => 'Minamiashigara';
 
   @override
   String get cityMinamiawaji => 'Minamiawaji';
@@ -2340,9 +2442,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityMitsuke => 'Mitsuke';
-
-  @override
-  String get cityMiura => 'Miura';
 
   @override
   String get cityMiyagi => 'Miyagi';
@@ -2481,9 +2580,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityNakanoshima => 'Nakanoshima';
-
-  @override
-  String get cityNakano => 'Nakano';
 
   @override
   String get cityNakatsugawa => 'Nakatsugawa';
@@ -2724,9 +2820,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityOshu => '奥州';
-
-  @override
-  String get cityOta => 'Ota';
 
   @override
   String get cityOtake => 'Otake';

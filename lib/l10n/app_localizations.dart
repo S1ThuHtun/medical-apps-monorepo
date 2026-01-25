@@ -2614,6 +2614,234 @@ abstract class AppLocalizations {
   /// **'Azumino'**
   String get cityAzumino;
 
+  /// No description provided for @cityAdachi.
+  ///
+  /// In en, this message translates to:
+  /// **'Adachi'**
+  String get cityAdachi;
+
+  /// No description provided for @cityArakawa.
+  ///
+  /// In en, this message translates to:
+  /// **'Arakawa'**
+  String get cityArakawa;
+
+  /// No description provided for @cityBunkyo.
+  ///
+  /// In en, this message translates to:
+  /// **'Bunkyo'**
+  String get cityBunkyo;
+
+  /// No description provided for @cityEdogawa.
+  ///
+  /// In en, this message translates to:
+  /// **'Edogawa'**
+  String get cityEdogawa;
+
+  /// No description provided for @cityItabashi.
+  ///
+  /// In en, this message translates to:
+  /// **'Itabashi'**
+  String get cityItabashi;
+
+  /// No description provided for @cityKatsushika.
+  ///
+  /// In en, this message translates to:
+  /// **'Katsushika'**
+  String get cityKatsushika;
+
+  /// No description provided for @cityKoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Koto'**
+  String get cityKoto;
+
+  /// No description provided for @cityMeguro.
+  ///
+  /// In en, this message translates to:
+  /// **'Meguro'**
+  String get cityMeguro;
+
+  /// No description provided for @cityNakano.
+  ///
+  /// In en, this message translates to:
+  /// **'Nakano'**
+  String get cityNakano;
+
+  /// No description provided for @cityNerima.
+  ///
+  /// In en, this message translates to:
+  /// **'Nerima'**
+  String get cityNerima;
+
+  /// No description provided for @cityOta.
+  ///
+  /// In en, this message translates to:
+  /// **'Ota'**
+  String get cityOta;
+
+  /// No description provided for @cityOtaWard.
+  ///
+  /// In en, this message translates to:
+  /// **'Ota Ward'**
+  String get cityOtaWard;
+
+  /// No description provided for @cityShinagawa.
+  ///
+  /// In en, this message translates to:
+  /// **'Shinagawa'**
+  String get cityShinagawa;
+
+  /// No description provided for @citySuginami.
+  ///
+  /// In en, this message translates to:
+  /// **'Suginami'**
+  String get citySuginami;
+
+  /// No description provided for @citySumida.
+  ///
+  /// In en, this message translates to:
+  /// **'Sumida'**
+  String get citySumida;
+
+  /// No description provided for @cityTaito.
+  ///
+  /// In en, this message translates to:
+  /// **'Taito'**
+  String get cityTaito;
+
+  /// No description provided for @cityToshima.
+  ///
+  /// In en, this message translates to:
+  /// **'Toshima'**
+  String get cityToshima;
+
+  /// No description provided for @cityMiura.
+  ///
+  /// In en, this message translates to:
+  /// **'Miura'**
+  String get cityMiura;
+
+  /// No description provided for @cityHadano.
+  ///
+  /// In en, this message translates to:
+  /// **'Hadano'**
+  String get cityHadano;
+
+  /// No description provided for @cityIsehara.
+  ///
+  /// In en, this message translates to:
+  /// **'Isehara'**
+  String get cityIsehara;
+
+  /// No description provided for @cityMinamiashigara.
+  ///
+  /// In en, this message translates to:
+  /// **'Minamiashigara'**
+  String get cityMinamiashigara;
+
+  /// No description provided for @cityTsurumi.
+  ///
+  /// In en, this message translates to:
+  /// **'Tsurumi'**
+  String get cityTsurumi;
+
+  /// No description provided for @cityKanagawaWard.
+  ///
+  /// In en, this message translates to:
+  /// **'Kanagawa Ward'**
+  String get cityKanagawaWard;
+
+  /// No description provided for @cityKohoku.
+  ///
+  /// In en, this message translates to:
+  /// **'Kohoku'**
+  String get cityKohoku;
+
+  /// No description provided for @cityTotsuka.
+  ///
+  /// In en, this message translates to:
+  /// **'Totsuka'**
+  String get cityTotsuka;
+
+  /// No description provided for @cityHodogaya.
+  ///
+  /// In en, this message translates to:
+  /// **'Hodogaya'**
+  String get cityHodogaya;
+
+  /// No description provided for @cityIsogo.
+  ///
+  /// In en, this message translates to:
+  /// **'Isogo'**
+  String get cityIsogo;
+
+  /// No description provided for @cityKanazawaWard.
+  ///
+  /// In en, this message translates to:
+  /// **'Kanazawa Ward'**
+  String get cityKanazawaWard;
+
+  /// No description provided for @cityKonanWard.
+  ///
+  /// In en, this message translates to:
+  /// **'Konan Ward'**
+  String get cityKonanWard;
+
+  /// No description provided for @cityMidori.
+  ///
+  /// In en, this message translates to:
+  /// **'Midori'**
+  String get cityMidori;
+
+  /// No description provided for @citySeya.
+  ///
+  /// In en, this message translates to:
+  /// **'Seya'**
+  String get citySeya;
+
+  /// No description provided for @citySakae.
+  ///
+  /// In en, this message translates to:
+  /// **'Sakae'**
+  String get citySakae;
+
+  /// No description provided for @cityIzumiWard.
+  ///
+  /// In en, this message translates to:
+  /// **'Izumi Ward'**
+  String get cityIzumiWard;
+
+  /// No description provided for @cityAoba.
+  ///
+  /// In en, this message translates to:
+  /// **'Aoba'**
+  String get cityAoba;
+
+  /// No description provided for @cityTsuzuki.
+  ///
+  /// In en, this message translates to:
+  /// **'Tsuzuki'**
+  String get cityTsuzuki;
+
+  /// No description provided for @cityNishi.
+  ///
+  /// In en, this message translates to:
+  /// **'Nishi'**
+  String get cityNishi;
+
+  /// No description provided for @cityMinami.
+  ///
+  /// In en, this message translates to:
+  /// **'Minami'**
+  String get cityMinami;
+
+  /// No description provided for @cityNakaWard.
+  ///
+  /// In en, this message translates to:
+  /// **'Naka Ward'**
+  String get cityNakaWard;
+
   /// No description provided for @cityBeppu.
   ///
   /// In en, this message translates to:
@@ -3082,12 +3310,6 @@ abstract class AppLocalizations {
   /// **'Hachimantai'**
   String get cityHachimantai;
 
-  /// No description provided for @cityHadano.
-  ///
-  /// In en, this message translates to:
-  /// **'Hadano'**
-  String get cityHadano;
-
   /// No description provided for @cityHagi.
   ///
   /// In en, this message translates to:
@@ -3543,12 +3765,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ise'**
   String get cityIse;
-
-  /// No description provided for @cityIsehara.
-  ///
-  /// In en, this message translates to:
-  /// **'Isehara'**
-  String get cityIsehara;
 
   /// No description provided for @cityIsesaki.
   ///
@@ -4564,12 +4780,6 @@ abstract class AppLocalizations {
   /// **'Mie'**
   String get cityMie;
 
-  /// No description provided for @cityMidori.
-  ///
-  /// In en, this message translates to:
-  /// **'Midori'**
-  String get cityMidori;
-
   /// No description provided for @cityMihara.
   ///
   /// In en, this message translates to:
@@ -4605,12 +4815,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Minami-Alps'**
   String get cityMinamiAlps;
-
-  /// No description provided for @cityMinamiashigara.
-  ///
-  /// In en, this message translates to:
-  /// **'Minamiashigara'**
-  String get cityMinamiashigara;
 
   /// No description provided for @cityMinamiawaji.
   ///
@@ -4713,12 +4917,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Mitsuke'**
   String get cityMitsuke;
-
-  /// No description provided for @cityMiura.
-  ///
-  /// In en, this message translates to:
-  /// **'Miura'**
-  String get cityMiura;
 
   /// No description provided for @cityMiyagi.
   ///
@@ -4995,12 +5193,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Nakanoshima'**
   String get cityNakanoshima;
-
-  /// No description provided for @cityNakano.
-  ///
-  /// In en, this message translates to:
-  /// **'Nakano'**
-  String get cityNakano;
 
   /// No description provided for @cityNakatsugawa.
   ///
@@ -5481,12 +5673,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Oshu'**
   String get cityOshu;
-
-  /// No description provided for @cityOta.
-  ///
-  /// In en, this message translates to:
-  /// **'Ota'**
-  String get cityOta;
 
   /// No description provided for @cityOtake.
   ///

@@ -1238,6 +1238,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityArida => 'Arida';
 
   @override
+  String get cityArashiyama => '岚山';
+
+  @override
   String get cityAsago => 'Asago';
 
   @override
@@ -1335,6 +1338,12 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get citySumida => '墨田区';
+
+  @override
+  String get citySuminoe => '住之江';
+
+  @override
+  String get citySumiyoshi => '住吉';
 
   @override
   String get cityTaito => '台东区';
@@ -1568,6 +1577,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityFukutsu => 'Fukutsu';
 
   @override
+  String get cityFukuyama => '福山';
+
+  @override
+  String get cityFushimi => '伏见';
+
+  @override
   String get cityFunabashi => 'Funabashi';
 
   @override
@@ -1709,10 +1724,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityHigashimatsuyama => 'Higashimatsuyama';
 
   @override
+  String get cityHigashinari => '东成';
+
+  @override
   String get cityHigashiomi => 'Higashiomi';
 
   @override
   String get cityHigashiosaka => 'Higashiosaka';
+
+  @override
+  String get cityHigashisumiyoshi => '东住吉';
+
+  @override
+  String get cityHigashiyodogawa => '东淀川';
 
   @override
   String get cityHigashine => '东根';
@@ -1740,6 +1764,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityHirado => 'Hirado';
+
+  @override
+  String get cityHirano => '平野';
 
   @override
   String get cityHiratsuka => 'Hiratsuka';
@@ -1833,6 +1860,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityIki => 'Iki';
+
+  @override
+  String get cityIkuno => '生野';
 
   @override
   String get cityImabari => 'Imabari';
@@ -1958,6 +1988,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityJoso => 'Joso';
 
   @override
+  String get cityJoto => '城东';
+
+  @override
   String get cityJoyo => 'Joyo';
 
   @override
@@ -2018,10 +2051,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityKamakura => 'Kamakura';
 
   @override
+  String get cityKameoka => '龟冈';
+
+  @override
+  String get cityKameyama => '龟山';
+
+  @override
   String get cityKami => 'Kami';
 
   @override
   String get cityKamiamakusa => 'Kamiamakusa';
+
+  @override
+  String get cityKamigyo => '上京';
 
   @override
   String get cityKaminoyama => '上山';
@@ -2084,7 +2126,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityKashiwa => 'Kashiwa';
 
   @override
-  String get cityKashiwabara => 'Kashiwara';
+  String get cityKashiwara => '柏原';
 
   @override
   String get cityKashiwazaki => 'Kashiwazaki';
@@ -2151,6 +2193,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityKimitsu => 'Kimitsu';
+
+  @override
+  String get cityKinkakujiArea => '金阁寺地区';
 
   @override
   String get cityKinokawa => 'Kinokawa';
@@ -2238,6 +2283,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityKonan => 'Konan';
+
+  @override
+  String get cityKonohana => '此花';
 
   @override
   String get cityKoriyama => '郡山';
@@ -2576,7 +2624,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityNakagawa => 'Nakagawa';
 
   @override
+  String get cityNakagyo => '中京';
+
+  @override
   String get cityNakama => 'Nakama';
+
+  @override
+  String get cityNaniwa => '浪速';
 
   @override
   String get cityNakanoshima => 'Nakanoshima';
@@ -2675,7 +2729,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityNiseko => '二世谷';
 
   @override
+  String get cityNishikyo => '西京';
+
+  @override
   String get cityNishinomiya => 'Nishinomiya';
+
+  @override
+  String get cityNishinari => '西成';
 
   @override
   String get cityNishinoomote => 'Nishinoomote';
@@ -2924,6 +2984,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get citySaku => 'Saku';
 
   @override
+  String get citySanda => '三田';
+
+  @override
   String get citySangenjaya => 'Sangenjaya';
 
   @override
@@ -3143,6 +3206,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityTainai => 'Tainai';
 
   @override
+  String get cityTaisho => '大正';
+
+  @override
   String get cityTajimi => 'Tajimi';
 
   @override
@@ -3216,6 +3282,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityTatebayashi => 'Tatebayashi';
+
+  @override
+  String get cityTatsuno => '龙野';
 
   @override
   String get cityTarumizu => 'Tarumizu';
@@ -3404,6 +3473,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityUki => 'Uki';
 
   @override
+  String get cityUkyo => '右京';
+
+  @override
   String get cityUmeda => 'Umeda';
 
   @override
@@ -3506,6 +3578,9 @@ class AppLocalizationsZh extends AppLocalizations {
   String get cityYamanashi => 'Yamanashi';
 
   @override
+  String get cityYamashina => '山科';
+
+  @override
   String get cityYamato => 'Yamato';
 
   @override
@@ -3552,6 +3627,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get cityYokosuka => 'Yokosuka';
+
+  @override
+  String get cityYodogawa => '淀川';
 
   @override
   String get cityYokote => '横手';

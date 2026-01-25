@@ -2506,6 +2506,12 @@ abstract class AppLocalizations {
   /// **'Arida'**
   String get cityArida;
 
+  /// No description provided for @cityArashiyama.
+  ///
+  /// In en, this message translates to:
+  /// **'Arashiyama'**
+  String get cityArashiyama;
+
   /// No description provided for @cityAsago.
   ///
   /// In en, this message translates to:
@@ -2703,6 +2709,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sumida'**
   String get citySumida;
+
+  /// No description provided for @citySuminoe.
+  ///
+  /// In en, this message translates to:
+  /// **'Suminoe'**
+  String get citySuminoe;
+
+  /// No description provided for @citySumiyoshi.
+  ///
+  /// In en, this message translates to:
+  /// **'Sumiyoshi'**
+  String get citySumiyoshi;
 
   /// No description provided for @cityTaito.
   ///
@@ -3166,6 +3184,18 @@ abstract class AppLocalizations {
   /// **'Fukutsu'**
   String get cityFukutsu;
 
+  /// No description provided for @cityFukuyama.
+  ///
+  /// In en, this message translates to:
+  /// **'Fukuyama'**
+  String get cityFukuyama;
+
+  /// No description provided for @cityFushimi.
+  ///
+  /// In en, this message translates to:
+  /// **'Fushimi'**
+  String get cityFushimi;
+
   /// No description provided for @cityFunabashi.
   ///
   /// In en, this message translates to:
@@ -3448,6 +3478,12 @@ abstract class AppLocalizations {
   /// **'Higashimatsuyama'**
   String get cityHigashimatsuyama;
 
+  /// No description provided for @cityHigashinari.
+  ///
+  /// In en, this message translates to:
+  /// **'Higashinari'**
+  String get cityHigashinari;
+
   /// No description provided for @cityHigashiomi.
   ///
   /// In en, this message translates to:
@@ -3459,6 +3495,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Higashiosaka'**
   String get cityHigashiosaka;
+
+  /// No description provided for @cityHigashisumiyoshi.
+  ///
+  /// In en, this message translates to:
+  /// **'Higashisumiyoshi'**
+  String get cityHigashisumiyoshi;
+
+  /// No description provided for @cityHigashiyodogawa.
+  ///
+  /// In en, this message translates to:
+  /// **'Higashiyodogawa'**
+  String get cityHigashiyodogawa;
 
   /// No description provided for @cityHigashine.
   ///
@@ -3513,6 +3561,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hirado'**
   String get cityHirado;
+
+  /// No description provided for @cityHirano.
+  ///
+  /// In en, this message translates to:
+  /// **'Hirano'**
+  String get cityHirano;
 
   /// No description provided for @cityHiratsuka.
   ///
@@ -3699,6 +3753,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Iki'**
   String get cityIki;
+
+  /// No description provided for @cityIkuno.
+  ///
+  /// In en, this message translates to:
+  /// **'Ikuno'**
+  String get cityIkuno;
 
   /// No description provided for @cityImabari.
   ///
@@ -3946,6 +4006,12 @@ abstract class AppLocalizations {
   /// **'Joso'**
   String get cityJoso;
 
+  /// No description provided for @cityJoto.
+  ///
+  /// In en, this message translates to:
+  /// **'Joto'**
+  String get cityJoto;
+
   /// No description provided for @cityJoyo.
   ///
   /// In en, this message translates to:
@@ -4066,6 +4132,18 @@ abstract class AppLocalizations {
   /// **'Kamakura'**
   String get cityKamakura;
 
+  /// No description provided for @cityKameoka.
+  ///
+  /// In en, this message translates to:
+  /// **'Kameoka'**
+  String get cityKameoka;
+
+  /// No description provided for @cityKameyama.
+  ///
+  /// In en, this message translates to:
+  /// **'Kameyama'**
+  String get cityKameyama;
+
   /// No description provided for @cityKami.
   ///
   /// In en, this message translates to:
@@ -4077,6 +4155,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Kamiamakusa'**
   String get cityKamiamakusa;
+
+  /// No description provided for @cityKamigyo.
+  ///
+  /// In en, this message translates to:
+  /// **'Kamigyo'**
+  String get cityKamigyo;
 
   /// No description provided for @cityKaminoyama.
   ///
@@ -4198,11 +4282,11 @@ abstract class AppLocalizations {
   /// **'Kashiwa'**
   String get cityKashiwa;
 
-  /// No description provided for @cityKashiwabara.
+  /// No description provided for @cityKashiwara.
   ///
   /// In en, this message translates to:
   /// **'Kashiwara'**
-  String get cityKashiwabara;
+  String get cityKashiwara;
 
   /// No description provided for @cityKashiwazaki.
   ///
@@ -4335,6 +4419,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Kimitsu'**
   String get cityKimitsu;
+
+  /// No description provided for @cityKinkakujiArea.
+  ///
+  /// In en, this message translates to:
+  /// **'Kinkakuji Area'**
+  String get cityKinkakujiArea;
 
   /// No description provided for @cityKinokawa.
   ///
@@ -4509,6 +4599,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Konan'**
   String get cityKonan;
+
+  /// No description provided for @cityKonohana.
+  ///
+  /// In en, this message translates to:
+  /// **'Konohana'**
+  String get cityKonohana;
 
   /// No description provided for @cityKoriyama.
   ///
@@ -5182,11 +5278,23 @@ abstract class AppLocalizations {
   /// **'Nakagawa'**
   String get cityNakagawa;
 
+  /// No description provided for @cityNakagyo.
+  ///
+  /// In en, this message translates to:
+  /// **'Nakagyo'**
+  String get cityNakagyo;
+
   /// No description provided for @cityNakama.
   ///
   /// In en, this message translates to:
   /// **'Nakama'**
   String get cityNakama;
+
+  /// No description provided for @cityNaniwa.
+  ///
+  /// In en, this message translates to:
+  /// **'Naniwa'**
+  String get cityNaniwa;
 
   /// No description provided for @cityNakanoshima.
   ///
@@ -5380,11 +5488,23 @@ abstract class AppLocalizations {
   /// **'Niseko'**
   String get cityNiseko;
 
+  /// No description provided for @cityNishikyo.
+  ///
+  /// In en, this message translates to:
+  /// **'Nishikyo'**
+  String get cityNishikyo;
+
   /// No description provided for @cityNishinomiya.
   ///
   /// In en, this message translates to:
   /// **'Nishinomiya'**
   String get cityNishinomiya;
+
+  /// No description provided for @cityNishinari.
+  ///
+  /// In en, this message translates to:
+  /// **'Nishinari'**
+  String get cityNishinari;
 
   /// No description provided for @cityNishinoomote.
   ///
@@ -5878,6 +5998,12 @@ abstract class AppLocalizations {
   /// **'Saku'**
   String get citySaku;
 
+  /// No description provided for @citySanda.
+  ///
+  /// In en, this message translates to:
+  /// **'Sanda'**
+  String get citySanda;
+
   /// No description provided for @citySangenjaya.
   ///
   /// In en, this message translates to:
@@ -6316,6 +6442,12 @@ abstract class AppLocalizations {
   /// **'Tainai'**
   String get cityTainai;
 
+  /// No description provided for @cityTaisho.
+  ///
+  /// In en, this message translates to:
+  /// **'Taisho'**
+  String get cityTaisho;
+
   /// No description provided for @cityTajimi.
   ///
   /// In en, this message translates to:
@@ -6465,6 +6597,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tatebayashi'**
   String get cityTatebayashi;
+
+  /// No description provided for @cityTatsuno.
+  ///
+  /// In en, this message translates to:
+  /// **'Tatsuno'**
+  String get cityTatsuno;
 
   /// No description provided for @cityTarumizu.
   ///
@@ -6838,6 +6976,12 @@ abstract class AppLocalizations {
   /// **'Uki'**
   String get cityUki;
 
+  /// No description provided for @cityUkyo.
+  ///
+  /// In en, this message translates to:
+  /// **'Ukyo'**
+  String get cityUkyo;
+
   /// No description provided for @cityUmeda.
   ///
   /// In en, this message translates to:
@@ -7042,6 +7186,12 @@ abstract class AppLocalizations {
   /// **'Yamanashi'**
   String get cityYamanashi;
 
+  /// No description provided for @cityYamashina.
+  ///
+  /// In en, this message translates to:
+  /// **'Yamashina'**
+  String get cityYamashina;
+
   /// No description provided for @cityYamato.
   ///
   /// In en, this message translates to:
@@ -7137,6 +7287,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Yokosuka'**
   String get cityYokosuka;
+
+  /// No description provided for @cityYodogawa.
+  ///
+  /// In en, this message translates to:
+  /// **'Yodogawa'**
+  String get cityYodogawa;
 
   /// No description provided for @cityYokote.
   ///

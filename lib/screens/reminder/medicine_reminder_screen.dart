@@ -316,6 +316,7 @@ class _MedicineReminderScreenState extends State<MedicineReminderScreen> {
             : _buildReminderList(),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'add_reminder_fab',
         onPressed: () async {
           final newReminder = await Navigator.push<Reminder>(
             context,

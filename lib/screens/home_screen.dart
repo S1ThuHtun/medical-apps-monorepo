@@ -420,6 +420,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        heroTag: 'home_fab',
         elevation: 20,
         shape: const CircleBorder(),
         onPressed: () async {

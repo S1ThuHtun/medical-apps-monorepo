@@ -57,9 +57,11 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
     super.dispose();
   }
 
-  // Generate dose times based on selected time
+  // Generate dose times based on selected time (24-hour format for comparison)
   List<String> _generateDoseTimes() {
-    return [_selectedTime.format(context)];
+    final hour = _selectedTime.hour.toString().padLeft(2, '0');
+    final minute = _selectedTime.minute.toString().padLeft(2, '0');
+    return ['$hour:$minute'];
   }
 
   // Show time picker
@@ -138,12 +140,17 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
       return;
     }
 
+    // Format time in 24-hour format for consistent comparison
+    final hour = _selectedTime.hour.toString().padLeft(2, '0');
+    final minute = _selectedTime.minute.toString().padLeft(2, '0');
+    final timeString = '$hour:$minute';
+
     final reminder = Reminder(
       id: _isEditMode
           ? _reminderId!
           : DateTime.now().millisecondsSinceEpoch.toString(),
       medicineName: _medicineController.text.trim(),
-      time: _selectedTime.format(context),
+      time: timeString,
       repeatType: _selectedRepeat,
       customDays: _selectedRepeat == 'custom' ? _selectedDays : null,
       photoPath: _photoPath,
